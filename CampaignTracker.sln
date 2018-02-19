@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitiativeRoller", "InitiativeRoller\InitiativeRoller.csproj", "{36725939-AE93-4F3E-8591-EAC3DF810ACD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignTracker", "InitiativeRoller\CampaignTracker.csproj", "{36725939-AE93-4F3E-8591-EAC3DF810ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignData", "CampaignData\CampaignData.csproj", "{9AEF0471-B7C5-4F61-8295-69FEA27C8848}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{36725939-AE93-4F3E-8591-EAC3DF810ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36725939-AE93-4F3E-8591-EAC3DF810ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36725939-AE93-4F3E-8591-EAC3DF810ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AEF0471-B7C5-4F61-8295-69FEA27C8848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AEF0471-B7C5-4F61-8295-69FEA27C8848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AEF0471-B7C5-4F61-8295-69FEA27C8848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AEF0471-B7C5-4F61-8295-69FEA27C8848}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

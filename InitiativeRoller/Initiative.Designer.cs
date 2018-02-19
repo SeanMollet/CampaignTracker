@@ -1,6 +1,6 @@
 ﻿namespace InitiativeRoller
 {
-    partial class Form1
+    partial class Initiative
     {
         /// <summary>
         /// Required designer variable.
