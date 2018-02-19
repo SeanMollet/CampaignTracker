@@ -68,7 +68,10 @@ namespace CampaignData
                     lock (dbLock)
                     {
                         string json = File.ReadAllText(path);
-                        var result = Newtonsoft.Json.JsonConvert.DeserializeObject<Database>(json);
+                        var result = Newtonsoft.Json.
+                        JsonConvert.DeserializeObject<Database>(json);
+                        BindNotifications();
+
                         this.database = result;
                         onBattlesUpdated?.Invoke(this);
                         onEncountersUpdated?.Invoke(this);
