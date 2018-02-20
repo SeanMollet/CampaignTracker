@@ -76,6 +76,11 @@ namespace CampaignTracker
                 this.Reactions.DataSource = monster.Reactions;
                 this.LegendaryActions.DataSource = monster.LegendaryActions;
 
+                this.statDice1.DataBindings.Clear();
+                this.statDice1.DataBindings.Add("DiceCount", monster, "HP.HitDiceCount");
+                this.statDice1.DataBindings.Add("DiceSize", monster, "HP.HitDice");
+                this.statDice1.DataBindings.Add("Modifier", monster, "HP.HitModifier");
+
                 this.abilitiesControl1.Bind(monster.Abilities);
             }
         }
@@ -109,7 +114,10 @@ namespace CampaignTracker
                     {
                         ((DateTimePicker)ctrl).Enabled = !value;
                     }
-
+                    if (ctrl.GetType() == typeof(StatDice))
+                    {
+                        ((StatDice)ctrl).Enabled = !value;
+                    }
                     if (ctrl.Controls.Count > 0)
                     {
                         ReadOnly(ctrl, value);

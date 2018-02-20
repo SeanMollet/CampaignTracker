@@ -30,8 +30,28 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.statDice1 = new CampaignTracker.Controls.StatDice();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Challenge = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.DamageImmune = new System.Windows.Forms.DataGridView();
+            this.ConditionImmune = new System.Windows.Forms.DataGridView();
+            this.DamageRes = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.DamageVuln = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Saves = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.Speed = new System.Windows.Forms.DataGridView();
             this.abilitiesControl1 = new CampaignTracker.Controls.AbilitiesControl();
             this.label7 = new System.Windows.Forms.Label();
             this.Initiative = new System.Windows.Forms.TextBox();
@@ -49,56 +69,38 @@
             this.NameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.Speed = new System.Windows.Forms.DataGridView();
-            this.Saves = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.DamageVuln = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.DamageRes = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.DamageImmune = new System.Windows.Forms.DataGridView();
-            this.ConditionImmune = new System.Windows.Forms.DataGridView();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.Challenge = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.Traits = new System.Windows.Forms.DataGridView();
+            this.label21 = new System.Windows.Forms.Label();
+            this.Languages = new System.Windows.Forms.DataGridView();
+            this.label20 = new System.Windows.Forms.Label();
             this.Senses = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.Skills = new System.Windows.Forms.DataGridView();
             this.label19 = new System.Windows.Forms.Label();
-            this.Languages = new System.Windows.Forms.DataGridView();
-            this.label20 = new System.Windows.Forms.Label();
-            this.Traits = new System.Windows.Forms.DataGridView();
-            this.label21 = new System.Windows.Forms.Label();
-            this.Actions = new System.Windows.Forms.DataGridView();
-            this.label22 = new System.Windows.Forms.Label();
-            this.Reactions = new System.Windows.Forms.DataGridView();
-            this.label23 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.LegendaryActions = new System.Windows.Forms.DataGridView();
             this.label24 = new System.Windows.Forms.Label();
-            this.statDice1 = new CampaignTracker.Controls.StatDice();
+            this.Reactions = new System.Windows.Forms.DataGridView();
+            this.label23 = new System.Windows.Forms.Label();
+            this.Actions = new System.Windows.Forms.DataGridView();
+            this.label22 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Saves)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DamageVuln)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DamageRes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageImmune)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConditionImmune)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DamageRes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DamageVuln)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Saves)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Traits)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Languages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Senses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Skills)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Languages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Traits)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Actions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Reactions)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LegendaryActions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Actions)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -156,6 +158,205 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General Stats";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // statDice1
+            // 
+            this.statDice1.Location = new System.Drawing.Point(117, 84);
+            this.statDice1.MinimumSize = new System.Drawing.Size(85, 20);
+            this.statDice1.Name = "statDice1";
+            this.statDice1.ShowModifier = true;
+            this.statDice1.Size = new System.Drawing.Size(125, 20);
+            this.statDice1.TabIndex = 41;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(2, 368);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 13);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "Condition";
+            // 
+            // label17
+            // 
+            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(9, 383);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(44, 13);
+            this.label17.TabIndex = 39;
+            this.label17.Text = "Immune";
+            // 
+            // Challenge
+            // 
+            this.Challenge.Location = new System.Drawing.Point(174, 136);
+            this.Challenge.Name = "Challenge";
+            this.Challenge.Size = new System.Drawing.Size(51, 20);
+            this.Challenge.TabIndex = 38;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(114, 139);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 13);
+            this.label16.TabIndex = 37;
+            this.label16.Text = "Challenge";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(185, 368);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 13);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Damage";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(188, 383);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 13);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "Immune";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(185, 293);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 13);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "Damage";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(25, 308);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(28, 13);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Vuln";
+            // 
+            // DamageImmune
+            // 
+            this.DamageImmune.AllowUserToResizeRows = false;
+            this.DamageImmune.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DamageImmune.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DamageImmune.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DamageImmune.ColumnHeadersVisible = false;
+            this.DamageImmune.Location = new System.Drawing.Point(237, 367);
+            this.DamageImmune.MultiSelect = false;
+            this.DamageImmune.Name = "DamageImmune";
+            this.DamageImmune.RowHeadersVisible = false;
+            this.DamageImmune.Size = new System.Drawing.Size(102, 69);
+            this.DamageImmune.TabIndex = 32;
+            // 
+            // ConditionImmune
+            // 
+            this.ConditionImmune.AllowUserToResizeRows = false;
+            this.ConditionImmune.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ConditionImmune.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ConditionImmune.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ConditionImmune.ColumnHeadersVisible = false;
+            this.ConditionImmune.Location = new System.Drawing.Point(58, 367);
+            this.ConditionImmune.MultiSelect = false;
+            this.ConditionImmune.Name = "ConditionImmune";
+            this.ConditionImmune.RowHeadersVisible = false;
+            this.ConditionImmune.Size = new System.Drawing.Size(102, 69);
+            this.ConditionImmune.TabIndex = 30;
+            // 
+            // DamageRes
+            // 
+            this.DamageRes.AllowUserToResizeRows = false;
+            this.DamageRes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DamageRes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DamageRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DamageRes.ColumnHeadersVisible = false;
+            this.DamageRes.Location = new System.Drawing.Point(237, 292);
+            this.DamageRes.MultiSelect = false;
+            this.DamageRes.Name = "DamageRes";
+            this.DamageRes.RowHeadersVisible = false;
+            this.DamageRes.Size = new System.Drawing.Size(102, 69);
+            this.DamageRes.TabIndex = 28;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(181, 308);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 13);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Resistant";
+            // 
+            // DamageVuln
+            // 
+            this.DamageVuln.AllowUserToResizeRows = false;
+            this.DamageVuln.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DamageVuln.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DamageVuln.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DamageVuln.ColumnHeadersVisible = false;
+            this.DamageVuln.Location = new System.Drawing.Point(58, 292);
+            this.DamageVuln.MultiSelect = false;
+            this.DamageVuln.Name = "DamageVuln";
+            this.DamageVuln.RowHeadersVisible = false;
+            this.DamageVuln.Size = new System.Drawing.Size(102, 69);
+            this.DamageVuln.TabIndex = 26;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 293);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 13);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Damage";
+            // 
+            // Saves
+            // 
+            this.Saves.AllowUserToResizeRows = false;
+            this.Saves.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Saves.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Saves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Saves.ColumnHeadersVisible = false;
+            this.Saves.Location = new System.Drawing.Point(237, 217);
+            this.Saves.MultiSelect = false;
+            this.Saves.Name = "Saves";
+            this.Saves.RowHeadersVisible = false;
+            this.Saves.Size = new System.Drawing.Size(102, 69);
+            this.Saves.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(194, 217);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Saves";
+            // 
+            // Speed
+            // 
+            this.Speed.AllowUserToResizeRows = false;
+            this.Speed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Speed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Speed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Speed.ColumnHeadersVisible = false;
+            this.Speed.Location = new System.Drawing.Point(58, 217);
+            this.Speed.MultiSelect = false;
+            this.Speed.Name = "Speed";
+            this.Speed.RowHeadersVisible = false;
+            this.Speed.Size = new System.Drawing.Size(102, 69);
+            this.Speed.TabIndex = 22;
             // 
             // abilitiesControl1
             // 
@@ -220,9 +421,9 @@
             // 
             this.HPNotes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.HPNotes.Location = new System.Drawing.Point(266, 84);
+            this.HPNotes.Location = new System.Drawing.Point(248, 84);
             this.HPNotes.Name = "HPNotes";
-            this.HPNotes.Size = new System.Drawing.Size(73, 20);
+            this.HPNotes.Size = new System.Drawing.Size(91, 20);
             this.HPNotes.TabIndex = 13;
             // 
             // HPValue
@@ -313,210 +514,61 @@
             this.tabPage2.Text = "Other Stats";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // Traits
             // 
-            this.tabPage3.Controls.Add(this.LegendaryActions);
-            this.tabPage3.Controls.Add(this.label24);
-            this.tabPage3.Controls.Add(this.Reactions);
-            this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Controls.Add(this.Actions);
-            this.tabPage3.Controls.Add(this.label22);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(349, 455);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Actions";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.Traits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Traits.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Traits.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Traits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Traits.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Traits.Location = new System.Drawing.Point(7, 97);
+            this.Traits.MultiSelect = false;
+            this.Traits.Name = "Traits";
+            this.Traits.RowHeadersVisible = false;
+            this.Traits.Size = new System.Drawing.Size(334, 217);
+            this.Traits.TabIndex = 32;
             // 
-            // Speed
+            // label21
             // 
-            this.Speed.AllowUserToResizeRows = false;
-            this.Speed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Speed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Speed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Speed.ColumnHeadersVisible = false;
-            this.Speed.Location = new System.Drawing.Point(58, 217);
-            this.Speed.MultiSelect = false;
-            this.Speed.Name = "Speed";
-            this.Speed.RowHeadersVisible = false;
-            this.Speed.Size = new System.Drawing.Size(102, 69);
-            this.Speed.TabIndex = 22;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(4, 81);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(33, 13);
+            this.label21.TabIndex = 31;
+            this.label21.Text = "Traits";
             // 
-            // Saves
+            // Languages
             // 
-            this.Saves.AllowUserToResizeRows = false;
-            this.Saves.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Saves.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Saves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Saves.ColumnHeadersVisible = false;
-            this.Saves.Location = new System.Drawing.Point(237, 217);
-            this.Saves.MultiSelect = false;
-            this.Saves.Name = "Saves";
-            this.Saves.RowHeadersVisible = false;
-            this.Saves.Size = new System.Drawing.Size(102, 69);
-            this.Saves.TabIndex = 24;
+            this.Languages.AllowUserToResizeRows = false;
+            this.Languages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Languages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Languages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Languages.ColumnHeadersVisible = false;
+            this.Languages.Location = new System.Drawing.Point(239, 6);
+            this.Languages.MultiSelect = false;
+            this.Languages.Name = "Languages";
+            this.Languages.RowHeadersVisible = false;
+            this.Languages.Size = new System.Drawing.Size(102, 69);
+            this.Languages.TabIndex = 30;
             // 
-            // label8
+            // label20
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(194, 217);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "Saves";
-            // 
-            // DamageVuln
-            // 
-            this.DamageVuln.AllowUserToResizeRows = false;
-            this.DamageVuln.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DamageVuln.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DamageVuln.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DamageVuln.ColumnHeadersVisible = false;
-            this.DamageVuln.Location = new System.Drawing.Point(58, 292);
-            this.DamageVuln.MultiSelect = false;
-            this.DamageVuln.Name = "DamageVuln";
-            this.DamageVuln.RowHeadersVisible = false;
-            this.DamageVuln.Size = new System.Drawing.Size(102, 69);
-            this.DamageVuln.TabIndex = 26;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 293);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 13);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Damage";
-            // 
-            // DamageRes
-            // 
-            this.DamageRes.AllowUserToResizeRows = false;
-            this.DamageRes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DamageRes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DamageRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DamageRes.ColumnHeadersVisible = false;
-            this.DamageRes.Location = new System.Drawing.Point(237, 292);
-            this.DamageRes.MultiSelect = false;
-            this.DamageRes.Name = "DamageRes";
-            this.DamageRes.RowHeadersVisible = false;
-            this.DamageRes.Size = new System.Drawing.Size(102, 69);
-            this.DamageRes.TabIndex = 28;
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(181, 308);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 13);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "Resistant";
-            // 
-            // DamageImmune
-            // 
-            this.DamageImmune.AllowUserToResizeRows = false;
-            this.DamageImmune.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DamageImmune.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DamageImmune.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DamageImmune.ColumnHeadersVisible = false;
-            this.DamageImmune.Location = new System.Drawing.Point(237, 367);
-            this.DamageImmune.MultiSelect = false;
-            this.DamageImmune.Name = "DamageImmune";
-            this.DamageImmune.RowHeadersVisible = false;
-            this.DamageImmune.Size = new System.Drawing.Size(102, 69);
-            this.DamageImmune.TabIndex = 32;
-            // 
-            // ConditionImmune
-            // 
-            this.ConditionImmune.AllowUserToResizeRows = false;
-            this.ConditionImmune.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ConditionImmune.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ConditionImmune.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConditionImmune.ColumnHeadersVisible = false;
-            this.ConditionImmune.Location = new System.Drawing.Point(58, 367);
-            this.ConditionImmune.MultiSelect = false;
-            this.ConditionImmune.Name = "ConditionImmune";
-            this.ConditionImmune.RowHeadersVisible = false;
-            this.ConditionImmune.Size = new System.Drawing.Size(102, 69);
-            this.ConditionImmune.TabIndex = 30;
-            // 
-            // label13
-            // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 308);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 13);
-            this.label13.TabIndex = 33;
-            this.label13.Text = "Vuln";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(185, 293);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 13);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "Damage";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(185, 368);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 13);
-            this.label11.TabIndex = 36;
-            this.label11.Text = "Damage";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(188, 383);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 13);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "Immune";
-            // 
-            // Challenge
-            // 
-            this.Challenge.Location = new System.Drawing.Point(174, 136);
-            this.Challenge.Name = "Challenge";
-            this.Challenge.Size = new System.Drawing.Size(51, 20);
-            this.Challenge.TabIndex = 38;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(114, 139);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 13);
-            this.label16.TabIndex = 37;
-            this.label16.Text = "Challenge";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(2, 368);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 13);
-            this.label12.TabIndex = 40;
-            this.label12.Text = "Condition";
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(9, 383);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(44, 13);
-            this.label17.TabIndex = 39;
-            this.label17.Text = "Immune";
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(176, 6);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(60, 13);
+            this.label20.TabIndex = 29;
+            this.label20.Text = "Languages";
             // 
             // Senses
             // 
@@ -548,14 +600,14 @@
             this.Skills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Skills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Skills.ColumnHeadersVisible = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Skills.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Skills.DefaultCellStyle = dataGridViewCellStyle6;
             this.Skills.Location = new System.Drawing.Point(5, 333);
             this.Skills.MultiSelect = false;
             this.Skills.Name = "Skills";
@@ -573,120 +625,38 @@
             this.label19.TabIndex = 25;
             this.label19.Text = "Skills";
             // 
-            // Languages
+            // tabPage3
             // 
-            this.Languages.AllowUserToResizeRows = false;
-            this.Languages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Languages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Languages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Languages.ColumnHeadersVisible = false;
-            this.Languages.Location = new System.Drawing.Point(239, 6);
-            this.Languages.MultiSelect = false;
-            this.Languages.Name = "Languages";
-            this.Languages.RowHeadersVisible = false;
-            this.Languages.Size = new System.Drawing.Size(102, 69);
-            this.Languages.TabIndex = 30;
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(176, 6);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(60, 13);
-            this.label20.TabIndex = 29;
-            this.label20.Text = "Languages";
-            // 
-            // Traits
-            // 
-            this.Traits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Traits.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.Traits.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.Traits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Traits.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Traits.Location = new System.Drawing.Point(7, 97);
-            this.Traits.MultiSelect = false;
-            this.Traits.Name = "Traits";
-            this.Traits.RowHeadersVisible = false;
-            this.Traits.Size = new System.Drawing.Size(334, 217);
-            this.Traits.TabIndex = 32;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(4, 81);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(33, 13);
-            this.label21.TabIndex = 31;
-            this.label21.Text = "Traits";
-            // 
-            // Actions
-            // 
-            this.Actions.AllowUserToResizeRows = false;
-            this.Actions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Actions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Actions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Actions.ColumnHeadersVisible = false;
-            this.Actions.Location = new System.Drawing.Point(10, 20);
-            this.Actions.MultiSelect = false;
-            this.Actions.Name = "Actions";
-            this.Actions.RowHeadersVisible = false;
-            this.Actions.Size = new System.Drawing.Size(330, 128);
-            this.Actions.TabIndex = 28;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(7, 4);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(42, 13);
-            this.label22.TabIndex = 27;
-            this.label22.Text = "Actions";
-            // 
-            // Reactions
-            // 
-            this.Reactions.AllowUserToResizeRows = false;
-            this.Reactions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Reactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Reactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Reactions.ColumnHeadersVisible = false;
-            this.Reactions.Location = new System.Drawing.Point(10, 166);
-            this.Reactions.MultiSelect = false;
-            this.Reactions.Name = "Reactions";
-            this.Reactions.RowHeadersVisible = false;
-            this.Reactions.Size = new System.Drawing.Size(330, 128);
-            this.Reactions.TabIndex = 30;
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(7, 150);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(55, 13);
-            this.label23.TabIndex = 29;
-            this.label23.Text = "Reactions";
+            this.tabPage3.Controls.Add(this.LegendaryActions);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.Reactions);
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.Actions);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(349, 455);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Actions";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // LegendaryActions
             // 
             this.LegendaryActions.AllowUserToResizeRows = false;
             this.LegendaryActions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LegendaryActions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LegendaryActions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.LegendaryActions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.LegendaryActions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.LegendaryActions.ColumnHeadersVisible = false;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LegendaryActions.DefaultCellStyle = dataGridViewCellStyle7;
             this.LegendaryActions.Location = new System.Drawing.Point(7, 314);
             this.LegendaryActions.MultiSelect = false;
             this.LegendaryActions.Name = "LegendaryActions";
@@ -704,13 +674,63 @@
             this.label24.TabIndex = 31;
             this.label24.Text = "Legendary Actions";
             // 
-            // statDice1
+            // Reactions
             // 
-            this.statDice1.Location = new System.Drawing.Point(117, 84);
-            this.statDice1.MinimumSize = new System.Drawing.Size(85, 20);
-            this.statDice1.Name = "statDice1";
-            this.statDice1.Size = new System.Drawing.Size(85, 20);
-            this.statDice1.TabIndex = 41;
+            this.Reactions.AllowUserToResizeRows = false;
+            this.Reactions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Reactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Reactions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Reactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Reactions.Location = new System.Drawing.Point(10, 166);
+            this.Reactions.MultiSelect = false;
+            this.Reactions.Name = "Reactions";
+            this.Reactions.RowHeadersVisible = false;
+            this.Reactions.Size = new System.Drawing.Size(330, 128);
+            this.Reactions.TabIndex = 30;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(7, 150);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(55, 13);
+            this.label23.TabIndex = 29;
+            this.label23.Text = "Reactions";
+            // 
+            // Actions
+            // 
+            this.Actions.AllowUserToResizeRows = false;
+            this.Actions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Actions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.Actions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.Actions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Actions.DefaultCellStyle = dataGridViewCellStyle8;
+            this.Actions.Location = new System.Drawing.Point(10, 20);
+            this.Actions.MultiSelect = false;
+            this.Actions.Name = "Actions";
+            this.Actions.RowHeadersVisible = false;
+            this.Actions.Size = new System.Drawing.Size(330, 128);
+            this.Actions.TabIndex = 28;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(7, 4);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(42, 13);
+            this.label22.TabIndex = 27;
+            this.label22.Text = "Actions";
             // 
             // MonsterViewer
             // 
@@ -724,23 +744,23 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Saves)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DamageVuln)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DamageRes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DamageImmune)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConditionImmune)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DamageRes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DamageVuln)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Saves)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Traits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Languages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Senses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Skills)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Languages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Traits)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Actions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Reactions)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LegendaryActions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Reactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Actions)).EndInit();
             this.ResumeLayout(false);
 
         }
