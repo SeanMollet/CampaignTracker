@@ -45,5 +45,45 @@ namespace CampaignData
         }
     }
 
+    public class HPAppearance
+    {
+        public static string Appearance(int CurrentHP,int maxHP)
+        {
+            if (CurrentHP <= 0)
+            {
+                return "Dead";
+            }
+            float health = (float)CurrentHP / (float)maxHP;
+            if (health >= 1.0f)
+            {
+                return "Healthy";
+            }
+            if (health >= 0.9f)
+            {
+                return "Bruised";
+            }
+            if (health >= 0.7f)
+            {
+                return "Banged Up";
+            }
+            if (health >= 0.5f)
+            {
+                return "Bloody";
+            }
+            if (health >= 0.3f)
+            {
+                return "Ragged";
+            }
+            if (health >= 0.1f)
+            {
+                return "Bloody as hell";
+            }
+            if (health < 0.1f)
+            {
+                return "Death's door";
+            }
+            return "Excellent";
+        }
+    }
 
 }

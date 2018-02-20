@@ -77,11 +77,6 @@ namespace CampaignTracker
 
         }
 
-        private void EncounterManager_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void EncounterList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Don't do this on the button column
@@ -102,6 +97,29 @@ namespace CampaignTracker
                 }
             }
 
+        }
+
+        private void EncounterList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //do this on the button column
+            if (EncounterList.Rows.Count > e.RowIndex &&
+                EncounterList.Rows[e.RowIndex].Cells.Count > e.ColumnIndex)
+            {
+                var Cell = EncounterList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (Cell is DataGridViewButtonCell)
+                {
+                    var row = EncounterList.Rows[e.RowIndex];
+                    if (row.DataBoundItem is Encounter)
+                    {
+                        
+                        var encounterview = (Encounter)row.DataBoundItem;
+                        Battle battle = new Battle(encounterview.monsters);
+                        BattleViewer viewer = new BattleViewer(battle);
+                        viewer.Show();
+                    }
+
+                }
+            }
         }
     }
 }

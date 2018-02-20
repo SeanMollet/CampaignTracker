@@ -1091,55 +1091,55 @@
   "Players": [
     {
       "Name": "Keridi",
-      "Stat": 8,
+      "Initiative": 8,
       "Roll": 24,
       "Adv": false
     },
     {
       "Name": "Tanis",
-      "Stat": 11,
+      "Initiative": 11,
       "Roll": 23,
       "Adv": true
     },
     {
       "Name": "Bastion",
-      "Stat": 4,
+      "Initiative": 4,
       "Roll": 20,
       "Adv": false
     },
     {
       "Name": "Thrakk",
-      "Stat": 1,
+      "Initiative": 1,
       "Roll": 20,
       "Adv": true
     },
     {
       "Name": "Aud",
-      "Stat": 1,
+      "Initiative": 1,
       "Roll": 19,
       "Adv": true
     },
     {
       "Name": "Eli",
-      "Stat": 3,
+      "Initiative": 3,
       "Roll": 11,
       "Adv": false
     },
     {
       "Name": "Q",
-      "Stat": 5,
+      "Initiative": 5,
       "Roll": 11,
       "Adv": false
     },
     {
       "Name": "Zaheed",
-      "Stat": 3,
+      "Initiative": 3,
       "Roll": 12,
       "Adv": false
     },
     {
       "Name": "Monsters",
-      "Stat": 0,
+      "Initiative": 0,
       "Roll": 18,
       "Adv": false
     }

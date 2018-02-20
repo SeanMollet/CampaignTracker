@@ -47,11 +47,11 @@ namespace CampaignTracker
                 
                 if (player.Adv)
                 {
-                    player.Roll = Dice.Roll(20, RollType.Advantage) + player.Stat;
+                    player.Roll = Dice.Roll(20, RollType.Advantage) + player.Initiative;
                 }
                 else
                 {
-                    player.Roll = Dice.Roll(20, RollType.Normal) + player.Stat;
+                    player.Roll = Dice.Roll(20, RollType.Normal) + player.Initiative;
                 }
             }
 

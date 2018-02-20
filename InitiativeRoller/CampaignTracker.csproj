@@ -55,6 +55,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseForm.cs" />
+    <Compile Include="BattleManager\BattleManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BattleManager\BattleManager.Designer.cs">
+      <DependentUpon>BattleManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BattleManager\BattleViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BattleManager\BattleViewer.Designer.cs">
+      <DependentUpon>BattleViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AbilitiesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BattleManager\BattleManager.resx">
+      <DependentUpon>BattleManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BattleManager\BattleViewer.resx">
+      <DependentUpon>BattleViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\AbilitiesControl.resx">
       <DependentUpon>AbilitiesControl.cs</DependentUpon>
     </EmbeddedResource>

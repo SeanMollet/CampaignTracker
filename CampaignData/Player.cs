@@ -21,12 +21,18 @@ namespace CampaignData
         }
 
         private string _name;
-        private int _stat;
+        private int _initiative;
+        private int _ac;
+        private int _current_hp;
+        private int _max_hp;
         private int _roll;
         private bool _adv;
 
         public string Name { get => _name; set { if (_name != value) { _name = value; NotifyPropertyChanged(); } } }
-        public int Stat { get => _stat; set { if (_stat != value) { _stat = value; NotifyPropertyChanged(); } } }
+        public int Initiative { get => _initiative; set { if (_initiative != value) { _initiative = value; NotifyPropertyChanged(); } } }
+        public int AC { get => _ac; set { if (_ac != value) { _ac = value; NotifyPropertyChanged(); } } }
+        public int CurrentHP { get => _current_hp; set { if (_current_hp != value) { _current_hp = value; NotifyPropertyChanged(); } } }
+        public int MaxHP { get => _max_hp; set { if (_max_hp != value) { _max_hp = value; NotifyPropertyChanged(); } } }
         public int Roll { get => _roll; set { if (_roll != value) { _roll = value; NotifyPropertyChanged(); } } }
         public bool Adv { get => _adv; set { if (_adv != value) { _adv = value; NotifyPropertyChanged(); } } }
         public int CompareTo(Player comparison)
@@ -37,7 +43,7 @@ namespace CampaignData
             }
             if (comparison.Roll == this.Roll)
             {
-                return this.Stat.CompareTo(comparison.Stat);
+                return this.Initiative.CompareTo(comparison.Initiative);
             }
             return this.Roll.CompareTo(comparison.Roll);
         }

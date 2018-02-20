@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -56,7 +55,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button1);
@@ -70,15 +68,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GM Views";
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(6, 151);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(200, 27);
-            this.button10.TabIndex = 12;
-            this.button10.Text = "Campaign Stats";
-            this.button10.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
@@ -209,6 +198,5 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button10;
     }
 }

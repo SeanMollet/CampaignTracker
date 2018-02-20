@@ -1,6 +1,6 @@
 ﻿namespace CampaignTracker
 {
-    partial class EncounterManager
+    partial class BattleManager
     {
         /// <summary>
         /// Required designer variable.
@@ -35,8 +35,8 @@
             this.NewButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.EncounterList = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.EncounterList)).BeginInit();
+            this.BattleList = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.BattleList)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -96,14 +96,14 @@
             // 
             // EncounterList
             // 
-            this.EncounterList.AllowUserToAddRows = false;
-            this.EncounterList.AllowUserToResizeRows = false;
-            this.EncounterList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.BattleList.AllowUserToAddRows = false;
+            this.BattleList.AllowUserToResizeRows = false;
+            this.BattleList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EncounterList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.EncounterList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.EncounterList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BattleList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.BattleList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.BattleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,19 +111,18 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EncounterList.DefaultCellStyle = dataGridViewCellStyle1;
-            this.EncounterList.Location = new System.Drawing.Point(12, 66);
-            this.EncounterList.MultiSelect = false;
-            this.EncounterList.Name = "EncounterList";
-            this.EncounterList.ReadOnly = true;
-            this.EncounterList.RowHeadersVisible = false;
-            this.EncounterList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.EncounterList.Size = new System.Drawing.Size(413, 286);
-            this.EncounterList.TabIndex = 7;
-            this.EncounterList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EncounterList_CellContentClick);
-            this.EncounterList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EncounterList_CellDoubleClick);
+            this.BattleList.DefaultCellStyle = dataGridViewCellStyle1;
+            this.BattleList.Location = new System.Drawing.Point(12, 66);
+            this.BattleList.MultiSelect = false;
+            this.BattleList.Name = "EncounterList";
+            this.BattleList.ReadOnly = true;
+            this.BattleList.RowHeadersVisible = false;
+            this.BattleList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.BattleList.Size = new System.Drawing.Size(413, 286);
+            this.BattleList.TabIndex = 7;
+            this.BattleList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EncounterList_CellDoubleClick);
             // 
-            // EncounterManager
+            // BattleManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,11 +133,12 @@
             this.Controls.Add(this.NewButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.EncounterList);
+            this.Controls.Add(this.BattleList);
             this.MinimumSize = new System.Drawing.Size(450, 400);
-            this.Name = "EncounterManager";
-            this.Text = "Encounter Manager";
-            ((System.ComponentModel.ISupportInitialize)(this.EncounterList)).EndInit();
+            this.Name = "BattleManager";
+            this.Text = "Battle Manager";
+            this.Load += new System.EventHandler(this.EncounterManager_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.BattleList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +152,6 @@
         private System.Windows.Forms.Button NewButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView EncounterList;
+        private System.Windows.Forms.DataGridView BattleList;
     }
 }
