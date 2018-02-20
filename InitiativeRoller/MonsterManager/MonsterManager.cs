@@ -42,6 +42,21 @@ namespace CampaignTracker
                     }
                 }
             }
+            DataGridViewButtonColumn EncounterCol = new DataGridViewButtonColumn();
+            EncounterCol.HeaderText = "Encounter";
+            EncounterCol.Text = "Add";
+            EncounterCol.UseColumnTextForButtonValue = true;
+
+            this.dataGridView1.Columns.Add(EncounterCol);
+
+            DataGridViewButtonColumn BattleCol = new DataGridViewButtonColumn();
+            BattleCol.HeaderText = "Battle";
+            BattleCol.Text = "Add";
+            BattleCol.UseColumnTextForButtonValue = true;
+
+            this.dataGridView1.Columns.Add(BattleCol);
+
+
 
         }
 
@@ -62,15 +77,19 @@ namespace CampaignTracker
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            var rows = this.dataGridView1.SelectedRows;
-            if (rows.Count > 0)
+            //Don't do this on the button column
+            if (!(sender is Button))
             {
-                var cells = rows[0].Cells;
-                if (cells.Count > 0)
+                var rows = this.dataGridView1.SelectedRows;
+                if (rows.Count > 0)
                 {
-                    var value = cells[0].Value.ToString();
-                    MonsterViewer viewer = new MonsterViewer(Program.mon_db.GetMonster(value));
-                    viewer.Show();
+                    var cells = rows[0].Cells;
+                    if (cells.Count > 1)
+                    {
+                        var value = cells[2].Value.ToString();
+                        MonsterViewer viewer = new MonsterViewer(Program.mon_db.GetMonster(value));
+                        viewer.Show();
+                    }
                 }
             }
         }

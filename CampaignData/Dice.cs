@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace CampaignData
 {
@@ -80,5 +81,56 @@ namespace CampaignData
             // to use.
             return roll < numSides * fullSetsOfValues;
         }
+    }
+
+    public static class DiceUtilities
+    {
+        static Regex reg;
+        static DiceUtilities()
+        {
+            reg = new Regex(@"\((\d+?)d(\d+?)([+-]*)(\d*?)\)");
+        }
+        public static HitDice GetHitDice(string HitString)
+        {
+            var hit = new HitDice();
+            var result = reg.Matches(HitString);
+            if (result.Count > 0)
+            {
+                if (result[0].Groups.Count >= 5)
+                {
+                    bool success = true;
+
+                    int HitDiceCount=0;
+                    int HitDiceSize = 0;
+                    int HitModifier = 0;
+
+                    success &= int.TryParse(result[0].Groups[1].Value, out HitDiceCount);
+                    success &= int.TryParse(result[0].Groups[2].Value, out HitDiceSize);
+
+                    if (result[0].Groups[3].Value.Length>0 && result[0].Groups[4].Value.Length > 0)
+                    {
+                        success &= int.TryParse(result[0].Groups[4].Value, out HitModifier);
+                        //Make it negative if it needs to be
+                        if (result[0].Groups[3].Value == "-")
+                        {
+                            HitModifier *= -1;
+                        }
+                    }
+                    if (success)
+                    {
+                        hit.HitDiceCount = HitDiceCount;
+                        hit.HitDiceSize = HitDiceSize;
+                        hit.HitModifier = HitModifier;
+                    }
+                }
+            }
+            return hit;
+        }
+    }
+    public class HitDice
+    {
+        public int HitDiceCount { get; set; }
+        public int HitDiceSize { get; set; }
+        public int HitModifier { get; set; }
     }
 }

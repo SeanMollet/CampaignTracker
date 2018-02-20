@@ -47,20 +47,22 @@ namespace CampaignTracker.Controls
 
         private void DataBind()
         {
-            this.Str.DataBindings.Clear();
-            this.Str.DataBindings.Add("Text", abilities, "Str");
-            this.Dex.DataBindings.Clear();
-            this.Dex.DataBindings.Add("Text", abilities, "Dex");
-            this.Con.DataBindings.Clear();
-            this.Con.DataBindings.Add("Text", abilities, "Con");
+            if (abilities != null)
+            {
+                this.Str.DataBindings.Clear();
+                this.Str.DataBindings.Add("Text", abilities, "Str");
+                this.Dex.DataBindings.Clear();
+                this.Dex.DataBindings.Add("Text", abilities, "Dex");
+                this.Con.DataBindings.Clear();
+                this.Con.DataBindings.Add("Text", abilities, "Con");
 
-            this.Int.DataBindings.Clear();
-            this.Int.DataBindings.Add("Text", abilities, "Int");
-            this.Wis.DataBindings.Clear();
-            this.Wis.DataBindings.Add("Text", abilities, "Wis");
-            this.Cha.DataBindings.Clear();
-            this.Cha.DataBindings.Add("Text", abilities, "Cha");
-
+                this.Int.DataBindings.Clear();
+                this.Int.DataBindings.Add("Text", abilities, "Int");
+                this.Wis.DataBindings.Clear();
+                this.Wis.DataBindings.Add("Text", abilities, "Wis");
+                this.Cha.DataBindings.Clear();
+                this.Cha.DataBindings.Add("Text", abilities, "Cha");
+            }
         }
 
         private string Bonus(string stat)

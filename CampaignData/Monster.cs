@@ -112,7 +112,25 @@ namespace CampaignData
     public class HP
     {
         public int Value { get; set; }
+        public int HitDiceCount { get; set; }
+        public int HitDice { get; set; }
+        public int HitModifier { get; set; }
         public string Notes { get; set; }
+        //Temporary change to convert notes containing hit dice info to a more useful form
+        //private string notes;
+        //public string Notes { get => notes;
+        //    set
+        //    {
+        //        //var hits = DiceUtilities.GetHitDice(value);
+        //        //HitDiceCount = hits.HitDiceCount;
+        //        //HitDice = hits.HitDiceSize;
+        //        //HitModifier = hits.HitModifier;
+        //        if (value != null)
+        //            notes = value;
+        //        else
+        //            notes = "";
+        //    }
+        //}
     }
 
     public class AC
