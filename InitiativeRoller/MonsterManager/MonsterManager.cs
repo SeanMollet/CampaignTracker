@@ -75,10 +75,10 @@ namespace CampaignTracker
             }
         }
 
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Don't do this on the button column
-            if (!(sender is Button))
+            if (e.ColumnIndex>1)
             {
                 var rows = this.dataGridView1.SelectedRows;
                 if (rows.Count > 0)
@@ -92,6 +92,7 @@ namespace CampaignTracker
                     }
                 }
             }
+
         }
     }
 }

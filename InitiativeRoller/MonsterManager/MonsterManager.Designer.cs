@@ -54,9 +54,9 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(652, 414);
+            this.dataGridView1.Size = new System.Drawing.Size(707, 414);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // textBox1
             // 
@@ -78,7 +78,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(393, 7);
+            this.button1.Location = new System.Drawing.Point(448, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -88,7 +88,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(571, 7);
+            this.button2.Location = new System.Drawing.Point(626, 7);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 23);
             this.button2.TabIndex = 4;
@@ -98,7 +98,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(474, 7);
+            this.button3.Location = new System.Drawing.Point(529, 7);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(91, 23);
             this.button3.TabIndex = 5;
@@ -109,7 +109,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(264, 12);
+            this.label2.Location = new System.Drawing.Point(291, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 13);
             this.label2.TabIndex = 6;
@@ -119,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 462);
+            this.ClientSize = new System.Drawing.Size(729, 462);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
