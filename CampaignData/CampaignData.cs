@@ -44,6 +44,7 @@ namespace CampaignData
         {
             database = new Database();
             dbLock = new object();
+            BindNotifications();
         }
 
 
@@ -67,14 +68,15 @@ namespace CampaignData
                 lock (dbLock)
                 {
                     string json = File.ReadAllText(path);
-                    var result = Newtonsoft.Json.
-                    JsonConvert.DeserializeObject<Database>(json);
+                    var result = Newtonsoft.Json.JsonConvert.DeserializeObject<Database>(json);
+                    
+                    this.database = result;
                     BindNotifications();
 
-                    this.database = result;
                     onBattlesUpdated?.Invoke(this);
                     onEncountersUpdated?.Invoke(this);
                     onPlayersUpdated?.Invoke(this);
+                    onMonstersUpdated?.Invoke(this);
                 }
             }
             return true;

@@ -1,7 +1,6 @@
 {
   "Battles": [],
   "Encounters": [],
-  "CustomMonsters": [],
   "Players": [
     {
       "Name": "Keridi",
@@ -56,6 +55,137 @@
       "Stat": 0,
       "Roll": 18,
       "Adv": false
+    }
+  ],
+  "CustomMonsters": [
+    {
+      "Name": "New Monster",
+      "Source": "User Custom",
+      "Type": "",
+      "HP": {
+        "Value": 0,
+        "HitDiceCount": 0,
+        "HitDice": 0,
+        "HitModifier": 0,
+        "Notes": null
+      },
+      "AC": {
+        "Value": 0,
+        "Notes": null
+      },
+      "InitiativeModifier": 0,
+      "Speed": [],
+      "Abilities": {
+        "Str": 0,
+        "Dex": 0,
+        "Con": 0,
+        "Int": 0,
+        "Wis": 0,
+        "Cha": 0
+      },
+      "DamageVulnerabilities": [],
+      "DamageResistances": [],
+      "DamageImmunities": [],
+      "ConditionImmunities": [],
+      "Saves": [],
+      "Skills": null,
+      "Senses": [],
+      "Languages": [],
+      "Challenge": {
+        "Numerator": 0,
+        "Denominator": 1
+      },
+      "Traits": [],
+      "Actions": [],
+      "Reactions": [],
+      "LegendaryActions": [],
+      "ReadOnly": false
+    },
+    {
+      "Name": "New Monster2",
+      "Source": "User Custom",
+      "Type": "",
+      "HP": {
+        "Value": 0,
+        "HitDiceCount": 0,
+        "HitDice": 0,
+        "HitModifier": 0,
+        "Notes": null
+      },
+      "AC": {
+        "Value": 0,
+        "Notes": null
+      },
+      "InitiativeModifier": 0,
+      "Speed": [],
+      "Abilities": {
+        "Str": 0,
+        "Dex": 0,
+        "Con": 0,
+        "Int": 0,
+        "Wis": 0,
+        "Cha": 0
+      },
+      "DamageVulnerabilities": [],
+      "DamageResistances": [],
+      "DamageImmunities": [],
+      "ConditionImmunities": [],
+      "Saves": [],
+      "Skills": null,
+      "Senses": [],
+      "Languages": [],
+      "Challenge": {
+        "Numerator": 0,
+        "Denominator": 1
+      },
+      "Traits": [],
+      "Actions": [],
+      "Reactions": [],
+      "LegendaryActions": [],
+      "ReadOnly": false
+    },
+    {
+      "Name": "New Monste3",
+      "Source": "User Custom",
+      "Type": "",
+      "HP": {
+        "Value": 0,
+        "HitDiceCount": 0,
+        "HitDice": 0,
+        "HitModifier": 0,
+        "Notes": null
+      },
+      "AC": {
+        "Value": 0,
+        "Notes": null
+      },
+      "InitiativeModifier": 0,
+      "Speed": [],
+      "Abilities": {
+        "Str": 0,
+        "Dex": 0,
+        "Con": 0,
+        "Int": 0,
+        "Wis": 0,
+        "Cha": 0
+      },
+      "DamageVulnerabilities": [],
+      "DamageResistances": [],
+      "DamageImmunities": [],
+      "ConditionImmunities": [],
+      "Saves": [],
+      "Skills": null,
+      "Senses": [],
+      "Languages": [],
+      "Challenge": {
+        "Numerator": 0,
+        "Denominator": 1
+      },
+      "Traits": [],
+      "Actions": [],
+      "Reactions": [],
+      "LegendaryActions": [],
+      "ReadOnly": false
     }
   ]
 }

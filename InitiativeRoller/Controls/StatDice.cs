@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CampaignData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace CampaignTracker.Controls
 {
-    public partial class StatDice : UserControl
+    public partial class StatDice : UserControl, INotifyPropertyChanged
     {
         private List<DiceItem> possibleDice;
         public StatDice()
@@ -30,9 +31,25 @@ namespace CampaignTracker.Controls
 
             this.dicetype.Items.AddRange(possibleDice.ToArray());
 
+            this.dicecount.ValueChanged += (object sender, EventArgs e) => { OnPropertyChanged("DiceCount"); };
+            this.dicetype.SelectedValueChanged += (object sender, EventArgs e) => { OnPropertyChanged("DiceSize"); };
+            this.modifier.ValueChanged += (object sender, EventArgs e) => { OnPropertyChanged("Modifier"); };
         }
 
+        public int Roll
+        {
+            get
+            {
+                int Roll = 0;
+                for (int a = 0; a < DiceCount; a++)
+                {
+                    Roll += Dice.Roll(DiceSize, RollType.Normal);
+                }
+                Roll += Modifier;
 
+                return Roll;
+            }
+        }
         public int DiceCount
         {
             get
@@ -48,6 +65,10 @@ namespace CampaignTracker.Controls
         {
             get
             {
+                if(this.dicetype.SelectedIndex<0 || this.dicetype.SelectedIndex>=possibleDice.Count)
+                {
+                    return 0;
+                }
                 return possibleDice[this.dicetype.SelectedIndex].Size;
             }
             set
@@ -85,6 +106,12 @@ namespace CampaignTracker.Controls
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
         private bool showmodifier = false;
         [Category("Appearance")]
         [Description("Enable the modifier value")]
@@ -112,6 +139,8 @@ namespace CampaignTracker.Controls
         }
 
         private bool enabled = true;
+
+
         public new bool Enabled
         {
             get

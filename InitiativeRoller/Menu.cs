@@ -54,9 +54,10 @@ namespace CampaignTracker
                         break;
                     case DialogResult.No:
                         SaveFileDialog dlg = new SaveFileDialog();
-                        dlg.DefaultExt = "json";
-                        dlg.Filter = "*.json|*.*";
+                        dlg.Filter = "Json Files (*.json)|*.json|All Files(*.*)|*.*";
                         dlg.FilterIndex = 0;
+                        dlg.AddExtension = true;
+                        dlg.DefaultExt = "json";
 
                         if (dlg.ShowDialog() == DialogResult.OK)
                         {
@@ -75,9 +76,10 @@ namespace CampaignTracker
         private void open_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.DefaultExt = "json";
-            dlg.Filter = "*.json|*.*";
+            dlg.Filter = "Json Files (*.json)|*.json|All Files(*.*)|*.*";
             dlg.FilterIndex = 0;
+            dlg.AddExtension = true;
+            dlg.DefaultExt = "json";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 try

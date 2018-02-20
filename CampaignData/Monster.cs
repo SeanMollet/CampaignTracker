@@ -17,6 +17,10 @@ namespace CampaignData
             LoadMonsters();
             LoadXP();
         }
+
+        public delegate void UpdateHandler(object sender);
+        public event UpdateHandler onMonstersUpdated;
+
         public SortableBindingList<Monster> Monsters { get; set; }
 
         private SortableBindingList<Monster> customMonsters;
@@ -27,12 +31,13 @@ namespace CampaignData
         {
             customMonsters = CustomMonsters;
             LoadMonsters();
+            onMonstersUpdated?.Invoke(this);
         }
         public void LoadMonsters()
         {
             var stream = new MemoryStream(BookData.MonsterManual);
             var reader = new JsonTextReader(new StreamReader(stream));
-
+            
             Monsters = JsonSerializer.Create().Deserialize<List<Monster>>(reader);
 
             //Append the custom monsters
@@ -48,7 +53,9 @@ namespace CampaignData
             FilterDic = new Dictionary<string, string>();
             foreach(var monster in Monsters)
             {
-                FilterDic.Add(monster.Name.StripPunctuationAndSpaces().ToUpper(), monster.Name);
+                if (!FilterDic.ContainsKey(monster.Name.StripPunctuationAndSpaces().ToUpper())){
+                    FilterDic.Add(monster.Name.StripPunctuationAndSpaces().ToUpper(), monster.Name);
+                }
             }
         }
 
@@ -136,12 +143,37 @@ namespace CampaignData
         }
     }
 
-    public class Monster : IComparable<Monster>
+    public class Monster : IComparable<Monster>, IEquatable<Monster>
     {
         public int CompareTo(Monster comparison)
         {
-            return 0;
+            return this.Name.CompareTo(comparison.Name);
         }
+        public Monster()
+        {
+            Name = "";
+            Source = "User Custom";
+            Type = "";
+            HP = new HP();
+            AC = new AC();
+            InitiativeModifier = 0;
+            Speed = new SortableBindingList<BindableString>();
+            Abilities = new Abilities();
+            DamageVulnerabilities = new SortableBindingList<BindableString>();
+            DamageResistances = new SortableBindingList<BindableString>();
+            DamageImmunities = new SortableBindingList<BindableString>();
+            ConditionImmunities = new SortableBindingList<BindableString>();
+            Saves = new SortableBindingList<Save>();
+            Senses = new SortableBindingList<BindableString>();
+            Languages = new SortableBindingList<BindableString>();
+            Challenge = new Fraction("0");
+            Traits = new SortableBindingList<Trait>();
+            Actions = new SortableBindingList<Action>();
+            Reactions = new SortableBindingList<Reaction>();
+            LegendaryActions = new SortableBindingList<LegendaryAction>();
+            ReadOnly = false;
+        }
+
         public string Name { get; set; }
         public string Source { get; set; }
         public string Type { get; set; }
@@ -164,6 +196,21 @@ namespace CampaignData
         public SortableBindingList<Reaction> Reactions { get; set; }
         public SortableBindingList<LegendaryAction> LegendaryActions { get; set; }
         public bool ReadOnly { get; set; }
+        public Monster Clone()
+        {
+            //Lazy way to make a clone, just let json do the work
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Monster>(Newtonsoft.Json.JsonConvert.SerializeObject(this));
+        }
+
+        public int GetHashCode(Monster obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Equals(Monster other)
+        {
+            return Name.Equals(other.Name);
+        }
     }
 
     public class HP

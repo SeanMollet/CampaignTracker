@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CampaignData;
 using CampaignTracker.Controls;
 
+
 namespace CampaignTracker
 {
     public partial class MonsterViewer : Controls.BaseForm, DataBindReload
@@ -77,9 +78,10 @@ namespace CampaignTracker
                 this.LegendaryActions.DataSource = monster.LegendaryActions;
 
                 this.statDice1.DataBindings.Clear();
-                this.statDice1.DataBindings.Add("DiceCount", monster, "HP.HitDiceCount");
-                this.statDice1.DataBindings.Add("DiceSize", monster, "HP.HitDice");
-                this.statDice1.DataBindings.Add("Modifier", monster, "HP.HitModifier");
+
+                this.statDice1.DataBindings.Add("DiceCount", monster, "HP.HitDiceCount", true, DataSourceUpdateMode.OnPropertyChanged);
+                this.statDice1.DataBindings.Add("DiceSize", monster, "HP.HitDice", true, DataSourceUpdateMode.OnPropertyChanged);
+                this.statDice1.DataBindings.Add("Modifier", monster, "HP.HitModifier",true,DataSourceUpdateMode.OnPropertyChanged);
 
                 this.abilitiesControl1.Bind(monster.Abilities);
             }
@@ -89,7 +91,7 @@ namespace CampaignTracker
         {
             try
             {
-
+                this.Save.Visible = !value;
                 foreach (Control ctrl in Container.Controls)
                 {
                     if (ctrl.GetType() == typeof(TextBox))
@@ -130,9 +132,29 @@ namespace CampaignTracker
             }
         }
 
-        private void label13_Click(object sender, EventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
+            if (!monster.ReadOnly)
+            {
+                if (Program.db.database.CustomMonsters.IndexOf(monster)>-1)
+                {
+                    if (MessageBox.Show("Replace existing " + monster.Name + "?", "Overwrite Monster?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        var oldmonster = Program.db.database.CustomMonsters.IndexOf(monster);
+                        Program.db.database.CustomMonsters.RemoveAt(oldmonster);
+                        Program.db.database.CustomMonsters.Add(monster.Clone());
+                    }
+                }
+                else
+                {
+                    Program.db.database.CustomMonsters.Add(monster.Clone());
+                }
+            }
+        }
 
+        private void HPButton_Click(object sender, EventArgs e)
+        {
+            this.HPValue.Text = this.statDice1.Roll.ToString();
         }
     }
 }

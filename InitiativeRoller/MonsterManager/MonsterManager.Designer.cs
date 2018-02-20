@@ -32,8 +32,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.ExportMonsters = new System.Windows.Forms.Button();
+            this.ImportMonsters = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(707, 414);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // textBox1
             // 
@@ -84,26 +84,29 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "New Custom";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // ExportMonsters
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(626, 7);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Export Custom";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ExportMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ExportMonsters.Location = new System.Drawing.Point(626, 7);
+            this.ExportMonsters.Name = "ExportMonsters";
+            this.ExportMonsters.Size = new System.Drawing.Size(91, 23);
+            this.ExportMonsters.TabIndex = 4;
+            this.ExportMonsters.Text = "Export Custom";
+            this.ExportMonsters.UseVisualStyleBackColor = true;
+            this.ExportMonsters.Click += new System.EventHandler(this.ExportMonsters_Click);
             // 
-            // button3
+            // ImportMonsters
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(529, 7);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Import Custom";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ImportMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImportMonsters.Location = new System.Drawing.Point(529, 7);
+            this.ImportMonsters.Name = "ImportMonsters";
+            this.ImportMonsters.Size = new System.Drawing.Size(91, 23);
+            this.ImportMonsters.TabIndex = 5;
+            this.ImportMonsters.Text = "Import Custom";
+            this.ImportMonsters.UseVisualStyleBackColor = true;
+            this.ImportMonsters.Click += new System.EventHandler(this.ImportMonsters_Click);
             // 
             // label2
             // 
@@ -121,8 +124,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 462);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ImportMonsters);
+            this.Controls.Add(this.ExportMonsters);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -142,8 +145,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ExportMonsters;
+        private System.Windows.Forms.Button ImportMonsters;
         private System.Windows.Forms.Label label2;
     }
 }
