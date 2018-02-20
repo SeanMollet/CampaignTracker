@@ -43,8 +43,38 @@ namespace CampaignTracker
                 this.ACNotes.DataBindings.Add("Text", monster, "AC.Notes");
                 this.Initiative.DataBindings.Clear();
                 this.Initiative.DataBindings.Add("Text", monster, "InitiativeModifier");
-                this.Speed.DataSource = monster.Speed;
 
+                this.Speed.DataSource = monster.Speed;
+                this.Speed.Columns[0].DataPropertyName = "Value";
+
+                this.Saves.DataSource = monster.Saves;
+                
+
+                this.DamageVuln.DataSource = monster.DamageVulnerabilities;
+                this.DamageVuln.Columns[0].DataPropertyName = "Value";
+
+                this.DamageImmune.DataSource = monster.DamageImmunities;
+                this.DamageImmune.Columns[0].DataPropertyName = "Value";
+
+                this.DamageRes.DataSource = monster.DamageResistances;
+                this.DamageRes.Columns[0].DataPropertyName = "Value";
+
+                this.ConditionImmune.DataSource = monster.ConditionImmunities;
+                this.ConditionImmune.Columns[0].DataPropertyName = "Value";
+
+                this.Skills.DataSource = monster.Skills;
+
+                this.Senses.DataSource = monster.Senses;
+                this.Senses.Columns[0].DataPropertyName = "Value";
+
+                this.Traits.DataSource = monster.Traits;
+
+                this.Languages.DataSource = monster.Languages;
+                this.Languages.Columns[0].DataPropertyName = "Value";
+
+                this.Actions.DataSource = monster.Actions;
+                this.Reactions.DataSource = monster.Reactions;
+                this.LegendaryActions.DataSource = monster.LegendaryActions;
 
                 this.abilitiesControl1.Bind(monster.Abilities);
             }
@@ -54,21 +84,36 @@ namespace CampaignTracker
         {
             try
             {
+
                 foreach (Control ctrl in Container.Controls)
                 {
                     if (ctrl.GetType() == typeof(TextBox))
+                    {
                         ((TextBox)ctrl).ReadOnly = value;
+                    }
                     if (ctrl.GetType() == typeof(ComboBox))
+                    {
                         ((ComboBox)ctrl).Enabled = !value;
+                    }
                     if (ctrl.GetType() == typeof(CheckBox))
+                    {
                         ((CheckBox)ctrl).Enabled = !value;
-                    if(ctrl.GetType() == typeof(DataGridView))
+                    }
+                    if (ctrl.GetType() == typeof(DataGridView))
+                    {
                         ((DataGridView)ctrl).ReadOnly = value;
+                        ((DataGridView)ctrl).AllowUserToAddRows = value;
+                        ((DataGridView)ctrl).AllowUserToDeleteRows = value;
+                    }
                     if (ctrl.GetType() == typeof(DateTimePicker))
+                    {
                         ((DateTimePicker)ctrl).Enabled = !value;
+                    }
 
                     if (ctrl.Controls.Count > 0)
-                        ReadOnly(ctrl,value);
+                    {
+                        ReadOnly(ctrl, value);
+                    }
                 }
             }
             catch (Exception ex)

@@ -32,5 +32,18 @@ namespace CampaignData
 
     }
 
+    public class BindableString
+    {
+        public String Value { get; set; }
+        public static explicit operator BindableString(string s)
+        {
+            return new BindableString { Value = s };
+        }
+        public static explicit operator string(BindableString b)
+        {
+            return b.Value;
+        }
+    }
+
 
 }

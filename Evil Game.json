@@ -1,7 +1,7 @@
 {
   "Battles": [],
   "Encounters": [],
-  "Monsters": [],
+  "CustomMonsters": [],
   "Players": [
     {
       "Name": "Keridi",

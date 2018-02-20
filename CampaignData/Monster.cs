@@ -10,15 +10,18 @@ namespace CampaignData
 {
     public class MonstersDataBase
     {
+
+
         public MonstersDataBase()
         {
             LoadMonsters();
+            LoadXP();
         }
         public SortableBindingList<Monster> Monsters { get; set; }
 
         private SortableBindingList<Monster> customMonsters;
-
         private Dictionary<string, string> FilterDic;
+        private Dictionary<Fraction, int> XPDic;
 
         public void UpdateCustomMonsters(SortableBindingList<Monster> CustomMonsters)
         {
@@ -49,6 +52,7 @@ namespace CampaignData
             }
         }
 
+
         public SortableBindingList<Monster> SearchForMonsters(string name)
         {
             SortableBindingList<Monster> result = new SortableBindingList<Monster>();
@@ -77,6 +81,59 @@ namespace CampaignData
             }
             return new Monster { Name = name };
         }
+
+        public int GetXP(Fraction CR)
+        {
+            if (XPDic.ContainsKey(CR))
+            {
+                return XPDic[CR];
+            }
+            if(CR > 30)
+            {
+                int levels = (int)CR - 30;
+                int basexp = XPDic[new Fraction("30")];
+                return basexp + (levels * 15000);
+            }
+            return 0;
+        }
+        private void LoadXP()
+        {
+            XPDic = new Dictionary<Fraction, int>();
+            XPDic.Add(new Fraction("0"), 10);
+            XPDic.Add(new Fraction("1/8"), 25);
+            XPDic.Add(new Fraction("1/4"), 50);
+            XPDic.Add(new Fraction("1/2"), 100);
+            XPDic.Add(new Fraction("1"), 200);
+            XPDic.Add(new Fraction("2"), 450);
+            XPDic.Add(new Fraction("3"), 700);
+            XPDic.Add(new Fraction("4"), 1100);
+            XPDic.Add(new Fraction("5"), 1800);
+            XPDic.Add(new Fraction("6"), 2300);
+            XPDic.Add(new Fraction("7"), 2900);
+            XPDic.Add(new Fraction("8"), 3900);
+            XPDic.Add(new Fraction("9"), 5000);
+            XPDic.Add(new Fraction("10"), 5900);
+            XPDic.Add(new Fraction("11"), 7200);
+            XPDic.Add(new Fraction("12"), 8400);
+            XPDic.Add(new Fraction("13"), 10000);
+            XPDic.Add(new Fraction("14"), 11500);
+            XPDic.Add(new Fraction("15"), 13000);
+            XPDic.Add(new Fraction("16"), 15000);
+            XPDic.Add(new Fraction("17"), 18000);
+            XPDic.Add(new Fraction("18"), 20000);
+            XPDic.Add(new Fraction("19"), 22000);
+            XPDic.Add(new Fraction("20"), 25000);
+            XPDic.Add(new Fraction("21"), 33000);
+            XPDic.Add(new Fraction("22"), 41000);
+            XPDic.Add(new Fraction("23"), 50000);
+            XPDic.Add(new Fraction("24"), 62000);
+            XPDic.Add(new Fraction("25"), 75000);
+            XPDic.Add(new Fraction("26"), 90000);
+            XPDic.Add(new Fraction("27"), 105000);
+            XPDic.Add(new Fraction("28"), 120000);
+            XPDic.Add(new Fraction("29"), 135000);
+            XPDic.Add(new Fraction("30 "), 155000);
+        }
     }
 
     public class Monster : IComparable<Monster>
@@ -91,16 +148,16 @@ namespace CampaignData
         public HP HP { get; set; }
         public AC AC { get; set; }
         public int InitiativeModifier { get; set; }
-        public SortableBindingList<string> Speed { get; set; }
+        public SortableBindingList<BindableString> Speed { get; set; }
         public Abilities Abilities { get; set; }
-        public SortableBindingList<string> DamageVulnerabilities { get; set; }
-        public SortableBindingList<string> DamageResistances { get; set; }
-        public SortableBindingList<string> DamageImmunities { get; set; }
-        public SortableBindingList<string> ConditionImmunities { get; set; }
+        public SortableBindingList<BindableString> DamageVulnerabilities { get; set; }
+        public SortableBindingList<BindableString> DamageResistances { get; set; }
+        public SortableBindingList<BindableString> DamageImmunities { get; set; }
+        public SortableBindingList<BindableString> ConditionImmunities { get; set; }
         public SortableBindingList<Save> Saves { get; set; }
         public SortableBindingList<Skill> Skills { get; set; }
-        public SortableBindingList<string> Senses { get; set; }
-        public SortableBindingList<string> Languages { get; set; }
+        public SortableBindingList<BindableString> Senses { get; set; }
+        public SortableBindingList<BindableString> Languages { get; set; }
         public Fraction Challenge { get; set; }
         public SortableBindingList<Trait> Traits { get; set; }
         public SortableBindingList<Action> Actions { get; set; }
