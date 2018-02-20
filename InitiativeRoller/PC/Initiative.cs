@@ -14,9 +14,8 @@ using CampaignData;
 
 namespace CampaignTracker
 {
-    public partial class PlayerEditor : Form, DataBindReload
+    public partial class Initiative : Controls.BaseForm, DataBindReload
     {
-
         private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
         private const UInt32 SWP_NOSIZE = 0x0001;
         private const UInt32 SWP_NOMOVE = 0x0002;
@@ -25,7 +24,7 @@ namespace CampaignTracker
         [return: MarshalAs(UnmanagedType.Bool)]
         public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
-        public PlayerEditor()
+        public Initiative()
         {
             InitializeComponent();
             //data.onPlayersUpdated += Data_onPlayersUpdated;
@@ -34,28 +33,11 @@ namespace CampaignTracker
             SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
         }
 
+
         public void DataBind()
         {
             this.dataGridView1.DataSource = Program.db.database.Players;
             this.dataGridView1.Refresh();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            foreach (var player in Program.db.database.Players)
-            {
-                
-                if (player.Adv)
-                {
-                    player.Roll = Dice.Roll(20, RollType.Advantage) + player.Stat;
-                }
-                else
-                {
-                    player.Roll = Dice.Roll(20, RollType.Normal) + player.Stat;
-                }
-            }
-
-            this.dataGridView1.Sort(this.dataGridView1.Columns[2], ListSortDirection.Descending);
         }
 
     }

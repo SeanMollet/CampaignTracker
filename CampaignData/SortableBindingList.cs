@@ -25,6 +25,7 @@ namespace CampaignData
         {
         }
 
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SortableBindingList{T}"/> class.
         /// </summary>
@@ -128,6 +129,15 @@ namespace CampaignData
             }
             //not comparable, compare ToString
             return lhsValue.ToString().CompareTo(rhsValue.ToString());
+        }
+
+        /// <summary>
+        /// Allow casting from a list automatically
+        /// </summary>
+        /// <param name="input"></param>
+        public static implicit operator SortableBindingList<T>(List<T> input)
+        {
+            return new SortableBindingList<T>(input);
         }
     }
 }

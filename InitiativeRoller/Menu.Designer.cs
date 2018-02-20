@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,15 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GM Views";
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(6, 151);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(200, 27);
+            this.button10.TabIndex = 12;
+            this.button10.Text = "Campaign Stats";
+            this.button10.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
@@ -108,6 +117,7 @@
             this.button5.TabIndex = 8;
             this.button5.Text = "Monsters Manager";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.MonsterManager_Click);
             // 
             // button4
             // 
@@ -135,7 +145,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Players";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.PlayerEditor_Click);
             // 
             // groupBox2
             // 
@@ -165,16 +175,7 @@
             this.button8.TabIndex = 5;
             this.button8.Text = "Initiative";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(6, 151);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(200, 27);
-            this.button10.TabIndex = 12;
-            this.button10.Text = "Campaign Stats";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Initiative_Click);
             // 
             // Menu
             // 

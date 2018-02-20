@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignTracker", "Initiati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignData", "CampaignData\CampaignData.csproj", "{9AEF0471-B7C5-4F61-8295-69FEA27C8848}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataParser", "DataParser\DataParser.csproj", "{2DF9DCA3-F4D6-4124-BC58-7EDE64D4BAA5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9AEF0471-B7C5-4F61-8295-69FEA27C8848}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AEF0471-B7C5-4F61-8295-69FEA27C8848}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AEF0471-B7C5-4F61-8295-69FEA27C8848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DF9DCA3-F4D6-4124-BC58-7EDE64D4BAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DF9DCA3-F4D6-4124-BC58-7EDE64D4BAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DF9DCA3-F4D6-4124-BC58-7EDE64D4BAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DF9DCA3-F4D6-4124-BC58-7EDE64D4BAA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

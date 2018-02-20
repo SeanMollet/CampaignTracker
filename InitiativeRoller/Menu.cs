@@ -11,24 +11,31 @@ using System.IO;
 
 namespace CampaignTracker
 {
-    public partial class Menu : Form
+    public partial class Menu : Controls.BaseForm
     {
         public Menu()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void PlayerEditor_Click(object sender, EventArgs e)
         {
             PlayerEditor editor = new PlayerEditor();
             editor.Show();
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void Initiative_Click(object sender, EventArgs e)
         {
             Initiative init = new Initiative();
             init.Show();
         }
+
+        private void MonsterManager_Click(object sender, EventArgs e)
+        {
+            MonsterManager monsters = new CampaignTracker.MonsterManager();
+            monsters.Show();
+        }
+
 
         private void save_Click(object sender, EventArgs e)
         {
@@ -75,18 +82,22 @@ namespace CampaignTracker
             {
                 try
                 {
-                    Program.dbFile = dlg.FileName;
-                    Program.db.LoadFile(dlg.FileName);
-                    this.label1.Text = "Main Menu - " + Path.GetFileNameWithoutExtension(dlg.FileName);
 
-                    //Rebind any open forms we have to the new database
-                    var forms = Application.OpenForms;
-                    foreach(var form in forms)
+                    if (Program.db.LoadFile(dlg.FileName))
                     {
-                        if(form is DataBindReload)
+                        Program.dbFile = dlg.FileName;
+
+                        this.label1.Text = "Main Menu - " + Path.GetFileNameWithoutExtension(dlg.FileName);
+
+                        //Rebind any open forms we have to the new database
+                        var forms = Application.OpenForms;
+                        foreach (var form in forms)
                         {
-                            var casted = form as DataBindReload;
-                            casted.DataBind();
+                            if (form is DataBindReload)
+                            {
+                                var casted = form as DataBindReload;
+                                casted.DataBind();
+                            }
                         }
                     }
                 }
@@ -98,5 +109,6 @@ namespace CampaignTracker
 
 
         }
+
     }
 }

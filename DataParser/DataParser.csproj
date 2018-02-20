@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9AEF0471-B7C5-4F61-8295-69FEA27C8848}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CampaignData</RootNamespace>
-    <AssemblyName>CampaignData</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ProjectGuid>{2DF9DCA3-F4D6-4124-BC58-7EDE64D4BAA5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DataParser</RootNamespace>
+    <AssemblyName>DataParser</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,6 +24,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,38 +39,24 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Battle.cs" />
-    <Compile Include="BookData.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BookData.resx</DependentUpon>
-    </Compile>
-    <Compile Include="CampaignData.cs" />
-    <Compile Include="Dice.cs" />
-    <Compile Include="Encounter.cs" />
-    <Compile Include="FractionClass.cs" />
-    <Compile Include="Monster.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SortableBindingList.cs" />
-    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MonsterManual.json" />
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BookData.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BookData.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <ProjectReference Include="..\CampaignData\CampaignData.csproj">
+      <Project>{9aef0471-b7c5-4f61-8295-69fea27c8848}</Project>
+      <Name>CampaignData</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
