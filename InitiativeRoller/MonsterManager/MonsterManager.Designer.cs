@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MonstersGrid = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.ExportMonsters = new System.Windows.Forms.Button();
             this.ImportMonsters = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MonstersGrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // MonstersGrid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.MonstersGrid.AllowUserToAddRows = false;
+            this.MonstersGrid.AllowUserToDeleteRows = false;
+            this.MonstersGrid.AllowUserToResizeRows = false;
+            this.MonstersGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 36);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(707, 414);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.MonstersGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.MonstersGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MonstersGrid.Location = new System.Drawing.Point(10, 36);
+            this.MonstersGrid.MultiSelect = false;
+            this.MonstersGrid.Name = "MonstersGrid";
+            this.MonstersGrid.ReadOnly = true;
+            this.MonstersGrid.RowHeadersVisible = false;
+            this.MonstersGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.MonstersGrid.Size = new System.Drawing.Size(719, 414);
+            this.MonstersGrid.TabIndex = 0;
+            this.MonstersGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MonstersGrid_CellContentClick);
+            this.MonstersGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // textBox1
             // 
@@ -78,7 +79,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(448, 7);
+            this.button1.Location = new System.Drawing.Point(460, 7);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -89,7 +90,7 @@
             // ExportMonsters
             // 
             this.ExportMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ExportMonsters.Location = new System.Drawing.Point(626, 7);
+            this.ExportMonsters.Location = new System.Drawing.Point(638, 7);
             this.ExportMonsters.Name = "ExportMonsters";
             this.ExportMonsters.Size = new System.Drawing.Size(91, 23);
             this.ExportMonsters.TabIndex = 4;
@@ -100,7 +101,7 @@
             // ImportMonsters
             // 
             this.ImportMonsters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ImportMonsters.Location = new System.Drawing.Point(529, 7);
+            this.ImportMonsters.Location = new System.Drawing.Point(541, 7);
             this.ImportMonsters.Name = "ImportMonsters";
             this.ImportMonsters.Size = new System.Drawing.Size(91, 23);
             this.ImportMonsters.TabIndex = 5;
@@ -112,7 +113,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(291, 12);
+            this.label2.Location = new System.Drawing.Point(297, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 13);
             this.label2.TabIndex = 6;
@@ -122,18 +123,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 462);
+            this.ClientSize = new System.Drawing.Size(741, 462);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ImportMonsters);
             this.Controls.Add(this.ExportMonsters);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.MonstersGrid);
             this.MinimumSize = new System.Drawing.Size(690, 200);
             this.Name = "MonsterManager";
             this.Text = "Monster Manager";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MonstersGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,7 +142,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView MonstersGrid;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;

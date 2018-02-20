@@ -73,6 +73,18 @@
     <Compile Include="Controls\StatDice.Designer.cs">
       <DependentUpon>StatDice.cs</DependentUpon>
     </Compile>
+    <Compile Include="EncounterManager\EncounterManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncounterManager\EncounterManager.Designer.cs">
+      <DependentUpon>EncounterManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncounterManager\EncounterViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncounterManager\EncounterViewer.Designer.cs">
+      <DependentUpon>EncounterViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonsterManager\MonsterManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +125,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\StatDice.resx">
       <DependentUpon>StatDice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncounterManager\EncounterManager.resx">
+      <DependentUpon>EncounterManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EncounterManager\EncounterViewer.resx">
+      <DependentUpon>EncounterViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

@@ -32,36 +32,36 @@ namespace CampaignTracker
         {
             List<string> VisibleColumns = new List<string>( new string[] { "Name", "Source", "Type", "Challenge", "Description" });
 
-            this.dataGridView1.Columns.Clear();
+            this.MonstersGrid.Columns.Clear();
             
-            this.dataGridView1.DataSource = list;
+            this.MonstersGrid.DataSource = list;
             //Hide them all to start
-            if (this.dataGridView1.Columns.Count > 0)
+            if (this.MonstersGrid.Columns.Count > 0)
             {
-                for (int a = 0; a < this.dataGridView1.ColumnCount; a++)
+                for (int a = 0; a < this.MonstersGrid.ColumnCount; a++)
                 {
                     //Enable the ones we want
-                    if (!VisibleColumns.Contains(this.dataGridView1.Columns[a].Name))
+                    if (!VisibleColumns.Contains(this.MonstersGrid.Columns[a].Name))
                     {
-                        this.dataGridView1.Columns[a].Visible = false;
+                        this.MonstersGrid.Columns[a].Visible = false;
                     }
                 }
             }
 
 
                 DataGridViewButtonColumn EncounterCol = new DataGridViewButtonColumn();
-                EncounterCol.HeaderText = "Encounter";
-                EncounterCol.Text = "Add";
+                EncounterCol.HeaderText = "Add";
+                EncounterCol.Text = "Encounter";
                 EncounterCol.UseColumnTextForButtonValue = true;
 
-                this.dataGridView1.Columns.Add(EncounterCol);
+                this.MonstersGrid.Columns.Add(EncounterCol);
 
                 DataGridViewButtonColumn BattleCol = new DataGridViewButtonColumn();
-                BattleCol.HeaderText = "Battle";
-                BattleCol.Text = "Add";
+                BattleCol.HeaderText = "Add";
+                BattleCol.Text = "Battle";
                 BattleCol.UseColumnTextForButtonValue = true;
 
-                this.dataGridView1.Columns.Add(BattleCol);
+                this.MonstersGrid.Columns.Add(BattleCol);
 
 
 
@@ -81,44 +81,60 @@ namespace CampaignTracker
                 DataBind();
             }
         }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void MonstersGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Don't do this on the button column
-            if (dataGridView1.Rows.Count > e.RowIndex &&
-                dataGridView1.Rows[e.RowIndex].Cells.Count> e.ColumnIndex)
+            //Only on the button columns
+            if (MonstersGrid.Rows.Count > e.RowIndex &&
+                MonstersGrid.Rows[e.RowIndex].Cells.Count > e.ColumnIndex)
             {
-                var Cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                if(!(Cell is DataGridViewButtonCell))
+                var Cell = MonstersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (Cell is DataGridViewButtonCell)
                 {
-                    //So we're on a good row, now we just need the name column
-                    foreach (DataGridViewColumn col in dataGridView1.Columns)
+                    var row = MonstersGrid.Rows[e.RowIndex];
+                    if (row.DataBoundItem is Monster)
                     {
-                        if(col.HeaderText == "Name")
+                        var monster = (Monster)row.DataBoundItem;
+                        //Check which one clicked us
+                        if (Cell.Value.ToString() == "Encounter")
                         {
-                            var value = dataGridView1.Rows[e.RowIndex].Cells[col.Index].Value.ToString();
-                            MonsterViewer viewer = new MonsterViewer(Program.mon_db.GetMonster(value).Clone());
-                            viewer.Show();
-                            break;
+                            if (Program.active_encounter != null)
+                            {
+                                Program.active_encounter.monsters.Add(monster.Clone());
+                            }
                         }
+                        else
+                        {
+                            if (Program.active_battle != null)
+                            {
+                                Program.active_battle.monsters.Add((BattleMonster) monster.Clone());
+                            }
+                        }
+
+
                     }
                 }
             }
-            
-            //if (e.ColumnIndex>1)
-            //{
-            //    var rows = this.dataGridView1.SelectedRows;
-            //    if (rows.Count > 0)
-            //    {
-            //        var cells = rows[0].Cells;
-            //        if (cells.Count > 1)
-            //        {
-            //            var value = cells[2].Value.ToString();
-            //            MonsterViewer viewer = new MonsterViewer(Program.mon_db.GetMonster(value).Clone());
-            //            viewer.Show();
-            //        }
-            //    }
-            //}
+        }
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Don't do this on the button column
+            if (MonstersGrid.Rows.Count > e.RowIndex &&
+                MonstersGrid.Rows[e.RowIndex].Cells.Count> e.ColumnIndex)
+            {
+                var Cell = MonstersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if(!(Cell is DataGridViewButtonCell))
+                {
+                    var row = MonstersGrid.Rows[e.RowIndex];
+                    if (row.DataBoundItem is Monster)
+                    {
+                        var monster = (Monster)row.DataBoundItem;
+                        MonsterViewer viewer = new MonsterViewer(monster.Clone());
+                        viewer.Show();
+                    }
+
+                }
+            }
+
 
         }
 
@@ -198,5 +214,7 @@ namespace CampaignTracker
                 }
             }
         }
+
+
     }
 }

@@ -11,6 +11,9 @@ namespace CampaignTracker
         public static CampaignData.DatabaseManager db;
         public static CampaignData.MonstersDataBase mon_db;
         public static string dbFile;
+        public static CampaignData.Encounter active_encounter;
+        public static CampaignData.Battle active_battle;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

@@ -112,5 +112,16 @@ namespace CampaignTracker
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            EncounterManager manager = new CampaignTracker.EncounterManager();
+            manager.Show();
+        }
+
+        //We don't want this one to close on ESC
+        private new void BaseForm_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
     }
 }

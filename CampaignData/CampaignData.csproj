@@ -56,10 +56,12 @@
     <Compile Include="Encounter.cs" />
     <Compile Include="FractionClass.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="MonsterDatabase.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortableBindingList.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="XPEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MonsterManual.json" />

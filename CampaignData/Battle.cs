@@ -7,11 +7,31 @@ using System.Threading.Tasks;
 namespace CampaignData
 {
 
-    public class Battle : IComparable<Battle>
+    public class Battle
     {
-        public int CompareTo(Battle comparison)
+        DateTime Began;
+        public SortableBindingList<BattleMonster> monsters;
+        public SortableBindingList<XPEvent> XP;
+        public Battle()
         {
-            return 0;
+            Began = DateTime.Now;
+            monsters = new SortableBindingList<BattleMonster>();
+            XP = new SortableBindingList<XPEvent>();
+        }
+    }
+
+    public class BattleMonster : Monster
+    {
+        public DateTime spawned { get; }
+        private int HPOffset;
+        public int CurrentHP
+        {
+            get => HP.Value + HPOffset;
+            set
+            {
+                HPOffset = value - HP.Value;
+            }
         }
     }
 }
+

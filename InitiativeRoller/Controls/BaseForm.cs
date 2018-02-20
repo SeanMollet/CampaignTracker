@@ -17,9 +17,9 @@ namespace CampaignTracker.Controls
             InitializeComponent();
         }
 
-        private void BaseForm_KeyDown(object sender, KeyEventArgs e)
+        public void BaseForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Escape)
+            if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
             }
