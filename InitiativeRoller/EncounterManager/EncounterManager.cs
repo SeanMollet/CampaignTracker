@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,16 +67,79 @@ namespace CampaignTracker
             viewer.Show();
 
         }
-
+        
         private void ImportButton_Click(object sender, EventArgs e)
         {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Ecounter Files (*.cten)|*.cten|All Files(*.*)|*.*";
+            open.FilterIndex = 0;
+            open.AddExtension = true;
+            open.DefaultExt = "cten";
 
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    bool? replace = null;
+
+                    var data = File.ReadAllText(open.FileName);
+                    var encounters = Newtonsoft.Json.JsonConvert.DeserializeObject<SortableBindingList<Encounter>>(data);
+                    foreach (var encounter in encounters)
+                    {
+                        if (Program.db.database.Encounters.IndexOf(encounter) > -1)
+                        {
+                            if (!replace.HasValue)
+                            {
+                                if (MessageBox.Show("Overwrite existing with same name?", "Replace monsters?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                {
+                                    replace = true;
+                                }
+                                else
+                                {
+                                    replace = false;
+                                }
+                            }
+                            if (replace.HasValue && (bool)replace)
+                            {
+                                Program.db.database.Encounters.RemoveAt(Program.db.database.Encounters.IndexOf(encounter));
+                                Program.db.database.Encounters.Add(encounter.Clone());
+                            }
+                        }
+                        else
+                        {
+                            Program.db.database.Encounters.Add(encounter.Clone());
+                        }
+                    }
+                }
+                catch (Exception E)
+                {
+                    MessageBox.Show(E.ToString(), "Error loading file");
+                }
+            }
         }
 
         private void ExportButton_Click(object sender, EventArgs e)
         {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Ecounter Files (*.cten)|*.cten|All Files(*.*)|*.*";
+            save.FilterIndex = 0;
+            save.AddExtension = true;
+            save.DefaultExt = "cten";
 
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var encounterjson = Newtonsoft.Json.JsonConvert.SerializeObject(Program.db.database.Encounters, Newtonsoft.Json.Formatting.Indented);
+                    File.WriteAllText(save.FileName, encounterjson);
+                }
+                catch (Exception E)
+                {
+                    MessageBox.Show(E.ToString(), "Error loading file");
+                }
+            }
         }
+
 
         private void EncounterList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -113,7 +177,9 @@ namespace CampaignTracker
                     {
                         
                         var encounterview = (Encounter)row.DataBoundItem;
-                        Battle battle = new Battle(encounterview.monsters);
+                        Battle battle = new Battle(Program.db.database.Session, Program.db.database.Battles.Count + 1,encounterview.monsters);
+                        Program.db.database.Battles.Add(battle);
+
                         BattleViewer viewer = new BattleViewer(battle);
                         viewer.Show();
                     }

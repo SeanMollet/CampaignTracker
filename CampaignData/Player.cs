@@ -29,8 +29,12 @@ namespace CampaignData
         private bool advantage;
         private bool dead;
         private bool stable;
+        private string race;
+        private string char_class;
 
         public string Name { get => name; set { if (name != value) { name = value; NotifyPropertyChanged(); } } }
+        public string Race { get => race; set { if (race != value) { race = value; NotifyPropertyChanged(); } } }
+        public string Class { get => char_class; set { if (char_class != value) { char_class = value; NotifyPropertyChanged(); } } }
         public int Initiative { get => initiative; set { if (initiative != value) { initiative = value; NotifyPropertyChanged(); } } }
         public int AC { get => ac; set { if (ac != value) { ac = value; NotifyPropertyChanged(); } } }
         public int CurrentHP
@@ -60,7 +64,7 @@ namespace CampaignData
         public int MaxHP { get => maxHP; set { if (maxHP != value) { maxHP = value; NotifyPropertyChanged(); } } }
         public int Roll { get => roll; set { if (roll != value) { roll = value; NotifyPropertyChanged(); } } }
         public bool Adv { get => advantage; set { if (advantage != value) { advantage = value; NotifyPropertyChanged(); } } }
-        public bool Dead  { get => dead; set { if (dead != value) { dead = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }
+        public bool Dead { get => dead; set { if (dead != value) { dead = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }
         public bool Stable { get => stable; set { if (stable != value) { stable = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }
         public string Appearance
         {
@@ -70,11 +74,11 @@ namespace CampaignData
                 {
                     return "Dead";
                 }
-                if(CurrentHP <= 0 && Stable)
+                if (CurrentHP <= 0 && Stable)
                 {
                     return "Stable";
                 }
-                if(CurrentHP <= 0)
+                if (CurrentHP <= 0)
                 {
                     return "Unconscious";
                 }

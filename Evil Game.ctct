@@ -1,0 +1,3254 @@
+{
+  "Battles": [
+    {
+      "Began": "2018-02-21T16:00:57.7486394-06:00",
+      "LiveMonsters": 0,
+      "EarnedXP": 17450,
+      "monsters": [
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 1,
+          "CurrentHP": -1,
+          "MaxHP": 135,
+          "HPtoChange": 20,
+          "Persuaded": false,
+          "XPGiven": 5900,
+          "Appearance": "Dead",
+          "Name": "Aboleth",
+          "Source": "Monster Manual",
+          "Type": "Large aberration, lawful evil",
+          "HP": {
+            "Value": 135,
+            "HitDiceCount": 18,
+            "HitDice": 10,
+            "HitModifier": 36,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 17,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "10 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 21,
+            "Dex": 9,
+            "Con": 15,
+            "Int": 18,
+            "Wis": 15,
+            "Cha": 18
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Con",
+              "Modifier": 6
+            },
+            {
+              "Name": "Int",
+              "Modifier": 8
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "History",
+              "Modifier": 12
+            },
+            {
+              "Name": "Perception",
+              "Modifier": 10
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Deep Speech"
+            },
+            {
+              "Value": "telepathy 120 ft."
+            }
+          ],
+          "Challenge": {
+            "Numerator": 10,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The aboleth can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Mucous Cloud",
+              "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+              "Usage": ""
+            },
+            {
+              "Name": "Probing Telepathy",
+              "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The aboleth makes three tentacle attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tentacle",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Enslave (3/day)",
+              "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The aboleth makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Swipe",
+              "Content": "The aboleth makes one tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Psychic Drain (Costs 2 Actions)",
+              "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 2,
+          "CurrentHP": -1,
+          "MaxHP": 9,
+          "HPtoChange": 10,
+          "Persuaded": false,
+          "XPGiven": 50,
+          "Appearance": "Dead",
+          "Name": "Acolyte",
+          "Source": "Monster Manual",
+          "Type": "Medium humanoid (any race), any alignment",
+          "HP": {
+            "Value": 9,
+            "HitDiceCount": 2,
+            "HitDice": 8,
+            "HitModifier": 0,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 10,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "30 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 10,
+            "Dex": 10,
+            "Con": 10,
+            "Int": 10,
+            "Wis": 14,
+            "Cha": 11
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [],
+          "Skills": [
+            {
+              "Name": "Medicine",
+              "Modifier": 4
+            },
+            {
+              "Name": "Religion",
+              "Modifier": 2
+            }
+          ],
+          "Senses": [],
+          "Languages": [
+            {
+              "Value": "any one language (usually Common)"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 1,
+            "Denominator": 4
+          },
+          "Traits": [
+            {
+              "Name": "Spellcasting",
+              "Content": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: \n\n• Cantrips (at will): light, sacred flame, thaumaturgy\n• 1st level (3 slots): bless, cure wounds, sanctuary",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Club",
+              "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 3,
+          "CurrentHP": -1,
+          "MaxHP": 195,
+          "HPtoChange": 30,
+          "Persuaded": false,
+          "XPGiven": 11500,
+          "Appearance": "Dead",
+          "Name": "Adult Black Dragon",
+          "Source": "Monster Manual",
+          "Type": "Huge dragon, chaotic evil",
+          "HP": {
+            "Value": 195,
+            "HitDiceCount": 17,
+            "HitDice": 12,
+            "HitModifier": 85,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 19,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "40 ft."
+            },
+            {
+              "Value": "fly 80 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 23,
+            "Dex": 14,
+            "Con": 21,
+            "Int": 14,
+            "Wis": 13,
+            "Cha": 17
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [
+            {
+              "Value": "acid"
+            }
+          ],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Dex",
+              "Modifier": 7
+            },
+            {
+              "Name": "Con",
+              "Modifier": 10
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            },
+            {
+              "Name": "Cha",
+              "Modifier": 8
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "Perception",
+              "Modifier": 11
+            },
+            {
+              "Name": "Stealth",
+              "Modifier": 7
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "blindsight 60 ft."
+            },
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Common"
+            },
+            {
+              "Value": "Draconic"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 14,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The dragon can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Legendary Resistance (3/Day)",
+              "Content": "If the dragon fails a saving throw, it can choose to succeed instead.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.",
+              "Usage": ""
+            },
+            {
+              "Name": "Bite",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 17 (2d10 + 6) piercing damage plus 4 (1d8) acid damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Claw",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 15 ft., one target. Hit: 15 (2d8 + 6) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Frightful Presence",
+              "Content": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.",
+              "Usage": ""
+            },
+            {
+              "Name": "Acid Breath (Recharge 5-6)",
+              "Content": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The dragon makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Attack",
+              "Content": "The dragon makes a tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Wing Attack (Costs 2 Actions)",
+              "Content": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        }
+      ],
+      "XP": [
+        {
+          "Timestamp": "2018-02-21T16:01:25.8868396-06:00",
+          "Session": 1,
+          "Battle": 1,
+          "Event": "Aboleth 1 Killed",
+          "XP": 5900
+        },
+        {
+          "Timestamp": "2018-02-21T16:01:32.1258396-06:00",
+          "Session": 1,
+          "Battle": 1,
+          "Event": "Acolyte 2 Killed",
+          "XP": 50
+        },
+        {
+          "Timestamp": "2018-02-21T16:01:42.7321396-06:00",
+          "Session": 1,
+          "Battle": 1,
+          "Event": "Adult Black Dragon 3 Killed",
+          "XP": 11500
+        }
+      ],
+      "BattleNumber": 1,
+      "Session": 1
+    },
+    {
+      "Began": "2018-02-21T16:01:50.9523721-06:00",
+      "LiveMonsters": 0,
+      "EarnedXP": 0,
+      "monsters": [],
+      "XP": [],
+      "BattleNumber": 2,
+      "Session": 1
+    },
+    {
+      "Began": "2018-02-21T16:01:56.2559981-06:00",
+      "LiveMonsters": 0,
+      "EarnedXP": 19250,
+      "monsters": [
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 1,
+          "CurrentHP": -1,
+          "MaxHP": 135,
+          "HPtoChange": 20,
+          "Persuaded": false,
+          "XPGiven": 5900,
+          "Appearance": "Dead",
+          "Name": "Aboleth",
+          "Source": "Monster Manual",
+          "Type": "Large aberration, lawful evil",
+          "HP": {
+            "Value": 135,
+            "HitDiceCount": 18,
+            "HitDice": 10,
+            "HitModifier": 36,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 17,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "10 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 21,
+            "Dex": 9,
+            "Con": 15,
+            "Int": 18,
+            "Wis": 15,
+            "Cha": 18
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Con",
+              "Modifier": 6
+            },
+            {
+              "Name": "Int",
+              "Modifier": 8
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "History",
+              "Modifier": 12
+            },
+            {
+              "Name": "Perception",
+              "Modifier": 10
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Deep Speech"
+            },
+            {
+              "Value": "telepathy 120 ft."
+            }
+          ],
+          "Challenge": {
+            "Numerator": 10,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The aboleth can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Mucous Cloud",
+              "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+              "Usage": ""
+            },
+            {
+              "Name": "Probing Telepathy",
+              "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The aboleth makes three tentacle attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tentacle",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Enslave (3/day)",
+              "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The aboleth makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Swipe",
+              "Content": "The aboleth makes one tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Psychic Drain (Costs 2 Actions)",
+              "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 2,
+          "CurrentHP": -1,
+          "MaxHP": 9,
+          "HPtoChange": 5,
+          "Persuaded": false,
+          "XPGiven": 50,
+          "Appearance": "Dead",
+          "Name": "Acolyte",
+          "Source": "Monster Manual",
+          "Type": "Medium humanoid (any race), any alignment",
+          "HP": {
+            "Value": 9,
+            "HitDiceCount": 2,
+            "HitDice": 8,
+            "HitModifier": 0,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 10,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "30 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 10,
+            "Dex": 10,
+            "Con": 10,
+            "Int": 10,
+            "Wis": 14,
+            "Cha": 11
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [],
+          "Skills": [
+            {
+              "Name": "Medicine",
+              "Modifier": 4
+            },
+            {
+              "Name": "Religion",
+              "Modifier": 2
+            }
+          ],
+          "Senses": [],
+          "Languages": [
+            {
+              "Value": "any one language (usually Common)"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 1,
+            "Denominator": 4
+          },
+          "Traits": [
+            {
+              "Name": "Spellcasting",
+              "Content": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: \n\n• Cantrips (at will): light, sacred flame, thaumaturgy\n• 1st level (3 slots): bless, cure wounds, sanctuary",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Club",
+              "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 3,
+          "CurrentHP": -1,
+          "MaxHP": 195,
+          "HPtoChange": 50,
+          "Persuaded": false,
+          "XPGiven": 11500,
+          "Appearance": "Dead",
+          "Name": "Adult Black Dragon",
+          "Source": "Monster Manual",
+          "Type": "Huge dragon, chaotic evil",
+          "HP": {
+            "Value": 195,
+            "HitDiceCount": 17,
+            "HitDice": 12,
+            "HitModifier": 85,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 19,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "40 ft."
+            },
+            {
+              "Value": "fly 80 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 23,
+            "Dex": 14,
+            "Con": 21,
+            "Int": 14,
+            "Wis": 13,
+            "Cha": 17
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [
+            {
+              "Value": "acid"
+            }
+          ],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Dex",
+              "Modifier": 7
+            },
+            {
+              "Name": "Con",
+              "Modifier": 10
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            },
+            {
+              "Name": "Cha",
+              "Modifier": 8
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "Perception",
+              "Modifier": 11
+            },
+            {
+              "Name": "Stealth",
+              "Modifier": 7
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "blindsight 60 ft."
+            },
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Common"
+            },
+            {
+              "Value": "Draconic"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 14,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The dragon can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Legendary Resistance (3/Day)",
+              "Content": "If the dragon fails a saving throw, it can choose to succeed instead.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.",
+              "Usage": ""
+            },
+            {
+              "Name": "Bite",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 17 (2d10 + 6) piercing damage plus 4 (1d8) acid damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Claw",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 15 ft., one target. Hit: 15 (2d8 + 6) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Frightful Presence",
+              "Content": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.",
+              "Usage": ""
+            },
+            {
+              "Name": "Acid Breath (Recharge 5-6)",
+              "Content": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The dragon makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Attack",
+              "Content": "The dragon makes a tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Wing Attack (Costs 2 Actions)",
+              "Content": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 4,
+          "CurrentHP": -1,
+          "MaxHP": 90,
+          "HPtoChange": 20,
+          "Persuaded": false,
+          "XPGiven": 1800,
+          "Appearance": "Dead",
+          "Name": "Air Elemental",
+          "Source": "Monster Manual",
+          "Type": "Large elemental, neutral",
+          "HP": {
+            "Value": 90,
+            "HitDiceCount": 12,
+            "HitDice": 10,
+            "HitModifier": 24,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 15,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "fly 90 ft. (hover)"
+            }
+          ],
+          "Abilities": {
+            "Str": 14,
+            "Dex": 20,
+            "Con": 14,
+            "Int": 6,
+            "Wis": 10,
+            "Cha": 6
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [
+            {
+              "Value": "lightning"
+            },
+            {
+              "Value": "thunder"
+            },
+            {
+              "Value": "bludgeoning"
+            },
+            {
+              "Value": "piercing"
+            },
+            {
+              "Value": "and slashing from nonmagical weapons"
+            }
+          ],
+          "DamageImmunities": [
+            {
+              "Value": "poison"
+            }
+          ],
+          "ConditionImmunities": [
+            {
+              "Value": "exhaustion"
+            },
+            {
+              "Value": "grappled"
+            },
+            {
+              "Value": "paralyzed"
+            },
+            {
+              "Value": "petrified"
+            },
+            {
+              "Value": "poisoned"
+            },
+            {
+              "Value": "prone"
+            },
+            {
+              "Value": "restrained"
+            },
+            {
+              "Value": "unconscious"
+            }
+          ],
+          "Saves": [],
+          "Skills": [],
+          "Senses": [
+            {
+              "Value": "darkvision 60 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Auran"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 5,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Air Form",
+              "Content": "The elemental can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The elemental makes two slam attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Slam",
+              "Content": "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Whirlwind (Recharge 4-6)",
+              "Content": "Each creature in the elemental's space must make a DC 13 Strength saving throw. On a failure, a target takes 15 (3d8 + 2) bludgeoning damage and is flung up 20 feet away from the elemental in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 3 (1d6) bludgeoning damage for every 10 feet it was thrown. If the target is thrown at another creature, that creature must succeed on a DC 13 Dexterity saving throw or take the same damage and be knocked prone.\nIf the saving throw is successful, the target takes half the bludgeoning damage and isn't flung away or knocked prone.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        }
+      ],
+      "XP": [
+        {
+          "Timestamp": "2018-02-21T16:02:10.2950081-06:00",
+          "Session": 1,
+          "Battle": 3,
+          "Event": "Aboleth 1 Killed",
+          "XP": 5900
+        },
+        {
+          "Timestamp": "2018-02-21T16:02:24.4432104-06:00",
+          "Session": 1,
+          "Battle": 3,
+          "Event": "Acolyte 2 Killed",
+          "XP": 50
+        },
+        {
+          "Timestamp": "2018-02-21T16:02:29.1384793-06:00",
+          "Session": 1,
+          "Battle": 3,
+          "Event": "Adult Black Dragon 3 Killed",
+          "XP": 11500
+        },
+        {
+          "Timestamp": "2018-02-21T16:02:34.5980943-06:00",
+          "Session": 1,
+          "Battle": 3,
+          "Event": "Air Elemental 4 Killed",
+          "XP": 1800
+        }
+      ],
+      "BattleNumber": 3,
+      "Session": 1
+    },
+    {
+      "Began": "2018-02-21T16:02:39.3869566-06:00",
+      "LiveMonsters": 2,
+      "EarnedXP": 5950,
+      "monsters": [
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 1,
+          "CurrentHP": 135,
+          "MaxHP": 135,
+          "HPtoChange": 0,
+          "Persuaded": true,
+          "XPGiven": 5900,
+          "Appearance": "Persuaded",
+          "Name": "Aboleth",
+          "Source": "Monster Manual",
+          "Type": "Large aberration, lawful evil",
+          "HP": {
+            "Value": 135,
+            "HitDiceCount": 18,
+            "HitDice": 10,
+            "HitModifier": 36,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 17,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "10 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 21,
+            "Dex": 9,
+            "Con": 15,
+            "Int": 18,
+            "Wis": 15,
+            "Cha": 18
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Con",
+              "Modifier": 6
+            },
+            {
+              "Name": "Int",
+              "Modifier": 8
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "History",
+              "Modifier": 12
+            },
+            {
+              "Name": "Perception",
+              "Modifier": 10
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Deep Speech"
+            },
+            {
+              "Value": "telepathy 120 ft."
+            }
+          ],
+          "Challenge": {
+            "Numerator": 10,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The aboleth can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Mucous Cloud",
+              "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+              "Usage": ""
+            },
+            {
+              "Name": "Probing Telepathy",
+              "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The aboleth makes three tentacle attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tentacle",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Enslave (3/day)",
+              "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The aboleth makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Swipe",
+              "Content": "The aboleth makes one tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Psychic Drain (Costs 2 Actions)",
+              "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 2,
+          "CurrentHP": 9,
+          "MaxHP": 9,
+          "HPtoChange": 0,
+          "Persuaded": true,
+          "XPGiven": 50,
+          "Appearance": "Persuaded",
+          "Name": "Acolyte",
+          "Source": "Monster Manual",
+          "Type": "Medium humanoid (any race), any alignment",
+          "HP": {
+            "Value": 9,
+            "HitDiceCount": 2,
+            "HitDice": 8,
+            "HitModifier": 0,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 10,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "30 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 10,
+            "Dex": 10,
+            "Con": 10,
+            "Int": 10,
+            "Wis": 14,
+            "Cha": 11
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [],
+          "Skills": [
+            {
+              "Name": "Medicine",
+              "Modifier": 4
+            },
+            {
+              "Name": "Religion",
+              "Modifier": 2
+            }
+          ],
+          "Senses": [],
+          "Languages": [
+            {
+              "Value": "any one language (usually Common)"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 1,
+            "Denominator": 4
+          },
+          "Traits": [
+            {
+              "Name": "Spellcasting",
+              "Content": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: \n\n• Cantrips (at will): light, sacred flame, thaumaturgy\n• 1st level (3 slots): bless, cure wounds, sanctuary",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Club",
+              "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        }
+      ],
+      "XP": [
+        {
+          "Timestamp": "2018-02-21T16:02:40.8532532-06:00",
+          "Session": 1,
+          "Battle": 4,
+          "Event": "Aboleth 1 Granted",
+          "XP": 5900
+        },
+        {
+          "Timestamp": "2018-02-21T16:02:41.4928081-06:00",
+          "Session": 1,
+          "Battle": 4,
+          "Event": "Acolyte 2 Granted",
+          "XP": 50
+        }
+      ],
+      "BattleNumber": 4,
+      "Session": 1
+    },
+    {
+      "Began": "2018-02-21T16:50:27.4836515-06:00",
+      "LiveMonsters": 0,
+      "EarnedXP": 17450,
+      "monsters": [
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 1,
+          "CurrentHP": -1,
+          "MaxHP": 135,
+          "HPtoChange": 20,
+          "Persuaded": false,
+          "XPGiven": 5900,
+          "Appearance": "Dead",
+          "Name": "Aboleth",
+          "Source": "Monster Manual",
+          "Type": "Large aberration, lawful evil",
+          "HP": {
+            "Value": 135,
+            "HitDiceCount": 18,
+            "HitDice": 10,
+            "HitModifier": 36,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 17,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "10 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 21,
+            "Dex": 9,
+            "Con": 15,
+            "Int": 18,
+            "Wis": 15,
+            "Cha": 18
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Con",
+              "Modifier": 6
+            },
+            {
+              "Name": "Int",
+              "Modifier": 8
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "History",
+              "Modifier": 12
+            },
+            {
+              "Name": "Perception",
+              "Modifier": 10
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Deep Speech"
+            },
+            {
+              "Value": "telepathy 120 ft."
+            }
+          ],
+          "Challenge": {
+            "Numerator": 10,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The aboleth can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Mucous Cloud",
+              "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+              "Usage": ""
+            },
+            {
+              "Name": "Probing Telepathy",
+              "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The aboleth makes three tentacle attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tentacle",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Enslave (3/day)",
+              "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The aboleth makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Swipe",
+              "Content": "The aboleth makes one tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Psychic Drain (Costs 2 Actions)",
+              "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 2,
+          "CurrentHP": -1,
+          "MaxHP": 9,
+          "HPtoChange": 20,
+          "Persuaded": false,
+          "XPGiven": 50,
+          "Appearance": "Dead",
+          "Name": "Acolyte",
+          "Source": "Monster Manual",
+          "Type": "Medium humanoid (any race), any alignment",
+          "HP": {
+            "Value": 9,
+            "HitDiceCount": 2,
+            "HitDice": 8,
+            "HitModifier": 0,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 10,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "30 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 10,
+            "Dex": 10,
+            "Con": 10,
+            "Int": 10,
+            "Wis": 14,
+            "Cha": 11
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [],
+          "Skills": [
+            {
+              "Name": "Medicine",
+              "Modifier": 4
+            },
+            {
+              "Name": "Religion",
+              "Modifier": 2
+            }
+          ],
+          "Senses": [],
+          "Languages": [
+            {
+              "Value": "any one language (usually Common)"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 1,
+            "Denominator": 4
+          },
+          "Traits": [
+            {
+              "Name": "Spellcasting",
+              "Content": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: \n\n• Cantrips (at will): light, sacred flame, thaumaturgy\n• 1st level (3 slots): bless, cure wounds, sanctuary",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Club",
+              "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 3,
+          "CurrentHP": -1,
+          "MaxHP": 195,
+          "HPtoChange": 50,
+          "Persuaded": false,
+          "XPGiven": 11500,
+          "Appearance": "Dead",
+          "Name": "Adult Black Dragon",
+          "Source": "Monster Manual",
+          "Type": "Huge dragon, chaotic evil",
+          "HP": {
+            "Value": 195,
+            "HitDiceCount": 17,
+            "HitDice": 12,
+            "HitModifier": 85,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 19,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "40 ft."
+            },
+            {
+              "Value": "fly 80 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 23,
+            "Dex": 14,
+            "Con": 21,
+            "Int": 14,
+            "Wis": 13,
+            "Cha": 17
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [
+            {
+              "Value": "acid"
+            }
+          ],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Dex",
+              "Modifier": 7
+            },
+            {
+              "Name": "Con",
+              "Modifier": 10
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            },
+            {
+              "Name": "Cha",
+              "Modifier": 8
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "Perception",
+              "Modifier": 11
+            },
+            {
+              "Name": "Stealth",
+              "Modifier": 7
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "blindsight 60 ft."
+            },
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Common"
+            },
+            {
+              "Value": "Draconic"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 14,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The dragon can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Legendary Resistance (3/Day)",
+              "Content": "If the dragon fails a saving throw, it can choose to succeed instead.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.",
+              "Usage": ""
+            },
+            {
+              "Name": "Bite",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 17 (2d10 + 6) piercing damage plus 4 (1d8) acid damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Claw",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 15 ft., one target. Hit: 15 (2d8 + 6) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Frightful Presence",
+              "Content": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.",
+              "Usage": ""
+            },
+            {
+              "Name": "Acid Breath (Recharge 5-6)",
+              "Content": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The dragon makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Attack",
+              "Content": "The dragon makes a tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Wing Attack (Costs 2 Actions)",
+              "Content": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        }
+      ],
+      "XP": [
+        {
+          "Timestamp": "2018-02-21T16:50:35.1123449-06:00",
+          "Session": 2,
+          "Battle": 5,
+          "Event": "Aboleth 1 Killed",
+          "XP": 5900
+        },
+        {
+          "Timestamp": "2018-02-21T16:50:38.2168643-06:00",
+          "Session": 2,
+          "Battle": 5,
+          "Event": "Acolyte 2 Killed",
+          "XP": 50
+        },
+        {
+          "Timestamp": "2018-02-21T16:50:43.4274647-06:00",
+          "Session": 2,
+          "Battle": 5,
+          "Event": "Adult Black Dragon 3 Killed",
+          "XP": 11500
+        }
+      ],
+      "BattleNumber": 5,
+      "Session": 2
+    },
+    {
+      "Began": "2018-02-21T16:50:50.5412599-06:00",
+      "LiveMonsters": 0,
+      "EarnedXP": 5950,
+      "monsters": [
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 1,
+          "CurrentHP": -1,
+          "MaxHP": 135,
+          "HPtoChange": 40,
+          "Persuaded": false,
+          "XPGiven": 5900,
+          "Appearance": "Dead",
+          "Name": "Aboleth",
+          "Source": "Monster Manual",
+          "Type": "Large aberration, lawful evil",
+          "HP": {
+            "Value": 135,
+            "HitDiceCount": 18,
+            "HitDice": 10,
+            "HitModifier": 36,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 17,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "10 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 21,
+            "Dex": 9,
+            "Con": 15,
+            "Int": 18,
+            "Wis": 15,
+            "Cha": 18
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Con",
+              "Modifier": 6
+            },
+            {
+              "Name": "Int",
+              "Modifier": 8
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "History",
+              "Modifier": 12
+            },
+            {
+              "Name": "Perception",
+              "Modifier": 10
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Deep Speech"
+            },
+            {
+              "Value": "telepathy 120 ft."
+            }
+          ],
+          "Challenge": {
+            "Numerator": 10,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The aboleth can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Mucous Cloud",
+              "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+              "Usage": ""
+            },
+            {
+              "Name": "Probing Telepathy",
+              "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The aboleth makes three tentacle attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tentacle",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Enslave (3/day)",
+              "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The aboleth makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Swipe",
+              "Content": "The aboleth makes one tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Psychic Drain (Costs 2 Actions)",
+              "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "spawned": "0001-01-01T00:00:00",
+          "Index": 2,
+          "CurrentHP": -1,
+          "MaxHP": 9,
+          "HPtoChange": 2,
+          "Persuaded": false,
+          "XPGiven": 50,
+          "Appearance": "Dead",
+          "Name": "Acolyte",
+          "Source": "Monster Manual",
+          "Type": "Medium humanoid (any race), any alignment",
+          "HP": {
+            "Value": 9,
+            "HitDiceCount": 2,
+            "HitDice": 8,
+            "HitModifier": 0,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 10,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "30 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 10,
+            "Dex": 10,
+            "Con": 10,
+            "Int": 10,
+            "Wis": 14,
+            "Cha": 11
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [],
+          "Skills": [
+            {
+              "Name": "Medicine",
+              "Modifier": 4
+            },
+            {
+              "Name": "Religion",
+              "Modifier": 2
+            }
+          ],
+          "Senses": [],
+          "Languages": [
+            {
+              "Value": "any one language (usually Common)"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 1,
+            "Denominator": 4
+          },
+          "Traits": [
+            {
+              "Name": "Spellcasting",
+              "Content": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: \n\n• Cantrips (at will): light, sacred flame, thaumaturgy\n• 1st level (3 slots): bless, cure wounds, sanctuary",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Club",
+              "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        }
+      ],
+      "XP": [
+        {
+          "Timestamp": "2018-02-21T16:50:57.4677487-06:00",
+          "Session": 2,
+          "Battle": 6,
+          "Event": "Aboleth 1 Killed",
+          "XP": 5900
+        },
+        {
+          "Timestamp": "2018-02-21T16:51:03.6454279-06:00",
+          "Session": 2,
+          "Battle": 6,
+          "Event": "Acolyte 2 Killed",
+          "XP": 50
+        }
+      ],
+      "BattleNumber": 6,
+      "Session": 2
+    }
+  ],
+  "Encounters": [
+    {
+      "Name": "New Encounter",
+      "Challenge": {
+        "Numerator": 41,
+        "Denominator": 4
+      },
+      "Description": null,
+      "monsters": [
+        {
+          "Name": "Aboleth",
+          "Source": "Monster Manual",
+          "Type": "Large aberration, lawful evil",
+          "HP": {
+            "Value": 135,
+            "HitDiceCount": 18,
+            "HitDice": 10,
+            "HitModifier": 36,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 17,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "10 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 21,
+            "Dex": 9,
+            "Con": 15,
+            "Int": 18,
+            "Wis": 15,
+            "Cha": 18
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Con",
+              "Modifier": 6
+            },
+            {
+              "Name": "Int",
+              "Modifier": 8
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "History",
+              "Modifier": 12
+            },
+            {
+              "Name": "Perception",
+              "Modifier": 10
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Deep Speech"
+            },
+            {
+              "Value": "telepathy 120 ft."
+            }
+          ],
+          "Challenge": {
+            "Numerator": 10,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The aboleth can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Mucous Cloud",
+              "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+              "Usage": ""
+            },
+            {
+              "Name": "Probing Telepathy",
+              "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The aboleth makes three tentacle attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tentacle",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Enslave (3/day)",
+              "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The aboleth makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Swipe",
+              "Content": "The aboleth makes one tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Psychic Drain (Costs 2 Actions)",
+              "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "Name": "Acolyte",
+          "Source": "Monster Manual",
+          "Type": "Medium humanoid (any race), any alignment",
+          "HP": {
+            "Value": 9,
+            "HitDiceCount": 2,
+            "HitDice": 8,
+            "HitModifier": 0,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 10,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "30 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 10,
+            "Dex": 10,
+            "Con": 10,
+            "Int": 10,
+            "Wis": 14,
+            "Cha": 11
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [],
+          "Skills": [
+            {
+              "Name": "Medicine",
+              "Modifier": 4
+            },
+            {
+              "Name": "Religion",
+              "Modifier": 2
+            }
+          ],
+          "Senses": [],
+          "Languages": [
+            {
+              "Value": "any one language (usually Common)"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 1,
+            "Denominator": 4
+          },
+          "Traits": [
+            {
+              "Name": "Spellcasting",
+              "Content": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: \n\n• Cantrips (at will): light, sacred flame, thaumaturgy\n• 1st level (3 slots): bless, cure wounds, sanctuary",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Club",
+              "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        }
+      ]
+    },
+    {
+      "Name": "New Encounter2",
+      "Challenge": {
+        "Numerator": 97,
+        "Denominator": 4
+      },
+      "Description": null,
+      "monsters": [
+        {
+          "Name": "Aboleth",
+          "Source": "Monster Manual",
+          "Type": "Large aberration, lawful evil",
+          "HP": {
+            "Value": 135,
+            "HitDiceCount": 18,
+            "HitDice": 10,
+            "HitModifier": 36,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 17,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "10 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 21,
+            "Dex": 9,
+            "Con": 15,
+            "Int": 18,
+            "Wis": 15,
+            "Cha": 18
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Con",
+              "Modifier": 6
+            },
+            {
+              "Name": "Int",
+              "Modifier": 8
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "History",
+              "Modifier": 12
+            },
+            {
+              "Name": "Perception",
+              "Modifier": 10
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Deep Speech"
+            },
+            {
+              "Value": "telepathy 120 ft."
+            }
+          ],
+          "Challenge": {
+            "Numerator": 10,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The aboleth can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Mucous Cloud",
+              "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+              "Usage": ""
+            },
+            {
+              "Name": "Probing Telepathy",
+              "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The aboleth makes three tentacle attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tentacle",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Enslave (3/day)",
+              "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The aboleth makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Swipe",
+              "Content": "The aboleth makes one tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Psychic Drain (Costs 2 Actions)",
+              "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "Name": "Acolyte",
+          "Source": "Monster Manual",
+          "Type": "Medium humanoid (any race), any alignment",
+          "HP": {
+            "Value": 9,
+            "HitDiceCount": 2,
+            "HitDice": 8,
+            "HitModifier": 0,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 10,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "30 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 10,
+            "Dex": 10,
+            "Con": 10,
+            "Int": 10,
+            "Wis": 14,
+            "Cha": 11
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [],
+          "Skills": [
+            {
+              "Name": "Medicine",
+              "Modifier": 4
+            },
+            {
+              "Name": "Religion",
+              "Modifier": 2
+            }
+          ],
+          "Senses": [],
+          "Languages": [
+            {
+              "Value": "any one language (usually Common)"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 1,
+            "Denominator": 4
+          },
+          "Traits": [
+            {
+              "Name": "Spellcasting",
+              "Content": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: \n\n• Cantrips (at will): light, sacred flame, thaumaturgy\n• 1st level (3 slots): bless, cure wounds, sanctuary",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Club",
+              "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        },
+        {
+          "Name": "Adult Black Dragon",
+          "Source": "Monster Manual",
+          "Type": "Huge dragon, chaotic evil",
+          "HP": {
+            "Value": 195,
+            "HitDiceCount": 17,
+            "HitDice": 12,
+            "HitModifier": 85,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 19,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "40 ft."
+            },
+            {
+              "Value": "fly 80 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 23,
+            "Dex": 14,
+            "Con": 21,
+            "Int": 14,
+            "Wis": 13,
+            "Cha": 17
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [
+            {
+              "Value": "acid"
+            }
+          ],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Dex",
+              "Modifier": 7
+            },
+            {
+              "Name": "Con",
+              "Modifier": 10
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            },
+            {
+              "Name": "Cha",
+              "Modifier": 8
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "Perception",
+              "Modifier": 11
+            },
+            {
+              "Name": "Stealth",
+              "Modifier": 7
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "blindsight 60 ft."
+            },
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Common"
+            },
+            {
+              "Value": "Draconic"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 14,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The dragon can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Legendary Resistance (3/Day)",
+              "Content": "If the dragon fails a saving throw, it can choose to succeed instead.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.",
+              "Usage": ""
+            },
+            {
+              "Name": "Bite",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 17 (2d10 + 6) piercing damage plus 4 (1d8) acid damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Claw",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 15 ft., one target. Hit: 15 (2d8 + 6) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Frightful Presence",
+              "Content": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.",
+              "Usage": ""
+            },
+            {
+              "Name": "Acid Breath (Recharge 5-6)",
+              "Content": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The dragon makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Attack",
+              "Content": "The dragon makes a tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Wing Attack (Costs 2 Actions)",
+              "Content": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        }
+      ]
+    },
+    {
+      "Name": "New Encounter3",
+      "Challenge": {
+        "Numerator": 117,
+        "Denominator": 4
+      },
+      "Description": null,
+      "monsters": [
+        {
+          "Name": "Aboleth",
+          "Source": "Monster Manual",
+          "Type": "Large aberration, lawful evil",
+          "HP": {
+            "Value": 135,
+            "HitDiceCount": 18,
+            "HitDice": 10,
+            "HitModifier": 36,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 17,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "10 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 21,
+            "Dex": 9,
+            "Con": 15,
+            "Int": 18,
+            "Wis": 15,
+            "Cha": 18
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Con",
+              "Modifier": 6
+            },
+            {
+              "Name": "Int",
+              "Modifier": 8
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "History",
+              "Modifier": 12
+            },
+            {
+              "Name": "Perception",
+              "Modifier": 10
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Deep Speech"
+            },
+            {
+              "Value": "telepathy 120 ft."
+            }
+          ],
+          "Challenge": {
+            "Numerator": 10,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The aboleth can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Mucous Cloud",
+              "Content": "While underwater, the aboleth is surrounded by transformative mucus. A creature that touches the aboleth or that hits it with a melee attack while within 5 ft. of it must make a DC 14 Constitution saving throw. On a failure, the creature is diseased for 1d4 hours. The diseased creature can breathe only underwater.",
+              "Usage": ""
+            },
+            {
+              "Name": "Probing Telepathy",
+              "Content": "If a creature communicates telepathically with the aboleth, the aboleth learns the creature's greatest desires if the aboleth can see the creature.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The aboleth makes three tentacle attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tentacle",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Constitution saving throw or become diseased. The disease has no effect for 1 minute and can be removed by any magic that cures disease. After 1 minute, the diseased creature's skin becomes translucent and slimy, the creature can't regain hit points unless it is underwater, and the disease can be removed only by heal or another disease-curing spell of 6th level or higher. When the creature is outside a body of water, it takes 6 (1d12) acid damage every 10 minutes unless moisture is applied to the skin before 10 minutes have passed.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +9 to hit, reach 10 ft. one target. Hit: 15 (3d6 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Enslave (3/day)",
+              "Content": "The aboleth targets one creature it can see within 30 ft. of it. The target must succeed on a DC 14 Wisdom saving throw or be magically charmed by the aboleth until the aboleth dies or until it is on a different plane of existence from the target. The charmed target is under the aboleth's control and can't take reactions, and the aboleth and the target can communicate telepathically with each other over any distance.\nWhenever the charmed target takes damage, the target can repeat the saving throw. On a success, the effect ends. No more than once every 24 hours, the target can also repeat the saving throw when it is at least 1 mile away from the aboleth.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The aboleth makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Swipe",
+              "Content": "The aboleth makes one tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Psychic Drain (Costs 2 Actions)",
+              "Content": "One creature charmed by the aboleth takes 10 (3d6) psychic damage, and the aboleth regains hit points equal to the damage the creature takes.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "Name": "Acolyte",
+          "Source": "Monster Manual",
+          "Type": "Medium humanoid (any race), any alignment",
+          "HP": {
+            "Value": 9,
+            "HitDiceCount": 2,
+            "HitDice": 8,
+            "HitModifier": 0,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 10,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "30 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 10,
+            "Dex": 10,
+            "Con": 10,
+            "Int": 10,
+            "Wis": 14,
+            "Cha": 11
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [],
+          "ConditionImmunities": [],
+          "Saves": [],
+          "Skills": [
+            {
+              "Name": "Medicine",
+              "Modifier": 4
+            },
+            {
+              "Name": "Religion",
+              "Modifier": 2
+            }
+          ],
+          "Senses": [],
+          "Languages": [
+            {
+              "Value": "any one language (usually Common)"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 1,
+            "Denominator": 4
+          },
+          "Traits": [
+            {
+              "Name": "Spellcasting",
+              "Content": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared: \n\n• Cantrips (at will): light, sacred flame, thaumaturgy\n• 1st level (3 slots): bless, cure wounds, sanctuary",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Club",
+              "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        },
+        {
+          "Name": "Adult Black Dragon",
+          "Source": "Monster Manual",
+          "Type": "Huge dragon, chaotic evil",
+          "HP": {
+            "Value": 195,
+            "HitDiceCount": 17,
+            "HitDice": 12,
+            "HitModifier": 85,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 19,
+            "Notes": "(natural armor)"
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "40 ft."
+            },
+            {
+              "Value": "fly 80 ft."
+            },
+            {
+              "Value": "swim 40 ft."
+            }
+          ],
+          "Abilities": {
+            "Str": 23,
+            "Dex": 14,
+            "Con": 21,
+            "Int": 14,
+            "Wis": 13,
+            "Cha": 17
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [],
+          "DamageImmunities": [
+            {
+              "Value": "acid"
+            }
+          ],
+          "ConditionImmunities": [],
+          "Saves": [
+            {
+              "Name": "Dex",
+              "Modifier": 7
+            },
+            {
+              "Name": "Con",
+              "Modifier": 10
+            },
+            {
+              "Name": "Wis",
+              "Modifier": 6
+            },
+            {
+              "Name": "Cha",
+              "Modifier": 8
+            }
+          ],
+          "Skills": [
+            {
+              "Name": "Perception",
+              "Modifier": 11
+            },
+            {
+              "Name": "Stealth",
+              "Modifier": 7
+            }
+          ],
+          "Senses": [
+            {
+              "Value": "blindsight 60 ft."
+            },
+            {
+              "Value": "darkvision 120 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Common"
+            },
+            {
+              "Value": "Draconic"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 14,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Amphibious",
+              "Content": "The dragon can breathe air and water.",
+              "Usage": ""
+            },
+            {
+              "Name": "Legendary Resistance (3/Day)",
+              "Content": "If the dragon fails a saving throw, it can choose to succeed instead.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.",
+              "Usage": ""
+            },
+            {
+              "Name": "Bite",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 17 (2d10 + 6) piercing damage plus 4 (1d8) acid damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Claw",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail",
+              "Content": "Melee Weapon Attack: +11 to hit, reach 15 ft., one target. Hit: 15 (2d8 + 6) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Frightful Presence",
+              "Content": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.",
+              "Usage": ""
+            },
+            {
+              "Name": "Acid Breath (Recharge 5-6)",
+              "Content": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [
+            {
+              "Name": "Detect",
+              "Content": "The dragon makes a Wisdom (Perception) check.",
+              "Usage": ""
+            },
+            {
+              "Name": "Tail Attack",
+              "Content": "The dragon makes a tail attack.",
+              "Usage": ""
+            },
+            {
+              "Name": "Wing Attack (Costs 2 Actions)",
+              "Content": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.",
+              "Usage": ""
+            }
+          ],
+          "ReadOnly": true
+        },
+        {
+          "Name": "Air Elemental",
+          "Source": "Monster Manual",
+          "Type": "Large elemental, neutral",
+          "HP": {
+            "Value": 90,
+            "HitDiceCount": 12,
+            "HitDice": 10,
+            "HitModifier": 24,
+            "Notes": ""
+          },
+          "AC": {
+            "Value": 15,
+            "Notes": ""
+          },
+          "InitiativeModifier": 0,
+          "Speed": [
+            {
+              "Value": "fly 90 ft. (hover)"
+            }
+          ],
+          "Abilities": {
+            "Str": 14,
+            "Dex": 20,
+            "Con": 14,
+            "Int": 6,
+            "Wis": 10,
+            "Cha": 6
+          },
+          "DamageVulnerabilities": [],
+          "DamageResistances": [
+            {
+              "Value": "lightning"
+            },
+            {
+              "Value": "thunder"
+            },
+            {
+              "Value": "bludgeoning"
+            },
+            {
+              "Value": "piercing"
+            },
+            {
+              "Value": "and slashing from nonmagical weapons"
+            }
+          ],
+          "DamageImmunities": [
+            {
+              "Value": "poison"
+            }
+          ],
+          "ConditionImmunities": [
+            {
+              "Value": "exhaustion"
+            },
+            {
+              "Value": "grappled"
+            },
+            {
+              "Value": "paralyzed"
+            },
+            {
+              "Value": "petrified"
+            },
+            {
+              "Value": "poisoned"
+            },
+            {
+              "Value": "prone"
+            },
+            {
+              "Value": "restrained"
+            },
+            {
+              "Value": "unconscious"
+            }
+          ],
+          "Saves": [],
+          "Skills": [],
+          "Senses": [
+            {
+              "Value": "darkvision 60 ft."
+            }
+          ],
+          "Languages": [
+            {
+              "Value": "Auran"
+            }
+          ],
+          "Challenge": {
+            "Numerator": 5,
+            "Denominator": 1
+          },
+          "Traits": [
+            {
+              "Name": "Air Form",
+              "Content": "The elemental can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.",
+              "Usage": ""
+            }
+          ],
+          "Actions": [
+            {
+              "Name": "Multiattack",
+              "Content": "The elemental makes two slam attacks.",
+              "Usage": ""
+            },
+            {
+              "Name": "Slam",
+              "Content": "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) bludgeoning damage.",
+              "Usage": ""
+            },
+            {
+              "Name": "Whirlwind (Recharge 4-6)",
+              "Content": "Each creature in the elemental's space must make a DC 13 Strength saving throw. On a failure, a target takes 15 (3d8 + 2) bludgeoning damage and is flung up 20 feet away from the elemental in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 3 (1d6) bludgeoning damage for every 10 feet it was thrown. If the target is thrown at another creature, that creature must succeed on a DC 13 Dexterity saving throw or take the same damage and be knocked prone.\nIf the saving throw is successful, the target takes half the bludgeoning damage and isn't flung away or knocked prone.",
+              "Usage": ""
+            }
+          ],
+          "Reactions": [],
+          "LegendaryActions": [],
+          "ReadOnly": true
+        }
+      ]
+    }
+  ],
+  "Players": [
+    {
+      "Name": "Keridi",
+      "Race": "Dwarf",
+      "Class": "Something",
+      "Initiative": 8,
+      "AC": 15,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 23,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Bastion",
+      "Race": "Human",
+      "Class": "Wizard",
+      "Initiative": 4,
+      "AC": 18,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 22,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Eli",
+      "Race": "Elf",
+      "Class": "Cleric",
+      "Initiative": 3,
+      "AC": 14,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 19,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Tanis",
+      "Race": "Orc",
+      "Class": "Barbarian",
+      "Initiative": 11,
+      "AC": 16,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 17,
+      "Adv": true,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Q",
+      "Race": "Human",
+      "Class": "Paladin",
+      "Initiative": 5,
+      "AC": 13,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 15,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Thrakk",
+      "Race": "Human",
+      "Class": "Target",
+      "Initiative": 1,
+      "AC": 16,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 13,
+      "Adv": true,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Zaheed",
+      "Race": "Goblin",
+      "Class": "Sapper",
+      "Initiative": 3,
+      "AC": 14,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 11,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Monsters",
+      "Race": null,
+      "Class": null,
+      "Initiative": 0,
+      "AC": 12,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 11,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Aud",
+      "Race": "Dwarf",
+      "Class": "Barbarian",
+      "Initiative": 1,
+      "AC": 18,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 7,
+      "Adv": true,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    }
+  ],
+  "CustomMonsters": [
+    {
+      "Name": "New Monster",
+      "Source": "User Custom",
+      "Type": "",
+      "HP": {
+        "Value": 0,
+        "HitDiceCount": 0,
+        "HitDice": 0,
+        "HitModifier": 0,
+        "Notes": null
+      },
+      "AC": {
+        "Value": 0,
+        "Notes": null
+      },
+      "InitiativeModifier": 0,
+      "Speed": [],
+      "Abilities": {
+        "Str": 0,
+        "Dex": 0,
+        "Con": 0,
+        "Int": 0,
+        "Wis": 0,
+        "Cha": 0
+      },
+      "DamageVulnerabilities": [],
+      "DamageResistances": [],
+      "DamageImmunities": [],
+      "ConditionImmunities": [],
+      "Saves": [],
+      "Skills": null,
+      "Senses": [],
+      "Languages": [],
+      "Challenge": {
+        "Numerator": 0,
+        "Denominator": 1
+      },
+      "Traits": [],
+      "Actions": [],
+      "Reactions": [],
+      "LegendaryActions": [],
+      "ReadOnly": false
+    },
+    {
+      "Name": "New Monster2",
+      "Source": "User Custom",
+      "Type": "",
+      "HP": {
+        "Value": 0,
+        "HitDiceCount": 0,
+        "HitDice": 0,
+        "HitModifier": 0,
+        "Notes": null
+      },
+      "AC": {
+        "Value": 0,
+        "Notes": null
+      },
+      "InitiativeModifier": 0,
+      "Speed": [],
+      "Abilities": {
+        "Str": 0,
+        "Dex": 0,
+        "Con": 0,
+        "Int": 0,
+        "Wis": 0,
+        "Cha": 0
+      },
+      "DamageVulnerabilities": [],
+      "DamageResistances": [],
+      "DamageImmunities": [],
+      "ConditionImmunities": [],
+      "Saves": [],
+      "Skills": null,
+      "Senses": [],
+      "Languages": [],
+      "Challenge": {
+        "Numerator": 0,
+        "Denominator": 1
+      },
+      "Traits": [],
+      "Actions": [],
+      "Reactions": [],
+      "LegendaryActions": [],
+      "ReadOnly": false
+    },
+    {
+      "Name": "New Monste3",
+      "Source": "User Custom",
+      "Type": "",
+      "HP": {
+        "Value": 0,
+        "HitDiceCount": 0,
+        "HitDice": 0,
+        "HitModifier": 0,
+        "Notes": null
+      },
+      "AC": {
+        "Value": 0,
+        "Notes": null
+      },
+      "InitiativeModifier": 0,
+      "Speed": [],
+      "Abilities": {
+        "Str": 0,
+        "Dex": 0,
+        "Con": 0,
+        "Int": 0,
+        "Wis": 0,
+        "Cha": 0
+      },
+      "DamageVulnerabilities": [],
+      "DamageResistances": [],
+      "DamageImmunities": [],
+      "ConditionImmunities": [],
+      "Saves": [],
+      "Skills": null,
+      "Senses": [],
+      "Languages": [],
+      "Challenge": {
+        "Numerator": 0,
+        "Denominator": 1
+      },
+      "Traits": [],
+      "Actions": [],
+      "Reactions": [],
+      "LegendaryActions": [],
+      "ReadOnly": false
+    }
+  ],
+  "XP": [],
+  "Session": 3
+}

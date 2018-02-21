@@ -97,16 +97,16 @@ namespace CampaignTracker
                         //Check which one clicked us
                         if (Cell.Value.ToString() == "Encounter")
                         {
-                            if (Program.active_encounter != null)
+                            if (Program.Active_encounter != null)
                             {
-                                Program.active_encounter.monsters.Add(monster.Clone());
+                                Program.Active_encounter.monsters.Add(monster.Clone());
                             }
                         }
                         else
                         {
-                            if (Program.active_battle != null)
+                            if (Program.Active_battle != null)
                             {
-                                Program.active_battle.monsters.Add((BattleMonster) monster.Clone());
+                                Program.Active_battle.monsters.Add(BattleMonster.ReadyforBattle(monster));
                             }
                         }
 
@@ -147,10 +147,10 @@ namespace CampaignTracker
         private void ImportMonsters_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Json Files (*.json)|*.json|All Files(*.*)|*.*";
+            open.Filter = "Monster Files (*.ctmo)|*.ctmo|All Files(*.*)|*.*";
             open.FilterIndex = 0;
             open.AddExtension = true;
-            open.DefaultExt = "json";
+            open.DefaultExt = "ctmo";
 
             if(open.ShowDialog() == DialogResult.OK)
             {
@@ -197,10 +197,10 @@ namespace CampaignTracker
         private void ExportMonsters_Click(object sender, EventArgs e)
         {
             SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "Json Files (*.json)|*.json|All Files(*.*)|*.*";
+            save.Filter = "Monster Files (*.ctmo)|*.ctmo|All Files(*.*)|*.*";
             save.FilterIndex = 0;
             save.AddExtension = true;
-            save.DefaultExt = "json";
+            save.DefaultExt = "ctmo";
 
             if (save.ShowDialog() == DialogResult.OK) {
                 try

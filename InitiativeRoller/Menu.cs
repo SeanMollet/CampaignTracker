@@ -39,6 +39,11 @@ namespace CampaignTracker
 
         private void save_Click(object sender, EventArgs e)
         {
+            Save();
+        }
+
+        private void Save()
+        {
             try
             {
                 DialogResult dialogResult = DialogResult.No;
@@ -54,15 +59,16 @@ namespace CampaignTracker
                         break;
                     case DialogResult.No:
                         SaveFileDialog dlg = new SaveFileDialog();
-                        dlg.Filter = "Json Files (*.json)|*.json|All Files(*.*)|*.*";
+                        dlg.Filter = "Campaign Files (*.ctct)|*.ctct|All Files(*.*)|*.*";
                         dlg.FilterIndex = 0;
                         dlg.AddExtension = true;
-                        dlg.DefaultExt = "json";
+                        dlg.DefaultExt = "ctct";
 
                         if (dlg.ShowDialog() == DialogResult.OK)
                         {
                             Program.db.SaveFile(dlg.FileName);
                             Program.dbFile = dlg.FileName;
+                            this.label1.Text = "Main Menu - " + Path.GetFileNameWithoutExtension(dlg.FileName) + " #" + Program.db.database.Session.ToString();
                         }
                         break;
                 }
@@ -76,10 +82,10 @@ namespace CampaignTracker
         private void open_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Json Files (*.json)|*.json|All Files(*.*)|*.*";
+            dlg.Filter = "Campaign Files (*.ctct)|*.ctct|All Files(*.*)|*.*";
             dlg.FilterIndex = 0;
             dlg.AddExtension = true;
-            dlg.DefaultExt = "json";
+            dlg.DefaultExt = "ctct";
             if (dlg.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -89,7 +95,7 @@ namespace CampaignTracker
                     {
                         Program.dbFile = dlg.FileName;
 
-                        this.label1.Text = "Main Menu - " + Path.GetFileNameWithoutExtension(dlg.FileName);
+                        this.label1.Text = "Main Menu - " + Path.GetFileNameWithoutExtension(dlg.FileName) + " #" + Program.db.database.Session.ToString();
 
                         //Rebind any open forms we have to the new database
                         var forms = Application.OpenForms;
@@ -128,6 +134,56 @@ namespace CampaignTracker
         {
             PCBattleView view = new PCBattleView();
             view.Show();
+        }
+
+        private void NewCampaign_click(object sender, EventArgs e)
+        {
+            //If they have any progress, prompt before creating a new game
+            if (Program.db.database != null)
+            {
+                if (Program.db.database.Players.Count > 0 || Program.db.database.Encounters.Count > 0 || Program.db.database.XP.Count > 0 || Program.db.database.Battles.Count > 0)
+                {
+                    if (MessageBox.Show("Are you sure you want to create a new campaign?", "Confirm", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    {
+                        return;
+                    }
+                }
+            }
+            Program.db.NewFile();
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //If they have any progress, prompt before closing
+            if (Program.db.database.Players.Count > 0 || Program.db.database.Encounters.Count > 0 || Program.db.database.XP.Count > 0 || Program.db.database.Battles.Count > 0)
+            {
+                if (MessageBox.Show("Save campaign before closing?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Save();
+                }
+            }
+
+        }
+
+        private void Battle_click(object sender, EventArgs e)
+        {
+            
+            CampaignData.Battle battle = new CampaignData.Battle(Program.db.database.Session, Program.db.database.Battles.Count + 1);
+            Program.db.database.Battles.Add(battle);
+            BattleViewer viewer = new BattleViewer(battle);
+            viewer.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            CampaignStats stats = new CampaignStats();
+            stats.Show();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            AdjustSession session = new AdjustSession();
+            session.Show();
         }
     }
 }

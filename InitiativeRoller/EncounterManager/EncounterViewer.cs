@@ -48,14 +48,14 @@ namespace CampaignTracker
         //Wire up access through the static program so add operations can succeed
         private void EncounterViewer_Activated(object sender, EventArgs e)
         {
-            Program.active_encounter = encounter;
+            Program.Active_encounter = encounter;
         }
 
         private void EncounterViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Program.active_encounter == encounter)
+            if (Program.Active_encounter == encounter)
             {
-                Program.active_encounter = null;
+                Program.Active_encounter = null;
             }
         }
 

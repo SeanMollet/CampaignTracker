@@ -49,14 +49,14 @@ namespace CampaignTracker
         //Wire up access through the static program so add operations can succeed
         private void EncounterViewer_Activated(object sender, EventArgs e)
         {
-            Program.active_battle = battle;
+            Program.Active_battle = battle;
         }
 
         private void EncounterViewer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Program.active_battle == battle)
+            if (Program.Active_battle == battle)
             {
-                Program.active_encounter = null;
+                Program.Active_encounter = null;
             }
         }
 
@@ -79,11 +79,16 @@ namespace CampaignTracker
                         {
                             case "Damage":
                                 battlemonster.CurrentHP -= battlemonster.HPtoChange;
+                                if (battlemonster.CurrentHP <= 0)
+                                {
+                                    battle.GrantXP(Program.db.database.Session,"Killed", battlemonster);
+                                }
                                 break;
                             case "Heal":
                                 battlemonster.CurrentHP += battlemonster.HPtoChange;
                                 break;
                             case "XP":
+                                battle.GrantXP(Program.db.database.Session, "Granted", battlemonster);
                                 battlemonster.Persuaded = true;
                                 break;
                         }

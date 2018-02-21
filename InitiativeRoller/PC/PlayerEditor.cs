@@ -33,6 +33,8 @@ namespace CampaignTracker
             this.PlayerGrid.DataSource = Program.db.database.Players;
 
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", DataPropertyName = "Name", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Race", DataPropertyName = "Race", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Class", DataPropertyName = "Class", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "AC", DataPropertyName = "AC", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "HP", DataPropertyName = "CurrentHP", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Max HP", DataPropertyName = "MaxHP", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
@@ -61,7 +63,16 @@ namespace CampaignTracker
                 }
             }
 
-            this.PlayerGrid.Sort(this.PlayerGrid.Columns[5], ListSortDirection.Descending);
+            //Find the roll column, since I always seem to be changing this grid
+            foreach (DataGridViewColumn col in this.PlayerGrid.Columns)
+            {
+                if(col.HeaderText == "Roll")
+                {
+                    this.PlayerGrid.Sort(col, ListSortDirection.Descending);
+                    break;
+                }
+            }
+            
         }
 
         private void AdjustCurrentPlayer(int adjustment)

@@ -75,6 +75,17 @@ namespace CampaignData
         {
             return Name.Equals(other.Name);
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType() != this.GetType()) return false;
+            return Name.Equals((obj as Monster).Name);
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
     }
 
     public class HP

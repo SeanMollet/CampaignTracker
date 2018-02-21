@@ -18,13 +18,16 @@ namespace CampaignData
             Encounters = new SortableBindingList<Encounter>();
             Players = new SortableBindingList<Player>();
             CustomMonsters = new SortableBindingList<Monster>();
-
+            XP = new SortableBindingList<XPEvent>();
+            Session = 1;
         }
 
         public SortableBindingList<Battle> Battles { get; set; }
         public SortableBindingList<Encounter> Encounters { get; set; }
         public SortableBindingList<Player> Players { get; set; }
         public SortableBindingList<Monster> CustomMonsters { get; set; }
+        public SortableBindingList<XPEvent> XP { get; set; }
+        public int Session { get; set; }
 
     }
 
@@ -35,7 +38,7 @@ namespace CampaignData
         public event UpdateHandler onEncountersUpdated;
         public event UpdateHandler onMonstersUpdated;
         public event UpdateHandler onPlayersUpdated;
-        
+
         public Database database;
 
         private object dbLock;
@@ -45,12 +48,13 @@ namespace CampaignData
             database = new Database();
             dbLock = new object();
             BindNotifications();
+
         }
 
 
         private void BindNotifications()
         {
-            if(database != null)
+            if (database != null)
             {
                 database.Battles.ListChanged += ((object sender, ListChangedEventArgs e) => { onBattlesUpdated?.Invoke(sender); });
                 database.Encounters.ListChanged += ((object sender, ListChangedEventArgs e) => { onEncountersUpdated?.Invoke(sender); });
@@ -59,6 +63,17 @@ namespace CampaignData
             }
         }
 
+
+        public void NewFile()
+        {
+            this.database = new Database();
+            BindNotifications();
+
+            onBattlesUpdated?.Invoke(this);
+            onEncountersUpdated?.Invoke(this);
+            onPlayersUpdated?.Invoke(this);
+            onMonstersUpdated?.Invoke(this);
+        }
 
         public bool LoadFile(string path)
         {
@@ -69,14 +84,17 @@ namespace CampaignData
                 {
                     string json = File.ReadAllText(path);
                     var result = Newtonsoft.Json.JsonConvert.DeserializeObject<Database>(json);
-                    
-                    this.database = result;
-                    BindNotifications();
+                    if (result != null)
+                    {
+                        this.database = result;
+                        database.Session++;
+                        BindNotifications();
 
-                    onBattlesUpdated?.Invoke(this);
-                    onEncountersUpdated?.Invoke(this);
-                    onPlayersUpdated?.Invoke(this);
-                    onMonstersUpdated?.Invoke(this);
+                        onBattlesUpdated?.Invoke(this);
+                        onEncountersUpdated?.Invoke(this);
+                        onPlayersUpdated?.Invoke(this);
+                        onMonstersUpdated?.Invoke(this);
+                    }
                 }
             }
             return true;
@@ -101,8 +119,9 @@ namespace CampaignData
 
         }
 
-
     }
 
-
 }
+
+
+

@@ -55,12 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseForm.cs" />
-    <Compile Include="BattleManager\BattleManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BattleManager\BattleManager.Designer.cs">
-      <DependentUpon>BattleManager.cs</DependentUpon>
-    </Compile>
     <Compile Include="BattleManager\BattleViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,9 +129,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BattleManager\BattleManager.resx">
-      <DependentUpon>BattleManager.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Session\AdjustSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Session\AdjustSession.Designer.cs">
+      <DependentUpon>AdjustSession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Session\CampaignStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Session\CampaignStats.Designer.cs">
+      <DependentUpon>CampaignStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PrintingRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="BattleManager\BattleViewer.resx">
       <DependentUpon>BattleViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +187,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Session\AdjustSession.resx">
+      <DependentUpon>AdjustSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Session\CampaignStats.resx">
+      <DependentUpon>CampaignStats.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CampaignData.MonstersDataBase.datasource" />
     <None Include="Properties\Settings.settings">
@@ -205,5 +217,6 @@
   <ItemGroup>
     <Content Include="Iconcubic-Dnd-Dice-D20.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

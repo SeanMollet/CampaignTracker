@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -55,6 +57,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button11);
+            this.groupBox1.Controls.Add(this.button10);
             this.groupBox1.Controls.Add(this.button9);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button1);
@@ -64,14 +68,34 @@
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Location = new System.Drawing.Point(12, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(212, 289);
+            this.groupBox1.Size = new System.Drawing.Size(212, 318);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GM Views";
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(6, 151);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(200, 27);
+            this.button11.TabIndex = 13;
+            this.button11.Text = "Session";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(6, 184);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(200, 27);
+            this.button10.TabIndex = 12;
+            this.button10.Text = "Campaign Statistics";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(6, 250);
+            this.button9.Location = new System.Drawing.Point(6, 283);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(200, 27);
             this.button9.TabIndex = 11;
@@ -81,7 +105,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(6, 217);
+            this.button6.Location = new System.Drawing.Point(6, 250);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(200, 27);
             this.button6.TabIndex = 10;
@@ -91,12 +115,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 184);
+            this.button1.Location = new System.Drawing.Point(6, 217);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 27);
             this.button1.TabIndex = 9;
             this.button1.Text = "New Campaign";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.NewCampaign_click);
             // 
             // button5
             // 
@@ -104,7 +129,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(200, 27);
             this.button5.TabIndex = 8;
-            this.button5.Text = "Monsters Manager";
+            this.button5.Text = "Monsters Library";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.MonsterManager_Click);
             // 
@@ -114,7 +139,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(200, 27);
             this.button4.TabIndex = 7;
-            this.button4.Text = "Encounter Manger";
+            this.button4.Text = "Encounters";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -126,6 +151,7 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "Battle";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Battle_click);
             // 
             // button2
             // 
@@ -139,9 +165,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Location = new System.Drawing.Point(12, 341);
+            this.groupBox2.Location = new System.Drawing.Point(12, 421);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(212, 91);
             this.groupBox2.TabIndex = 9;
@@ -172,13 +199,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(236, 439);
+            this.ClientSize = new System.Drawing.Size(236, 519);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "Menu";
             this.Text = "Main";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -199,5 +227,7 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

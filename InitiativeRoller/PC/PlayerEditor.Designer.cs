@@ -48,7 +48,7 @@
             this.PlayerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlayerGrid.Location = new System.Drawing.Point(13, 13);
             this.PlayerGrid.Name = "PlayerGrid";
-            this.PlayerGrid.Size = new System.Drawing.Size(630, 235);
+            this.PlayerGrid.Size = new System.Drawing.Size(715, 235);
             this.PlayerGrid.TabIndex = 0;
             // 
             // button1
@@ -57,7 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(13, 254);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(630, 23);
+            this.button1.Size = new System.Drawing.Size(715, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Roll Initiative";
             this.button1.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             // DmgAll
             // 
             this.DmgAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DmgAll.Location = new System.Drawing.Point(505, 283);
+            this.DmgAll.Location = new System.Drawing.Point(590, 283);
             this.DmgAll.Name = "DmgAll";
             this.DmgAll.Size = new System.Drawing.Size(66, 23);
             this.DmgAll.TabIndex = 5;
@@ -117,7 +117,7 @@
             // HealAll
             // 
             this.HealAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.HealAll.Location = new System.Drawing.Point(577, 283);
+            this.HealAll.Location = new System.Drawing.Point(662, 283);
             this.HealAll.Name = "HealAll";
             this.HealAll.Size = new System.Drawing.Size(66, 23);
             this.HealAll.TabIndex = 6;
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 312);
+            this.ClientSize = new System.Drawing.Size(744, 312);
             this.Controls.Add(this.HealAll);
             this.Controls.Add(this.DmgAll);
             this.Controls.Add(this.HealButton);
@@ -137,7 +137,7 @@
             this.Controls.Add(this.DmgButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.PlayerGrid);
-            this.MinimumSize = new System.Drawing.Size(675, 350);
+            this.MinimumSize = new System.Drawing.Size(760, 350);
             this.Name = "PlayerEditor";
             this.Text = "Player Manager";
             ((System.ComponentModel.ISupportInitialize)(this.PlayerGrid)).EndInit();
