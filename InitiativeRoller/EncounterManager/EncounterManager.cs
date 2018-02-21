@@ -80,8 +80,8 @@ namespace CampaignTracker
         private void EncounterList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Don't do this on the button column
-            if (EncounterList.Rows.Count > e.RowIndex &&
-                EncounterList.Rows[e.RowIndex].Cells.Count > e.ColumnIndex)
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && EncounterList.Rows.Count > e.RowIndex &&
+                EncounterList.Rows[e.RowIndex].Cells.Count > e.ColumnIndex )
             {
                 var Cell = EncounterList.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (!(Cell is DataGridViewButtonCell))
@@ -102,7 +102,7 @@ namespace CampaignTracker
         private void EncounterList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //do this on the button column
-            if (EncounterList.Rows.Count > e.RowIndex &&
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && EncounterList.Rows.Count > e.RowIndex &&
                 EncounterList.Rows[e.RowIndex].Cells.Count > e.ColumnIndex)
             {
                 var Cell = EncounterList.Rows[e.RowIndex].Cells[e.ColumnIndex];

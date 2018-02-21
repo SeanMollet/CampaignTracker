@@ -89,6 +89,12 @@ namespace CampaignData
             get => HP.Value + HPOffset;
             set
             {
+                //Cap the bottom at -1, makes it easier to revive if needed
+                if (value < -1)
+                {
+                    value = -1;
+                }
+
                 HPOffset = value - HP.Value;
                 NotifyPropertyChanged();
                 NotifyPropertyChanged("Appearance");
@@ -105,6 +111,10 @@ namespace CampaignData
                 if (Persuaded)
                 {
                     return "Persuaded";
+                }
+                if (CurrentHP <= 0)
+                {
+                    return "Dead";
                 }
 
                 return HPAppearance.Appearance(CurrentHP, HP.Value);

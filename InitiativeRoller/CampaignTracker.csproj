@@ -67,6 +67,12 @@
     <Compile Include="BattleManager\BattleViewer.Designer.cs">
       <DependentUpon>BattleViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="BattleManager\PCBattleView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BattleManager\PCBattleView.Designer.cs">
+      <DependentUpon>PCBattleView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AbilitiesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,11 +121,11 @@
     <Compile Include="PC\PlayerEditor.Designer.cs">
       <DependentUpon>PlayerEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="PC\Initiative.cs">
+    <Compile Include="PC\PCView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PC\Initiative.Designer.cs">
-      <DependentUpon>Initiative.cs</DependentUpon>
+    <Compile Include="PC\PCView.Designer.cs">
+      <DependentUpon>PCView.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BattleManager\BattleViewer.resx">
       <DependentUpon>BattleViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BattleManager\PCBattleView.resx">
+      <DependentUpon>PCBattleView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AbilitiesControl.resx">
       <DependentUpon>AbilitiesControl.cs</DependentUpon>
@@ -159,8 +168,8 @@
     <EmbeddedResource Include="MonsterManager\MonsterViewer.resx">
       <DependentUpon>MonsterViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PC\Initiative.resx">
-      <DependentUpon>Initiative.cs</DependentUpon>
+    <EmbeddedResource Include="PC\PlayerEditor.resx">
+      <DependentUpon>PlayerEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

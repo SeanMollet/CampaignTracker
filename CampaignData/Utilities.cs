@@ -49,10 +49,6 @@ namespace CampaignData
     {
         public static string Appearance(int CurrentHP,int maxHP)
         {
-            if (CurrentHP <= 0)
-            {
-                return "Dead";
-            }
             float health = (float)CurrentHP / (float)maxHP;
             if (health >= 1.0f)
             {

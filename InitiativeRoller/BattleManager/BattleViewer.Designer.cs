@@ -84,7 +84,7 @@
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(700, 350);
             this.Name = "BattleViewer";
-            this.Text = "Encounter";
+            this.Text = "Battle";
             this.Activated += new System.EventHandler(this.EncounterViewer_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EncounterViewer_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.Monsters)).EndInit();

@@ -84,8 +84,8 @@ namespace CampaignTracker
         private void MonstersGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //Only on the button columns
-            if (MonstersGrid.Rows.Count > e.RowIndex &&
-                MonstersGrid.Rows[e.RowIndex].Cells.Count > e.ColumnIndex)
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && MonstersGrid.Rows.Count > e.RowIndex &&
+                MonstersGrid.Rows[e.RowIndex].Cells.Count > e.ColumnIndex )
             {
                 var Cell = MonstersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (Cell is DataGridViewButtonCell)
@@ -118,7 +118,7 @@ namespace CampaignTracker
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Don't do this on the button column
-            if (MonstersGrid.Rows.Count > e.RowIndex &&
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && MonstersGrid.Rows.Count > e.RowIndex &&
                 MonstersGrid.Rows[e.RowIndex].Cells.Count> e.ColumnIndex)
             {
                 var Cell = MonstersGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];

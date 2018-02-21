@@ -1092,56 +1092,110 @@
     {
       "Name": "Keridi",
       "Initiative": 8,
-      "Roll": 24,
-      "Adv": false
-    },
-    {
-      "Name": "Tanis",
-      "Initiative": 11,
+      "AC": 15,
+      "CurrentHP": 100,
+      "MaxHP": 100,
       "Roll": 23,
-      "Adv": true
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
     },
     {
       "Name": "Bastion",
       "Initiative": 4,
-      "Roll": 20,
-      "Adv": false
-    },
-    {
-      "Name": "Thrakk",
-      "Initiative": 1,
-      "Roll": 20,
-      "Adv": true
-    },
-    {
-      "Name": "Aud",
-      "Initiative": 1,
-      "Roll": 19,
-      "Adv": true
+      "AC": 18,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 22,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
     },
     {
       "Name": "Eli",
       "Initiative": 3,
-      "Roll": 11,
-      "Adv": false
+      "AC": 14,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 19,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Tanis",
+      "Initiative": 11,
+      "AC": 16,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 17,
+      "Adv": true,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
     },
     {
       "Name": "Q",
       "Initiative": 5,
-      "Roll": 11,
-      "Adv": false
+      "AC": 13,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 15,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Thrakk",
+      "Initiative": 1,
+      "AC": 16,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 13,
+      "Adv": true,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
     },
     {
       "Name": "Zaheed",
       "Initiative": 3,
-      "Roll": 12,
-      "Adv": false
+      "AC": 14,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 11,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
     },
     {
       "Name": "Monsters",
       "Initiative": 0,
-      "Roll": 18,
-      "Adv": false
+      "AC": 12,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 11,
+      "Adv": false,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
+    },
+    {
+      "Name": "Aud",
+      "Initiative": 1,
+      "AC": 18,
+      "CurrentHP": 100,
+      "MaxHP": 100,
+      "Roll": 7,
+      "Adv": true,
+      "Dead": false,
+      "Stable": false,
+      "Appearance": "Healthy"
     }
   ],
   "CustomMonsters": [

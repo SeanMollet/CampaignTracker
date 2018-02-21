@@ -25,8 +25,6 @@ namespace CampaignTracker
         {
             this.Started.Text = battle.Began.ToString();
 
-            List<string> VisibleColumns = new List<string>(new string[] {"Index", "Name", "Type", "CurrentHP","MaxHP","Appearance"});
-
             this.Monsters.Columns.Clear();
 
             this.Monsters.AutoGenerateColumns = false;
@@ -65,7 +63,7 @@ namespace CampaignTracker
         private void Monsters_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //do this on the button column
-            if (Monsters.Rows.Count > e.RowIndex &&
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && Monsters.Rows.Count > e.RowIndex &&
                 Monsters.Rows[e.RowIndex].Cells.Count > e.ColumnIndex)
             {
                 var Cell = Monsters.Rows[e.RowIndex].Cells[e.ColumnIndex];

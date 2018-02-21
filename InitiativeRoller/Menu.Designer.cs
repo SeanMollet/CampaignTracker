@@ -156,6 +156,7 @@
             this.button7.TabIndex = 6;
             this.button7.Text = "Battle Log";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.BattlePCView_Click);
             // 
             // button8
             // 
@@ -165,7 +166,7 @@
             this.button8.TabIndex = 5;
             this.button8.Text = "Initiative";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.Initiative_Click);
+            this.button8.Click += new System.EventHandler(this.PlayerView_Click);
             // 
             // Menu
             // 

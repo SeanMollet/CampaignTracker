@@ -24,9 +24,9 @@ namespace CampaignTracker
             editor.Show();
         }
 
-        private void Initiative_Click(object sender, EventArgs e)
+        private void PlayerView_Click(object sender, EventArgs e)
         {
-            Initiative init = new Initiative();
+            PCView init = new PCView();
             init.Show();
         }
 
@@ -122,6 +122,12 @@ namespace CampaignTracker
         private new void BaseForm_KeyDown(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void BattlePCView_Click(object sender, EventArgs e)
+        {
+            PCBattleView view = new PCBattleView();
+            view.Show();
         }
     }
 }

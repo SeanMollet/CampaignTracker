@@ -20,21 +20,68 @@ namespace CampaignData
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private string _name;
-        private int _initiative;
-        private int _ac;
-        private int _current_hp;
-        private int _max_hp;
-        private int _roll;
-        private bool _adv;
+        private string name;
+        private int initiative;
+        private int ac;
+        private int currentHP;
+        private int maxHP;
+        private int roll;
+        private bool advantage;
+        private bool dead;
+        private bool stable;
 
-        public string Name { get => _name; set { if (_name != value) { _name = value; NotifyPropertyChanged(); } } }
-        public int Initiative { get => _initiative; set { if (_initiative != value) { _initiative = value; NotifyPropertyChanged(); } } }
-        public int AC { get => _ac; set { if (_ac != value) { _ac = value; NotifyPropertyChanged(); } } }
-        public int CurrentHP { get => _current_hp; set { if (_current_hp != value) { _current_hp = value; NotifyPropertyChanged(); } } }
-        public int MaxHP { get => _max_hp; set { if (_max_hp != value) { _max_hp = value; NotifyPropertyChanged(); } } }
-        public int Roll { get => _roll; set { if (_roll != value) { _roll = value; NotifyPropertyChanged(); } } }
-        public bool Adv { get => _adv; set { if (_adv != value) { _adv = value; NotifyPropertyChanged(); } } }
+        public string Name { get => name; set { if (name != value) { name = value; NotifyPropertyChanged(); } } }
+        public int Initiative { get => initiative; set { if (initiative != value) { initiative = value; NotifyPropertyChanged(); } } }
+        public int AC { get => ac; set { if (ac != value) { ac = value; NotifyPropertyChanged(); } } }
+        public int CurrentHP
+        {
+            get => currentHP; set
+            {
+                if (currentHP != value)
+                {
+                    //Cap the bottom at -1, makes it easier to revive if needed
+                    if (value < -1)
+                    {
+                        value = -1;
+                    }
+
+                    currentHP = value;
+                    //Clear the stable and dead flags
+                    if (currentHP > 0)
+                    {
+                        Stable = false;
+                        Dead = false;
+                    }
+                    NotifyPropertyChanged();
+                    NotifyPropertyChanged("Appearance");
+                }
+            }
+        }
+        public int MaxHP { get => maxHP; set { if (maxHP != value) { maxHP = value; NotifyPropertyChanged(); } } }
+        public int Roll { get => roll; set { if (roll != value) { roll = value; NotifyPropertyChanged(); } } }
+        public bool Adv { get => advantage; set { if (advantage != value) { advantage = value; NotifyPropertyChanged(); } } }
+        public bool Dead  { get => dead; set { if (dead != value) { dead = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }
+        public bool Stable { get => stable; set { if (stable != value) { stable = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }
+        public string Appearance
+        {
+            get
+            {
+                if (Dead)
+                {
+                    return "Dead";
+                }
+                if(CurrentHP <= 0 && Stable)
+                {
+                    return "Stable";
+                }
+                if(CurrentHP <= 0)
+                {
+                    return "Unconscious";
+                }
+
+                return HPAppearance.Appearance(CurrentHP, MaxHP);
+            }
+        }
         public int CompareTo(Player comparison)
         {
             if (comparison == null)
