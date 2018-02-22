@@ -111,8 +111,10 @@ namespace CampaignTracker
                     if (ctrl.GetType() == typeof(DataGridView))
                     {
                         ((DataGridView)ctrl).ReadOnly = value;
-                        ((DataGridView)ctrl).AllowUserToAddRows = value;
-                        ((DataGridView)ctrl).AllowUserToDeleteRows = value;
+                        ((DataGridView)ctrl).AllowUserToAddRows = !value;
+                        ((DataGridView)ctrl).AllowUserToDeleteRows = !value;
+                        ((DataGridView)ctrl).RowHeadersVisible = !value;
+                        ((DataGridView)ctrl).RowHeadersWidth = 20;
                     }
                     if (ctrl.GetType() == typeof(DateTimePicker))
                     {

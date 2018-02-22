@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.HPButton = new System.Windows.Forms.Button();
             this.statDice1 = new CampaignTracker.Controls.StatDice();
             this.label12 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -84,7 +85,6 @@
             this.Actions = new System.Windows.Forms.DataGridView();
             this.label22 = new System.Windows.Forms.Label();
             this.Save = new System.Windows.Forms.Button();
-            this.HPButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DamageImmune)).BeginInit();
@@ -162,10 +162,23 @@
             this.tabPage1.Text = "General Stats";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // HPButton
+            // 
+            this.HPButton.Location = new System.Drawing.Point(4, 84);
+            this.HPButton.Name = "HPButton";
+            this.HPButton.Size = new System.Drawing.Size(44, 20);
+            this.HPButton.TabIndex = 42;
+            this.HPButton.Text = "HP";
+            this.HPButton.UseVisualStyleBackColor = true;
+            this.HPButton.Click += new System.EventHandler(this.HPButton_Click);
+            // 
             // statDice1
             // 
+            this.statDice1.DiceCount = 0;
+            this.statDice1.DiceSize = 0;
             this.statDice1.Location = new System.Drawing.Point(117, 84);
             this.statDice1.MinimumSize = new System.Drawing.Size(85, 20);
+            this.statDice1.Modifier = 0;
             this.statDice1.Name = "statDice1";
             this.statDice1.ShowModifier = true;
             this.statDice1.Size = new System.Drawing.Size(125, 20);
@@ -329,7 +342,6 @@
             this.Saves.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Saves.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Saves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Saves.ColumnHeadersVisible = false;
             this.Saves.Location = new System.Drawing.Point(237, 217);
             this.Saves.MultiSelect = false;
             this.Saves.Name = "Saves";
@@ -357,7 +369,7 @@
             this.Speed.Location = new System.Drawing.Point(58, 217);
             this.Speed.MultiSelect = false;
             this.Speed.Name = "Speed";
-            this.Speed.RowHeadersVisible = false;
+            this.Speed.RowHeadersWidth = 20;
             this.Speed.Size = new System.Drawing.Size(102, 69);
             this.Speed.TabIndex = 22;
             // 
@@ -642,7 +654,6 @@
             this.LegendaryActions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.LegendaryActions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.LegendaryActions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.LegendaryActions.ColumnHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -736,16 +747,6 @@
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
-            // 
-            // HPButton
-            // 
-            this.HPButton.Location = new System.Drawing.Point(4, 84);
-            this.HPButton.Name = "HPButton";
-            this.HPButton.Size = new System.Drawing.Size(44, 20);
-            this.HPButton.TabIndex = 42;
-            this.HPButton.Text = "HP";
-            this.HPButton.UseVisualStyleBackColor = true;
-            this.HPButton.Click += new System.EventHandler(this.HPButton_Click);
             // 
             // MonsterViewer
             // 
