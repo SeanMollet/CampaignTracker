@@ -55,7 +55,12 @@
       }
     ],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "stealth",
+        "Modifier": 4
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -442,7 +447,16 @@
         "Modifier": 3
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 3
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 6
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -566,7 +580,16 @@
     ],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 4
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 3
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 14"

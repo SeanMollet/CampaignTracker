@@ -8,6 +8,9 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Globalization;
+using Newtonsoft.Json;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace CampaignData
 {
@@ -98,7 +101,7 @@ namespace CampaignData
     ///     Explicit:   From Fraction to long/double/string
     /// </summary>
     [Serializable, StructLayout(LayoutKind.Sequential)]
-    public struct Fraction : IComparable, IFormattable
+    public class Fraction : IComparable, IFormattable, INotifyPropertyChanged
     {
         #region Constructors
         /// <summary>
@@ -122,7 +125,9 @@ namespace CampaignData
         /// <param name="floatingPointNumber">The value</param>
         public Fraction(double floatingPointNumber)
         {
-            this = ToFraction(floatingPointNumber);
+            var temp = ToFraction(floatingPointNumber);
+            this.m_Numerator = temp.Numerator;
+            this.m_Denominator = temp.Denominator;
         }
 
         /// <summary>
@@ -133,7 +138,9 @@ namespace CampaignData
         /// <see>ToFraction(string strValue)</see>
         public Fraction(string inValue)
         {
-            this = ToFraction(inValue);
+            var temp = ToFraction(inValue);
+            m_Numerator = temp.Numerator;
+            m_Denominator = temp.Denominator;
         }
 
         /// <summary>
@@ -152,7 +159,7 @@ namespace CampaignData
 
             m_Numerator = numerator;
             m_Denominator = denominator;
-            ReduceFraction(ref this);
+            ReduceFraction();
         }
 
         /// <summary>
@@ -168,6 +175,29 @@ namespace CampaignData
         #endregion
 
         #region Properties
+        public event PropertyChangedEventHandler PropertyChanged=null;
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        /// <summary>
+        /// Input and output a fraction as a string. Useful for binding on forms
+        /// </summary>
+        [JsonIgnore]
+        public string StringValue
+        {
+            get
+            {
+                return ToString();
+            }
+            set
+            {
+                var update = ToFraction(value);
+                m_Denominator = update.Denominator;
+                m_Numerator = update.Numerator;
+                NotifyPropertyChanged();
+            }
+        }
         /// <summary>
         /// The 'top' part of the fraction
         /// </summary>
@@ -181,6 +211,7 @@ namespace CampaignData
             set
             {
                 m_Numerator = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -197,6 +228,7 @@ namespace CampaignData
             set
             {
                 m_Denominator = value;
+                NotifyPropertyChanged();
             }
         }
         #endregion
@@ -400,9 +432,20 @@ namespace CampaignData
 
                 if (slashPos > -1)
                 {
+                    int wholeNumberValue = 0;
+                    //Check if there is a whole value on the left
+                    int spaceLoc = inValue.IndexOf(' ');
+                    if (spaceLoc>-1)
+                    {
+                        var wholeValueStr = inValue.Substring(0, spaceLoc);
+                        inValue = inValue.Substring(spaceLoc).Trim();
+                        int.TryParse(wholeValueStr, out wholeNumberValue);
+                        slashPos = inValue.IndexOf('/');
+                    }
                     // string is in the form of Numerator/Denominator
-                    long numerator = Convert.ToInt64(inValue.Substring(0, slashPos));
                     long denominator = Convert.ToInt64(inValue.Substring(slashPos + 1));
+                    long numerator = Convert.ToInt64(inValue.Substring(0, slashPos)) + (wholeNumberValue * denominator);
+                    
 
                     return new Fraction(numerator, denominator);
                 }
@@ -485,7 +528,7 @@ namespace CampaignData
         public Fraction Inverse()
         {
             // don't use the obvious constructor because we do not want it normalized at this time
-            Fraction frac = new Fraction();
+            Fraction frac = new Fraction(0L);
 
             frac.m_Numerator = this.m_Denominator;
             frac.m_Denominator = this.m_Numerator;
@@ -866,7 +909,7 @@ namespace CampaignData
         public override int GetHashCode()
         {
             // insure we're as close to normalized as possible first
-            ReduceFraction(ref this);
+            ReduceFraction();
 
             int numeratorHash = this.m_Numerator.GetHashCode();
             int denominatorHash = this.m_Denominator.GetHashCode();
@@ -928,7 +971,8 @@ namespace CampaignData
             }
 
             // they're both normal Fractions
-            CrossReducePair(ref this, ref right);
+            var copy = new Fraction(m_Numerator, m_Denominator);
+            CrossReducePair(ref copy, ref right);
 
             try
             {
@@ -978,8 +1022,9 @@ namespace CampaignData
         /// representation. Will set Denominator to 1 for any zero numerator. Moves sign to the
         /// Numerator.</remarks>
         /// <example>2/4 will be reduced to 1/2</example>
-        public static void ReduceFraction(ref Fraction frac)
+        public void ReduceFraction()
         {
+            var frac = this;
             // clean up the NaNs and infinites
             if (frac.m_Denominator == 0)
             {
@@ -1005,6 +1050,9 @@ namespace CampaignData
                 frac.m_Numerator = -frac.m_Numerator;
                 frac.m_Denominator = -frac.m_Denominator;
             }
+
+            this.m_Denominator = frac.Denominator;
+            this.m_Numerator = frac.Numerator;
         }
 
         /// <summary>
@@ -1074,10 +1122,10 @@ namespace CampaignData
         private bool CompareEquality(Fraction right, bool notEqualCheck)
         {
             // insure we're normalized first
-            ReduceFraction(ref this);
+            ReduceFraction();
 
             // now normalize the comperand
-            ReduceFraction(ref right);
+            right.ReduceFraction();
 
             if (this.m_Numerator == right.m_Numerator && this.m_Denominator == right.m_Denominator)
             {

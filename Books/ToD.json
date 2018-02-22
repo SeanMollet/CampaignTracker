@@ -38,7 +38,16 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 4
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 4
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -128,7 +137,24 @@
         "Modifier": 3
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 5
+      },
+      {
+        "Name": "deception",
+        "Modifier": 2
+      },
+      {
+        "Name": "insight",
+        "Modifier": 3
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 5
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 11"
@@ -282,7 +308,24 @@
         "Modifier": 6
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 7
+      },
+      {
+        "Name": "insight",
+        "Modifier": 6
+      },
+      {
+        "Name": "intimidation",
+        "Modifier": 6
+      },
+      {
+        "Name": "perception",
+        "Modifier": 6
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 16"
@@ -427,7 +470,24 @@
         "Modifier": 6
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "athletics",
+        "Modifier": 7
+      },
+      {
+        "Name": "intimidation",
+        "Modifier": 7
+      },
+      {
+        "Name": "perception",
+        "Modifier": 5
+      },
+      {
+        "Name": "religion",
+        "Modifier": 4
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 15"
@@ -526,7 +586,16 @@
         "Modifier": 2
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "deception",
+        "Modifier": 3
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 5
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 10"
@@ -621,7 +690,16 @@
         "Modifier": 3
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "deception",
+        "Modifier": 4
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 5
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 11"
@@ -724,7 +802,16 @@
         "Modifier": 4
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "deception",
+        "Modifier": 6
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 7
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 11"
@@ -831,7 +918,16 @@
         "Modifier": 2
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "deception",
+        "Modifier": 3
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 5
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 10"
@@ -934,7 +1030,28 @@
         "Modifier": 4
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 5
+      },
+      {
+        "Name": "deception",
+        "Modifier": 1
+      },
+      {
+        "Name": "insight",
+        "Modifier": 2
+      },
+      {
+        "Name": "perception",
+        "Modifier": 2
+      },
+      {
+        "Name": "religion",
+        "Modifier": 5
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -1085,7 +1202,20 @@
         "Modifier": 4
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "deception",
+        "Modifier": 4
+      },
+      {
+        "Name": "history",
+        "Modifier": 2
+      },
+      {
+        "Name": "religion",
+        "Modifier": 2
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 14"
@@ -1205,7 +1335,12 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 2
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -1292,7 +1427,12 @@
     ],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 2
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -1386,7 +1526,32 @@
         "Modifier": 4
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "acrobatics",
+        "Modifier": 5
+      },
+      {
+        "Name": "deception",
+        "Modifier": 3
+      },
+      {
+        "Name": "insight",
+        "Modifier": 2
+      },
+      {
+        "Name": "perception",
+        "Modifier": 4
+      },
+      {
+        "Name": "persuasion",
+        "Modifier": 3
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 7
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -1519,7 +1684,20 @@
         "Modifier": 5
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "athletics",
+        "Modifier": 6
+      },
+      {
+        "Name": "intimidation",
+        "Modifier": 3
+      },
+      {
+        "Name": "perception",
+        "Modifier": 4
+      }
+    ],
     "Senses": [
       {
         "Value": "blindsight 10 ft."
@@ -1639,7 +1817,16 @@
         "Modifier": 4
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 6
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 5
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -1757,7 +1944,16 @@
         "Modifier": 5
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 7
+      },
+      {
+        "Name": "perception",
+        "Modifier": 5
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -1875,7 +2071,20 @@
         "Modifier": 6
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 5
+      },
+      {
+        "Name": "religion",
+        "Modifier": 2
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 3
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 15"
@@ -2024,7 +2233,24 @@
         "Modifier": 5
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 7
+      },
+      {
+        "Name": "deception",
+        "Modifier": 3
+      },
+      {
+        "Name": "insight",
+        "Modifier": 5
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 6
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 12"
@@ -2192,7 +2418,16 @@
         "Modifier": 4
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 5
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 9
+      }
+    ],
     "Senses": [
       {
         "Value": "blindsight 10 ft."
@@ -2337,7 +2572,16 @@
         "Modifier": 5
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 7
+      },
+      {
+        "Name": "religion",
+        "Modifier": 7
+      }
+    ],
     "Senses": [
       {
         "Value": "While wearing the Mask of the Dragon Queen: darkvision 60 ft."
@@ -2451,7 +2695,24 @@
         "Modifier": 6
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "deception",
+        "Modifier": 6
+      },
+      {
+        "Name": "insight",
+        "Modifier": 6
+      },
+      {
+        "Name": "perception",
+        "Modifier": 6
+      },
+      {
+        "Name": "persuasion",
+        "Modifier": 6
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -2598,7 +2859,24 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "animal handling",
+        "Modifier": 2
+      },
+      {
+        "Name": "athletics",
+        "Modifier": 5
+      },
+      {
+        "Name": "deception",
+        "Modifier": 4
+      },
+      {
+        "Name": "persuasion",
+        "Modifier": 4
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 10"
@@ -2774,7 +3052,20 @@
         "Modifier": 17
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 17
+      },
+      {
+        "Name": "perception",
+        "Modifier": 26
+      },
+      {
+        "Name": "religion",
+        "Modifier": 17
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 240 ft."

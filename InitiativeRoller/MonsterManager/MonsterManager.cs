@@ -120,8 +120,8 @@ namespace CampaignTracker
                     var row = MonstersGrid.Rows[e.RowIndex];
                     if (row.DataBoundItem is Monster)
                     {
-                        var monster = (Monster)row.DataBoundItem;
-                        MonsterViewer viewer = new MonsterViewer(monster.Clone());
+                        var monster = ((Monster)row.DataBoundItem).Clone();
+                        MonsterViewer viewer = new MonsterViewer(monster);
                         viewer.Show();
                     }
 
@@ -171,12 +171,12 @@ namespace CampaignTracker
                             if (replace.HasValue && (bool) replace)
                             {
                                 Program.db.database.CustomMonsters.RemoveAt(Program.db.database.CustomMonsters.IndexOf(monster));
-                                Program.db.database.CustomMonsters.Add(monster.Clone());
+                                Program.db.database.CustomMonsters.Add(monster);
                             }
                         }
                         else
                         {
-                            Program.db.database.CustomMonsters.Add(monster.Clone());
+                            Program.db.database.CustomMonsters.Add(monster);
                         }
                     }
                 }

@@ -49,7 +49,16 @@
         "Modifier": 3
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 5
+      },
+      {
+        "Name": "history",
+        "Modifier": 5
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 11"
@@ -277,7 +286,20 @@
         "Modifier": 4
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 5
+      },
+      {
+        "Name": "perception",
+        "Modifier": 4
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 3
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 120 ft."
@@ -407,7 +429,12 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "intimidation",
+        "Modifier": 2
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 9"
@@ -490,7 +517,12 @@
         "Modifier": 3
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 2
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 12"

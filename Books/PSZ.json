@@ -60,7 +60,16 @@
         "Modifier": 9
       }
     ],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "insight",
+        "Modifier": 9
+      },
+      {
+        "Name": "perception",
+        "Modifier": 9
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 120 ft."
@@ -298,7 +307,16 @@
     ],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "athletics",
+        "Modifier": 14
+      },
+      {
+        "Name": "perception",
+        "Modifier": 9
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 120 ft."

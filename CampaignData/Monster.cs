@@ -10,7 +10,6 @@ namespace CampaignData
 
     public class Monster : IComparable<Monster>, IEquatable<Monster>
     {
-        private Fraction _challenge;
 
         public int CompareTo(Monster comparison)
         {
@@ -19,6 +18,7 @@ namespace CampaignData
         public Monster()
         {
             Name = "";
+            Size = new CreatureSize();
             Source = "User Custom";
             Type = "";
             HP = new HP();
@@ -65,11 +65,12 @@ namespace CampaignData
         public SortableBindingList<Skill> Skills { get; set; }
         public SortableBindingList<BindableString> Senses { get; set; }
         public SortableBindingList<BindableString> Languages { get; set; }
-        public Fraction Challenge
-        {
-            get { return _challenge; }
-            set { _challenge = value; }
-        }
+        public Fraction Challenge { get; set; }
+        //private Fraction _challenge;
+        //{
+        //    get { return _challenge; }
+        //    set { _challenge = value; }
+        //}
         public SortableBindingList<Trait> Traits { get; set; }
         public SortableBindingList<Action> Actions { get; set; }
         public SortableBindingList<Reaction> Reactions { get; set; }
@@ -79,7 +80,8 @@ namespace CampaignData
         public Monster Clone()
         {
             //Lazy way to make a clone, just let json do the work
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Monster>(Newtonsoft.Json.JsonConvert.SerializeObject(this));
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(this);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Monster>(json);
         }
 
         public int GetHashCode(Monster obj)

@@ -52,7 +52,24 @@
       }
     ],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "arcana",
+        "Modifier": 8
+      },
+      {
+        "Name": "history",
+        "Modifier": 8
+      },
+      {
+        "Name": "perception",
+        "Modifier": 8
+      },
+      {
+        "Name": "religion",
+        "Modifier": 8
+      }
+    ],
     "Senses": [
       {
         "Value": "truesight 120 ft."
@@ -144,7 +161,12 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 4
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -225,7 +247,16 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 3
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 6
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 13"

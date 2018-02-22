@@ -220,6 +220,7 @@ namespace DataParser
                                 int mod = 0;
                                 int.TryParse(tag.Value.ToString(), out mod);
                                 newskill.Modifier = mod;
+                                newmonster.Skills.Add(newskill);
                             }
                         }
 

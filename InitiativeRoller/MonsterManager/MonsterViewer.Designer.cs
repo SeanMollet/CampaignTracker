@@ -85,6 +85,10 @@
             this.Actions = new System.Windows.Forms.DataGridView();
             this.label22 = new System.Windows.Forms.Label();
             this.Save = new System.Windows.Forms.Button();
+            this.Alignment = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.SizeBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DamageImmune)).BeginInit();
@@ -120,6 +124,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.SizeBox);
+            this.tabPage1.Controls.Add(this.label25);
+            this.tabPage1.Controls.Add(this.Alignment);
+            this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.HPButton);
             this.tabPage1.Controls.Add(this.statDice1);
             this.tabPage1.Controls.Add(this.label12);
@@ -454,7 +462,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Type.Location = new System.Drawing.Point(58, 58);
             this.Type.Name = "Type";
-            this.Type.Size = new System.Drawing.Size(281, 20);
+            this.Type.Size = new System.Drawing.Size(75, 20);
             this.Type.TabIndex = 9;
             // 
             // label3
@@ -579,14 +587,16 @@
             // Senses
             // 
             this.Senses.AllowUserToResizeRows = false;
+            this.Senses.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Senses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Senses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Senses.ColumnHeadersVisible = false;
-            this.Senses.Location = new System.Drawing.Point(46, 6);
+            this.Senses.Location = new System.Drawing.Point(9, 333);
             this.Senses.MultiSelect = false;
             this.Senses.Name = "Senses";
             this.Senses.RowHeadersVisible = false;
-            this.Senses.Size = new System.Drawing.Size(127, 69);
+            this.Senses.Size = new System.Drawing.Size(332, 112);
             this.Senses.TabIndex = 28;
             // 
             // label18
@@ -594,15 +604,13 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(2, 6);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(42, 13);
+            this.label18.Size = new System.Drawing.Size(31, 13);
             this.label18.TabIndex = 27;
-            this.label18.Text = "Senses";
+            this.label18.Text = "Skills";
             // 
             // Skills
             // 
             this.Skills.AllowUserToResizeRows = false;
-            this.Skills.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Skills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.Skills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Skills.ColumnHeadersVisible = false;
@@ -614,11 +622,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Skills.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Skills.Location = new System.Drawing.Point(5, 333);
+            this.Skills.Location = new System.Drawing.Point(43, 6);
             this.Skills.MultiSelect = false;
             this.Skills.Name = "Skills";
             this.Skills.RowHeadersVisible = false;
-            this.Skills.Size = new System.Drawing.Size(336, 114);
+            this.Skills.Size = new System.Drawing.Size(102, 69);
             this.Skills.TabIndex = 26;
             // 
             // label19
@@ -627,9 +635,9 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(6, 317);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(31, 13);
+            this.label19.Size = new System.Drawing.Size(42, 13);
             this.label19.TabIndex = 25;
-            this.label19.Text = "Skills";
+            this.label19.Text = "Senses";
             // 
             // tabPage3
             // 
@@ -748,6 +756,49 @@
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
+            // Alignment
+            // 
+            this.Alignment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Alignment.Location = new System.Drawing.Point(264, 58);
+            this.Alignment.Name = "Alignment";
+            this.Alignment.Size = new System.Drawing.Size(75, 20);
+            this.Alignment.TabIndex = 44;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(228, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 43;
+            this.label4.Text = "Align";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(139, 61);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(27, 13);
+            this.label25.TabIndex = 45;
+            this.label25.Text = "Size";
+            // 
+            // SizeBox
+            // 
+            this.SizeBox.DropDownWidth = 100;
+            this.SizeBox.FormattingEnabled = true;
+            this.SizeBox.Items.AddRange(new object[] {
+            "Tiny",
+            "Small",
+            "Medium",
+            "Large",
+            "Huge",
+            "Gargantuan"});
+            this.SizeBox.Location = new System.Drawing.Point(172, 58);
+            this.SizeBox.Name = "SizeBox";
+            this.SizeBox.Size = new System.Drawing.Size(53, 21);
+            this.SizeBox.TabIndex = 46;
+            // 
             // MonsterViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -837,5 +888,9 @@
         private Controls.StatDice statDice1;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Button HPButton;
+        private System.Windows.Forms.ComboBox SizeBox;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox Alignment;
+        private System.Windows.Forms.Label label4;
     }
 }

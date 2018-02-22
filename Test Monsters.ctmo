@@ -1,35 +1,65 @@
 [
   {
-    "Name": "New Monster",
+    "Name": "Golgathan",
+    "Size": {
+      "Value": "Gargantuan"
+    },
+    "Type": "shit demon",
+    "Tags": [],
     "Source": "User Custom",
-    "Type": "",
+    "Alignment": "toilet",
+    "AC": {
+      "Value": 1,
+      "Notes": "2"
+    },
     "HP": {
       "Value": 0,
-      "HitDiceCount": 0,
-      "HitDice": 0,
-      "HitModifier": 0,
-      "Notes": null
+      "HitDiceCount": 20,
+      "HitDice": 20,
+      "HitModifier": 100,
+      "Notes": "Big time shit"
     },
-    "AC": {
-      "Value": 0,
-      "Notes": null
-    },
-    "InitiativeModifier": 0,
-    "Speed": [],
+    "InitiativeModifier": 2,
+    "Speed": [
+      {
+        "Value": "1234"
+      }
+    ],
     "Abilities": {
-      "Str": 0,
-      "Dex": 0,
-      "Con": 0,
-      "Int": 0,
-      "Wis": 0,
-      "Cha": 0
+      "Str": 20,
+      "Dex": 20,
+      "Con": 20,
+      "Int": 20,
+      "Wis": 20,
+      "Cha": 20
     },
-    "DamageVulnerabilities": [],
-    "DamageResistances": [],
-    "DamageImmunities": [],
-    "ConditionImmunities": [],
-    "Saves": [],
-    "Skills": null,
+    "DamageVulnerabilities": [
+      {
+        "Value": "1"
+      }
+    ],
+    "DamageResistances": [
+      {
+        "Value": "1"
+      }
+    ],
+    "DamageImmunities": [
+      {
+        "Value": "1"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "1"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "12",
+        "Modifier": 2
+      }
+    ],
+    "Skills": [],
     "Senses": [],
     "Languages": [],
     "Challenge": {
@@ -40,92 +70,7 @@
     "Actions": [],
     "Reactions": [],
     "LegendaryActions": [],
-    "ReadOnly": false
-  },
-  {
-    "Name": "New Monster2",
-    "Source": "User Custom",
-    "Type": "",
-    "HP": {
-      "Value": 0,
-      "HitDiceCount": 0,
-      "HitDice": 0,
-      "HitModifier": 0,
-      "Notes": null
-    },
-    "AC": {
-      "Value": 0,
-      "Notes": null
-    },
-    "InitiativeModifier": 0,
-    "Speed": [],
-    "Abilities": {
-      "Str": 0,
-      "Dex": 0,
-      "Con": 0,
-      "Int": 0,
-      "Wis": 0,
-      "Cha": 0
-    },
-    "DamageVulnerabilities": [],
-    "DamageResistances": [],
-    "DamageImmunities": [],
-    "ConditionImmunities": [],
-    "Saves": [],
-    "Skills": null,
-    "Senses": [],
-    "Languages": [],
-    "Challenge": {
-      "Numerator": 0,
-      "Denominator": 1
-    },
-    "Traits": [],
-    "Actions": [],
-    "Reactions": [],
-    "LegendaryActions": [],
-    "ReadOnly": false
-  },
-  {
-    "Name": "New Monste3",
-    "Source": "User Custom",
-    "Type": "",
-    "HP": {
-      "Value": 0,
-      "HitDiceCount": 0,
-      "HitDice": 0,
-      "HitModifier": 0,
-      "Notes": null
-    },
-    "AC": {
-      "Value": 0,
-      "Notes": null
-    },
-    "InitiativeModifier": 0,
-    "Speed": [],
-    "Abilities": {
-      "Str": 0,
-      "Dex": 0,
-      "Con": 0,
-      "Int": 0,
-      "Wis": 0,
-      "Cha": 0
-    },
-    "DamageVulnerabilities": [],
-    "DamageResistances": [],
-    "DamageImmunities": [],
-    "ConditionImmunities": [],
-    "Saves": [],
-    "Skills": null,
-    "Senses": [],
-    "Languages": [],
-    "Challenge": {
-      "Numerator": 0,
-      "Denominator": 1
-    },
-    "Traits": [],
-    "Actions": [],
-    "Reactions": [],
-    "LegendaryActions": [],
+    "Spells": [],
     "ReadOnly": false
   }
 ]

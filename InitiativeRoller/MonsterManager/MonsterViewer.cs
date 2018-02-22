@@ -34,6 +34,10 @@ namespace CampaignTracker
                 this.Source.DataBindings.Add("Text", monster, "Source");
                 this.Type.DataBindings.Clear();
                 this.Type.DataBindings.Add("Text", monster, "Type");
+                this.SizeBox.DataBindings.Clear();
+                this.SizeBox.DataBindings.Add("Text", monster, "Size.Value");
+                this.Alignment.DataBindings.Clear();
+                this.Alignment.DataBindings.Add("Text", monster, "Alignment");
                 this.HPValue.DataBindings.Clear();
                 this.HPValue.DataBindings.Add("Text", monster, "HP.Value");
                 this.HPNotes.DataBindings.Clear();
@@ -45,7 +49,7 @@ namespace CampaignTracker
                 this.Initiative.DataBindings.Clear();
                 this.Initiative.DataBindings.Add("Text", monster, "InitiativeModifier");
                 this.Challenge.DataBindings.Clear();
-                this.Challenge.DataBindings.Add("Text", monster, "Challenge");
+                this.Challenge.DataBindings.Add("Text", monster, "Challenge.StringValue");
 
                 this.Speed.DataSource = monster.Speed;
                 this.Speed.Columns[0].DataPropertyName = "Value";
@@ -115,6 +119,8 @@ namespace CampaignTracker
                         ((DataGridView)ctrl).AllowUserToDeleteRows = !value;
                         ((DataGridView)ctrl).RowHeadersVisible = !value;
                         ((DataGridView)ctrl).RowHeadersWidth = 20;
+                        ((DataGridView)ctrl).ColumnHeadersVisible = !value;
+                        ((DataGridView)ctrl).AutoResizeColumns();
                     }
                     if (ctrl.GetType() == typeof(DateTimePicker))
                     {

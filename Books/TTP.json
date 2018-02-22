@@ -41,7 +41,20 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "athletics",
+        "Modifier": 4
+      },
+      {
+        "Name": "perception",
+        "Modifier": 2
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 4
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -117,7 +130,16 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "perception",
+        "Modifier": 4
+      },
+      {
+        "Name": "stealth",
+        "Modifier": 2
+      }
+    ],
     "Senses": [
       {
         "Value": "darkvision 60 ft."
@@ -285,7 +307,16 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "athletics",
+        "Modifier": 4
+      },
+      {
+        "Name": "survival",
+        "Modifier": 3
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 11"
@@ -377,7 +408,20 @@
     "DamageImmunities": [],
     "ConditionImmunities": [],
     "Saves": [],
-    "Skills": [],
+    "Skills": [
+      {
+        "Name": "animal handling",
+        "Modifier": 4
+      },
+      {
+        "Name": "nature",
+        "Modifier": 2
+      },
+      {
+        "Name": "survival",
+        "Modifier": 4
+      }
+    ],
     "Senses": [
       {
         "Value": "passive Perception 12"
