@@ -31,7 +31,7 @@ namespace CampaignData
         }
         public void LoadMonsters()
         {
-            var stream = new MemoryStream(BookData.MonsterManual);
+            var stream = new MemoryStream(BookData.SRD);
             var reader = new JsonTextReader(new StreamReader(stream));
 
             Monsters = JsonSerializer.Create().Deserialize<List<Monster>>(reader);

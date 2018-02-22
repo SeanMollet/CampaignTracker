@@ -63,9 +63,9 @@ namespace CampaignData {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] MonsterManual {
+        internal static byte[] SRD {
             get {
-                object obj = ResourceManager.GetObject("MonsterManual", resourceCulture);
+                object obj = ResourceManager.GetObject("SRD", resourceCulture);
                 return ((byte[])(obj));
             }
         }
