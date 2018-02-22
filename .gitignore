@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /Data/
+.DS_Store
+/BookSourceData/

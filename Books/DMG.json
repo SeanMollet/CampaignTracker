@@ -1,0 +1,65 @@
+[
+  {
+    "Name": "Giant Fly",
+    "Size": {
+      "Value": "Large"
+    },
+    "Type": "beast",
+    "Tags": [],
+    "Source": "DMG",
+    "Alignment": "unaligned",
+    "AC": {
+      "Value": 11,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 19,
+      "HitDiceCount": 3,
+      "HitDice": 10,
+      "HitModifier": 3,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      },
+      {
+        "Value": "fly 60 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 14,
+      "Dex": 13,
+      "Con": 13,
+      "Int": 2,
+      "Wis": 10,
+      "Cha": 3
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [],
+    "Challenge": {
+      "Numerator": 0,
+      "Denominator": 1
+    },
+    "Traits": [],
+    "Actions": [],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  }
+]

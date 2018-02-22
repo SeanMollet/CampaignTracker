@@ -25,6 +25,20 @@ namespace CampaignData
         {
         }
 
+        public void AddRange(List<T> input)
+        {
+            foreach(var obj in input)
+            {
+                Add(obj);
+            }
+        }
+        public void AddRange(T[] input)
+        {
+            foreach(var obj in input)
+            {
+                Add(obj);
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SortableBindingList{T}"/> class.

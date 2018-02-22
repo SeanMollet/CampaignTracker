@@ -118,7 +118,58 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CoS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\CoS.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="DMG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\DMG.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LMoP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\LMoP.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\MM.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OotA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\OotA.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PotA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\PotA.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PSA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\PSA.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PSI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\PSI.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PSK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\PSK.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PSZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\PSZ.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SKT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\SKT.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="SRD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Books\SRD.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TftYP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\TftYP.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\ToA.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\ToD.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="TTP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\TTP.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="VGM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\VGM.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="XGE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Books\XGE.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

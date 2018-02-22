@@ -21,6 +21,16 @@ namespace CampaignData
             rand = new RNGCryptoServiceProvider();
         }
 
+        public static int RollXwithMod(int DiceCount, int DiceSize, int Modifier)
+        {
+            int roll=0;
+            for(int a = 0; a < DiceCount; a++)
+            {
+                roll += RollDice((byte) DiceSize);
+            }
+            roll += Modifier;
+            return roll;
+        }
         public static int Roll(int DiceSize, RollType rollType)
         {
             byte diceSize = (byte)DiceSize;

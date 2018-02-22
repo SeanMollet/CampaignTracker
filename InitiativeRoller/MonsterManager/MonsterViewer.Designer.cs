@@ -582,11 +582,11 @@
             this.Senses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Senses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Senses.ColumnHeadersVisible = false;
-            this.Senses.Location = new System.Drawing.Point(50, 6);
+            this.Senses.Location = new System.Drawing.Point(46, 6);
             this.Senses.MultiSelect = false;
             this.Senses.Name = "Senses";
             this.Senses.RowHeadersVisible = false;
-            this.Senses.Size = new System.Drawing.Size(102, 69);
+            this.Senses.Size = new System.Drawing.Size(127, 69);
             this.Senses.TabIndex = 28;
             // 
             // label18

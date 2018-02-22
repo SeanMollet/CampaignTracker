@@ -30,6 +30,24 @@ namespace DataParser
         }
 
 
+        public void ConvertJsonMonsterTypes(List<Monster> Monsters)
+        {
+            foreach (var monster in Monsters)
+            {
+                //Split up the type field
+                var matches = PCRE.PcreRegex.Matches(monster.Type, @"(\w*) ((?:[\w ]+|(?:\(.*\)))+),\s([\w \-\(\)%]*)");
+                //There should only be one of these
+                foreach (var match in matches)
+                {
+                    if (match.CaptureCount == 3)
+                    {
+                        monster.Size = new CreatureSize(match[1]);
+                        monster.Type = match[2];
+                        monster.Alignment = match[3];
+                    }
+                }
+            }
+        }
 
         public static Monster getMonsterfromMarkup(string markup)
         {
@@ -103,6 +121,242 @@ namespace DataParser
             Challenge,
             Traits,
             Actions
+        }
+
+        public static void ParseBestiary(string inputpath, string outputpath)
+        {
+            Dictionary<string, List<Monster>> books = new Dictionary<string, List<Monster>>();
+
+            Console.WriteLine("Parsing Markup from " + inputpath);
+            inputpath = Path.Combine(inputpath, "bestiary.json");
+
+            if (File.Exists(inputpath))
+            {
+                var data = File.ReadAllText(inputpath);
+
+
+                var file = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(data);
+
+                if(file["monster"] != null)
+                {
+                    var monsters = file["monster"];
+                    foreach (var monster in monsters)
+                    {
+                        Monster newmonster = new Monster();
+                        newmonster.Name = monster["name"].ToString().Trim();
+                        newmonster.Size = new CreatureSize(monster["size"].ToString().Trim());
+                        if (monster["type"] is JObject)
+                        {
+                            newmonster.Type = monster["type"]["type"].ToString().Trim();
+                            if (monster["type"]["tags"] != null)
+                            {
+                                newmonster.Tags = new SortableBindingList<string>();
+                                foreach (var tag in monster["type"]["tags"]) { newmonster.Tags.Add(tag.ToString().Trim()); }
+                            }
+                        }
+                        else
+                        {
+                            newmonster.Type = monster["type"].ToString().Trim();
+                        }
+                        newmonster.Source = monster["source"].ToString().Trim();
+                        newmonster.Alignment = monster["alignment"].ToString().Trim();
+
+                        newmonster.HP.SetFromString(monster["hp"].ToString().Trim());
+
+                        if (monster["ac"] != null && monster["ac"].ToString().Contains(" "))
+                        {
+                            string acStr = monster["ac"].ToString().Trim();
+                            int acValue = 0;
+                            int.TryParse(acStr.Substring(0, acStr.IndexOf(' ')), out acValue);
+                            newmonster.AC.Value = acValue;
+                            newmonster.AC.Notes = acStr.Substring(acStr.IndexOf(' ')).Trim();
+                        }
+                        else
+                        {
+                            int acValue = 0;
+                            int.TryParse(monster["ac"].ToString(), out acValue);
+                            newmonster.AC.Value = acValue;
+                        }
+
+                        var tempspeeds = monster["speed"].ToString().Split(',');
+                        foreach (var speed in tempspeeds)
+                        {
+                            newmonster.Speed.Add(speed.Trim());
+                        }
+
+                        int str = 0, dex = 0, con = 0, intel = 0, wis = 0, cha = 0;
+                        int.TryParse(monster["str"].ToString(), out str);
+                        int.TryParse(monster["dex"].ToString(), out dex);
+                        int.TryParse(monster["con"].ToString(), out con);
+                        int.TryParse(monster["int"].ToString(), out intel);
+                        int.TryParse(monster["wis"].ToString(), out wis);
+                        int.TryParse(monster["cha"].ToString(), out cha);
+
+                        newmonster.Abilities = new Abilities { Str = str, Dex = dex, Con = con, Int = intel, Wis = wis, Cha = cha };
+
+                        if (monster["save"] != null)
+                        {
+                            var tempsaves = monster["save"].ToString().Split(',');
+                            foreach (var save in tempsaves)
+                            {
+                                string savestr = save.ToString().Trim();
+                                var newsave = new Save();
+                                newsave.Name = savestr.Substring(0, savestr.IndexOf(' '));
+
+                                int value = 0;
+                                int.TryParse(savestr.Substring(savestr.IndexOf(' ')), out value);
+                                newsave.Modifier = value;
+                                newmonster.Saves.Add(newsave);
+                            }
+                        }
+
+                        if (monster["skill"] != null)
+                        {
+                            foreach (var tag in monster["skill"])
+                            {
+                                string skill = tag.Name.ToString().Trim();
+                                var newskill = new Skill();
+                                newskill.Name = skill;
+                                int mod = 0;
+                                int.TryParse(tag.Value.ToString(), out mod);
+                                newskill.Modifier = mod;
+                            }
+                        }
+
+                        if (monster["immune"] != null)
+                        {
+                            foreach (var immun in monster["immune"].ToString().Split(',')) { newmonster.DamageImmunities.Add(immun.Trim()); }
+                        }
+
+                        if (monster["vulnerable"] != null)
+                        {
+                            foreach (var dmgvul in monster["vulnerable"].ToString().Split(',')) { newmonster.DamageVulnerabilities.Add(dmgvul.Trim()); }
+                        }
+                        if (monster["conditionImmune"] != null)
+                        {
+                            foreach (var conimm in monster["conditionImmune"].ToString().Split(',')) { newmonster.ConditionImmunities.Add(conimm.Trim()); }
+                        }
+
+
+
+                        if(monster["senses"] != null)
+                        {
+                            foreach (var sense in monster["senses"].ToString().Split(',')) { newmonster.Senses.Add(sense.Trim()); }
+                        }
+                        if (monster["passive"] != null)
+                        {
+                            int passive = 0;
+                            int.TryParse(monster["passive"].ToString(), out passive);
+                            newmonster.Senses.Add("passive Perception " + monster["passive"].ToString().Trim());
+                        }
+
+                        if (monster["languages"] != null)
+                        {
+                            foreach (var language in monster["languages"].ToString().Split(',')) { newmonster.Languages.Add(language.Trim()); }
+                        }
+
+                        if (monster["cr"] != null)
+                        {
+                            if (monster["cr"] == "Unknown")
+                            {
+                                newmonster.Challenge = new Fraction(0);
+                            }
+                            else
+                            {
+                                newmonster.Challenge = new Fraction(monster["cr"].ToString().Trim());
+                            }
+                        }
+
+                        if (monster["trait"] != null)
+                        {
+                            foreach (var trait in monster["trait"])
+                            {
+                                if (trait["text"] is JArray)
+                                {
+                                    string text = "";
+                                    foreach (var line in trait["text"])
+                                    {
+                                        text += line.ToString().Trim();
+                                    }
+                                    newmonster.Traits.Add(new Trait { Content = text, Name = trait["name"].ToString().Trim() });
+                                }
+                                else
+                                {
+                                    newmonster.Traits.Add(new Trait { Content = trait["text"].ToString().Trim(), Name = trait["name"].ToString().Trim() });
+                                }
+                            }
+                        }
+
+                        if (monster["action"] != null)
+                        {
+                            foreach (var trait in monster["action"])
+                            {
+                                string text = "";
+                                string attack = "";
+
+                                if (trait["text"] is JArray)
+                                {
+                                    foreach (var line in trait["text"])
+                                    {
+                                        text += line.ToString().Trim();
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    text = trait["text"].ToString();
+                                }
+
+                                if (trait["attack"] is JArray)
+                                {
+                                    foreach (var line in trait["attack"])
+                                    {
+                                        attack += line.ToString().Trim();
+                                    }
+
+                                }
+                                else
+                                {
+                                    attack = trait["attack"] == null ? "" : trait["attack"].ToString().Trim();
+                                }
+
+                                newmonster.Actions.Add(new CampaignData.Action { Content = text, Name = trait["name"].ToString().Trim(), Attack = attack });
+                            }
+                        }
+
+                        if (monster["spells"] != null)
+                        {
+                            foreach (var spell in monster["spells"].ToString().Split(',')) { newmonster.Spells.Add(spell.Trim()); }
+                        }
+
+                        newmonster.ReadOnly = true;
+
+                        if (!books.ContainsKey(newmonster.Source))
+                        {
+                            books.Add(newmonster.Source, new List<Monster>());
+                        }
+                        books[newmonster.Source].Add(newmonster);
+                    }
+                }
+
+
+                if (books.Count > 0)
+                {
+                    foreach (var book in books)
+                    {
+                        try
+                        {
+                            var savejson = Newtonsoft.Json.JsonConvert.SerializeObject(book.Value,Formatting.Indented);
+                            File.WriteAllText(Path.Combine(outputpath, book.Key + ".json"), savejson);
+                        }
+                        catch (Exception E)
+                        {
+                            Console.WriteLine(E.ToString());
+                        }
+                    }
+                }
+            }
+
         }
         public static void ParseMarkup(string inputpath,string outputpath)
         {
@@ -194,6 +448,11 @@ namespace DataParser
                 ParseMarkup(opts.InputPath,opts.OutputPath);
                 return;
             }
+            if(opts.Bestiary)
+            {
+                ParseBestiary(opts.InputPath, opts.OutputPath);
+                return;
+            }
         }
         class Options
         {
@@ -208,6 +467,10 @@ namespace DataParser
 
             [Option('m', Default = false, HelpText = "Parses markup monster files")]
             public bool Markup { get; set; }
+
+
+            [Option('b', Default = false, HelpText = "Parses bestiary file")]
+            public bool Bestiary { get; set; }
 
             // Omitting long name, defaults to name of property, ie "--verbose"
             [Option(Default = false, HelpText = "Prints all messages to standard output.")]

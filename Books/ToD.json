@@ -1,0 +1,2865 @@
+[
+  {
+    "Name": "Ambush Drake",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "dragon",
+    "Tags": [],
+    "Source": "ToD",
+    "Alignment": "unaligned",
+    "AC": {
+      "Value": 13,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 22,
+      "HitDiceCount": 4,
+      "HitDice": 6,
+      "HitModifier": 8,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 13,
+      "Dex": 15,
+      "Con": 14,
+      "Int": 4,
+      "Wis": 11,
+      "Cha": 6
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 14"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "understands Draconic but can't speak it"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 2
+    },
+    "Traits": [
+      {
+        "Name": "Pack Tactics",
+        "Content": "The drake has advantage on an attack roll against a creature if at least one of the drake's allies is within 5 feet of the creature and the ally isn't incapacitated."
+      },
+      {
+        "Name": "Surprise Attack",
+        "Content": "If the drake surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d6+1) piercing damage.",
+        "Attack": "Bite|4|1d6+1"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Azbara Jos",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 13,
+      "Notes": "(16 with mage armor)"
+    },
+    "HP": {
+      "Value": 39,
+      "HitDiceCount": 6,
+      "HitDice": 8,
+      "HitModifier": 12,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 9,
+      "Dex": 16,
+      "Con": 14,
+      "Int": 16,
+      "Wis": 13,
+      "Cha": 11
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Int",
+        "Modifier": 5
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 3
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 11"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Infernal"
+      },
+      {
+        "Value": "Primordial"
+      },
+      {
+        "Value": "Thayan"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 4,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Special Equipment",
+        "Content": "Azbara has two scrolls of mage armor."
+      },
+      {
+        "Name": "Potent Cantrips",
+        "Content": "When Azbara casts an evocation Cantrips and misses, or the target succeeds on its saving throw, the target still takes half the cantrip's damage but suffers no other effect."
+      },
+      {
+        "Name": "Sculpt Spells",
+        "Content": "When Azbara casts an evocation spell that affects other creatures that he can see, he can choose a number of them equal to 1+the spell's level to succeed on their saving throws against the spell. Those creatures take no damage if they would normally take half damage from the spell."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Azbara is a 6th-level spellcaster that uses Intelligence as his spellcasting ability (spell save DC 13, +5 to hit with spell attacks). Azbara has the following spells prepared from the wizard spell list:• Cantrips (at will): mage hand, prestidigitation, ray of frost, shocking grasp• 1st level (4 slots): fog cloud, magic missile, shield, thunderwave• 2nd level (3 slots): invisibility, misty step, scorching ray• 3rd level (3 slots): counterspell, dispel magic, fireball"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Dagger",
+        "Content": "Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or ranged 20 ft./60 ft., one target. Hit: 5 (1d4+3) piercing damage.",
+        "Attack": "Dagger|5|1d4+3"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "mage hand"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "ray of frost"
+      },
+      {
+        "Value": "shocking grasp"
+      },
+      {
+        "Value": "fog cloud"
+      },
+      {
+        "Value": "magic missile"
+      },
+      {
+        "Value": "shield"
+      },
+      {
+        "Value": "thunderwave"
+      },
+      {
+        "Value": "invisibility"
+      },
+      {
+        "Value": "misty step"
+      },
+      {
+        "Value": "scorching ray"
+      },
+      {
+        "Value": "counterspell"
+      },
+      {
+        "Value": "dispel magic"
+      },
+      {
+        "Value": "fireball"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Blagothkus",
+    "Size": {
+      "Value": "Huge"
+    },
+    "Type": "giant",
+    "Tags": [
+      "cloud giant"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 17,
+      "Notes": "(splint)"
+    },
+    "HP": {
+      "Value": 138,
+      "HitDiceCount": 12,
+      "HitDice": 12,
+      "HitModifier": 60,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "40 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 26,
+      "Dex": 13,
+      "Con": 20,
+      "Int": 16,
+      "Wis": 15,
+      "Cha": 15
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 9
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 6
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 6
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 16"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Giant"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 9,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Keen Smell",
+        "Content": "Blagothkus has advantage on Wisdom (Perception) checks that rely on smell."
+      },
+      {
+        "Name": "Innate Spellcasting",
+        "Content": "Blagothkus can innately cast the following spells (spell save DC 15), requiring no material components:• 3/day each: fog cloud, levitate"
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Blagothkus is a 5th-level spellcaster that uses Intelligence as his spellcasting ability (spell save DC 15, +7 to hit with spell attacks). Blagothkus has the following spells prepared from the wizard spell list:• Cantrips (at will): light, mage hand, prestidigitation• 1st level (4 slots): detect magic, identify, magic missile, shield• 2nd level (3 slots): gust of wind, misty step, shatter• 3rd level (2 slots): fly, lightning bolt"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Blagothkus attacks twice with his morningstar.",
+        "Attack": ""
+      },
+      {
+        "Name": "Morningstar",
+        "Content": "Melee Weapon Attack: +10 to hit, reach 10 ft., one target. Hit: 21 (3d8+8) piercing damage.",
+        "Attack": "Morningstar|10|3d8+8"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "fog cloud"
+      },
+      {
+        "Value": "levitate"
+      },
+      {
+        "Value": "light"
+      },
+      {
+        "Value": "mage hand"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "detect magic"
+      },
+      {
+        "Value": "identify"
+      },
+      {
+        "Value": "magic missile"
+      },
+      {
+        "Value": "shield"
+      },
+      {
+        "Value": "gust of wind"
+      },
+      {
+        "Value": "misty step"
+      },
+      {
+        "Value": "shatter"
+      },
+      {
+        "Value": "fly"
+      },
+      {
+        "Value": "lightning bolt"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Captain Othelstan",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 19,
+      "Notes": "(splint, shield)"
+    },
+    "HP": {
+      "Value": 93,
+      "HitDiceCount": 11,
+      "HitDice": 10,
+      "HitModifier": 33,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 19,
+      "Dex": 10,
+      "Con": 16,
+      "Int": 13,
+      "Wis": 14,
+      "Cha": 12
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Str",
+        "Modifier": 7
+      },
+      {
+        "Name": "Con",
+        "Modifier": 6
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 15"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Giant"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 5,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Action Surge (Recharges on a Short or Long Rest)",
+        "Content": "On his turn, Othelstan can take one additional action."
+      },
+      {
+        "Name": "Tiamat's Blessing of Retribution",
+        "Content": "When Othelstan takes damage that reduces him to 0 hit points, he immediately regains 20 hit points. If he has 20 hit points or fewer at the end of his next turn, he dies."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Othelstan attacks twice with his flail or spear, or makes two ranged attacks with his spears.",
+        "Attack": ""
+      },
+      {
+        "Name": "Flail",
+        "Content": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 8 (1d8+4) bludgeoning damage.",
+        "Attack": "Flail|7|1d8+4"
+      },
+      {
+        "Name": "Spear",
+        "Content": "Melee or Ranged Weapon Attack: +7 to hit, reach 5 ft. or ranged 20 ft./60 ft., one target. Hit: 7 (1d6+4) piercing damage.",
+        "Attack": "One Handed|7|1d6+4Two Handed|7|1d8+4"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Dragonclaw",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 14,
+      "Notes": "(leather armor)"
+    },
+    "HP": {
+      "Value": 16,
+      "HitDiceCount": 3,
+      "HitDice": 8,
+      "HitModifier": 3,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 9,
+      "Dex": 16,
+      "Con": 13,
+      "Int": 11,
+      "Wis": 10,
+      "Cha": 12
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 2
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Dragon Fanatic",
+        "Content": "The dragonclaw has advantage on saving throws against being charmed or frightened. While the dragonclaw can see a dragon or higher-ranking Cult of the Dragon cultist friendly to it, the dragonclaw ignores the effects of being charmed or frightened."
+      },
+      {
+        "Name": "Fanatic Advantage",
+        "Content": "Once per turn, if the dragonclaw makes a weapon attack with advantage on the attack roll and hits, it deals an extra 7 (2d6) damage."
+      },
+      {
+        "Name": "Pack Tactics",
+        "Content": "The dragonclaw has advantage on an attack roll against a creature if at least one of the dragonclaw's allies is within 5 feet of the creature and the ally isn't incapacitated."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The dragonclaw attacks twice with its scimitar.",
+        "Attack": ""
+      },
+      {
+        "Name": "Scimitar",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6+3) slashing damage.",
+        "Attack": "Scimitar|5|1d6+3"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Dragonfang",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 15,
+      "Notes": "(studded leather)"
+    },
+    "HP": {
+      "Value": 78,
+      "HitDiceCount": 12,
+      "HitDice": 8,
+      "HitModifier": 24,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 11,
+      "Dex": 16,
+      "Con": 14,
+      "Int": 12,
+      "Wis": 12,
+      "Cha": 14
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 3
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 11"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 5,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Dragon Fanatic",
+        "Content": "The dragonfang has advantage on saving throws against being charmed or frightened. While the dragonfang can see a dragon or higher-ranking Cult of the Dragon cultist friendly to it, the dragonfang ignores the effects of being charmed or frightened."
+      },
+      {
+        "Name": "Fanatic Advantage",
+        "Content": "Once per turn, if the dragonfang makes a weapon attack with advantage on the attack roll and hits, the target takes an extra 10 (3d6) damage."
+      },
+      {
+        "Name": "Limited Flight",
+        "Content": "The dragonfang can use a bonus action to gain a flying speed of 30 feet until the end of its turn."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The Dragonfang attacks twice with its shortsword.",
+        "Attack": ""
+      },
+      {
+        "Name": "Shortsword",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6+3) piercing damage plus 7 (2d6) damage of the type to which the dragonfang has resistance.",
+        "Attack": "Shortsword|5|1d6+3+2d6"
+      },
+      {
+        "Name": "Orb of Dragon's Breath (2/Day)",
+        "Content": "Ranged Spell Attack: +5 to hit, range 50 ft., one target. Hit: 22 (5d8) damage of the type to which the dragonfang has damage resistance.",
+        "Attack": "Orb of Dragon's Breath|5|5d8"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Dragonsoul",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 16,
+      "Notes": "(studded leather)"
+    },
+    "HP": {
+      "Value": 110,
+      "HitDiceCount": 17,
+      "HitDice": 8,
+      "HitModifier": 34,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 11,
+      "Dex": 18,
+      "Con": 14,
+      "Int": 13,
+      "Wis": 12,
+      "Cha": 16
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 4
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 11"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 7,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Dragon Fanatic",
+        "Content": "The dragonsoul has advantage on saving throws against being charmed or frightened. While the dragonsoul can see a dragon or higher-ranking Cult of the Dragon cultist friendly to it, the dragonsoul ignores the effects of being charmed or frightened."
+      },
+      {
+        "Name": "Fanatic Advantage",
+        "Content": "Once per turn, if the dragonsoul makes a weapon attack with advantage on the attack roll and hits, the target takes an extra 10 (3d6) damage."
+      },
+      {
+        "Name": "Limited Flight",
+        "Content": "The dragonsoul can use a bonus action to gain a flying speed of 30 feet until the end of its turn."
+      },
+      {
+        "Name": "Pack Tactics",
+        "Content": "The dragonsoul has advantage on an attack roll against a creature if at least one of the dragonclaw's allies is within 5 feet of the creature and the ally isn't incapacitated."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The Dragonsoul attacks twice with its shortsword.",
+        "Attack": ""
+      },
+      {
+        "Name": "Shortsword",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6+3) piercing damage plus 10 (3d6) damage of the type to which the dragonsoul has resistance.",
+        "Attack": "Shortsword|5|1d6+3+3d6"
+      },
+      {
+        "Name": "Orb of Dragon's Breath (3/Day)",
+        "Content": "Ranged Spell Attack: +7 to hit, range 90 ft., one target. Hit: 27 (6d8) damage of the type to which the dragonsoul has damage resistance.",
+        "Attack": "Orb of Dragon's Breath|7|6d8"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Dragonwing",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 14,
+      "Notes": "(leather armor)"
+    },
+    "HP": {
+      "Value": 33,
+      "HitDiceCount": 6,
+      "HitDice": 8,
+      "HitModifier": 6,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 11,
+      "Dex": 16,
+      "Con": 13,
+      "Int": 11,
+      "Wis": 11,
+      "Cha": 13
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 2
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 2,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Dragon Fanatic",
+        "Content": "The dragonwing has advantage on saving throws against being charmed or frightened. While the dragonwing can see a dragon or higher-ranking Cult of the Dragon cultist friendly to it, the dragonwing ignores the effects of being charmed or frightened."
+      },
+      {
+        "Name": "Fanatic Advantage",
+        "Content": "Once per turn, if the dragonwing makes a weapon attack with advantage on the attack roll and hits, the target takes an extra 7 (2d6) damage."
+      },
+      {
+        "Name": "Limited Flight",
+        "Content": "The dragonwing can use a bonus action to gain a flying speed of 30 feet until the end of its turn."
+      },
+      {
+        "Name": "Pack Tactics",
+        "Content": "The dragonwing has advantage on an attack roll against a creature if at least one of the dragonwing's allies is within 5 feet of the creature and the ally isn't incapacitated."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The dragonwing attacks twice with its scimitar.",
+        "Attack": ""
+      },
+      {
+        "Name": "Scimitar",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6+3) slashing damage plus 3 (1d6) damage of the type to which the cultist has resistance.",
+        "Attack": "Scimitar|5|1d6+3+1d6"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Dralmorrer Borngray",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "high elf"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 16,
+      "Notes": "(studded leather, shield)"
+    },
+    "HP": {
+      "Value": 52,
+      "HitDiceCount": 7,
+      "HitDice": 10,
+      "HitModifier": 14,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 18,
+      "Dex": 14,
+      "Con": 14,
+      "Int": 16,
+      "Wis": 10,
+      "Cha": 8
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Str",
+        "Modifier": 6
+      },
+      {
+        "Name": "Con",
+        "Modifier": 4
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 12"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Bullywug"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Elvish"
+      },
+      {
+        "Value": "Goblin"
+      },
+      {
+        "Value": "Sylvan"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 3,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Fey Ancestry",
+        "Content": "Dralmorrer has advantage on saving throws against being charmed, and magic can't put him to sleep."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Dralmorrer is a 7th-level spellcaster that uses Intelligence as his spellcasting ability (spell save DC 13, +5 to hit with spell attacks). Dralmorrer has the following spells prepared from the wizard spell list:• Cantrips (at will): fire bolt, prestidigitation, shocking grasp• 1st level (4 slots): longstrider, magic missile, shield, thunderwave• 2nd level (2 slots): magic weapon, misty step"
+      },
+      {
+        "Name": "War Magic",
+        "Content": "When Dralmorrer uses his action to cast a cantrip, he can also take a bonus action to make one weapon attack."
+      },
+      {
+        "Name": "Weapon Bond",
+        "Content": "Provided his longsword is on the same plane Dralmorrer can take a bonus action to teleport it to his hand."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Dralmorrer attacks twice, either with his longsword or dagger.",
+        "Attack": ""
+      },
+      {
+        "Name": "Longsword",
+        "Content": "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 8 (1d8+4) slashing damage.",
+        "Attack": "One Handed|6|1d8+4Two Handed|6|1d10+4"
+      },
+      {
+        "Name": "Dagger",
+        "Content": "Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or ranged 20/60, one target. Hit: 6 (1d4+4) piercing damage.",
+        "Attack": "Dagger|6|1d4+4"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "fire bolt"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "shocking grasp"
+      },
+      {
+        "Value": "longstrider"
+      },
+      {
+        "Value": "magic missile"
+      },
+      {
+        "Value": "shield"
+      },
+      {
+        "Value": "thunderwave"
+      },
+      {
+        "Value": "magic weapon"
+      },
+      {
+        "Value": "misty step"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Frulam Mondath",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 16,
+      "Notes": "(chain mail)"
+    },
+    "HP": {
+      "Value": 44,
+      "HitDiceCount": 8,
+      "HitDice": 8,
+      "HitModifier": 8,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 14,
+      "Dex": 10,
+      "Con": 13,
+      "Int": 11,
+      "Wis": 18,
+      "Cha": 15
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 6
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 4
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 14"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 2,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Spellcasting",
+        "Content": "Frulam is a 5th-level spellcaster that uses Wisdom as her spellcasting ability (spell save DC 14, +6 to hit with spell attacks). Frulam has the following spells prepared from the cleric spell list:• Cantrips (at will): light, sacred flame, thaumaturgy• 1st level (4 slots): command, cure wounds, healing word, sanctuary• 2nd level (3 slots): calm emotions, hold person, spiritual weapon• 3rd level (2 slots): mass healing word, spirit guardians"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Frulam attacks twice with her halberd.",
+        "Attack": ""
+      },
+      {
+        "Name": "Halberd",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 7 (1d10+2) bludgeoning damage.",
+        "Attack": "Halberd|5|1d10+2"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "light"
+      },
+      {
+        "Value": "sacred flame"
+      },
+      {
+        "Value": "thaumaturgy"
+      },
+      {
+        "Value": "command"
+      },
+      {
+        "Value": "cure wounds"
+      },
+      {
+        "Value": "healing word"
+      },
+      {
+        "Value": "sanctuary"
+      },
+      {
+        "Value": "calm emotions"
+      },
+      {
+        "Value": "hold person"
+      },
+      {
+        "Value": "spiritual weapon"
+      },
+      {
+        "Value": "mass healing word"
+      },
+      {
+        "Value": "spirit guardians"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Guard Drake",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "dragon",
+    "Tags": [],
+    "Source": "ToD",
+    "Alignment": "unaligned",
+    "AC": {
+      "Value": 14,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 52,
+      "HitDiceCount": 7,
+      "HitDice": 8,
+      "HitModifier": 21,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 16,
+      "Dex": 11,
+      "Con": 16,
+      "Int": 4,
+      "Wis": 10,
+      "Cha": 7
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 12"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "understands Draconic but can't speak it"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 2,
+      "Denominator": 1
+    },
+    "Traits": [],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The drake attacks twice, once with its bite and once with its tail.",
+        "Attack": ""
+      },
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8+3) piercing damage.",
+        "Attack": "Bite|5|1d8+3"
+      },
+      {
+        "Name": "Tail",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6+3) bludgeoning damage.",
+        "Attack": "Tail|5|1d6+3"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Ice Toad",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "monstrosity",
+    "Tags": [],
+    "Source": "ToD",
+    "Alignment": "neutral",
+    "AC": {
+      "Value": 12,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 32,
+      "HitDiceCount": 5,
+      "HitDice": 8,
+      "HitModifier": 10,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      },
+      {
+        "Value": "swim 30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 13,
+      "Dex": 10,
+      "Con": 14,
+      "Int": 8,
+      "Wis": 10,
+      "Cha": 6
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "cold"
+      }
+    ],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 12"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Ice Toad"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Amphibious",
+        "Content": "The toad can breathe air or water."
+      },
+      {
+        "Name": "Cold Aura",
+        "Content": "Any creature that starts its turn within 5 feet of the toad takes 3 (1d6) cold damage."
+      },
+      {
+        "Name": "Standing Leap",
+        "Content": "The toad's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d8) cold damage. If the target is a Medium or smaller creature it is grappled (escape DC 11). Until this grapple ends, the toad can't bite another target.",
+        "Attack": "Bite|3|1d8"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Jamna Gleamsilver",
+    "Size": {
+      "Value": "Small"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "gnome"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral",
+    "AC": {
+      "Value": 15,
+      "Notes": "(leather armor)"
+    },
+    "HP": {
+      "Value": 22,
+      "HitDiceCount": 4,
+      "HitDice": 6,
+      "HitModifier": 8,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "25 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 8,
+      "Dex": 17,
+      "Con": 14,
+      "Int": 15,
+      "Wis": 10,
+      "Cha": 12
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Dex",
+        "Modifier": 5
+      },
+      {
+        "Name": "Int",
+        "Modifier": 4
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 14"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Gnomish"
+      },
+      {
+        "Value": "Goblin"
+      },
+      {
+        "Value": "Sylvan"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Cunning Action",
+        "Content": "Jamna can take a bonus action to take the Dash, Disengage, or Hide action."
+      },
+      {
+        "Name": "Gnome Cunning",
+        "Content": "Jamna has advantage on Intelligence, Wisdom and Charisma saving throws against magic."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Jamna is a 4th-level spellcaster that uses Intelligence as her spellcasting ability (spell save DC 12, +4 to hit with spell attacks). Jamna has the following spells prepared from the wizard spell list.• Cantrips (at will): mage hand, minor illusion, prestidigitation, ray of frost• 1st level (3 slots): charm person, color spray, disguise self, longstrider"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Jamna attacks twice with her shortswords.",
+        "Attack": ""
+      },
+      {
+        "Name": "Shortsword",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6+3) piercing damage, or 9 (1d6+3) plus (1d6) piercing damage if the target is Medium or larger.",
+        "Attack": "Shortsword|5|1d6+3Shortsword vs medium or larger|5|1d6+3+1d6"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "mage hand"
+      },
+      {
+        "Value": "minor illusion"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "ray of frost"
+      },
+      {
+        "Value": "charm person"
+      },
+      {
+        "Value": "color spray"
+      },
+      {
+        "Value": "disguise self"
+      },
+      {
+        "Value": "longstrider"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Langdedrosa Cyanwrath",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "half-dragon"
+    ],
+    "Source": "ToD",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 17,
+      "Notes": "(splint)"
+    },
+    "HP": {
+      "Value": 57,
+      "HitDiceCount": 6,
+      "HitDice": 12,
+      "HitModifier": 18,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 19,
+      "Dex": 13,
+      "Con": 16,
+      "Int": 10,
+      "Wis": 14,
+      "Cha": 12
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Str",
+        "Modifier": 6
+      },
+      {
+        "Name": "Con",
+        "Modifier": 5
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "blindsight 10 ft."
+      },
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 14"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 4,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Action Surge (Recharges on a Short or Long Rest)",
+        "Content": "On his turn, Langdedrosa can take one additional action."
+      },
+      {
+        "Name": "Improved Critical",
+        "Content": "Langdedrosa's weapon attacks score a critical hit on a roll of 19 or 20."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Langdedrosa attacks twice, either with his greatsword or spear.",
+        "Attack": ""
+      },
+      {
+        "Name": "Greatsword",
+        "Content": "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6+4) slashing damage.",
+        "Attack": "Greatsword|6|2d6+4"
+      },
+      {
+        "Name": "Spear",
+        "Content": "Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or ranged 20/60 ft., one target. Hit: 7 (1d6+4) piercing damage.",
+        "Attack": "One Handed|6|1d6+4Two Handed|6|1d8+4"
+      },
+      {
+        "Name": "Lightning Breath (Recharge 5-6)",
+        "Content": "Langdedrosa breathes lightning in a 30-foot line that is 5 feet wide. Each creature in the line must make a DC 13 Dexterity saving throw, taking 22 (4d10) lightning damage on a failed save, or half as much damage on a successful one.",
+        "Attack": "Lightning Breath||4d10"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Naergoth Bladelord",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "undead",
+    "Tags": [],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 18,
+      "Notes": "(plate)"
+    },
+    "HP": {
+      "Value": 135,
+      "HitDiceCount": 18,
+      "HitDice": 8,
+      "HitModifier": 54,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 20,
+      "Dex": 12,
+      "Con": 16,
+      "Int": 12,
+      "Wis": 14,
+      "Cha": 16
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "poisoned"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "Dex",
+        "Modifier": 5
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 4
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 16"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 11,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Sunlight Sensitivity",
+        "Content": "While in sunlight, Naergoth has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Naergoth makes three attacks, either with his longsword or longbow. He can use Life Drain in place of one longsword attack.",
+        "Attack": ""
+      },
+      {
+        "Name": "Life Drain",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 20 (5d6+3) necrotic damage. The target must succeed on a DC 15 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.",
+        "Attack": "Life Drain|9|5d6+3"
+      },
+      {
+        "Name": "Longsword",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 9 (1d8+5) slashing damage, or 10 (1d10+5) if used with two hands, plus 10 (3d6) necrotic damage.",
+        "Attack": "One Handed|9|1d8+5+3d6Two Handed|9|1d10+5+3d6"
+      },
+      {
+        "Name": "Longbow",
+        "Content": "Ranged Weapon Attack: +5 to hit, range 150/600 ft., one target. Hit: 5 (1d8+1) piercing damage plus 10 (3d6) necrotic damage.",
+        "Attack": "Longbow|5|1d8+1+3d6"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Neronvain",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "elf"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 17,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 117,
+      "HitDiceCount": 18,
+      "HitDice": 8,
+      "HitModifier": 36,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 8,
+      "Dex": 17,
+      "Con": 15,
+      "Int": 16,
+      "Wis": 13,
+      "Cha": 18
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "poisoned"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 6
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 5
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 15"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Elvish"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 9,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Draconic Majesty",
+        "Content": "Neronvain adds his Charisma bonus to his AC (included)."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Fey Ancestry",
+        "Content": "Magic can't put Neronvain to sleep.",
+        "Attack": ""
+      },
+      {
+        "Name": "Multiattack",
+        "Content": "Neronvain makes two attacks, either with his shortsword or Eldritch Arrow.",
+        "Attack": ""
+      },
+      {
+        "Name": "Shortsword",
+        "Content": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 6 (1d6+3) piercing damage plus 13 (3d8) poison damage.",
+        "Attack": "Shortsword|7|1d6+3+3d8"
+      },
+      {
+        "Name": "Eldritch Arrow",
+        "Content": "Ranged Spell Attack: +7 to hit, range 120 ft., one target. Hit: 11 (2d10) force damage plus 9 (2d8) poison damage.",
+        "Attack": "Eldritch Arrow|7|2d10+2d8"
+      },
+      {
+        "Name": "Poisonous Cloud (2/Day)",
+        "Content": "Poison gas fills a 20-foot-radius sphere centered on a point Neronvain can see within 50 feet of him. The gas spreads around corners and remains until the start of Neronvain's next turn. Each creature that starts its turn in the gas must succeed on a DC 16 Constitution saving throw or be poisoned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Pharblex Spattergoo",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "bullywug"
+    ],
+    "Source": "ToD",
+    "Alignment": "chaotic evil",
+    "AC": {
+      "Value": 15,
+      "Notes": "(studded leather armor, shield)"
+    },
+    "HP": {
+      "Value": 59,
+      "HitDiceCount": 7,
+      "HitDice": 8,
+      "HitModifier": 28,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "20 ft."
+      },
+      {
+        "Value": "swim 40 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 15,
+      "Dex": 12,
+      "Con": 18,
+      "Int": 11,
+      "Wis": 16,
+      "Cha": 7
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Str",
+        "Modifier": 4
+      },
+      {
+        "Name": "Con",
+        "Modifier": 6
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 15"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Bullywug"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 3,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Amphibious",
+        "Content": "Pharblex can breathe air and water."
+      },
+      {
+        "Name": "Poison Strike (3/Day)",
+        "Content": "Once per turn, when Pharblex hits with a melee attack, he can expend a use of this trait to deal an extra 9 (2d8) poison damage."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Pharblex is a 6th-level spellcaster that uses Wisdom as his spellcasting ability (spell save DC 13, +5 to hit with spell attacks). Pharblex has the following spells prepared from the druid spell list:• Cantrips (at will): druidcraft, guidance, poison spray• 1st level (4 slots): cure wounds, entangle, healing word, thunderwave• 2nd level (3 slots): barkskin, beast sense, spike growth• 3rd level (3 slots): plant growth, water walk"
+      },
+      {
+        "Name": "Standing Leap",
+        "Content": "As part of his movement and without a running start, Pharblex can long jump up to 20 feet and high jump up to 10 feet."
+      },
+      {
+        "Name": "Swamp Camouflage",
+        "Content": "Pharblex has advantage on Dexterity (Stealth) checks made to hide in swampy terrain."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Pharblex attacks twice. Once with his bite and once with his spear.",
+        "Attack": ""
+      },
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 4 (1d4+2) piercing damage.",
+        "Attack": "Bite|5|1d4+2"
+      },
+      {
+        "Name": "Spear",
+        "Content": "Melee or Ranged Weapon Attack: +5 to hit. reach 5 ft. or ranged 20/60 ft., one target. Hit: 5 (1d6+2) piercing damage.",
+        "Attack": "One Handed|5|1d6+2Two Handed|5|1d8+2"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "druidcraft"
+      },
+      {
+        "Value": "guidance"
+      },
+      {
+        "Value": "poison spray"
+      },
+      {
+        "Value": "cure wounds"
+      },
+      {
+        "Value": "entangle"
+      },
+      {
+        "Value": "healing word"
+      },
+      {
+        "Value": "thunderwave"
+      },
+      {
+        "Value": "barkskin"
+      },
+      {
+        "Value": "beast sense"
+      },
+      {
+        "Value": "spike growth"
+      },
+      {
+        "Value": "plant growth"
+      },
+      {
+        "Value": "water walk"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Rath Modar",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 13,
+      "Notes": "(16 with mage armor)"
+    },
+    "HP": {
+      "Value": 71,
+      "HitDiceCount": 11,
+      "HitDice": 8,
+      "HitModifier": 22,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 11,
+      "Dex": 16,
+      "Con": 14,
+      "Int": 18,
+      "Wis": 14,
+      "Cha": 10
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Int",
+        "Modifier": 7
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 5
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 12"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Infernal"
+      },
+      {
+        "Value": "Primordial"
+      },
+      {
+        "Value": "Thayan"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 6,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Special Equipment",
+        "Content": "Rath has a staff of fire, and scrolls of dimension door, feather fall, and fireball."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Rath is an 11th-level spellcaster who uses Intelligence as his spellcasting ability (spell save DC 15, +7 to hit with spell attacks). Rath has the following spells prepared from the wizard spell list:• Cantrips (at will): fire bolt, minor illusion, prestidigitation, shocking grasp• 1st level (4 slots): chromatic orb, color spray, mage armor, magic missile• 2nd level (3 slots): detect thoughts, mirror image, phantasmal force• 3rd level (3 slots): counterspell, fireball, major image• 4th level (3 slots): confusion, greater invisibility• 5th level (2 slots): mislead, seeming• 6th level (1 slot): globe of invulnerability"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Quarterstaff",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d8) bludgeoning damage.",
+        "Attack": "One Handed|4|1d6Two Handed|4|1d8"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "fire bolt"
+      },
+      {
+        "Value": "minor illusion"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "shocking grasp"
+      },
+      {
+        "Value": "chromatic orb"
+      },
+      {
+        "Value": "color spray"
+      },
+      {
+        "Value": "mage armor"
+      },
+      {
+        "Value": "magic missile"
+      },
+      {
+        "Value": "detect thoughts"
+      },
+      {
+        "Value": "mirror image"
+      },
+      {
+        "Value": "phantasmal force"
+      },
+      {
+        "Value": "counterspell"
+      },
+      {
+        "Value": "fireball"
+      },
+      {
+        "Value": "major image"
+      },
+      {
+        "Value": "confusion"
+      },
+      {
+        "Value": "greater invisibility"
+      },
+      {
+        "Value": "mislead"
+      },
+      {
+        "Value": "seeming"
+      },
+      {
+        "Value": "globe of invulnerability"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Rezmir",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "half-black dragon"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 13,
+      "Notes": "(15 with the Black Dragon Mask)"
+    },
+    "HP": {
+      "Value": 90,
+      "HitDiceCount": 12,
+      "HitDice": 8,
+      "HitModifier": 36,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 18,
+      "Dex": 16,
+      "Con": 16,
+      "Int": 15,
+      "Wis": 12,
+      "Cha": 14
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "acid"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "frightened"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "Dex",
+        "Modifier": 6
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 4
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "blindsight 10 ft."
+      },
+      {
+        "Value": "darkvision 120 ft."
+      },
+      {
+        "Value": "passive Perception 11"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Infernal"
+      },
+      {
+        "Value": "Giant"
+      },
+      {
+        "Value": "Netherese"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 7,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Special Equipment",
+        "Content": "Rezmir has the Black Dragon Mask, Hazirawn, and an insignia of claws."
+      },
+      {
+        "Name": "Amphibious",
+        "Content": "Rezmir can breathe air and water."
+      },
+      {
+        "Name": "Dark Advantage",
+        "Content": "Once per turn, Rezmir can deal an extra 10 (3d6) damage when she hits with a weapon attack, provided Rezmir has advantage on the attack roll."
+      },
+      {
+        "Name": "Draconic Majesty",
+        "Content": "While wearing no armor and wearing the Black Dragon Mask, Rezmir adds her Charisma bonus to her AC (included)."
+      },
+      {
+        "Name": "Immolation",
+        "Content": "When Rezmir is reduced to 0 hit points, her body disintegrates into a pile of ash."
+      },
+      {
+        "Name": "Legendary Resistance (1/Day)",
+        "Content": "If Rezmir fails a saving throw while wearing the Black Dragon Mask, she can choose to succeed instead."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Greatsword (Hazirawn)",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 13 (2d6+6) slashing damage plus 7 (2d6) necrotic damage. If the target is a creature, it can't regain hit points for 1 minute. The target can make a DC 15 Constitution saving throw at the end of each of its turns, ending this effect early on a success.",
+        "Attack": "Greatsword|9|2d6+6+2d6"
+      },
+      {
+        "Name": "Caustic Bolt",
+        "Content": "Ranged Spell Attack: +8 to hit, range 90 ft., one target. Hit: 18 (4d8) acid damage.",
+        "Attack": "Caustic Bolt|8|4d8"
+      },
+      {
+        "Name": "Acid Breath (Recharge 5-6)",
+        "Content": "Rezmir breathes acid in a 30-foot line that is 5 feet wide. Each creature in the line must make a DC 14 Dexterity saving throw, taking 22 (5d8) acid damage on a failed save, or half as much damage on a successful one.",
+        "Attack": "Acid Breath||5d8"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Severin",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 16,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 150,
+      "HitDiceCount": 20,
+      "HitDice": 8,
+      "HitModifier": 60,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 10,
+      "Dex": 13,
+      "Con": 16,
+      "Int": 17,
+      "Wis": 12,
+      "Cha": 20
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "While wearing the mask of the Dragon Queen: fire"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "While wearing the mask of the Dragon Queen: charmed"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "poisoned"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "Dex",
+        "Modifier": 5
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 5
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "While wearing the Mask of the Dragon Queen: darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 11"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 11,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Special Equipment",
+        "Content": "Severin has the Mask of the Dragon Queen."
+      },
+      {
+        "Name": "Draconic Majesty",
+        "Content": "Severin adds his Charisma bonus to his AC (included)."
+      },
+      {
+        "Name": "Ignite Enemy",
+        "Content": "If Severin deals fire damage to a creature while wearing the Mask of the Dragon Queen, the target catches fire. At the start of each of its turns, the burning target takes 5 (1d10) fire damage. A creature within reach of the fire can use an action to extinguish it."
+      },
+      {
+        "Name": "Legendary Resistance (5/Day)",
+        "Content": "While wearing the Mask of the Dragon Queen, if Severin fails a saving throw, he can choose to succeed instead."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Burning Touch",
+        "Content": "Melee Spell Attack: +5 to hit, reach 5 ft., one target. Hit: 18 (4d8) fire damage.",
+        "Attack": "Burning Touch|5|4d8"
+      },
+      {
+        "Name": "Flaming Orb",
+        "Content": "Ranged Spell Attack: +5 to hit, range 90 ft., one target. Hit: 40 (9d8) fire damage.",
+        "Attack": "Flaming Orb|5|9d8"
+      },
+      {
+        "Name": "Scorching Burst",
+        "Content": "Severin chooses a point he can see within 60 feet of him. Each creature within 5 feet of that point must make a DC 17 Dexterity saving throw, taking 18 (4d8) fire damage on a failed save, or half as much damage on a successful one.",
+        "Attack": "Scorching Burst||4d8"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Talis the White",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "half-elf"
+    ],
+    "Source": "ToD",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 18,
+      "Notes": "(scale mail +1, shield)"
+    },
+    "HP": {
+      "Value": 58,
+      "HitDiceCount": 9,
+      "HitDice": 8,
+      "HitModifier": 18,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 14,
+      "Dex": 12,
+      "Con": 14,
+      "Int": 10,
+      "Wis": 16,
+      "Cha": 16
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 6
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 6
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 16"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Elvish"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 5,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Special Equipment",
+        "Content": "Talis has +1 scale mail and a wand of winter."
+      },
+      {
+        "Name": "Fey Ancestry",
+        "Content": "Talis has advantage on saving throws against being charmed, and magic can't put her to sleep."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Talis is a 9th-level spellcaster that uses Wisdom as her spellcasting ability (spell save DC 14, +6 to hit with spell attacks). Talis has the following spells prepared from the cleric spell list:• Cantrips (at will): guidance, resistance, thaumaturgy• 1st level (4 slots): command, cure wounds, healing word, inflict wounds• 2nd level (3 slots): blindness/deafness, lesser restoration, spiritual weapon (spear)• 3rd level (3 slots): dispel magic, mass healing word, sending• 4th level (3 slots): death ward, freedom of movement• 5th level (1 slot): insect plague"
+      },
+      {
+        "Name": "Winter Strike (3/Day)",
+        "Content": "Once per turn, when Talis hits with a melee attack, she can expend a use of this trait to deal an extra 9 (2d8) cold damage."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Spear",
+        "Content": "Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or ranged 20 ft./60 ft., one target. Hit: 6 (1d6+2) piercing damage.",
+        "Attack": "One Handed|5|1d6+2Two Handed|5|1d8+2"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "guidance"
+      },
+      {
+        "Value": "resistance"
+      },
+      {
+        "Value": "thaumaturgy"
+      },
+      {
+        "Value": "command"
+      },
+      {
+        "Value": "cure wounds"
+      },
+      {
+        "Value": "healing word"
+      },
+      {
+        "Value": "inflict wounds"
+      },
+      {
+        "Value": "blindness/deafness"
+      },
+      {
+        "Value": "lesser restoration"
+      },
+      {
+        "Value": "spiritual weapon"
+      },
+      {
+        "Value": "dispel magic"
+      },
+      {
+        "Value": "mass healing word"
+      },
+      {
+        "Value": "sending"
+      },
+      {
+        "Value": "death ward"
+      },
+      {
+        "Value": "freedom of movement"
+      },
+      {
+        "Value": "insect plague"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Thurl Merosska",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "ToD",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 16,
+      "Notes": "(breastplate)"
+    },
+    "HP": {
+      "Value": 71,
+      "HitDiceCount": 11,
+      "HitDice": 8,
+      "HitModifier": 21,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 16,
+      "Dex": 14,
+      "Con": 14,
+      "Int": 11,
+      "Wis": 10,
+      "Cha": 15
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Auran"
+      },
+      {
+        "Value": "Common"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 3,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Spellcasting",
+        "Content": "Thurl is a 5th-level spellcaster. His spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). Thurl knows the following sorcerer spells:• Cantrips (at will): friends, gust, light, message, ray of frost• 1st level (4 slots): expeditious retreat, feather fall, jump• 2nd level (3 slots): levitate, misty step• 3rd level (2 slots): haste"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Thurl makes two melee attacks.",
+        "Attack": ""
+      },
+      {
+        "Name": "Greatsword",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6+3) slashing damage.",
+        "Attack": "Greatsword|5|2d6+3"
+      },
+      {
+        "Name": "Lance",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 9 (1d12+3) piercing damage.",
+        "Attack": "Lance|5|1d12+3"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "friends"
+      },
+      {
+        "Value": "gust (ee)"
+      },
+      {
+        "Value": "light"
+      },
+      {
+        "Value": "message"
+      },
+      {
+        "Value": "ray of frost"
+      },
+      {
+        "Value": "expeditious retreat"
+      },
+      {
+        "Value": "feather fall"
+      },
+      {
+        "Value": "jump"
+      },
+      {
+        "Value": "levitate"
+      },
+      {
+        "Value": "misty step"
+      },
+      {
+        "Value": "haste"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Tiamat",
+    "Size": {
+      "Value": "Gargantuan"
+    },
+    "Type": "fiend",
+    "Tags": [],
+    "Source": "ToD",
+    "Alignment": "chaotic evil",
+    "AC": {
+      "Value": 25,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 615,
+      "HitDiceCount": 30,
+      "HitDice": 20,
+      "HitModifier": 300,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "60 ft."
+      },
+      {
+        "Value": "fly 120 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 30,
+      "Dex": 10,
+      "Con": 30,
+      "Int": 26,
+      "Wis": 26,
+      "Cha": 28
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "acid"
+      },
+      {
+        "Value": "cold"
+      },
+      {
+        "Value": "fire"
+      },
+      {
+        "Value": "lightning"
+      },
+      {
+        "Value": "poison; bludgeoning"
+      },
+      {
+        "Value": "piercing"
+      },
+      {
+        "Value": "and slashing from nonmagical attacks"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "blinded"
+      },
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "deafened"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "poisoned"
+      },
+      {
+        "Value": "stunned"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "Str",
+        "Modifier": 19
+      },
+      {
+        "Name": "Dex",
+        "Modifier": 9
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 17
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 240 ft."
+      },
+      {
+        "Value": "truesight 120 ft."
+      },
+      {
+        "Value": "passive Perception 36"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 30,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Discorporation",
+        "Content": "When Tiamat drops to 0 hit points or dies, her body is destroyed but her essence travels back to her domain in the Nine Hells, and she is unable to take physical form for a time."
+      },
+      {
+        "Name": "Innate Spellcasting (3/Day)",
+        "Content": "Tiamat can innately cast divine word (spell save DC 26). Her spellcasting ability is Charisma."
+      },
+      {
+        "Name": "Legendary Resistance (5/Day)",
+        "Content": "If Tiamat fails a saving throw, she can choose to succeed instead."
+      },
+      {
+        "Name": "Limited Magic Immunity",
+        "Content": "Unless she wishes to be affected, Tiamat is immune to spells of 6th level or lower. She has advantage on saving throws against all other spells and magical effects."
+      },
+      {
+        "Name": "Magic Weapons",
+        "Content": "Tiamat's weapon attacks are magical."
+      },
+      {
+        "Name": "Multiple Heads",
+        "Content": "Tiamat can take one reaction per turn, rather than only one per round. She also has advantage on saving throws against being knocked unconscious. If she fails a saving throw against an effect that would stun a creature, one of her unspent legendary actions is spent."
+      },
+      {
+        "Name": "Regeneration",
+        "Content": "Tiamat regains 30 hit points at the start of her turn."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Tiamat can use her Frightful Presence. She then makes three attacks: two with her claws and one with her tail.",
+        "Attack": ""
+      },
+      {
+        "Name": "Claw",
+        "Content": "Melee Weapon Attack: +19 to hit, reach 15 ft., one target. Hit: 24 (4d6+10) slashing damage.",
+        "Attack": "Claw|19|4d6+10"
+      },
+      {
+        "Name": "Tail",
+        "Content": "Melee Weapon Attack: +19 to hit, reach 25 ft., one target. Hit: 28 (4d8+10) piercing damage.",
+        "Attack": "Tail|19|4d8+10"
+      },
+      {
+        "Name": "Frightful Presence",
+        "Content": "Each creature of Tiamat's choice that is within 240 feet of Tiamat and aware of her must succeed on a DC 26 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to Tiamat's Frightful Presence for the next 24 hours.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "divine word"
+      }
+    ],
+    "ReadOnly": true
+  }
+]

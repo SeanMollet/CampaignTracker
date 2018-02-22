@@ -30,39 +30,32 @@ namespace CampaignTracker
         }
         public void DataBind(CampaignData.SortableBindingList<Monster> list)
         {
-            List<string> VisibleColumns = new List<string>( new string[] { "Name", "Source", "Type", "Challenge", "Description" });
 
             this.MonstersGrid.Columns.Clear();
-            
+
+            this.MonstersGrid.AutoGenerateColumns = false;
             this.MonstersGrid.DataSource = list;
-            //Hide them all to start
-            if (this.MonstersGrid.Columns.Count > 0)
-            {
-                for (int a = 0; a < this.MonstersGrid.ColumnCount; a++)
-                {
-                    //Enable the ones we want
-                    if (!VisibleColumns.Contains(this.MonstersGrid.Columns[a].Name))
-                    {
-                        this.MonstersGrid.Columns[a].Visible = false;
-                    }
-                }
-            }
+            this.MonstersGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", DataPropertyName = "Name", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.MonstersGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Source", DataPropertyName = "Source", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader });
+            this.MonstersGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Type", DataPropertyName = "DisplayType", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells, Resizable = DataGridViewTriState.True });
+            this.MonstersGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Challenge", DataPropertyName = "Challenge", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader });
+            
 
+            DataGridViewButtonColumn EncounterCol = new DataGridViewButtonColumn();
+            EncounterCol.HeaderText = "Add";
+            EncounterCol.Text = "Encounter";
+            EncounterCol.UseColumnTextForButtonValue = true;
 
-                DataGridViewButtonColumn EncounterCol = new DataGridViewButtonColumn();
-                EncounterCol.HeaderText = "Add";
-                EncounterCol.Text = "Encounter";
-                EncounterCol.UseColumnTextForButtonValue = true;
+            this.MonstersGrid.Columns.Add(EncounterCol);
 
-                this.MonstersGrid.Columns.Add(EncounterCol);
+            DataGridViewButtonColumn BattleCol = new DataGridViewButtonColumn();
+            BattleCol.HeaderText = "Add";
+            BattleCol.Text = "Battle";
+            BattleCol.UseColumnTextForButtonValue = true;
 
-                DataGridViewButtonColumn BattleCol = new DataGridViewButtonColumn();
-                BattleCol.HeaderText = "Add";
-                BattleCol.Text = "Battle";
-                BattleCol.UseColumnTextForButtonValue = true;
+            this.MonstersGrid.Columns.Add(BattleCol);
 
-                this.MonstersGrid.Columns.Add(BattleCol);
-
+            this.MonstersGrid.AutoResizeColumns();
 
 
         }

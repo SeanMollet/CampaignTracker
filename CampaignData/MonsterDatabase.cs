@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,10 +32,22 @@ namespace CampaignData
         }
         public void LoadMonsters()
         {
-            var stream = new MemoryStream(BookData.SRD);
-            var reader = new JsonTextReader(new StreamReader(stream));
 
-            Monsters = JsonSerializer.Create().Deserialize<List<Monster>>(reader);
+            Type resType = Type.GetType("CampaignData.BookData");
+            PropertyInfo[] resProps = resType.GetProperties(BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.GetProperty);
+            Monsters = new SortableBindingList<Monster>();
+            foreach(PropertyInfo info in resProps)
+            {
+                var value = info.GetValue(null,null);
+                if (value is byte[])
+                {
+                    byte[] bytes = (byte[]) value;
+                    var stream = new MemoryStream(bytes, false);
+                    var reader = new JsonTextReader(new StreamReader(stream));
+                    var loadedmon = JsonSerializer.Create().Deserialize<List<Monster>>(reader);
+                    Monsters.AddRange(loadedmon);
+                }
+            }
 
             //Append the custom monsters
             if (customMonsters != null)

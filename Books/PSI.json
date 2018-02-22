@@ -1,0 +1,637 @@
+[
+  {
+    "Name": "Creepy Doll",
+    "Size": {
+      "Value": "Tiny"
+    },
+    "Type": "construct",
+    "Tags": [],
+    "Source": "PSI",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 12,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 21,
+      "HitDiceCount": 6,
+      "HitDice": 4,
+      "HitModifier": 6,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "40 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 6,
+      "Dex": 14,
+      "Con": 13,
+      "Int": 12,
+      "Wis": 11,
+      "Cha": 10
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "paralyzed"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "speaks and understands the languages known by its creator"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 2,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "False Appearance",
+        "Content": "While the creepy doll remains motionless, it is indistinguishable from an ordinary, inanimate doll."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The creepy doll makes one attack with its scissors and uses Psychic Assault.",
+        "Attack": ""
+      },
+      {
+        "Name": "Scissors",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4+2) slashing damage.",
+        "Attack": ""
+      },
+      {
+        "Name": "Psychic Assault",
+        "Content": "The creepy doll targets one creature it can see within 10 feet of it that has a brain. The target must succeed on a DC 12 Intelligence saving throw or take 11 (2d10) psychic damage. Also on a failure, roll 3d6. If the total equals or exceeds the target's Intelligence score, that score is reduced to 0. The target is stunned until it regains at least one point of Intelligence, as from the greater restoration spell or similar magic.",
+        "Attack": ""
+      },
+      {
+        "Name": "Body Exchange",
+        "Content": "The creepy doll initiates an Intelligence contest with an incapacitated humanoid within 5 feet of it. If it wins the contest, the creepy doll's spirit inhabits the target's body while the target's spirit is placed into the creepy doll's body. The creepy doll controls the target's body completely. It retains its alignment, Intelligence, Wisdom, Charisma, and immunity to being charmed and frightened. It otherwise uses the possessed target's statistics, but doesn't gain access to the target's knowledge, class features, or proficiencies. The target retains its alignment, Intelligence, Wisdom, and Charisma while inhabiting the creepy doll's body.The body exchange lasts until the doll's spirit is forced out by magic. (The dispel evil and good spell will accomplish this, though the doll is not one of the creature types whose possession that spell normally ends.) The body and the doll must be within 5 feet of each other for such an effect to work. The target is immune to this doll's Body Exchange for 24 hours after winning the Intelligence contest or after the exchange ends.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Geist",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "undead",
+    "Tags": [],
+    "Source": "PSI",
+    "Alignment": "any alignment",
+    "AC": {
+      "Value": 11,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 45,
+      "HitDiceCount": 10,
+      "HitDice": 8,
+      "HitModifier": 0,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "0 ft."
+      },
+      {
+        "Value": "fly 40 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 7,
+      "Dex": 13,
+      "Con": 10,
+      "Int": 10,
+      "Wis": 12,
+      "Cha": 17
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "cold"
+      },
+      {
+        "Value": "necrotic"
+      },
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "grappled"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 11"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "any languages it knew in life"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 4,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Ethereal Sight",
+        "Content": "The geist can see 60 feet into the Ethereal Plane whenit is on the Material Plane, and vice versa."
+      },
+      {
+        "Name": "Incorporeal Movement",
+        "Content": "The geist can move through other creaturesand objects as if they were difficult terrain. It takes 5 (1d10) forcedamage if it ends its turn inside an object."
+      },
+      {
+        "Name": "Geist Powers",
+        "Content": "Geists are as varied as the humans they were in life. In addition to the traits and actions all geists possess, an individual geist might have any of the following special characteristics."
+      },
+      {
+        "Name": "Geist Powers: Intangible Virtue",
+        "Content": "A living creature possessed by a white-aligned geist gains immunity to the charmed and frightened conditions, and resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks. While the creature is possessed, the geist can allow it to take control of its body, but the geist can regain control at any time (no action required)."
+      },
+      {
+        "Name": "Geist Powers: Horrifying Visage",
+        "Content": "Black-aligned geists can make themselves terrible to behold, even when they are possessing the living. Each non-undead creature within 60 feet of the geist that can see it must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. If the save fails by 5 or more, the target also ages 1d4 × 10 years. A frightened target can repeat the saving throw at the end of each of its turns, ending the frightened condition on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to this geist's Horrifying Visage for the next 24 hours. The aging effect can be reversed with a greater restoration spell, but only within 24 hours of it occurring."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Withering Touch",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one",
+        "Attack": ""
+      },
+      {
+        "Name": "target",
+        "Content": "Hit: 17 (4d6+3) necrotic damage.",
+        "Attack": ""
+      },
+      {
+        "Name": "Etherealness",
+        "Content": "The geist enters the Ethereal Plane from the Material Plane, or vice versa. It is visible on the Material Plane while it is in the Border Ethereal, and vice versa, yet it can't affect or be affected by anything on the other plane.",
+        "Attack": ""
+      },
+      {
+        "Name": "Possession (Recharge 6)",
+        "Content": "One creature that the geist can see within 5 feet of it must succeed on a DC 13 Charisma saving throw or be possessed by the geist; the geist then disappears, and the target is incapacitated and loses control of its body. The geist now controls the body but doesn't deprive the target of awareness. The geist can't be targeted by any attack, spell, or other effect, except ones that turn undead, and it retains its alignment, Intelligence, Wisdom, Charisma, and immunity to being charmed and frightened. It otherwise uses the possessed target's statistics, but doesn't gain access to the target's knowledge, class features, or proficiencies. The possession lasts until the body drops to 0 hit points, the geist ends it as a bonus action, or the geist is turned or forced out by an effect like the dispel evil and good spell. When the possession ends, the geist reappears in an unoccupied space within 5 feet of the body. The target is immune to this geist's Possession for 24 hours after succeeding on the saving throw or after the possession ends. The geist can instead target the corpse of a creature, effectively using its own life force to animate the corpse as a zombie. The animated corpse uses zombie statistics and returns to death if the geist ends the possession.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Skaab",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "construct",
+    "Tags": [],
+    "Source": "PSI",
+    "Alignment": "neutral",
+    "AC": {
+      "Value": 9,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 93,
+      "HitDiceCount": 11,
+      "HitDice": 8,
+      "HitModifier": 44,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 19,
+      "Dex": 9,
+      "Con": 18,
+      "Int": 6,
+      "Wis": 10,
+      "Cha": 5
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "lightning"
+      },
+      {
+        "Value": "poison; bludgeoning"
+      },
+      {
+        "Value": "piercing"
+      },
+      {
+        "Value": "and slashing from nonmagical attacks that aren't adamantine"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "petrified"
+      },
+      {
+        "Value": "poisoned"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "understands the languages of its creator but can't speak"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 5,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Berserk",
+        "Content": "Whenever the golem starts its turn with 40 hit points or fewer, roll a d6. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object, with preference for an object smaller than itself. Once the golem goes berserk, it continues to do so until it is destroyed or regains all its hit points.The golem's creator, if within 60 feet of the berserk golem, can try to calm it by speaking firmly and persuasively. The golem must be able to hear its creator, who must take an action to make a DC 15 Charisma (Persuasion) check. If the check succeeds, the golem ceases being berserk. If it takes damage while still at 40 hit points or fewer, the golem might go berserk again."
+      },
+      {
+        "Name": "Aversion of Fire",
+        "Content": "If the golem takes fire damage, it has disadvantage on attack rolls and ability checks until the end of its next turn."
+      },
+      {
+        "Name": "Immutable Form",
+        "Content": "The golem is immune to any spell or effect that would alter its form."
+      },
+      {
+        "Name": "Lightning Absorption",
+        "Content": "Whenever the golem is subjected to lightning damage, it takes no damage and instead regains a number of hit points equal to the lightning damage dealt."
+      },
+      {
+        "Name": "Magic Resistance",
+        "Content": "The golem has advantage on saving throws against spells and other magical effects."
+      },
+      {
+        "Name": "Magic Weapons",
+        "Content": "The golem's weapon attacks are magical."
+      },
+      {
+        "Name": "Skaab Characteristics",
+        "Content": "The most basic skaabs are simply flesh golems, as described in the Monster Manual. But the aspiration of every skaberen is to produce a truly unique masterpiece, a goal that might see a stitcher create golems with one of the following special characteristics."
+      },
+      {
+        "Name": "Skaab Characteristic: Armor Plating",
+        "Content": "Increase the skaab's Armor Class to 14 and increase its challenge rating to 6 (2,300 XP)."
+      },
+      {
+        "Name": "Skaab Characteristic: Six Arms",
+        "Content": "The skaab's multiattack action allows it to make three slam attacks. Increase its challenge rating to 6 (2,300 XP)."
+      },
+      {
+        "Name": "Skaab Characteristic: Three Heads",
+        "Content": "The skaab has advantage on Wisdom (Perception) checks and on saving throws against being blinded, deafened, stunned, and knocked unconscious. (Its challenge rating doesn't change.)"
+      },
+      {
+        "Name": "Skaab Characteristic: Skaab Goliath",
+        "Content": "This skaab has three heads, six arms, and armor plating. Increase its challenge rating to 7 (2,900 XP)."
+      },
+      {
+        "Name": "Skaab Characteristic: Winged Skaab",
+        "Content": "The skaab has a flying speed of 30 feet."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The golem makes two slam attacks.",
+        "Attack": ""
+      },
+      {
+        "Name": "Slam",
+        "Content": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (2d8+4) bludgeoning damage.",
+        "Attack": "|7|2d8+4"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Vampire Neonate",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "undead",
+    "Tags": [],
+    "Source": "PSI",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 15,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 82,
+      "HitDiceCount": 11,
+      "HitDice": 8,
+      "HitModifier": 33,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 16,
+      "Dex": 16,
+      "Con": 16,
+      "Int": 11,
+      "Wis": 10,
+      "Cha": 12
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Dex",
+        "Modifier": 6
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 3
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 13"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 5,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Regeneration",
+        "Content": "The vampire regains 10 hit points at the start of its turn if it has at least 1 hit point. If the vampire takes radiant damage or damage from holy water, this trait doesn't function at the start of the vampire's next turn."
+      },
+      {
+        "Name": "Variant: Elder Vampires",
+        "Content": "The basic vampire statistics represent a \"neonate\"—a newly spawned vampire. Older vampires can learn powerful magic of many different kinds, and might have any of the following traits and abilities."
+      },
+      {
+        "Name": "Elder Vampires: Shapechanger",
+        "Content": "The vampire has the Shapechanger trait of the vampire in the Monster Manual, as well as the shapechanger tag. Some vampires can turn into bat form, some can assume mist form, and a few can choose either form."
+      },
+      {
+        "Name": "Elder Vampires: Charm",
+        "Content": "The vampire has the Charm action of the vampire in the Monster Manual. Flight. The vampire has a flying speed of 30 feet. Gorger. The vampire has advantage on melee attack rolls, but attack rolls against it have advantage."
+      },
+      {
+        "Name": "Elder Vampires: Spellcasting",
+        "Content": "The vampire has the spellcasting abilities of a wizard or cleric."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The vampire makes two attacks, only one of which can be a bite attack.",
+        "Attack": ""
+      },
+      {
+        "Name": "Claws",
+        "Content": "Melee Weapon Attack: +6 to hit, reach 5 ft., one creature. Hit: 8 (2d4+3) slashing damage. Instead of dealing damage, the vampire can grapple the target (escape DC 13).",
+        "Attack": ""
+      },
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +6 to hit, reach 5 ft., one willing creature, or a creature that is grappled by the vampire, incapacitated, or restrained. Hit: 6 (1d6+3) piercing damage plus 7 (2d6) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.",
+        "Attack": ""
+      },
+      {
+        "Name": "Vampiric Glamer",
+        "Content": "The vampire obscures its form with mind-affecting magic that makes others perceive it as a beautiful human of the same size and shape. The illusion ends if the vampire takes a bonus action to end it or if the vampire dies. A creature that can see the vampire can take an action to visually inspect it, ending the mental effect on itself and seeing the vampire's true form with a successful DC 20 Wisdom (Perception) check.",
+        "Attack": ""
+      },
+      {
+        "Name": "Aura of Silence",
+        "Content": "The vampire shrouds itself in a cloak of silence to a radius of 2 feet. Within that radius, the effect is the same as the silence spell.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Werewolf (Krallenhorde)",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human",
+      "shapechanger"
+    ],
+    "Source": "PSI",
+    "Alignment": "chaotic evil",
+    "AC": {
+      "Value": 11,
+      "Notes": "in human form, 12 (natural armor) in canid form"
+    },
+    "HP": {
+      "Value": 58,
+      "HitDiceCount": 9,
+      "HitDice": 8,
+      "HitModifier": 18,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft. (40 ft. in canid form)"
+      }
+    ],
+    "Abilities": {
+      "Str": 15,
+      "Dex": 13,
+      "Con": 14,
+      "Int": 10,
+      "Wis": 11,
+      "Cha": 10
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "bludgeoning"
+      },
+      {
+        "Value": "piercing"
+      },
+      {
+        "Value": "and slashing from nonmagical attacks not made with silvered weapons"
+      }
+    ],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 14"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common (can't speak in canid form)"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 3,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Shapechanger",
+        "Content": "The werewolf polymorphs into a wolf-humanoid canid form, or back into its true human form. This change is dictated by the moon, but can also be induced by trauma or strong emotion. Its statistics, other than its AC, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+      },
+      {
+        "Name": "Keen Hearing and Smell",
+        "Content": "The werewolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+      },
+      {
+        "Name": "Variant: Howlpack",
+        "Content": "The basic werewolf statistics represent a member of the Krallenhorde, Innistrad's largest howlpack. Werewolves of other packs might have additional abilities such as the following."
+      },
+      {
+        "Name": "Howlpack: Vildin",
+        "Content": "Vildin Rampage (Canid Form Only). When the werewolf reduces a creature to 0 hit points with a melee attack on its turn, it can take a bonus action to move up to half its speed and make a bite attack."
+      },
+      {
+        "Name": "Variant: Mondronen",
+        "Content": "Mondronen Wounded Fury. While it has 10 hit points or fewer, the werewolf has advantage on attack rolls. In addition, it deals an extra 7 (2d6) damage to any target it hits with a melee attack."
+      },
+      {
+        "Name": "Variant: Leeraug",
+        "Content": "Leeraug Blood Frenzy. The werewolf has advantage on melee attack rolls against any creature that doesn't have all its hit points."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack (Canid Form Only)",
+        "Content": "The werewolf makes two attacks: one with its bite and one with its claws or spear.",
+        "Attack": ""
+      },
+      {
+        "Name": "Bite (Canid Form Only)",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8+2) piercing damage.",
+        "Attack": ""
+      },
+      {
+        "Name": "Claws (Canid Form Only)",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4+2) slashing damage.",
+        "Attack": ""
+      },
+      {
+        "Name": "Spear (Human Form Only)",
+        "Content": "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 5 (1d6+2) piercing damage, or 6 (1d8+2) piercing damage if used with two hands to make a melee attack.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  }
+]

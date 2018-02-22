@@ -1,0 +1,2472 @@
+[
+  {
+    "Name": "Baba Lysaga",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human",
+      "shapechanger"
+    ],
+    "Source": "CoS",
+    "Alignment": "chaotic evil",
+    "AC": {
+      "Value": 15,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 120,
+      "HitDiceCount": 16,
+      "HitDice": 8,
+      "HitModifier": 48,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 18,
+      "Dex": 10,
+      "Con": 16,
+      "Int": 20,
+      "Wis": 17,
+      "Cha": 13
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 7
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 13"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Abyssal"
+      },
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Dwarvish"
+      },
+      {
+        "Value": "Giant"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 11,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Shapechanger",
+        "Content": "Baba Lysaga can use an action to polymorph into a swarm of insects (flies) or back into her true form. While in swarm form, she has a walking speed of 5 feet and a flying speed of 30 feet. Anything she is wearing transforms with her, but nothing she is carrying does."
+      },
+      {
+        "Name": "Blessing of Mother Night",
+        "Content": "Baba Lysaga is shielded against divination magic, as though protected by a nondetection spell."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Baba Lysaga is a 16th-level spellcaster. Her spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). Baba Lysaga has the following wizard spells prepared:• Cantrips (at will): acid splash, fire bolt, light, mage hand, prestidigitation•1st level (4 slots): detect magic, magic missile, sleep, witch bolt•2nd level (3 slots): crown of madness, enlarge/reduce, misty step•3rd level (3 slots): dispel magic, fireball, lightning bolt•4th level (3 slots): blight, Evard's black tentacles, polymorph•5th level (2 slots): cloudkill, geas, scrying•6th level (1 slot): programmed illusion, true seeing•7th level (1 slot): finger of death, mirage arcane•8th level (1 slot): power word stun"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Baba Lysaga makes three attacks with her quarterstaff",
+        "Attack": ""
+      },
+      {
+        "Name": "Quarterstaff",
+        "Content": "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 7 (1d6+4) bludgeoning damage, or 8 (1d8+4) bludgeoning damage if wielded with two hands.",
+        "Attack": "One Handed|8|1d6+4Two Handed|8|1d8+4"
+      },
+      {
+        "Name": "Summon Swarms of Insects (Recharges after a Short or Long Rest)",
+        "Content": "Baba Lysaga summons 1d4 swarms of insects. A summoned swarm appears in an unoccupied space within 60 feet of Baba Lysaga and acts as her ally. It remains until it dies or until Baba Lysaga dismisses it as an action.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "acid splash"
+      },
+      {
+        "Value": "fire bolt"
+      },
+      {
+        "Value": "light"
+      },
+      {
+        "Value": "mage hand"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "detect magic"
+      },
+      {
+        "Value": "magic missile"
+      },
+      {
+        "Value": "sleep"
+      },
+      {
+        "Value": "witch bolt"
+      },
+      {
+        "Value": "crown of madness"
+      },
+      {
+        "Value": "enlarge/reduce"
+      },
+      {
+        "Value": "misty step"
+      },
+      {
+        "Value": "dispel magic"
+      },
+      {
+        "Value": "fireball"
+      },
+      {
+        "Value": "lightning bolt"
+      },
+      {
+        "Value": "blight"
+      },
+      {
+        "Value": "Everard's black tentacles"
+      },
+      {
+        "Value": "polymorph"
+      },
+      {
+        "Value": "cloudkill"
+      },
+      {
+        "Value": "geas"
+      },
+      {
+        "Value": "scrying"
+      },
+      {
+        "Value": "programmed illusion"
+      },
+      {
+        "Value": "true seeing"
+      },
+      {
+        "Value": "finger of death"
+      },
+      {
+        "Value": "mirage arcane"
+      },
+      {
+        "Value": "power word stun"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Baba Lysaga's Creeping Hut",
+    "Size": {
+      "Value": "Gargantuan"
+    },
+    "Type": "construct",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "unaligned",
+    "AC": {
+      "Value": 16,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 263,
+      "HitDiceCount": 17,
+      "HitDice": 10,
+      "HitModifier": 85,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 26,
+      "Dex": 7,
+      "Con": 20,
+      "Int": 1,
+      "Wis": 3,
+      "Cha": 3
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      },
+      {
+        "Value": "psychic"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "blinded"
+      },
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "deafened"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "petrified"
+      },
+      {
+        "Value": "prone"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 9
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 0
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 0
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "blindsight 120 ft. (blind beyond this radius)"
+      },
+      {
+        "Value": "passive Perception 6"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "-"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 11,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Constructed Nature",
+        "Content": "An animated object doesn't require air, food, drink, or sleep.The magic that animates an object is dispelled when the construct drops to 0 hit points. An animated object reduced to 0 hit points becomes inanimate and is too damaged to be of much use or value to anyone."
+      },
+      {
+        "Name": "Antimagic Susceptibility",
+        "Content": "The hut is incapacitated while the magic gem that animates it is in the area of an antimagic field. If targeted by dispel magic, the hut must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute."
+      },
+      {
+        "Name": "Siege Monster",
+        "Content": "The hut deals double damage to objects and structures."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The hut makes three attacks with its roots. It can replace one of these attacks with a rock attack.",
+        "Attack": ""
+      },
+      {
+        "Name": "Root",
+        "Content": "Melee Weapon Attack: +12 to hit, reach 60 ft., one target. Hit: 30 (4d10+8) bludgeoning damage.",
+        "Attack": "Root|12|4d10+8"
+      },
+      {
+        "Name": "Rock",
+        "Content": "Ranged Weapon Attack: +12 to hit, range 120 ft., one target. Hit: 21 (3d8+8) bludgeoning damage.",
+        "Attack": "Rock|12|3d8+8"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Barovian Witch",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "CoS",
+    "Alignment": "chaotic evil",
+    "AC": {
+      "Value": 10,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 16,
+      "HitDiceCount": 3,
+      "HitDice": 8,
+      "HitModifier": 3,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 7,
+      "Dex": 11,
+      "Con": 13,
+      "Int": 14,
+      "Wis": 11,
+      "Cha": 12
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 12"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 2
+    },
+    "Traits": [
+      {
+        "Name": "Spellcasting",
+        "Content": "The witch is a 3rd-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 12, +4 to hit with spell attacks). The witch has the following wizard spells prepared:• Cantrips (at will): mage hand, prestidigitation, ray of frost•1st level (4 slots): ray of sickness, sleep, Tasha's hideous laughter•2nd level (2 slots): alter self, invisibility"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Claws (Requires Alter Self)",
+        "Content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6+1) slashing damage. This attack is magical.",
+        "Attack": "Claws|3|1d6+1"
+      },
+      {
+        "Name": "Dagger",
+        "Content": "Melee or Ranged Weapon Attack: +2 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 2 (1d4) piercing damage.",
+        "Attack": "Dagger|2|1d4"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "mage hand"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "ray of frost"
+      },
+      {
+        "Value": "ray of sickness"
+      },
+      {
+        "Value": "sleep"
+      },
+      {
+        "Value": "Tasha's hideous laughter"
+      },
+      {
+        "Value": "alter self"
+      },
+      {
+        "Value": "invisibility"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Broom of Animated Attack",
+    "Size": {
+      "Value": "Small"
+    },
+    "Type": "construct",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "unaligned",
+    "AC": {
+      "Value": 15,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 17,
+      "HitDiceCount": 5,
+      "HitDice": 6,
+      "HitModifier": 0,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "0 ft."
+      },
+      {
+        "Value": "fly 50 ft. (hover)"
+      }
+    ],
+    "Abilities": {
+      "Str": 10,
+      "Dex": 17,
+      "Con": 10,
+      "Int": 1,
+      "Wis": 5,
+      "Cha": 1
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      },
+      {
+        "Value": "psychic"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "blinded"
+      },
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "deafened"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "petrified"
+      },
+      {
+        "Value": "poisoned"
+      },
+      {
+        "Value": "prone"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "blindsight 30 ft. (blind beyond this radius)"
+      },
+      {
+        "Value": "passive Perception 7"
+      }
+    ],
+    "Languages": [],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 4
+    },
+    "Traits": [
+      {
+        "Name": "Constructed Nature",
+        "Content": "An animated object doesn't require air, food, drink, or sleep.The magic that animates an object is dispelled when the construct drops to 0 hit points. An animated object reduced to 0 hit points becomes inanimate and is too damaged to be of much use or value to anyone."
+      },
+      {
+        "Name": "Antimagic Susceptibility",
+        "Content": "The broom is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the broom must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute."
+      },
+      {
+        "Name": "False Appearance",
+        "Content": "While the broom remains motionless and isn't flying, it is indistinguishable from a normal broom."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The broom makes two melee attacks.",
+        "Attack": ""
+      },
+      {
+        "Name": "Broomstick",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4+3) bludgeoning damage.",
+        "Attack": "Broomstick|5|1d4+3"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Ezmerelda d'Avenir",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "CoS",
+    "Alignment": "chaotic good",
+    "AC": {
+      "Value": 17,
+      "Notes": "(studded leather armor +1)"
+    },
+    "HP": {
+      "Value": 82,
+      "HitDiceCount": 11,
+      "HitDice": 8,
+      "HitModifier": 33,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 14,
+      "Dex": 19,
+      "Con": 16,
+      "Int": 16,
+      "Wis": 11,
+      "Cha": 17
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 3
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 16"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Elvish"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 8,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Special Equipment",
+        "Content": "In addition to her magic armor and weapons, Ezmerelda has two potions of greater healing, six vials of holy water, and three wooden stakes."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Ezmerelda is a 7th-level spellcaster. Her spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). Ezmerelda has the following wizard spells prepared:• Cantrips (at will): fire bolt, light, mage hand, prestidigitation•1st level (4 slots): protection from good and evil, magic missile, shield•2nd level (3 slots): darkvision, knock, mirror image•3rd level (3 slots): clairvoyance, lightning bolt, magic circle•4th level (1 slot): greater invisibility"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Ezmerelda makes three attacks: two with her +1 rapier and one with her +1 handaxe or her silvered shortsword.",
+        "Attack": ""
+      },
+      {
+        "Name": "Rapier +1",
+        "Content": "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 9 (1d8+5) piercing damage.",
+        "Attack": "Rapier|8|1d8+5"
+      },
+      {
+        "Name": "Handaxe +1",
+        "Content": "Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft., one creature. Hit: 6 (1d6+3) slashing damage.",
+        "Attack": "Hand Axe|6|1d6+3"
+      },
+      {
+        "Name": "Silvered Shortsword",
+        "Content": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 7 (1d6+4) piercing damage.",
+        "Attack": "Shortsword|7|1d6+4"
+      },
+      {
+        "Name": "Curse (Recharges after a Long Rest)",
+        "Content": "Ezmerelda targets one creature that she can see within 30 feet of her. The target must succeed on a DC 14 Wisdom saving throw or be cursed. While cursed, the target has vulnerability to one type of damage of Ezmerelda's choice. The curse lasts until ended with a greater restoration spell, a remove curse spell, or similar magic. When the curse ends, Ezmerelda takes 3d6 psychic damage.",
+        "Attack": ""
+      },
+      {
+        "Name": "Evil Eye (Recharges after a Short or Long Rest)",
+        "Content": "Ezmerelda targets one creature that she can see within 10 feet of her and casts one of the following spells on the target (save DC 14), requiring neither somatic nor material components to do so: animal friendship, charm person, or hold person. If the target succeeds on the initial saving throw, Ezmerelda is blinded until the end of her next turn. Once a target succeeds on a saving throw against this effect, it is immune to the Evil Eye power of all Vistani for 24 hours.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "fire bolt"
+      },
+      {
+        "Value": "light"
+      },
+      {
+        "Value": "mage hand"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "protection from evil and good"
+      },
+      {
+        "Value": "magic missile"
+      },
+      {
+        "Value": "shield"
+      },
+      {
+        "Value": "darkvision"
+      },
+      {
+        "Value": "knock"
+      },
+      {
+        "Value": "mirror image"
+      },
+      {
+        "Value": "clairvoyance"
+      },
+      {
+        "Value": "lightning bolt"
+      },
+      {
+        "Value": "magic circle"
+      },
+      {
+        "Value": "greater invisibility"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Guardian Portrait",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "construct",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "unaligned",
+    "AC": {
+      "Value": 5,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 22,
+      "HitDiceCount": 5,
+      "HitDice": 8,
+      "HitModifier": 0,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "0 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 1,
+      "Dex": 1,
+      "Con": 10,
+      "Int": 14,
+      "Wis": 10,
+      "Cha": 10
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "grappled"
+      },
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "petrified"
+      },
+      {
+        "Value": "poisoned"
+      },
+      {
+        "Value": "prone"
+      },
+      {
+        "Value": "restrained"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "plus up to two other languages"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Constructed Nature",
+        "Content": "An animated object doesn't require air, food, drink, or sleep.The magic that animates an object is dispelled when the construct drops to 0 hit points. An animated object reduced to 0 hit points becomes inanimate and is too damaged to be of much use or value to anyone."
+      },
+      {
+        "Name": "Antimagic Susceptibility",
+        "Content": "The portrait is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the portrait must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute."
+      },
+      {
+        "Name": "Innate Spellcasting",
+        "Content": "The portrait's innate spellcasting ability is Intelligence (spell save DC 12). The portrait can innately cast the following spells, requiring no material components:3/day each: counterspell, crown of madness, hypnotic pattern, telekinesis"
+      },
+      {
+        "Name": "False Appearance",
+        "Content": "While the figure in the portrait remains motionless, it is indistinguishable from a normal painting."
+      }
+    ],
+    "Actions": [],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "counterspell"
+      },
+      {
+        "Value": "crown of madness"
+      },
+      {
+        "Value": "hypnotic pattern"
+      },
+      {
+        "Value": "telekinesis"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Izek Strazni",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "CoS",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 14,
+      "Notes": "(studded leather armor)"
+    },
+    "HP": {
+      "Value": 112,
+      "HitDiceCount": 15,
+      "HitDice": 8,
+      "HitModifier": 45,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 18,
+      "Dex": 15,
+      "Con": 16,
+      "Int": 10,
+      "Wis": 9,
+      "Cha": 15
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 12"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 5,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Brute",
+        "Content": "A melee weapon deals one extra die of its damage when Izek hits with it (included in the attack)."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Izek makes two attacks with his battleaxe.",
+        "Attack": ""
+      },
+      {
+        "Name": "Battleaxe",
+        "Content": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (2d8+4) slashing damage, or 15 (2d10+4) when used with two hands.",
+        "Attack": "One Handed|7|2d8+4Two Handed|7|2d10+4"
+      },
+      {
+        "Name": "Hurl Flame",
+        "Content": "Ranged Spell Attack: +5 to hit, range 60 ft., one target. Hit: 10 (3d6) fire damage. If the target is a flammable object that isn't being worn or carried, it catches fire.",
+        "Attack": "Flame|5|3d6"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Madam Eva",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "CoS",
+    "Alignment": "chaotic neutral",
+    "AC": {
+      "Value": 10,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 88,
+      "HitDiceCount": 16,
+      "HitDice": 8,
+      "HitModifier": 16,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "20 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 8,
+      "Dex": 11,
+      "Con": 12,
+      "Int": 17,
+      "Wis": 20,
+      "Cha": 18
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 5
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 19"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Abyssal"
+      },
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Elvish"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 10,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Spellcasting",
+        "Content": "Madam Eva is a 16th-level spellcaster. Her spellcasting ability is Wisdom (spell save DC 17, +9 to hit with spell attacks). Madam Eva has the following cleric spells prepared:• Cantrips (at will): light, mending, sacred flame, thaumaturgy•1st level (4 slots): bane, command, detect evil and good, protection from evil and good•2nd level (3 slots): lesser restoration, protection from poison, spiritual weapon•3rd level (3 slots): create food and water, speak with dead, spirit guardians•4th level (3 slots): divination, freedom of movement, guardians of faith•5th level (2 slots): greater restoration, raise dead•6th level (1 slot): find the path, harm, true seeing•7th level (1 slot): fire storm, regenerate•8th level (1 slot): earthquake"
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Dagger",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 2 (1d4) piercing damage.",
+        "Attack": "Dagger|4|1d4"
+      },
+      {
+        "Name": "Curse (Recharges after a Long Rest)",
+        "Content": "Madam Eva targets one creature that she can see within 30 feet of her. The target must succeed on a DC 17 Wisdom saving throw or be cursed. While cursed, the target is blinded and deafened. The curse lasts until ended with a greater restoration spell, a remove curse spell, or similar magic. When the curse ends, Madam Eva takes 5d6 psychic damage.",
+        "Attack": ""
+      },
+      {
+        "Name": "Evil Eye (Recharges after a Short or Long Rest)",
+        "Content": "Madam Eva targets one creature that she can see within 10 feet of her and casts one of the following spells on the target (save DC 17), requiring neither somatic nor material components to do so: animal friendship, charm person, or hold person. If the target succeeds on the initial saving throw, Madam Eva is blinded until the end of her next turn. Once a target succeeds on a saving throw against this effect, it is immune to the Evil Eye power of all Vistani for 24 hours.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "light"
+      },
+      {
+        "Value": "mending"
+      },
+      {
+        "Value": "sacred flame"
+      },
+      {
+        "Value": "thaumaturgy"
+      },
+      {
+        "Value": "bane"
+      },
+      {
+        "Value": "command"
+      },
+      {
+        "Value": "detect evil and good"
+      },
+      {
+        "Value": "protection from evil and good"
+      },
+      {
+        "Value": "lesser restoration"
+      },
+      {
+        "Value": "protection from poison"
+      },
+      {
+        "Value": "spiritual weapon"
+      },
+      {
+        "Value": "create food and water"
+      },
+      {
+        "Value": "speak with dead"
+      },
+      {
+        "Value": "spirit guardians"
+      },
+      {
+        "Value": "divination"
+      },
+      {
+        "Value": "freedom of movement"
+      },
+      {
+        "Value": "guardians of faith"
+      },
+      {
+        "Value": "greater restoration"
+      },
+      {
+        "Value": "raise dead"
+      },
+      {
+        "Value": "find the path"
+      },
+      {
+        "Value": "harm"
+      },
+      {
+        "Value": "true seeing"
+      },
+      {
+        "Value": "fire storm"
+      },
+      {
+        "Value": "regenerate"
+      },
+      {
+        "Value": "earthquake"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Mongrelfolk",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "mongrelfolk"
+    ],
+    "Source": "CoS",
+    "Alignment": "any alignment",
+    "AC": {
+      "Value": 11,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 26,
+      "HitDiceCount": 4,
+      "HitDice": 8,
+      "HitModifier": 8,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "20 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 12,
+      "Dex": 9,
+      "Con": 15,
+      "Int": 9,
+      "Wis": 10,
+      "Cha": 6
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 12"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 4
+    },
+    "Traits": [
+      {
+        "Name": "Extraordinary Feature",
+        "Content": "The mongrelfolk has one of the following extraordinary features, determined randomly by rolling a d20 or chosen by the DM:1-3 — Amphibious: The mongrelfolk can breathe air and water.4-9 — Darkvision: The mongrelfolk has darkvision out to a range of 60 feet.10 — Flight: The mongrelfolk has leathery wings and a flying speed of 40 feet.11-15 — Keen Hearing and Smell: The mongrelfolk has advantage on Wisdom (Perception) checks that rely on hearing or smell.16-17 — Spider Climb: The mongrelfolk can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.18-19 — Standing Leap: The mongrelfolk's long jump is up to 20 feet and its high jump up to 10 feet, with or without a running start.20 — Two-Headed: The mongrelfolk has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious."
+      },
+      {
+        "Name": "Mimicry",
+        "Content": "The mongrelfolk can mimic any sounds it has beard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 12 Wisdom (Insight) check."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The mongrelfolk makes two attacks: one with its bite and one with its claw or dagger.",
+        "Attack": ""
+      },
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4+1) piercing damage.",
+        "Attack": "Bite|3|1d4+1"
+      },
+      {
+        "Name": "Claw",
+        "Content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4+1) slashing damage.",
+        "Attack": "Claw|3|1d4+1"
+      },
+      {
+        "Name": "Dagger",
+        "Content": "Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 3 (1d4+1) piercing damage.",
+        "Attack": "Dagger|3|1d4+1"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Phantom Warrior",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "undead",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "any alignment",
+    "AC": {
+      "Value": 16,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 45,
+      "HitDiceCount": 6,
+      "HitDice": 8,
+      "HitModifier": 18,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 16,
+      "Dex": 11,
+      "Con": 16,
+      "Int": 8,
+      "Wis": 10,
+      "Cha": 15
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "cold"
+      },
+      {
+        "Value": "necrotic"
+      },
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "grappled"
+      },
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "petrified"
+      },
+      {
+        "Value": "poisoned"
+      },
+      {
+        "Value": "prone"
+      },
+      {
+        "Value": "restrained"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 12"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "any languages it knew in life"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 3,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Ethereal Sight",
+        "Content": "The phantom warrior can see 60 feet into the Ethereal Plane when it is on the Material Plane, and vice versa."
+      },
+      {
+        "Name": "Incorporeal Movement",
+        "Content": "The phantom warrior can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
+      },
+      {
+        "Name": "Spectral Armor and Shield",
+        "Content": "The phantom warrior's AC accounts for its spectral armor and shield."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The phantom warrior makes two attacks with its spectral longsword.",
+        "Attack": ""
+      },
+      {
+        "Name": "Spectral Longsword",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8+3) force damage.",
+        "Attack": "Spectral Longsword|5|1d8+3"
+      },
+      {
+        "Name": "Etherealness",
+        "Content": "The phantom warrior enters the Ethereal Plane from the Material Plane, or vice versa. It is visible on the Material Plane while it is in the Border Ethereal, and vice versa, yet it can't affect or be affected by anything on the other plane.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Pidlwick II",
+    "Size": {
+      "Value": "Small"
+    },
+    "Type": "construct",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 14,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 10,
+      "HitDiceCount": 3,
+      "HitDice": 6,
+      "HitModifier": 0,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 10,
+      "Dex": 14,
+      "Con": 11,
+      "Int": 8,
+      "Wis": 13,
+      "Cha": 10
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "petrified"
+      },
+      {
+        "Value": "poisoned"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 11"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "understands Common but doesn't speak and can't read or write"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 4
+    },
+    "Traits": [
+      {
+        "Name": "Ambusher",
+        "Content": "During the first round of combat, Pidlwick II has advantage on attack rolls against any creature that hasn't had a turn yet."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Club",
+        "Content": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+        "Attack": "Club|2|1d4"
+      },
+      {
+        "Name": "Dart",
+        "Content": "Ranged Weapon Attack: +4 to hit, range 20/60 ft., one target. Hit: 4 (1d4+2) piercing damage.",
+        "Attack": "Dart|4|1d4+2"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Rahadin",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "elf"
+    ],
+    "Source": "CoS",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 18,
+      "Notes": "(studded leather)"
+    },
+    "HP": {
+      "Value": 135,
+      "HitDiceCount": 18,
+      "HitDice": 8,
+      "HitModifier": 54,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "35 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 14,
+      "Dex": 22,
+      "Con": 17,
+      "Int": 15,
+      "Wis": 16,
+      "Cha": 18
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 7
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 7
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 21"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Elvish"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 10,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Deathly Choir",
+        "Content": "Any creature within 10 feet of Rahadin that isn't protected by a mind blank spell hears in its mind the screams of the thousands of people Rahadin has killed. As a bonus action, Rahadin can force all creatures that can hear the screams to make a DC 16 Wisdom saving throw. Each creature takes 16 (3d10) psychic damage on a failed save, or half as much damage on a successful one."
+      },
+      {
+        "Name": "Fey Ancestry",
+        "Content": "Rahadin has advantage on saving throws against being charmed, and magic can't put him to sleep."
+      },
+      {
+        "Name": "Innate Spellcasting",
+        "Content": "Rahadin's innate spellcasting ability is Intelligence. He can innately cast the following spells, requiring no components:3/day: misty step, phantom steed1/day: magic weapon, nondetection"
+      },
+      {
+        "Name": "Mask of the Wild",
+        "Content": "Rahadin can attempt to hide even when he is only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Rahadin attacks three times with his scimitar, or twice with his poisoned darts.",
+        "Attack": ""
+      },
+      {
+        "Name": "Scimitar",
+        "Content": "Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 9 (1d6+6) slashing damage.",
+        "Attack": "Scimitar|10|1d6+6"
+      },
+      {
+        "Name": "Poisoned Dart",
+        "Content": "Ranged Weapon Attack: +10 to hit, range 20/60 ft., one target. Hit: 8 (1d4+6) piercing damage plus 5 (2d4) poison damage.",
+        "Attack": "Poisoned Dart|10|1d4+6+2d4"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "misty step"
+      },
+      {
+        "Value": "phantom steed"
+      },
+      {
+        "Value": "magic weapon"
+      },
+      {
+        "Value": "nondetection"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Rictavio",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human"
+    ],
+    "Source": "CoS",
+    "Alignment": "lawful good",
+    "AC": {
+      "Value": 12,
+      "Notes": "(leather armor)"
+    },
+    "HP": {
+      "Value": 77,
+      "HitDiceCount": 14,
+      "HitDice": 8,
+      "HitModifier": 14,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 9,
+      "Dex": 12,
+      "Con": 13,
+      "Int": 16,
+      "Wis": 18,
+      "Cha": 16
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Con",
+        "Modifier": 4
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 7
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 17"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Abyssal"
+      },
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Elvish"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 5,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Special Equipment",
+        "Content": "In addition to his sword cane, Rictavio wears a hat of disguise and a ring of mind shielding, and he carries a spell scroll of raise dead."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Rictavio is a 9th-level spellcaster. His spellcasting ability is Wisdom (spell save DC 15, +7 to hit with spell attacks). Rictavio has the following cleric spells prepared:• Cantrips (at will): guidance, light, mending, thaumaturgy•1st level (4 slots): cure wounds, detect evil and good, protection from evil and good, sanctuary•2nd level (3 slots): augury, lesser restoration, protection from poison•3rd level (3 slots): magic circle, remove curse, speak with dead•4th level (3 slots): death ward, freedom of movement•5th level (1 slot): dispel evil and good"
+      },
+      {
+        "Name": "Undead Slayer",
+        "Content": "When Rictavio hits an undead with a weapon attack, the undead takes an extra 10 (3d6) damage of the weapon's type."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Rictavio makes two attacks with his sword cane.",
+        "Attack": ""
+      },
+      {
+        "Name": "Sword Cane",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d6+1) bludgeoning damage (wooden cane) or piercing damage (silvered sword).",
+        "Attack": "Sword Cane|4|1d6+1"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "guidance"
+      },
+      {
+        "Value": "light"
+      },
+      {
+        "Value": "mending"
+      },
+      {
+        "Value": "thaumaturgy"
+      },
+      {
+        "Value": "cure wounds"
+      },
+      {
+        "Value": "detect evil and good"
+      },
+      {
+        "Value": "protection from evil and good"
+      },
+      {
+        "Value": "sanctuary"
+      },
+      {
+        "Value": "augury"
+      },
+      {
+        "Value": "lesser restoration"
+      },
+      {
+        "Value": "protection from poison"
+      },
+      {
+        "Value": "magic circle"
+      },
+      {
+        "Value": "remove curse"
+      },
+      {
+        "Value": "speak with dead"
+      },
+      {
+        "Value": "death ward"
+      },
+      {
+        "Value": "freedom of movement"
+      },
+      {
+        "Value": "dispel evil and good"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Strahd Zombie",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "undead",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "unaligned",
+    "AC": {
+      "Value": 8,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 30,
+      "HitDiceCount": 4,
+      "HitDice": 8,
+      "HitModifier": 12,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "20 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 13,
+      "Dex": 6,
+      "Con": 16,
+      "Int": 3,
+      "Wis": 6,
+      "Cha": 5
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "poisoned"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "Wis",
+        "Modifier": 0
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 8"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "understands the languages it knew in life but can't speak"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 1,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Loathsome Limbs",
+        "Content": "Whenever the zombie takes at least 5 bludgeoning or slashing damage at one time, roll a d20 to determine what else happens to it:1-8: One leg is severed from the zombie if it has any legs left.9-16: One arm is severed from the zombie if it has any arms left.17-20: The zombie is decapitated.If the zombie is reduced to 0 hit points, all parts of it die. Until then, a severed part acts on the zombie's initiative and has its own action and movement. A severed part has AC 8. Any damage it takes is subtracted from the zombie's hit points.A severed leg is unable to attack and has a speed of 5 feet.A severed arm has a speed of 5 feet and can make one claw attack on its turn, with disadvantage on the attack roll. Each time the zombie loses an arm, it loses a claw attack.If its head is severed, the zombie loses its bite attack and its body is blinded unless the head can see it. The severed head has a speed of 0 feet. It can make a bite attack but only against a target in its space.The zombie's speed is halved if it's missing a leg. If it loses both legs, it falls prone. If it has both arms, it can crawl. With only one arm, it can still crawl, but its speed is halved. With no arms or legs, its speed is 0, and it can't benefit from bonuses to speed."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The zombie makes three attacks: one with its bite and two with its claws.",
+        "Attack": ""
+      },
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4+1) piercing damage.",
+        "Attack": "Bite|3|1d4+1"
+      },
+      {
+        "Name": "Claw",
+        "Content": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6+1) slashing damage.",
+        "Attack": "Claw|3|1d6+1"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Strahd von Zarovich",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "undead",
+    "Tags": [
+      "shapechanger"
+    ],
+    "Source": "CoS",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 16,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 144,
+      "HitDiceCount": 17,
+      "HitDice": 8,
+      "HitModifier": 68,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 18,
+      "Dex": 18,
+      "Con": 18,
+      "Int": 20,
+      "Wis": 15,
+      "Cha": 18
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [],
+    "Saves": [
+      {
+        "Name": "Dex",
+        "Modifier": 9
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 7
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 9
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 120 ft."
+      },
+      {
+        "Value": "passive Perception 22"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Abyssal"
+      },
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      },
+      {
+        "Value": "Elvish"
+      },
+      {
+        "Value": "Giant"
+      },
+      {
+        "Value": "Infernal"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 15,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Shapechanger",
+        "Content": "If Strahd isn't in running water or sunlight, he can use his action to polymorph into a Tiny bat, a Medium wolf, or a Medium cloud of mist, or back into his true form.While in bat or wolf form, Strahd can't speak. In bat form, his walking speed is 5 feet, and he has a flying speed of 30 feet. In wolf form, his walking speed is 40 feet. His statistics, other than his size and speed, are unchanged. Anything he is wearing transforms with him, but nothing he is carrying does. He reverts to his true form if he dies.While in mist form, Strahd can't take any actions, speak, or manipulate objects. He is weightless, has a flying speed of 30 feet, can hover, and can enter a hostile creature's space and stop there. In addition, if air can pass through a space, the mist can do so without squeezing, and he can't pass through water. He has advantage on Strength, Dexterity, and Constitution saving throws, and it is immune to all nonmagical damage, except the damage he takes from sunlight."
+      },
+      {
+        "Name": "Legendary Resistance (3/Day)",
+        "Content": "If Strahd fails a saving throw, he can choose to succeed instead."
+      },
+      {
+        "Name": "Misty Escape",
+        "Content": "When he drops to 0 hit points outside his coffin, Strahd transforms into a cloud of mist (as in the Shapechanger trait) instead of falling unconscious, provided that he isn't in running water or sunlight. If he can't transform, he is destroyed.While he has 0 hit points in mist form, he can't revert to his vampire form, and he must reach his coffin within 2 hours or be destroyed. Once in his coffin, he reverts to his vampire form. He is then paralyzed until he regains at least 1 hit point. After spending 1 hour in his coffin with 0 hit points, he regains 1 hit point."
+      },
+      {
+        "Name": "Regeneration",
+        "Content": "Strahd regains 20 hit points at the start of his turn if he has at least 1 hit point and isn't in running water or sunlight. If he takes radiant damage or damage from holy water, this trait doesn't function at the start of his next turn."
+      },
+      {
+        "Name": "Spellcasting",
+        "Content": "Strahd is a 9th-level spellcaster. His spellcasting ability is Intelligence (spell save DC 18, +10 to hit with spell attacks). Strahd has the following wizard spells prepared:• Cantrips (at will): mage hand, prestidigitation, ray of frost•1st level (4 slots): comprehend languages, fog cloud, sleep•2nd level (3 slots): detect thoughts, gust of wind, mirror image•3rd level (3 slots): animate dead, fireball, nondetection•4th level (3 slots): blight, greater invisibility, polymorph•5th level (1 slot): animate objects, scrying"
+      },
+      {
+        "Name": "Spider Climb",
+        "Content": "Strahd can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+      },
+      {
+        "Name": "Vampire Weaknesses",
+        "Content": "Strahd has the following flaws.Forbiddance: He can't enter a residence without an invitation from one of the occupants.Harmed by Running Water: He takes 20 acid damage if he ends his turn in running water.Stake to the Heart: If a piercing weapon made of wood is driven into his heart while he is incapacitated in his coffin, he is paralyzed until the stake is removed.Sunlight Hypersensitivity: While in sunlight, Strahd takes 20 radiant damage at the start of his turn, and he has disadvantage on attack rolls and ability checks."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack (Vampire Form Only)",
+        "Content": "Strahd makes two attacks, only one of which can be a bite attack.",
+        "Attack": ""
+      },
+      {
+        "Name": "Unarmed Strike (Vampire Form Only)",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 5 ft., one creature. Hit: 8 (1d8+4) bludgeoning damage, plus 14 (4d6) necrotic damage. If the target is a creature, Strahd can grapple it (escape DC 18) instead of dealing the bludgeoning damage.",
+        "Attack": "|9|1d8+4+4d6"
+      },
+      {
+        "Name": "Bite (Bat or Vampire Form Only)",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 5 ft., one willing creature, or a creature that is grappled by Strahd, incapacitated, or restrained. Hit: 7 (1d6+4) piercing damage plus 10 (3d6) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and Strahd regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0. A humanoid slain in this way and then buried in the ground rises the following night as a vampire spawn under Strahd's control.",
+        "Attack": "|9|1d6+4+3d6"
+      },
+      {
+        "Name": "Charm",
+        "Content": "Strahd targets one humanoid he can see within 30 ft. of him. If the target can see Strahd, the target must succeed on a DC 17 Wisdom saving throw against this magic or be charmed. The charmed target regards Strahd as a trusted friend to be heeded and protected. The target isn't under Strahd's control, but it takes Strahd's requests and actions in the most favorable way and lets Strahd bite it.Each time Strahd or his companions do anything harmful to the target, it can repeat the saving throw, ending the effect on itself on a success. Otherwise, the effect lasts 24 hours or until Strahd is destroyed, is on a different plane of existence than the target, or takes a bonus action to end the effect.",
+        "Attack": ""
+      },
+      {
+        "Name": "Children of the Night (1/day)",
+        "Content": "Strahd magically calls 2d4 swarms of bats or swarms rats, provided that the sun isn't up. While outdoors, Strahd can call 3d6 wolves instead. The called creatures arrive in 1d4 rounds, acting as allies of Strahd and obeying his spoken commands. The beasts remain for 1 hour, until Strahd dies, or until he dismisses them as a bonus action.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [
+      {
+        "Value": "mage hand"
+      },
+      {
+        "Value": "prestidigitation"
+      },
+      {
+        "Value": "ray of frost"
+      },
+      {
+        "Value": "comprehend languages"
+      },
+      {
+        "Value": "fog cloud"
+      },
+      {
+        "Value": "sleep"
+      },
+      {
+        "Value": "detect thoughts"
+      },
+      {
+        "Value": "gust of wind"
+      },
+      {
+        "Value": "mirror image"
+      },
+      {
+        "Value": "animate dead"
+      },
+      {
+        "Value": "fireball"
+      },
+      {
+        "Value": "nondetection"
+      },
+      {
+        "Value": "blight"
+      },
+      {
+        "Value": "greater invisibility"
+      },
+      {
+        "Value": "polymorph"
+      },
+      {
+        "Value": "animate objects"
+      },
+      {
+        "Value": "scrying"
+      }
+    ],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Strahd's Animated Armor",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "construct",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 21,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 112,
+      "HitDiceCount": 15,
+      "HitDice": 8,
+      "HitModifier": 45,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 17,
+      "Dex": 13,
+      "Con": 16,
+      "Int": 9,
+      "Wis": 10,
+      "Cha": 9
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "lightning"
+      },
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "blinded"
+      },
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "deafened"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "petrified"
+      },
+      {
+        "Value": "poisoned"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "blindsight 60 ft. (blind beyond this radius)"
+      },
+      {
+        "Value": "passive Perception 13"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "understands Common but can't speak"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 6,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Constructed Nature",
+        "Content": "An animated object doesn't require air, food, drink, or sleep.The magic that animates an object is dispelled when the construct drops to 0 hit points. An animated object reduced to 0 hit points becomes inanimate and is too damaged to be of much use or value to anyone."
+      },
+      {
+        "Name": "Antimagic Susceptibility",
+        "Content": "The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute."
+      },
+      {
+        "Name": "False Appearance",
+        "Content": "While the armor remains motionless, it is indistinguishable from a normal suit of armor."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The armor makes two melee attacks or uses Shocking Bolt twice.",
+        "Attack": ""
+      },
+      {
+        "Name": "Greatsword",
+        "Content": "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (2d6+3) slashing damage plus 3 (1d6) lightning damage.",
+        "Attack": "|6|2d6+3+1d6"
+      },
+      {
+        "Name": "Shocking Bolt",
+        "Content": "Ranged Spell Attack: +4 to hit (with advantage on the attack roll if the target is wearing armor made of metal), range 60 ft., one target. Hit: 10 (3d6) lightning damage.",
+        "Attack": "|4|3d6"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Tree Blight",
+    "Size": {
+      "Value": "Huge"
+    },
+    "Type": "plant",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "neutral evil",
+    "AC": {
+      "Value": 15,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 149,
+      "HitDiceCount": 13,
+      "HitDice": 12,
+      "HitModifier": 65,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 23,
+      "Dex": 10,
+      "Con": 20,
+      "Int": 6,
+      "Wis": 10,
+      "Cha": 3
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [],
+    "ConditionImmunities": [
+      {
+        "Value": "blinded"
+      },
+      {
+        "Value": "deafened"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "blindsight 60 ft. (blind beyond this radius)"
+      },
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "understands Common and Druidic but doesn't speak"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 7,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "False Appearance",
+        "Content": "While the blight remains motionless, it is indistinguishable from a dead tree."
+      },
+      {
+        "Name": "Siege Monster",
+        "Content": "The blight deals double damage to objects and structures."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "The blight makes four attacks: two with its branches and two with its grasping roots, If it has a target grappled, the blight can also make a bite attack against the target as a bonus action.",
+        "Attack": ""
+      },
+      {
+        "Name": "Bite",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 19 (3d8+6) piercing damage.",
+        "Attack": "Bite|9|3d8+6"
+      },
+      {
+        "Name": "Branch",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 15 ft., one target. Hit (3d6+6) bludgeoning damage.",
+        "Attack": "Branch|9|3d6+6"
+      },
+      {
+        "Name": "Grasping Root",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 15 ft., one creature not grappled by the blight. Hit: the target is grappled (escape DC 15). Until the grapple ends, the target takes 9 (1d6+6) bludgeoning damage at the start of each of its turns. The root has AC 15 and can be severed by dealing 6 slashing damage or more to it at once. Cutting the root doesn't hurt the blight but ends the grapple.",
+        "Attack": "Grasping Root|9|1d6+6"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Vladimir Horngaard",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "undead",
+    "Tags": [],
+    "Source": "CoS",
+    "Alignment": "lawful evil",
+    "AC": {
+      "Value": 17,
+      "Notes": "(half plate)"
+    },
+    "HP": {
+      "Value": 192,
+      "HitDiceCount": 16,
+      "HitDice": 8,
+      "HitModifier": 64,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 18,
+      "Dex": 14,
+      "Con": 18,
+      "Int": 13,
+      "Wis": 16,
+      "Cha": 18
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "poisoned"
+      },
+      {
+        "Value": "stunned"
+      }
+    ],
+    "Saves": [
+      {
+        "Name": "Str",
+        "Modifier": 7
+      },
+      {
+        "Name": "Con",
+        "Modifier": 7
+      },
+      {
+        "Name": "Wis",
+        "Modifier": 6
+      },
+      {
+        "Name": "Cha",
+        "Modifier": 7
+      }
+    ],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "darkvision 60 ft."
+      },
+      {
+        "Value": "passive Perception 13"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common"
+      },
+      {
+        "Value": "Draconic"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 7,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Regeneration",
+        "Content": "Vladimir regains 10 hit points at the start of his turn. If he takes fire or radiant damage, this trait doesn't function at the start of his next turn. Vladimir's body is destroyed only if he starts his turn with 0 hit points and doesn't regenerate."
+      },
+      {
+        "Name": "Rejuvenation",
+        "Content": "When Vladimir's body is destroyed, his soul lingers. After 24 hours, the soul inhabits and animates another corpse on the same plane of existence and regains all its hit points. While the soul is bodiless, a wish spell can be used to force the soul to go to the afterlife and not return."
+      },
+      {
+        "Name": "Turn Immunity",
+        "Content": "Vladimir is immune to effects that turn undead."
+      },
+      {
+        "Name": "Vengeful Tracker",
+        "Content": "Vladimir knows the distance to and direction of any creature against which it seeks revenge, even if the creature and Vladimir are on different planes of existence. If the creature being tracked by Vladimir dies, Vladimir knows."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack",
+        "Content": "Vladimir makes two fist attacks or two attacks with his +2 Greatsword.",
+        "Attack": ""
+      },
+      {
+        "Name": "Fist",
+        "Content": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6+4) bludgeoning damage. If the target is a creature against which Vladimir has sworn vengeance, the target takes an extra 14 (4d6) bludgeoning damage. Instead of dealing damage, Vladimir can grapple the target (escape DC 14) provided the target is Large or smaller.",
+        "Attack": "Fist|7|2d6+4"
+      },
+      {
+        "Name": "Greatsword +2",
+        "Content": "Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 20 (4d6+4) slashing damage. Against Strahd, Vladimir deals an extra 14 (4d6) slashing damage with this weapon.",
+        "Attack": "Greatsword|9|4d6+4"
+      },
+      {
+        "Name": "Vengeful Glare",
+        "Content": "Vladimir targets one creature he can see within 30 feet of him and against which he has sworn vengeance. The target must make a DC 15 Wisdom saving throw. On a failure, the target is paralyzed until Vladimir deals damage to it, or until the end of Vladimir's next turn. When the paralysis ends, the target is frightened of Vladimir for 1 minute. The frightened target can repeat the saving throw at the end of each of its turns, with disadvantage if it can see Vladimir, ending the frightened condition on itself on a success.",
+        "Attack": ""
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  },
+  {
+    "Name": "Wereraven",
+    "Size": {
+      "Value": "Medium"
+    },
+    "Type": "humanoid",
+    "Tags": [
+      "human",
+      "shapechanger"
+    ],
+    "Source": "CoS",
+    "Alignment": "lawful good",
+    "AC": {
+      "Value": 12,
+      "Notes": null
+    },
+    "HP": {
+      "Value": 31,
+      "HitDiceCount": 7,
+      "HitDice": 8,
+      "HitModifier": 0,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      },
+      {
+        "Value": "fly 50 ft. in raven and hybrid forms"
+      }
+    ],
+    "Abilities": {
+      "Str": 10,
+      "Dex": 15,
+      "Con": 11,
+      "Int": 13,
+      "Wis": 15,
+      "Cha": 14
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "bludgeoning"
+      },
+      {
+        "Value": "piercing"
+      },
+      {
+        "Value": "and slashing from nonmagical attacks not made with silvered weapons"
+      }
+    ],
+    "ConditionImmunities": [],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "passive Perception 16"
+      }
+    ],
+    "Languages": [
+      {
+        "Value": "Common (can't speak in raven form)"
+      }
+    ],
+    "Challenge": {
+      "Numerator": 2,
+      "Denominator": 1
+    },
+    "Traits": [
+      {
+        "Name": "Shapechanger",
+        "Content": "The wereraven can use its action to polymorph into a raven-humanoid hybrid or into a raven, or back into its human form. Any equipment it is wearing or carrying isn't transformed. It reverts to its human form if it dies."
+      },
+      {
+        "Name": "Mimicry",
+        "Content": "The wereraven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful DC 10 Wisdom (Insight) check."
+      }
+    ],
+    "Actions": [
+      {
+        "Name": "Multiattack (Human or Hybrid Form Only)",
+        "Content": "The wereraven makes two weapon attacks, one of which can be with its hand crossbow.",
+        "Attack": ""
+      },
+      {
+        "Name": "Beak (Raven or Hybrid Form Only)",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 piercing damage in raven form, or 4 (1d4+2) piercing damage in hybrid form. If the target is humanoid, it must succeed on a DC 10 Constitution saving throw or be cursed with wereraven lycanthropy.",
+        "Attack": "Beak (Raven Form)|4|1Beak (Hybrid Form)|4|1d4+2"
+      },
+      {
+        "Name": "Shortsword (Humanoid or Hybrid Form Only)",
+        "Content": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6+2) piercing damage.",
+        "Attack": "Shortsword|4|1d6+2"
+      },
+      {
+        "Name": "Hand Crossbow (Humanoid or Hybrid Form Only)",
+        "Content": "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 5 (1d6+2) piercing damage.",
+        "Attack": "Hand Crossbow|4|1d6+2"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  }
+]

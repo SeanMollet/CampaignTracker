@@ -1,0 +1,106 @@
+[
+  {
+    "Name": "Tiny Servant",
+    "Size": {
+      "Value": "Tiny"
+    },
+    "Type": "construct",
+    "Tags": [],
+    "Source": "XGE",
+    "Alignment": "unaligned",
+    "AC": {
+      "Value": 15,
+      "Notes": "(natural armor)"
+    },
+    "HP": {
+      "Value": 10,
+      "HitDiceCount": 4,
+      "HitDice": 4,
+      "HitModifier": 0,
+      "Notes": null
+    },
+    "InitiativeModifier": 0,
+    "Speed": [
+      {
+        "Value": "30 ft."
+      },
+      {
+        "Value": "climb 30 ft."
+      }
+    ],
+    "Abilities": {
+      "Str": 4,
+      "Dex": 16,
+      "Con": 10,
+      "Int": 2,
+      "Wis": 10,
+      "Cha": 1
+    },
+    "DamageVulnerabilities": [],
+    "DamageResistances": [],
+    "DamageImmunities": [
+      {
+        "Value": "poison"
+      },
+      {
+        "Value": "psychic"
+      }
+    ],
+    "ConditionImmunities": [
+      {
+        "Value": "blinded"
+      },
+      {
+        "Value": "charmed"
+      },
+      {
+        "Value": "deafened"
+      },
+      {
+        "Value": "exhaustion"
+      },
+      {
+        "Value": "frightened"
+      },
+      {
+        "Value": "paralyzed"
+      },
+      {
+        "Value": "petrified"
+      },
+      {
+        "Value": "poisoned"
+      }
+    ],
+    "Saves": [],
+    "Skills": [],
+    "Senses": [
+      {
+        "Value": "blindsight 60 ft. (blind beyond this radius)"
+      },
+      {
+        "Value": "darkvision 120 ft."
+      },
+      {
+        "Value": "passive Perception 10"
+      }
+    ],
+    "Languages": [],
+    "Challenge": {
+      "Numerator": 0,
+      "Denominator": 1
+    },
+    "Traits": [],
+    "Actions": [
+      {
+        "Name": "Slam",
+        "Content": "Melee Weapon Attack: +5 to hit, reach 5 ft, one target. Hit: 5 (1d4+3) bludgeoning damage.",
+        "Attack": "Claws|5|1d4+3"
+      }
+    ],
+    "Reactions": [],
+    "LegendaryActions": [],
+    "Spells": [],
+    "ReadOnly": true
+  }
+]

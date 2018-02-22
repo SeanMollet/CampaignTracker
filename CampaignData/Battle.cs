@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -127,7 +128,9 @@ namespace CampaignData
                 NotifyPropertyChanged("Appearance");
             }
         }
+        [JsonIgnore]
         public int MaxHP { get => HP.Value; }
+        [JsonIgnore]
         public int HPtoChange { get; set; }
         private bool persuaded;
         public bool Persuaded { get => persuaded; set
@@ -140,6 +143,7 @@ namespace CampaignData
             }
         }
         public int XPGiven { get; set; }
+        [JsonIgnore]
         public string Appearance
         {
             get
