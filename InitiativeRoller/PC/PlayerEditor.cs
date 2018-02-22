@@ -103,16 +103,19 @@ namespace CampaignTracker
 
         private void AdjustPlayer(Player player, int adjustment)
         {
+
             player.CurrentHP += adjustment;
+            //edge case
+            //If the player has temporary HP and someone heals them
+            //Do not cap the hp automatically, leave it up to the GM to decide
+            if (player.CurrentHP > player.MaxHP && adjustment > 0)
+            {
+                return;
+            }
             //Make sure they don't heal past max
-            if (player.CurrentHP > player.MaxHP)
+            if (adjustment >0 && player.CurrentHP > player.MaxHP)
             {
                 player.CurrentHP = player.MaxHP;
-            }
-            //Limit negatives to -1
-            if (player.CurrentHP < -1)
-            {
-                player.CurrentHP = -1;
             }
         }
         private void DmgButton_Click(object sender, EventArgs e)

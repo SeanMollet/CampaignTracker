@@ -35,6 +35,36 @@ namespace CampaignTracker.Controls
             this.dicetype.SelectedValueChanged += (object sender, EventArgs e) => { OnPropertyChanged("DiceSize"); };
             this.modifier.ValueChanged += (object sender, EventArgs e) => { OnPropertyChanged("Modifier"); };
         }
+        public string RollAllString
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
+                var rolls = RollAll;
+                for(int a = 0; a < rolls.Length; a++) {
+                    if (a > 0)
+                    {
+                        sb.Append("  ");
+                    }
+                    sb.Append(rolls[a]);
+                }
+                return sb.ToString();
+            }
+        }
+        public int[] RollAll
+        {
+            get
+            {
+                List<int> rolls = new List<int>();
+                
+                for (int a = 0; a < DiceCount; a++)
+                {
+                    rolls.Add(Dice.Roll(DiceSize, RollType.Normal) + Modifier);
+                }
+
+                return rolls.ToArray();
+            }
+        }
 
         public int Roll
         {
@@ -133,6 +163,7 @@ namespace CampaignTracker.Controls
             }
             else
             {
+                this.MinimumSize = new Size(85, 20);
                 this.Size = new Size(85, 20);
                 this.modifier.Visible = false;
             }

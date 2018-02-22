@@ -106,7 +106,7 @@ namespace CampaignTracker
                         {
                             if (Program.Active_battle != null)
                             {
-                                Program.Active_battle.monsters.Add(BattleMonster.ReadyforBattle(monster));
+                                Program.Active_battle.AddMonster(monster);
                             }
                         }
 

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace CampaignData
 {
- 
+
     public class Monster : IComparable<Monster>, IEquatable<Monster>
     {
+        private Fraction _challenge;
+
         public int CompareTo(Monster comparison)
         {
             return this.Name.CompareTo(comparison.Name);
@@ -54,7 +56,11 @@ namespace CampaignData
         public SortableBindingList<Skill> Skills { get; set; }
         public SortableBindingList<BindableString> Senses { get; set; }
         public SortableBindingList<BindableString> Languages { get; set; }
-        public Fraction Challenge { get; set; }
+        public Fraction Challenge
+        {
+            get { return _challenge; }
+            set { _challenge = value; }
+        }
         public SortableBindingList<Trait> Traits { get; set; }
         public SortableBindingList<Action> Actions { get; set; }
         public SortableBindingList<Reaction> Reactions { get; set; }

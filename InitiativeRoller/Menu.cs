@@ -185,5 +185,11 @@ namespace CampaignTracker
             AdjustSession session = new AdjustSession();
             session.Show();
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            RollOMatic roll = new CampaignTracker.RollOMatic();
+            roll.Show();
+        }
     }
 }

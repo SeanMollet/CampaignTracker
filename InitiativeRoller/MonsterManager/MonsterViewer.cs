@@ -44,6 +44,8 @@ namespace CampaignTracker
                 this.ACNotes.DataBindings.Add("Text", monster, "AC.Notes");
                 this.Initiative.DataBindings.Clear();
                 this.Initiative.DataBindings.Add("Text", monster, "InitiativeModifier");
+                this.Challenge.DataBindings.Clear();
+                this.Challenge.DataBindings.Add("Text", monster, "Challenge");
 
                 this.Speed.DataSource = monster.Speed;
                 this.Speed.Columns[0].DataPropertyName = "Value";

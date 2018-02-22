@@ -43,11 +43,6 @@ namespace CampaignData
             {
                 if (currentHP != value)
                 {
-                    //Cap the bottom at -1, makes it easier to revive if needed
-                    if (value < -1)
-                    {
-                        value = -1;
-                    }
 
                     currentHP = value;
                     //Clear the stable and dead flags
@@ -56,6 +51,12 @@ namespace CampaignData
                         Stable = false;
                         Dead = false;
                     }
+                    if (currentHP <= maxHP * -2)
+                    {
+                        Stable = false;
+                        dead = true;
+                    }
+
                     NotifyPropertyChanged();
                     NotifyPropertyChanged("Appearance");
                 }
