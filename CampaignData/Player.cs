@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -63,6 +64,8 @@ namespace CampaignData
             }
         }
         public int MaxHP { get => maxHP; set { if (maxHP != value) { maxHP = value; NotifyPropertyChanged(); } } }
+        [JsonIgnore]
+        public int HPtoChange { get; set; }
         public int Roll { get => roll; set { if (roll != value) { roll = value; NotifyPropertyChanged(); } } }
         public bool Adv { get => advantage; set { if (advantage != value) { advantage = value; NotifyPropertyChanged(); } } }
         public bool Dead { get => dead; set { if (dead != value) { dead = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }

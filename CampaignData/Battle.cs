@@ -133,7 +133,11 @@ namespace CampaignData
         [JsonIgnore]
         public int HPtoChange { get; set; }
         private bool persuaded;
-        public bool Persuaded { get => persuaded; set
+        private int savingRoll;
+
+        public bool Persuaded
+        {
+            get => persuaded; set
             {
                 if (persuaded != value)
                 {
@@ -160,6 +164,8 @@ namespace CampaignData
                 return HPAppearance.Appearance(CurrentHP, HP.Value);
             }
         }
+        [JsonIgnore]
+        public int SavingRoll { get => savingRoll; set { savingRoll = value; NotifyPropertyChanged(); } }
         public static BattleMonster ReadyforBattle(Monster monster)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BattleMonster>(Newtonsoft.Json.JsonConvert.SerializeObject(monster));

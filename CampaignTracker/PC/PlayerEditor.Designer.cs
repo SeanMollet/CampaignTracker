@@ -30,9 +30,7 @@
         {
             this.PlayerGrid = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.DmgButton = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.HealButton = new System.Windows.Forms.Button();
             this.DmgAll = new System.Windows.Forms.Button();
             this.HealAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PlayerGrid)).BeginInit();
@@ -48,8 +46,9 @@
             this.PlayerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlayerGrid.Location = new System.Drawing.Point(13, 13);
             this.PlayerGrid.Name = "PlayerGrid";
-            this.PlayerGrid.Size = new System.Drawing.Size(715, 235);
+            this.PlayerGrid.Size = new System.Drawing.Size(855, 235);
             this.PlayerGrid.TabIndex = 0;
+            this.PlayerGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PlayerGrid_CellClick);
             // 
             // button1
             // 
@@ -57,22 +56,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(13, 254);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(715, 23);
+            this.button1.Size = new System.Drawing.Size(855, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Roll Initiative";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // DmgButton
-            // 
-            this.DmgButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DmgButton.Location = new System.Drawing.Point(70, 283);
-            this.DmgButton.Name = "DmgButton";
-            this.DmgButton.Size = new System.Drawing.Size(42, 23);
-            this.DmgButton.TabIndex = 3;
-            this.DmgButton.Text = "Dmg";
-            this.DmgButton.UseVisualStyleBackColor = true;
-            this.DmgButton.Click += new System.EventHandler(this.DmgButton_Click);
             // 
             // numericUpDown1
             // 
@@ -92,21 +80,10 @@
             this.numericUpDown1.Size = new System.Drawing.Size(51, 20);
             this.numericUpDown1.TabIndex = 2;
             // 
-            // HealButton
-            // 
-            this.HealButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.HealButton.Location = new System.Drawing.Point(118, 283);
-            this.HealButton.Name = "HealButton";
-            this.HealButton.Size = new System.Drawing.Size(42, 23);
-            this.HealButton.TabIndex = 4;
-            this.HealButton.Text = "Heal";
-            this.HealButton.UseVisualStyleBackColor = true;
-            this.HealButton.Click += new System.EventHandler(this.HealButton_Click);
-            // 
             // DmgAll
             // 
-            this.DmgAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DmgAll.Location = new System.Drawing.Point(590, 283);
+            this.DmgAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DmgAll.Location = new System.Drawing.Point(71, 281);
             this.DmgAll.Name = "DmgAll";
             this.DmgAll.Size = new System.Drawing.Size(66, 23);
             this.DmgAll.TabIndex = 5;
@@ -116,8 +93,8 @@
             // 
             // HealAll
             // 
-            this.HealAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.HealAll.Location = new System.Drawing.Point(662, 283);
+            this.HealAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.HealAll.Location = new System.Drawing.Point(143, 281);
             this.HealAll.Name = "HealAll";
             this.HealAll.Size = new System.Drawing.Size(66, 23);
             this.HealAll.TabIndex = 6;
@@ -129,15 +106,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 312);
+            this.ClientSize = new System.Drawing.Size(884, 312);
             this.Controls.Add(this.HealAll);
             this.Controls.Add(this.DmgAll);
-            this.Controls.Add(this.HealButton);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.DmgButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.PlayerGrid);
-            this.MinimumSize = new System.Drawing.Size(760, 350);
+            this.MinimumSize = new System.Drawing.Size(900, 350);
             this.Name = "PlayerEditor";
             this.Text = "Player Manager";
             ((System.ComponentModel.ISupportInitialize)(this.PlayerGrid)).EndInit();
@@ -150,9 +125,7 @@
 
         private System.Windows.Forms.DataGridView PlayerGrid;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button DmgButton;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button HealButton;
         private System.Windows.Forms.Button DmgAll;
         private System.Windows.Forms.Button HealAll;
     }

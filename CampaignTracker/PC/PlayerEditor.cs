@@ -38,12 +38,15 @@ namespace CampaignTracker
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "AC", DataPropertyName = "AC", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "HP", DataPropertyName = "CurrentHP", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Max HP", DataPropertyName = "MaxHP", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-            this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mod", DataPropertyName = "Initiative", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Dex", DataPropertyName = "Initiative", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Roll", DataPropertyName = "Roll", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Adv", DataPropertyName = "Adv", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Dead", DataPropertyName = "Dead", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Stable", DataPropertyName = "Stable", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Appearance", DataPropertyName = "Appearance", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "HP", DataPropertyName = "HPtoChange", Width = 25 });
+            this.PlayerGrid.Columns.Add(new DataGridViewButtonColumn { HeaderText = "HP", Text = "Damage", UseColumnTextForButtonValue = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.PlayerGrid.Columns.Add(new DataGridViewButtonColumn { HeaderText = "HP", Text = "Heal", UseColumnTextForButtonValue = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
 
             this.PlayerGrid.Refresh();
         }
@@ -104,7 +107,7 @@ namespace CampaignTracker
         private void AdjustPlayer(Player player, int adjustment)
         {
 
-            player.CurrentHP += adjustment;
+            
             //edge case
             //If the player has temporary HP and someone heals them
             //Do not cap the hp automatically, leave it up to the GM to decide
@@ -112,21 +115,12 @@ namespace CampaignTracker
             {
                 return;
             }
+            player.CurrentHP += adjustment;
             //Make sure they don't heal past max
             if (adjustment >0 && player.CurrentHP > player.MaxHP)
             {
                 player.CurrentHP = player.MaxHP;
             }
-        }
-        private void DmgButton_Click(object sender, EventArgs e)
-        {
-            AdjustCurrentPlayer(-1 * (int)this.numericUpDown1.Value);
-        }
-
-
-        private void HealButton_Click(object sender, EventArgs e)
-        {
-            AdjustCurrentPlayer((int)this.numericUpDown1.Value);
         }
 
         private void DmgAll_Click(object sender, EventArgs e)
@@ -142,6 +136,37 @@ namespace CampaignTracker
             foreach (var player in Program.db.database.Players)
             {
                 AdjustPlayer(player, (int)this.numericUpDown1.Value);
+            }
+        }
+
+        private void PlayerGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //do this on the button column
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && PlayerGrid.Rows.Count > e.RowIndex &&
+                PlayerGrid.Rows[e.RowIndex].Cells.Count > e.ColumnIndex)
+            {
+                var Cell = PlayerGrid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (Cell is DataGridViewButtonCell)
+                {
+                    var row = PlayerGrid.Rows[e.RowIndex];
+                    if (row.DataBoundItem is Player)
+                    {
+                        var player = (Player)row.DataBoundItem;
+
+                        var type = Cell.Value.ToString();
+                        switch (type)
+                        {
+                            case "Damage":
+                                player.CurrentHP -= player.HPtoChange;
+                                break;
+                            case "Heal":
+                                player.CurrentHP += player.HPtoChange;
+                                break;
+
+                        }
+                    }
+
+                }
             }
         }
     }

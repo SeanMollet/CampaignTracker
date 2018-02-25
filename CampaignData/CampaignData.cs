@@ -20,6 +20,8 @@ namespace CampaignData
             CustomMonsters = new SortableBindingList<Monster>();
             XP = new SortableBindingList<XPEvent>();
             Session = 1;
+
+            LoadStats();
         }
 
         public SortableBindingList<Battle> Battles { get; set; }
@@ -28,7 +30,34 @@ namespace CampaignData
         public SortableBindingList<Monster> CustomMonsters { get; set; }
         public SortableBindingList<XPEvent> XP { get; set; }
         public int Session { get; set; }
+        [JsonIgnore]
+        public List<Stats> CreatureStats;
+        private void LoadStats()
+        {
+            CreatureStats = new List<Stats>();
+            CreatureStats.Add(new Stats("Str", "Strength"));
+            CreatureStats.Add(new Stats("Dex", "Dexterity"));
+            CreatureStats.Add(new Stats("Con", "Constitution"));
+            CreatureStats.Add(new Stats("Int", "Intelligence"));
+            CreatureStats.Add(new Stats("Wis", "Wisdom"));
+            CreatureStats.Add(new Stats("Cha", "Charisma"));
+        }
 
+    }
+
+    public class Stats
+    {
+        public Stats(string stat,string name)
+        {
+            Stat = stat;
+            StatName = name;
+        }
+        public Stats()
+        {
+
+        }
+        public string Stat { get; set; }
+        public string StatName { get; set; }
     }
 
     public class DatabaseManager

@@ -19,6 +19,9 @@ namespace CampaignTracker
             InitializeComponent();
             battle = startBattle;
             DataBind();
+            this.comboBox1.DataSource = Program.db.database.CreatureStats;
+            this.comboBox1.DisplayMember = "StatName";
+            this.comboBox1.ValueMember = "Stat";
         }
 
         public void DataBind()
@@ -33,6 +36,7 @@ namespace CampaignTracker
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", DataPropertyName = "Name", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Type", DataPropertyName = "Type", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader,Resizable= DataGridViewTriState.True });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Appearance", DataPropertyName = "Appearance", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Save", DataPropertyName = "SavingRoll", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader });
 
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Current HP", DataPropertyName = "CurrentHP", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Max HP", DataPropertyName = "MaxHP", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
@@ -94,6 +98,69 @@ namespace CampaignTracker
                         }
                     }
 
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Find the stat we're using
+            if (this.comboBox1.SelectedValue.ToString().Length > 0)
+            {
+
+                foreach (var monster in battle.monsters)
+                {
+                    int statvalue = 0;
+                    switch (this.comboBox1.SelectedValue.ToString())
+                    {
+                        case "Str":
+                            statvalue = monster.Abilities.Str;
+                            break;
+                        case "Dex":
+                            statvalue = monster.Abilities.Dex;
+                            break;
+                        case "Con":
+                            statvalue = monster.Abilities.Con;
+                            break;
+                        case "Int":
+                            statvalue = monster.Abilities.Int;
+                            break;
+                        case "Wis":
+                            statvalue = monster.Abilities.Wis;
+                            break;
+                        case "Cha":
+                            statvalue = monster.Abilities.Cha;
+                            break;
+                    }
+                    //Convert to a modifider
+                    var modifier = (statvalue - 10) / 2;
+                    //Check if this monster has a save bonus for this
+                    foreach (var save in monster.Saves)
+                    {
+                        if (save.Name.ToUpper().Trim() == this.comboBox1.SelectedValue.ToString().ToUpper().Trim())
+                        {
+                            modifier += save.Modifier;
+                        }
+                    }
+                    //Roll it!
+                    monster.SavingRoll = Dice.RollXwithMod(1, 20, modifier);
+                }
+            }
+        }
+
+        private void Monsters_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //don't do this on the button column
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && Monsters.Rows.Count > e.RowIndex &&
+                Monsters.Rows[e.RowIndex].Cells.Count > e.ColumnIndex)
+            {
+                var Cell = Monsters.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (!(Cell is DataGridViewButtonCell))
+                {
+                    //Get the monster in question
+                    var monster = battle.monsters[e.RowIndex];
+                    MonsterViewer viewer = new MonsterViewer(monster);
+                    viewer.Show();
                 }
             }
         }
