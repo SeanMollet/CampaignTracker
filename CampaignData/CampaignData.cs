@@ -81,6 +81,10 @@ namespace CampaignData
         }
 
 
+        public string GetDatabaseJson()
+        {
+            return JsonConvert.SerializeObject(database);
+        }
         private void BindNotifications()
         {
             if (database != null)
@@ -136,8 +140,7 @@ namespace CampaignData
             {
                 lock (dbLock)
                 {
-                    string json = Newtonsoft.Json.JsonConvert.SerializeObject(database, Newtonsoft.Json.Formatting.Indented);
-                    File.WriteAllText(path, json);
+                    File.WriteAllText(path, GetDatabaseJson());
                 }
                 return true;
             }
