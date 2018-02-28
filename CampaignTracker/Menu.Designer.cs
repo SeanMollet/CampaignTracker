@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,16 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GM Views";
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(6, 184);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(200, 27);
+            this.button12.TabIndex = 14;
+            this.button12.Text = "Roll-o-matic";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
@@ -183,7 +193,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(200, 27);
             this.button7.TabIndex = 6;
-            this.button7.Text = "Battle Log";
+            this.button7.Text = "Player Battle Log";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.BattlePCView_Click);
             // 
@@ -193,19 +203,9 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(200, 27);
             this.button8.TabIndex = 5;
-            this.button8.Text = "Initiative";
+            this.button8.Text = "Player Stats View";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.PlayerView_Click);
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(6, 184);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(200, 27);
-            this.button12.TabIndex = 14;
-            this.button12.Text = "Roll-o-matic";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // Menu
             // 

@@ -40,7 +40,16 @@ namespace CampaignTracker
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Max HP", DataPropertyName = "MaxHP", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Dex", DataPropertyName = "Initiative", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Roll", DataPropertyName = "Roll", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-            this.PlayerGrid.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Adv", DataPropertyName = "Adv", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.PlayerGrid.Columns.Add(new DataGridViewComboBoxColumn
+            {
+                HeaderText = "Adv",
+                DataPropertyName = "Adv",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader,
+                DataSource = Dice.AdvantageTypes,
+                ValueMember = "RollType",
+                DisplayMember = "RollTypeName",
+                DropDownWidth = 80
+            });
             this.PlayerGrid.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Dead", DataPropertyName = "Dead", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Stable", DataPropertyName = "Stable", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Appearance", DataPropertyName = "Appearance", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
@@ -51,19 +60,12 @@ namespace CampaignTracker
             this.PlayerGrid.Refresh();
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             foreach (var player in Program.db.database.Players)
             {
-
-                if (player.Adv)
-                {
-                    player.Roll = Dice.Roll(20, RollType.Advantage) + player.Initiative;
-                }
-                else
-                {
-                    player.Roll = Dice.Roll(20, RollType.Normal) + player.Initiative;
-                }
+                player.Roll = Dice.Roll(20, player.Adv) + player.Initiative;
             }
 
             //Find the roll column, since I always seem to be changing this grid

@@ -13,12 +13,26 @@ namespace CampaignData
         Advantage,
         Disadvantage
     }
+
+    public class AdvantageType
+    {
+        public RollType RollType { get; set; }
+        public string RollTypeName { get; set; }
+    }
+
     public static class Dice
     {
+        static public SortableBindingList<AdvantageType> AdvantageTypes;
+
         static private RNGCryptoServiceProvider rand;
         static Dice()
         {
             rand = new RNGCryptoServiceProvider();
+            AdvantageTypes = new SortableBindingList<AdvantageType>();
+            AdvantageTypes.Add(new AdvantageType { RollType = RollType.Normal, RollTypeName = "Normal" });
+            AdvantageTypes.Add(new AdvantageType { RollType = RollType.Advantage, RollTypeName = "Advantage" });
+            AdvantageTypes.Add(new AdvantageType { RollType = RollType.Disadvantage, RollTypeName = "Disadvantage" });
+
         }
 
         public static int RollXwithMod(int DiceCount, int DiceSize, int Modifier)

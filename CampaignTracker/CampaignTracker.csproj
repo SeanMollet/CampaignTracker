@@ -180,6 +180,9 @@
     <EmbeddedResource Include="MonsterManager\MonsterViewer.resx">
       <DependentUpon>MonsterViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PC\PCView.resx">
+      <DependentUpon>PCView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PC\PlayerEditor.resx">
       <DependentUpon>PlayerEditor.cs</DependentUpon>
     </EmbeddedResource>

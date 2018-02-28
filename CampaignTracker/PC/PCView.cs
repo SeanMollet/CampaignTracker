@@ -36,7 +36,7 @@ namespace CampaignTracker
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Appearance", DataPropertyName = "Appearance", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Mod", DataPropertyName = "Initiative", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Roll", DataPropertyName = "Roll", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-            this.PlayerGrid.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Adv", DataPropertyName = "Adv", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.PlayerGrid.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Adv", DataPropertyName = "Adv", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
 
         }
 

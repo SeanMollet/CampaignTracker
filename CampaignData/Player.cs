@@ -27,7 +27,7 @@ namespace CampaignData
         private int currentHP;
         private int maxHP;
         private int roll;
-        private bool advantage;
+        private RollType advantage;
         private bool dead;
         private bool stable;
         private string race;
@@ -67,7 +67,7 @@ namespace CampaignData
         [JsonIgnore]
         public int HPtoChange { get; set; }
         public int Roll { get => roll; set { if (roll != value) { roll = value; NotifyPropertyChanged(); } } }
-        public bool Adv { get => advantage; set { if (advantage != value) { advantage = value; NotifyPropertyChanged(); } } }
+        public RollType Adv { get => advantage; set { if (advantage != value) { advantage = value; NotifyPropertyChanged(); } } }
         public bool Dead { get => dead; set { if (dead != value) { dead = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }
         public bool Stable { get => stable; set { if (stable != value) { stable = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }
         public string Appearance

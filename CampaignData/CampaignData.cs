@@ -83,7 +83,7 @@ namespace CampaignData
 
         public string GetDatabaseJson()
         {
-            return JsonConvert.SerializeObject(database);
+            return JsonConvert.SerializeObject(database,Formatting.Indented);
         }
         private void BindNotifications()
         {
