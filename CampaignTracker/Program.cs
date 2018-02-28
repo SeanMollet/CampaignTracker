@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CampaignData;
+using System.IO;
+
 
 namespace CampaignTracker
 {
@@ -53,7 +55,35 @@ namespace CampaignTracker
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Menu());
+            try
+            {
+                Application.Run(new Menu());
+            }
+            catch(Exception E)
+            {
+                //Try to save our stuff first
+                MessageBox.Show(E.ToString(), "Critical Error, please send log!");
+                string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                string AppFolder = Path.Combine(appdata, "CampaignTracker");
+                string LogFile = Path.Combine(AppFolder, DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + " Error.log");
+                if (!Directory.Exists(AppFolder))
+                {
+                    Directory.CreateDirectory(AppFolder);
+                }
+                string LogData = E.ToString() + Environment.NewLine + Environment.NewLine;
+                if(db != null)
+                {
+                    LogData += db.GetDatabaseJson();
+                }
+                File.WriteAllText(LogFile, LogData);
+
+                //Now, try to save their data as well
+                if (Program.dbFile.Length > 0)
+                {
+                    string NewFile = Path.Combine(Path.GetDirectoryName(dbFile), Path.GetFileNameWithoutExtension(dbFile) + " Recovered.ctct");
+                    File.WriteAllText(NewFile, db.GetDatabaseJson());
+                }
+            }
         }
 
         private static void Db_onMonstersUpdated(object sender)
