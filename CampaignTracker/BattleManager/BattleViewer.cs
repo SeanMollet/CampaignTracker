@@ -32,6 +32,7 @@ namespace CampaignTracker
 
             this.Monsters.AutoGenerateColumns = false;
             this.Monsters.DataSource = battle.monsters;
+            this.Monsters.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Hidden", DataPropertyName = "Hidden", ReadOnly = false, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "ID", DataPropertyName = "Index",ReadOnly=true,AutoSizeMode= DataGridViewAutoSizeColumnMode.AllCells });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", DataPropertyName = "Name", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Type", DataPropertyName = "Type", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader,Resizable= DataGridViewTriState.True });
@@ -47,6 +48,21 @@ namespace CampaignTracker
             this.Monsters.Columns.Add(new DataGridViewButtonColumn { HeaderText = "HP", Text = "Heal", UseColumnTextForButtonValue = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
 
             this.Monsters.Columns.Add(new DataGridViewButtonColumn { HeaderText = "Grant", Text = "XP", UseColumnTextForButtonValue = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+
+
+            this.XP.AutoGenerateColumns = false;
+            this.XP.DataSource = battle.XP;
+
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Timestamp", DataPropertyName = "Timestamp", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Session", DataPropertyName = "Session", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Battle", DataPropertyName = "Battle", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Event", DataPropertyName = "Event", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "XP", DataPropertyName = "XP", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+
+            this.XP.Refresh();
+            this.XP.Sort(this.XP.Columns[0], ListSortDirection.Descending);
+
+            this.XP.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
         }
 

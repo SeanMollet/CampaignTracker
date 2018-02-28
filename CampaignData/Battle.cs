@@ -170,10 +170,25 @@ namespace CampaignData
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BattleMonster>(Newtonsoft.Json.JsonConvert.SerializeObject(monster));
         }
-        public event PropertyChangedEventHandler PropertyChanged;
+
+        //We need our base class to also be able to throw these up, so we wire/de-wire it as well
+        private PropertyChangedEventHandler propertychanged;
+        public new event PropertyChangedEventHandler PropertyChanged
+        {
+            add
+            {
+                    propertychanged += value;
+                    base.PropertyChanged += value;
+            }
+            remove
+            {
+                    propertychanged -= value;
+                    base.PropertyChanged -= value;
+            }
+        }
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            propertychanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 

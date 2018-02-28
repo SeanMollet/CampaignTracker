@@ -92,6 +92,7 @@
             this.Monsters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Monsters.Location = new System.Drawing.Point(15, 103);
             this.Monsters.Name = "Monsters";
+            this.Monsters.RowHeadersWidth = 20;
             this.Monsters.Size = new System.Drawing.Size(557, 277);
             this.Monsters.TabIndex = 5;
             // 
@@ -120,7 +121,7 @@
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(600, 430);
             this.Name = "EncounterViewer";
-            this.Text = "Encounter";
+            this.Text = "Encounter Viewer";
             this.Activated += new System.EventHandler(this.EncounterViewer_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EncounterViewer_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.Monsters)).EndInit();

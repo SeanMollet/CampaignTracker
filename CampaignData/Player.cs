@@ -63,7 +63,7 @@ namespace CampaignData
                 }
             }
         }
-        public int MaxHP { get => maxHP; set { if (maxHP != value) { maxHP = value; NotifyPropertyChanged(); } } }
+        public int MaxHP { get => maxHP; set { if (maxHP != value) { maxHP = value; NotifyPropertyChanged(); NotifyPropertyChanged("Appearance"); } } }
         [JsonIgnore]
         public int HPtoChange { get; set; }
         public int Roll { get => roll; set { if (roll != value) { roll = value; NotifyPropertyChanged(); } } }

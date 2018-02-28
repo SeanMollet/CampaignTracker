@@ -1,15 +1,18 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CampaignData
 {
 
-    public class Monster : IComparable<Monster>, IEquatable<Monster>
+    public class Monster : IComparable<Monster>, IEquatable<Monster>, INotifyPropertyChanged
     {
+        private bool hidden;
 
         public int CompareTo(Monster comparison)
         {
@@ -76,6 +79,7 @@ namespace CampaignData
         public SortableBindingList<Reaction> Reactions { get; set; }
         public SortableBindingList<LegendaryAction> LegendaryActions { get; set; }
         public SortableBindingList<BindableString> Spells { get; set; }
+        public bool Hidden { get => hidden; set { hidden = value; NotifyPropertyChanged(); } }
         public bool ReadOnly { get; set; }
         public Monster Clone()
         {
@@ -104,6 +108,14 @@ namespace CampaignData
         {
             return Name.GetHashCode();
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 
     public class HP

@@ -23,6 +23,7 @@ namespace CampaignData
         /// </summary>
         public SortableBindingList()
         {
+            RaiseListChangedEvents = true;
         }
 
         public void AddRange(List<T> input)
@@ -47,6 +48,7 @@ namespace CampaignData
         public SortableBindingList(IList<T> list)
             : base(list)
         {
+            RaiseListChangedEvents = true;
         }
 
         /// <summary>

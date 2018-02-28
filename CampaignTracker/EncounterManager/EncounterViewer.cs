@@ -26,23 +26,19 @@ namespace CampaignTracker
             this.NameBox.DataBindings.Add("Text", encounter, "Name");
             this.Description.DataBindings.Add("Text", encounter, "Description");
 
-            List<string> VisibleColumns = new List<string>(new string[] { "Name", "Source", "Type", "Challenge", "Description" });
 
             this.Monsters.Columns.Clear();
 
+            this.Monsters.AutoGenerateColumns = false;
             this.Monsters.DataSource = encounter.monsters;
-            //Hide them all to start
-            if (this.Monsters.Columns.Count > 0)
-            {
-                for (int a = 0; a < this.Monsters.ColumnCount; a++)
-                {
-                    //Enable the ones we want
-                    if (!VisibleColumns.Contains(this.Monsters.Columns[a].Name))
-                    {
-                        this.Monsters.Columns[a].Visible = false;
-                    }
-                }
-            }
+            this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", DataPropertyName = "Name", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Source", DataPropertyName = "Source", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Type", DataPropertyName = "Type", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader, Resizable = DataGridViewTriState.True });
+            this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Challenge", DataPropertyName = "Challenge", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Description", DataPropertyName = "Description", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader });
+            this.Monsters.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Hidden", DataPropertyName = "Hidden", ReadOnly = false, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader });
+
+            this.Monsters.AutoResizeColumns();
         }
 
         //Wire up access through the static program so add operations can succeed
