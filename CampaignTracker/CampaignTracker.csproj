@@ -103,6 +103,12 @@
     <Compile Include="EncounterManager\EncounterViewer.Designer.cs">
       <DependentUpon>EncounterViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="LootDispener\LootDispenser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LootDispener\LootDispenser.Designer.cs">
+      <DependentUpon>LootDispenser.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonsterManager\MonsterManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EncounterManager\EncounterViewer.resx">
       <DependentUpon>EncounterViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LootDispener\LootDispenser.resx">
+      <DependentUpon>LootDispenser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

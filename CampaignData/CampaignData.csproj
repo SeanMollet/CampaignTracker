@@ -58,21 +58,33 @@
     <Compile Include="Dice.cs" />
     <Compile Include="Encounter.cs" />
     <Compile Include="FractionClass.cs" />
+    <Compile Include="Loot.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="MonsterDatabase.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LootData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LootData.resx</DependentUpon>
+    </Compile>
     <Compile Include="SortableBindingList.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="XPEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\edited_loot.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BookData.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BookData.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LootData.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LootData.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

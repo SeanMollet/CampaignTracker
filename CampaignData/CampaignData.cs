@@ -19,6 +19,7 @@ namespace CampaignData
             Players = new SortableBindingList<Player>();
             CustomMonsters = new SortableBindingList<Monster>();
             XP = new Dictionary<int, SortableBindingList<XPEvent>>();
+            Loot = new SortableBindingList<LootItem>();
             Session = 1;
             XP.Add(1,new SortableBindingList<XPEvent>());
 
@@ -50,6 +51,7 @@ namespace CampaignData
         public SortableBindingList<Player> Players { get; set; }
         public SortableBindingList<Monster> CustomMonsters { get; set; }
         public Dictionary<int,SortableBindingList<XPEvent>> XP { get; set; }
+        public SortableBindingList<LootItem> Loot { get; set; }
 
         public int Session { get => session; set { session = value; NotifyPropertyChanged(); } }
         [JsonIgnore]

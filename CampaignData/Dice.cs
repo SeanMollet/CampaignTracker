@@ -35,6 +35,30 @@ namespace CampaignData
 
         }
 
+        public static int RollLoot(string coin)
+        {
+            if (coin != null && coin.Length > 0)
+            {
+                int multiplier = 1;
+                int dicecount = 0;
+                int dicesize = 0;
+                if (coin.Contains("*"))
+                {
+                    int.TryParse(coin.Substring(coin.IndexOf("*")+1), out multiplier);
+                    int.TryParse(coin.Substring(coin.IndexOf("d")+1,coin.IndexOf("*")-coin.IndexOf("d")-1), out dicesize);
+                }
+                else
+                {
+                    int.TryParse(coin.Substring(coin.IndexOf("d")+1), out dicesize);
+                }
+                int.TryParse(coin.Substring(0, coin.IndexOf("d")), out dicecount);
+
+                int rolls = RollXwithMod(dicecount, dicesize, 0);
+                return rolls * multiplier;
+            }
+            return 0;
+        }
+
         public static int RollXwithMod(int DiceCount, int DiceSize, int Modifier)
         {
             int roll=0;

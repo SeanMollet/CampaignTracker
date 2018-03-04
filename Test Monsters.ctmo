@@ -63,7 +63,7 @@
     "Senses": [],
     "Languages": [],
     "Challenge": {
-      "Numerator": 0,
+      "Numerator": 5,
       "Denominator": 1
     },
     "Traits": [],
@@ -71,6 +71,7 @@
     "Reactions": [],
     "LegendaryActions": [],
     "Spells": [],
+    "Hidden": false,
     "ReadOnly": false
   }
 ]

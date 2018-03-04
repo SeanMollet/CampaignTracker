@@ -197,5 +197,11 @@ namespace CampaignTracker
             BattleListing listing = new BattleListing();
             listing.Show();
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            LootDispenser dispenser = new LootDispenser();
+            dispenser.Show();
+        }
     }
 }

@@ -115,6 +115,16 @@ namespace CampaignTracker
             {
                 AppendText("Earned XP for " + monster.Value.Count + " " + monster.Key + " for " + monster.Value.XP + " XP", Color.CornflowerBlue, true);
             }
+            AppendText("", Color.CornflowerBlue, true);
+            AppendText("Loot", Color.Gold, true);
+
+            foreach (var loot in Program.db.database.Loot.OrderBy(x => x.type))
+            {
+                if (loot.count > 0)
+                {
+                    AppendText("Collected " + loot.count.ToString("N0") + " " + loot.item, Color.Gold, true);
+                }
+            }
 
         }
 

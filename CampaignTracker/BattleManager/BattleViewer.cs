@@ -186,5 +186,13 @@ namespace CampaignTracker
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LootDispenser lootDispenser = new LootDispenser();
+            lootDispenser.LoadBattle(this.battle);
+            lootDispenser.Show();
+
+        }
     }
 }

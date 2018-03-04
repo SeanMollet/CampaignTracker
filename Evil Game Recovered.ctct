@@ -605,7 +605,7 @@
           ],
           "Challenge": {
             "Numerator": 1,
-            "Denominator": 4
+            "Denominator": 1
           },
           "Traits": [
             {
@@ -8406,7 +8406,8 @@
       }
     ],
     "3": [],
-    "4": []
+    "4": [],
+    "5": []
   },
-  "Session": 4
+  "Session": 5
 }
