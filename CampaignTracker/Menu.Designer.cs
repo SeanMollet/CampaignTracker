@@ -43,6 +43,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.button12);
             this.groupBox1.Controls.Add(this.button11);
             this.groupBox1.Controls.Add(this.button10);
@@ -70,14 +72,14 @@
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Location = new System.Drawing.Point(12, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(212, 349);
+            this.groupBox1.Size = new System.Drawing.Size(212, 382);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GM Views";
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(6, 184);
+            this.button12.Location = new System.Drawing.Point(6, 217);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(200, 27);
             this.button12.TabIndex = 14;
@@ -87,7 +89,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(6, 151);
+            this.button11.Location = new System.Drawing.Point(6, 184);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(200, 27);
             this.button11.TabIndex = 13;
@@ -97,7 +99,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(6, 217);
+            this.button10.Location = new System.Drawing.Point(6, 250);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(200, 27);
             this.button10.TabIndex = 12;
@@ -107,7 +109,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(6, 316);
+            this.button9.Location = new System.Drawing.Point(6, 349);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(200, 27);
             this.button9.TabIndex = 11;
@@ -117,7 +119,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(6, 283);
+            this.button6.Location = new System.Drawing.Point(6, 316);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(200, 27);
             this.button6.TabIndex = 10;
@@ -127,7 +129,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 250);
+            this.button1.Location = new System.Drawing.Point(6, 283);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 27);
             this.button1.TabIndex = 9;
@@ -137,7 +139,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(6, 118);
+            this.button5.Location = new System.Drawing.Point(6, 151);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(200, 27);
             this.button5.TabIndex = 8;
@@ -147,7 +149,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(6, 85);
+            this.button4.Location = new System.Drawing.Point(6, 118);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(200, 27);
             this.button4.TabIndex = 7;
@@ -180,7 +182,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Location = new System.Drawing.Point(12, 382);
+            this.groupBox2.Location = new System.Drawing.Point(12, 415);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(212, 91);
             this.groupBox2.TabIndex = 9;
@@ -207,11 +209,21 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.PlayerView_Click);
             // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(6, 85);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(200, 27);
+            this.button13.TabIndex = 15;
+            this.button13.Text = "View Battles";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(236, 480);
+            this.ClientSize = new System.Drawing.Size(236, 513);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -242,5 +254,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }

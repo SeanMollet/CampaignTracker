@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 namespace CampaignData
 {
 
-    public class Database
+    public class Database : INotifyPropertyChanged
     {
         public Database()
         {
@@ -18,20 +18,44 @@ namespace CampaignData
             Encounters = new SortableBindingList<Encounter>();
             Players = new SortableBindingList<Player>();
             CustomMonsters = new SortableBindingList<Monster>();
-            XP = new SortableBindingList<XPEvent>();
+            XP = new Dictionary<int, SortableBindingList<XPEvent>>();
             Session = 1;
+            XP.Add(1,new SortableBindingList<XPEvent>());
 
             LoadStats();
+        }
+
+        public SortableBindingList<XPEvent> getCurrentXP()
+        {
+            //Make sure there are enough in there
+            if(!XP.ContainsKey(Session))
+            {
+                XP.Add(Session,new SortableBindingList<XPEvent>());
+            }
+
+            if (XP[Session] == null)
+            {
+                XP[Session] = new SortableBindingList<XPEvent>();
+            }
+            return XP[Session];
+        }
+
+        public Dictionary<int,SortableBindingList<XPEvent>> getAllXP()
+        {
+            return XP;
         }
 
         public SortableBindingList<Battle> Battles { get; set; }
         public SortableBindingList<Encounter> Encounters { get; set; }
         public SortableBindingList<Player> Players { get; set; }
         public SortableBindingList<Monster> CustomMonsters { get; set; }
-        public SortableBindingList<XPEvent> XP { get; set; }
-        public int Session { get; set; }
+        public Dictionary<int,SortableBindingList<XPEvent>> XP { get; set; }
+
+        public int Session { get => session; set { session = value; NotifyPropertyChanged(); } }
         [JsonIgnore]
         public List<Stats> CreatureStats;
+        private int session;
+
         private void LoadStats()
         {
             CreatureStats = new List<Stats>();
@@ -41,6 +65,11 @@ namespace CampaignData
             CreatureStats.Add(new Stats("Int", "Intelligence"));
             CreatureStats.Add(new Stats("Wis", "Wisdom"));
             CreatureStats.Add(new Stats("Cha", "Charisma"));
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
@@ -67,6 +96,7 @@ namespace CampaignData
         public event UpdateHandler onEncountersUpdated;
         public event UpdateHandler onMonstersUpdated;
         public event UpdateHandler onPlayersUpdated;
+        public event UpdateHandler onSessionUpdated;
 
         public Database database;
 
@@ -93,6 +123,15 @@ namespace CampaignData
                 database.Encounters.ListChanged += ((object sender, ListChangedEventArgs e) => { onEncountersUpdated?.Invoke(sender); });
                 database.Players.ListChanged += ((object sender, ListChangedEventArgs e) => { onPlayersUpdated?.Invoke(sender); });
                 database.CustomMonsters.ListChanged += ((object sender, ListChangedEventArgs e) => { onMonstersUpdated?.Invoke(sender); });
+                database.PropertyChanged += (object sender, PropertyChangedEventArgs e) =>
+                {
+                    switch (e.PropertyName)
+                    {
+                        case "Session":
+                            onSessionUpdated?.Invoke(this);
+                            break;
+                    }
+                };
             }
         }
 

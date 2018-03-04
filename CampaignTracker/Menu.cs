@@ -141,7 +141,7 @@ namespace CampaignTracker
             //If they have any progress, prompt before creating a new game
             if (Program.db.database != null)
             {
-                if (Program.db.database.Players.Count > 0 || Program.db.database.Encounters.Count > 0 || Program.db.database.XP.Count > 0 || Program.db.database.Battles.Count > 0)
+                if (Program.db.database.Players.Count > 0 || Program.db.database.Encounters.Count > 0 || Program.db.database.getCurrentXP().Count > 0 || Program.db.database.Battles.Count > 0)
                 {
                     if (MessageBox.Show("Are you sure you want to create a new campaign?", "Confirm", MessageBoxButtons.YesNo) != DialogResult.Yes)
                     {
@@ -155,7 +155,7 @@ namespace CampaignTracker
         private void Menu_FormClosing(object sender, FormClosingEventArgs e)
         {
             //If they have any progress, prompt before closing
-            if (Program.db.database.Players.Count > 0 || Program.db.database.Encounters.Count > 0 || Program.db.database.XP.Count > 0 || Program.db.database.Battles.Count > 0)
+            if (Program.db.database.Players.Count > 0 || Program.db.database.Encounters.Count > 0 || Program.db.database.getCurrentXP().Count > 0 || Program.db.database.Battles.Count > 0)
             {
                 if (MessageBox.Show("Save campaign before closing?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -190,6 +190,12 @@ namespace CampaignTracker
         {
             RollOMatic roll = new CampaignTracker.RollOMatic();
             roll.Show();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            BattleListing listing = new BattleListing();
+            listing.Show();
         }
     }
 }

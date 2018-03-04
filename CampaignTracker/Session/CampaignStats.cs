@@ -29,6 +29,8 @@ namespace CampaignTracker
         {
 
             var battles = Program.db.database.Battles;
+            var xpEntries = Program.db.database.getAllXP();
+
             //Configure the base font
             richTextBox1.Font = new Font("Courier New", 14);
 
@@ -54,8 +56,8 @@ namespace CampaignTracker
 
             AppendText("Monsters killed: " + battles.Sum(x => x.monsters.Count(y => y.CurrentHP < 0)).ToString("N0"), Color.CornflowerBlue, true);
             AppendText("Monsters not killed (XP Given): " + battles.Sum(x => x.monsters.Count(y => y.Persuaded)).ToString("N0"), Color.CornflowerBlue, true);
-            AppendText("Monsters not killed (no XP Given): " + battles.Sum(x => x.monsters.Count(y => y.CurrentHP>0 && !y.Persuaded)).ToString("N0"), Color.CornflowerBlue, true);
-            AppendText("XP Earned: " + battles.Sum(x => x.monsters.Sum(y => y.XPGiven)).ToString("N0"), Color.CornflowerBlue, true);
+            AppendText("Monsters not killed (no XP Given): " + battles.Sum(x => x.monsters.Count(y => y.CurrentHP>0 && !y.Persuaded)).ToString("N0"), Color.CornflowerBlue, true);            
+            AppendText("XP Earned: " + xpEntries.Sum(x => x.Value.Sum(y => y.XP)).ToString("N0"), Color.CornflowerBlue, true);
 
             AppendText("", Color.CornflowerBlue, true);
 
@@ -63,11 +65,21 @@ namespace CampaignTracker
             var sessions = battles.GroupBy(x => x.Session);
             foreach (var session in sessions)
             {
+                int xpearned = 0;
                 AppendText("Session "+session.Key+":", Color.CornflowerBlue, true);
-                AppendText("Monsters killed: " + session.Sum(x => x.monsters.Count(y => y.CurrentHP < 0)).ToString("N0"), Color.CornflowerBlue, true);
-                AppendText("Monsters not killed (XP Given): " + session.Sum(x => x.monsters.Count(y => y.Persuaded)).ToString("N0"), Color.CornflowerBlue, true);
-                AppendText("Monsters not killed (no XP Given): " + session.Sum(x => x.monsters.Count(y => y.CurrentHP>0 && !y.Persuaded)).ToString("N0"), Color.CornflowerBlue, true);
-                AppendText("XP Earned: " + session.Sum(x => x.monsters.Sum(y => y.XPGiven)).ToString("N0"), Color.CornflowerBlue, true);
+                if (xpEntries.ContainsKey(session.Key))
+                {
+                    xpearned = xpEntries[session.Key].Sum(x => x.XP);
+                    foreach (var xp in xpEntries[session.Key])
+                    {
+                        AppendText("Earned " + xp.XP.ToString("N0") + " for " + xp.Event, Color.CornflowerBlue, true);
+                    }
+                }
+                //AppendText("Monsters killed: " + session.Sum(x => x.monsters.Count(y => y.CurrentHP < 0)).ToString("N0"), Color.CornflowerBlue, true);
+                //AppendText("Monsters not killed (XP Given): " + session.Sum(x => x.monsters.Count(y => y.Persuaded)).ToString("N0"), Color.CornflowerBlue, true);
+                //AppendText("Monsters not killed (no XP Given): " + session.Sum(x => x.monsters.Count(y => y.CurrentHP>0 && !y.Persuaded)).ToString("N0"), Color.CornflowerBlue, true);
+                
+                AppendText("XP Earned: " + xpearned.ToString("N0"), Color.CornflowerBlue, true);
                 AppendText("", Color.CornflowerBlue, true);
             }
 
@@ -80,27 +92,28 @@ namespace CampaignTracker
                 kills.AddRange(battle.monsters);
             }
 
-            Dictionary<Monster, killstats> monsters = new Dictionary<Monster, killstats>();
-            foreach (var monster in kills)
+            Dictionary<string, killstats> monsters = new Dictionary<string, killstats>();
+            foreach (var xp in xpEntries.SelectMany(x => x.Value))
             {
-                if (monster.CurrentHP <= 0 || monster.Persuaded)
+                if (xp.Monster.Length > 0)
                 {
-                    if (monsters.ContainsKey(monster))
+                    if (monsters.ContainsKey(xp.Monster))
                     {
-                        monsters[monster].Count++;
-                        monsters[monster].XP += monster.XPGiven;
+                        monsters[xp.Monster].Count++;
+                        monsters[xp.Monster].XP += xp.XP;
                     }
                     else
                     {
-                        monsters.Add(monster, new killstats { Count = 1, XP = monster.XPGiven });
+                        monsters.Add(xp.Monster, new killstats { Count = 1, XP = xp.XP });
                     }
                 }
             }
-            
+
+
 
             foreach (var monster in monsters)
             {
-                AppendText("Earned XP for " +monster.Value.Count+ " "+ monster.Key.Name+" for "+monster.Value.XP+" XP", Color.CornflowerBlue, true);
+                AppendText("Earned XP for " + monster.Value.Count + " " + monster.Key + " for " + monster.Value.XP + " XP", Color.CornflowerBlue, true);
             }
 
         }

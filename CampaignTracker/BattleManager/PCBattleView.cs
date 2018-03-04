@@ -14,6 +14,7 @@ namespace CampaignTracker
     public partial class PCBattleView : Controls.BaseForm, DataBindReload
     {
         private Battle currentbattle;
+        private SortableBindingList<XPEvent> currentxp;
         private SortableBindingList<BattleMonster> filteredMonsters;
         Timer pollingTimer;
         public PCBattleView()
@@ -29,6 +30,17 @@ namespace CampaignTracker
             SetAlwaysOnTop();
             Program.onActiveBattleChanged += (object sender) => { DataBind(); };
 
+            Program.db.onSessionUpdated += Db_onSessionUpdated;
+        }
+
+        private void Db_onSessionUpdated(object sender)
+        {
+            DataBind();
+        }
+
+        ~PCBattleView()
+        { 
+            Program.db.onSessionUpdated -= Db_onSessionUpdated;
         }
 
         public void DataBind()
@@ -63,21 +75,6 @@ namespace CampaignTracker
 
                     this.Monsters.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
-                    this.XP.Columns.Clear();
-                    this.XP.AutoGenerateColumns = false;
-                    this.XP.DataSource = Program.Active_battle.XP;
-
-                    this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Timestamp", DataPropertyName = "Timestamp", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-                    this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Session", DataPropertyName = "Session", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-                    this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Battle", DataPropertyName = "Battle", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-                    this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Event", DataPropertyName = "Event", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-                    //this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "XP", DataPropertyName = "XP", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-
-                    this.XP.Refresh();
-                    this.XP.Sort(this.XP.Columns[0], ListSortDirection.Descending);
-
-                    this.XP.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
-
                     currentbattle = Program.Active_battle;
                 }
                 else
@@ -85,11 +82,36 @@ namespace CampaignTracker
                     this.Monsters.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                     this.XP.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
                 }
+
                 pollingTimer.Stop();
             }
             else
             {
                 pollingTimer.Start();
+            }
+
+            if (currentxp != Program.db.database.getCurrentXP())
+            {
+                this.XP.Columns.Clear();
+                this.XP.AutoGenerateColumns = false;
+                this.XP.DataSource = Program.db.database.getCurrentXP();
+
+                this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Timestamp", DataPropertyName = "Timestamp", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+                this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Session", DataPropertyName = "Session", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+                this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Battle", DataPropertyName = "Battle", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+                this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Event", DataPropertyName = "Event", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+                //this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "XP", DataPropertyName = "XP", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+
+                this.XP.Refresh();
+                try
+                {
+                    this.XP.Sort(this.XP.Columns[0], ListSortDirection.Descending);
+                }
+                catch (Exception e)
+                { }
+
+                this.XP.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                currentxp = Program.db.database.getCurrentXP();
             }
 
         }

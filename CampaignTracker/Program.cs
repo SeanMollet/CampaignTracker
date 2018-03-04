@@ -18,6 +18,7 @@ namespace CampaignTracker
         public delegate void ActiveHandler(object sender);
         public static event ActiveHandler onActiveEncounterChanged;
         public static event ActiveHandler onActiveBattleChanged;
+        public static event ActiveHandler onSessionChanged;
 
         private static CampaignData.Encounter active_encounter;
         private static CampaignData.Battle active_battle;

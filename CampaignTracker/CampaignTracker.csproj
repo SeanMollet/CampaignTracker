@@ -67,6 +67,12 @@
     <Compile Include="BattleManager\PCBattleView.Designer.cs">
       <DependentUpon>PCBattleView.cs</DependentUpon>
     </Compile>
+    <Compile Include="BattleManager\BattleListing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BattleManager\BattleListing.Designer.cs">
+      <DependentUpon>BattleListing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AbilitiesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     <Compile Include="Controls\PrintingRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="BattleManager\BattleListing.resx">
+      <DependentUpon>BattleListing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BattleManager\BattleViewer.resx">
       <DependentUpon>BattleViewer.cs</DependentUpon>
     </EmbeddedResource>

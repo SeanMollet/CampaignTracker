@@ -15,12 +15,14 @@ namespace CampaignData
         private int battle;
         private string xpEvent;
         private int xP;
+        private string monster;
+        private bool killed;
 
-        public DateTime Timestamp { get => timestamp; set { timestamp = value;} }
+        public DateTime Timestamp { get => timestamp; set { timestamp = value; } }
         public int Session { get => session; set { session = value; NotifyPropertyChanged(); } }
         public int Battle { get => battle; set { battle = value; NotifyPropertyChanged(); } }
         public string Event { get => xpEvent; set { xpEvent = value; NotifyPropertyChanged(); } }
-
+        public string Monster { get => monster; set { monster = value; NotifyPropertyChanged(); } }
         public int XP { get => xP; set { xP = value; NotifyPropertyChanged(); } }
 
         public XPEvent()

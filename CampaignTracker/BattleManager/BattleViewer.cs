@@ -51,16 +51,22 @@ namespace CampaignTracker
 
 
             this.XP.AutoGenerateColumns = false;
-            this.XP.DataSource = battle.XP;
+
+            this.XP.DataSource = Program.db.database.getCurrentXP();
 
             this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Timestamp", DataPropertyName = "Timestamp", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Session", DataPropertyName = "Session", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Battle", DataPropertyName = "Battle", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Event", DataPropertyName = "Event", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
-            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "XP", DataPropertyName = "XP", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Session", DataPropertyName = "Session",AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Battle", DataPropertyName = "Battle",  AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Event", DataPropertyName = "Event",  AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Monster", DataPropertyName = "Monster", AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
+            this.XP.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "XP", DataPropertyName = "XP",  AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
 
             this.XP.Refresh();
-            this.XP.Sort(this.XP.Columns[0], ListSortDirection.Descending);
+            try
+            {
+                this.XP.Sort(this.XP.Columns[0], ListSortDirection.Descending);
+            }
+            catch(Exception E){}
 
             this.XP.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
@@ -101,14 +107,14 @@ namespace CampaignTracker
                                 battlemonster.CurrentHP -= battlemonster.HPtoChange;
                                 if (battlemonster.CurrentHP <= 0)
                                 {
-                                    battle.GrantXP(Program.db.database.Session,"Killed", battlemonster);
+                                    battle.GrantXP(Program.db.database.Session,"Killed", battlemonster,Program.db.database.getCurrentXP());
                                 }
                                 break;
                             case "Heal":
                                 battlemonster.CurrentHP += battlemonster.HPtoChange;
                                 break;
                             case "XP":
-                                battle.GrantXP(Program.db.database.Session, "Granted", battlemonster);
+                                battle.GrantXP(Program.db.database.Session, "Granted", battlemonster,Program.db.database.getCurrentXP());
                                 battlemonster.Persuaded = true;
                                 break;
                         }

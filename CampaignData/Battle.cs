@@ -15,37 +15,26 @@ namespace CampaignData
         public DateTime Began { get; set; }
         public int LiveMonsters { get
             {
-                int livemonsters = 0;
                 if (monsters != null)
                 {
-                    foreach(var monster in monsters)
-                    {
-                        if (monster.CurrentHP > 0)
-                        {
-                            livemonsters++;
-                        }
-                    }
+                    return monsters.Count(x => x.CurrentHP > 0 && !x.Persuaded);
                 }
-                return livemonsters;
+                return 0;
             } }
-        public int EarnedXP
+        public int TotalMonsters
         {
             get
             {
-                int earned = 0;
-                if (XP != null)
+                if(monsters != null)
                 {
-                    foreach(var xp in XP)
-                    {
-                        earned += xp.XP;
-                    }
+                    return monsters.Count;
                 }
-                return earned;
+                return 0;
             }
         }
+
         DateTime Ended { get; set; }
         public SortableBindingList<BattleMonster> monsters { get; set; }
-        public SortableBindingList<XPEvent> XP { get; set; }
         public int BattleNumber { get; private set; }
         public int Session { get; private set; }
         public Battle(int session,int battlenumber, IList<Monster> preloadMonsters=null)
@@ -54,7 +43,6 @@ namespace CampaignData
             Session = session;
 
             monsters = new SortableBindingList<BattleMonster>();
-            XP = new SortableBindingList<XPEvent>();
 
             if (preloadMonsters != null)
             {
@@ -78,7 +66,7 @@ namespace CampaignData
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Battle>(Newtonsoft.Json.JsonConvert.SerializeObject(this));
         }
 
-        public void GrantXP(int Session,string Reason, BattleMonster monster)
+        public void GrantXP(int Session,string Reason, BattleMonster monster,IList<XPEvent> XPlist)
         {
             if (monster.XPGiven <=0)
             {
@@ -86,10 +74,11 @@ namespace CampaignData
                 xp.Event = monster.Name + " " + monster.Index.ToString() + " " + Reason;
                 xp.Session = Session;
                 xp.Battle = BattleNumber;
+                xp.Monster = monster.Name;
                 xp.Timestamp = DateTime.Now;
                 xp.XP = BattleXP.GetXP(monster.Challenge);
                 monster.XPGiven = xp.XP;
-                XP.Add(xp);
+                XPlist.Add(xp);
             }
         }
 
