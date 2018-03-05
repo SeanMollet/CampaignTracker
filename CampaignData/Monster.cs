@@ -13,6 +13,7 @@ namespace CampaignData
     public class Monster : IComparable<Monster>, IEquatable<Monster>, INotifyPropertyChanged
     {
         private bool hidden;
+        private bool unknown;
 
         public int CompareTo(Monster comparison)
         {
@@ -80,6 +81,7 @@ namespace CampaignData
         public SortableBindingList<LegendaryAction> LegendaryActions { get; set; }
         public SortableBindingList<BindableString> Spells { get; set; }
         public bool Hidden { get => hidden; set { hidden = value; NotifyPropertyChanged(); } }
+        public bool Unknown { get => unknown; set { unknown = value; NotifyPropertyChanged(); } }
         public bool ReadOnly { get; set; }
         public Monster Clone()
         {

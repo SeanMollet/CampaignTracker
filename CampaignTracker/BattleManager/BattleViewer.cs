@@ -33,6 +33,7 @@ namespace CampaignTracker
             this.Monsters.AutoGenerateColumns = false;
             this.Monsters.DataSource = battle.monsters;
             this.Monsters.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Hidden", DataPropertyName = "Hidden", ReadOnly = false, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader });
+            this.Monsters.Columns.Add(new DataGridViewCheckBoxColumn { HeaderText = "Unknown", DataPropertyName = "Unknown", ReadOnly = false, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "ID", DataPropertyName = "Index",ReadOnly=true,AutoSizeMode= DataGridViewAutoSizeColumnMode.AllCells });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", DataPropertyName = "Name", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells });
             this.Monsters.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Type", DataPropertyName = "Type", ReadOnly = true, AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader,Resizable= DataGridViewTriState.True });

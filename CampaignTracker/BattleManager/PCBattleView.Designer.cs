@@ -59,6 +59,8 @@
             // 
             // Monsters
             // 
+            this.Monsters.AllowUserToAddRows = false;
+            this.Monsters.AllowUserToDeleteRows = false;
             this.Monsters.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Monsters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Monsters.Dock = System.Windows.Forms.DockStyle.Fill;

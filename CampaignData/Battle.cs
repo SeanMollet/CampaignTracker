@@ -128,7 +128,8 @@ namespace CampaignData
 
         public bool Persuaded
         {
-            get => persuaded; set
+            get => persuaded;
+            set
             {
                 if (persuaded != value)
                 {
@@ -138,6 +139,30 @@ namespace CampaignData
             }
         }
         public int XPGiven { get; set; }
+        [JsonIgnore]
+        public string PC_Type
+        {
+            get
+            {
+                if (Unknown)
+                {
+                    return Size.Value+" "+ Type;
+                }
+                return DisplayType;
+            }
+        }
+        [JsonIgnore]
+        public string PC_Name
+        {
+            get
+            {
+                if (Unknown)
+                {
+                    return "Unknown";
+                }
+                return Name;
+            }
+        }
         [JsonIgnore]
         public string Appearance
         {

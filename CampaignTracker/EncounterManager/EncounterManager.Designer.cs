@@ -116,7 +116,7 @@
             this.EncounterList.MultiSelect = false;
             this.EncounterList.Name = "EncounterList";
             this.EncounterList.ReadOnly = true;
-            this.EncounterList.RowHeadersVisible = false;
+            this.EncounterList.RowHeadersWidth = 20;
             this.EncounterList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.EncounterList.Size = new System.Drawing.Size(413, 286);
             this.EncounterList.TabIndex = 7;
