@@ -63,6 +63,21 @@ namespace CampaignTracker
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Make sure there is a monsters line
+            bool hasMonsters = false;
+            foreach (var player in Program.db.database.Players)
+            {
+                if(player.Name == "Monsters")
+                {
+                    hasMonsters = true;
+                }
+            }
+
+            if (!hasMonsters)
+            {
+                Program.db.database.Players.Add(new Player { Name = "Monsters" });
+            }
+
             foreach (var player in Program.db.database.Players)
             {
                 player.Roll = Dice.Roll(20, player.Adv) + player.Initiative;

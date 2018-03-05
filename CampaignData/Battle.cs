@@ -101,6 +101,8 @@ namespace CampaignData
                 {
                     currentHP = MaxHP;
                     currentHPSet = true;
+                    NotifyPropertyChanged("CurrentHP");
+                    NotifyPropertyChanged("Appearance");
                 }
                 return currentHP;
             }
@@ -113,7 +115,7 @@ namespace CampaignData
                 }
                 currentHP = value;
                 currentHPSet = true;
-                NotifyPropertyChanged();
+                NotifyPropertyChanged("CurrentHP");
                 NotifyPropertyChanged("Appearance");
             }
         }
