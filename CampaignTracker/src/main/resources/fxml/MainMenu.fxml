@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="MainMenu" minHeight="535.0" minWidth="200.0" prefHeight="535.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.MainMenuController">
+    <children>
+        <Label fx:id="HeaderLabel" layoutX="6.0" layoutY="7.0" prefHeight="17.0" prefWidth="192.0" text="Main Menu" />
+        <AnchorPane layoutX="8.0" layoutY="24.0" prefHeight="268.0" prefWidth="220.0" style="-fx-border-insets: 8 0 0 0; -fx-background-color: #FFFFFF; -fx-border-color: black;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="24.0">
+            <children>
+                <Label alignment="TOP_LEFT" layoutX="14.0" style="-fx-padding: 0 5; -fx-background-color: inherit;" text="GM Views" />
+                <AnchorPane layoutX="6.0" layoutY="17.0" prefHeight="244.0" prefWidth="213.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="8.0">
+                    <children>
+                        <Button fx:id="PlayersButton" layoutY="7.0" mnemonicParsing="false" onAction="#PlayersClick" prefHeight="25.0" prefWidth="203.0" text="Players" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                        <Button fx:id="NewBattleButton" layoutX="4.0" layoutY="48.0" mnemonicParsing="false" onAction="#NewBattleClick" prefHeight="25.0" prefWidth="203.0" text="New Battle" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                        <Button fx:id="ViewBattleButton" layoutX="4.0" layoutY="72.0" mnemonicParsing="false" onAction="#ViewBattlesClick" prefHeight="25.0" prefWidth="203.0" text="View Battles" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0" />
+                        <Button fx:id="EncountersButton" layoutX="4.0" layoutY="117.0" mnemonicParsing="false" onAction="#EncountersClick" prefHeight="25.0" prefWidth="203.0" text="Encounters" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="95.0" />
+                        <Button fx:id="MonstersLibrary" layoutX="2.0" layoutY="83.0" mnemonicParsing="false" onAction="#MonstersClick" prefHeight="25.0" prefWidth="203.0" text="Monsters Library" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="125.0" />
+                        <Button fx:id="SessionButton" layoutX="4.0" layoutY="162.0" mnemonicParsing="false" onAction="#SessClick" prefHeight="25.0" prefWidth="203.0" text="Session" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="155.0" />
+                        <Button fx:id="RollButton" layoutX="2.0" layoutY="169.0" mnemonicParsing="false" onAction="#RollClick" prefHeight="25.0" prefWidth="203.0" text="Roll-o-matic" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="185.0" />
+                        <Button fx:id="LootButton" layoutX="2.0" layoutY="199.0" mnemonicParsing="false" onAction="#LootClick" prefHeight="25.0" prefWidth="203.0" text="Loot Dispenser" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="215.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="8.0" layoutY="294.0" prefHeight="146.0" prefWidth="234.0" style="-fx-border-insets: 8 0 0 0; -fx-background-color: #FFFFFF; -fx-border-color: black;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
+            <children>
+                <Label alignment="TOP_LEFT" layoutX="14.0" style="-fx-padding: 0 5; -fx-background-color: inherit;" text="Campaign" />
+                <AnchorPane layoutX="4.0" layoutY="28.0" prefHeight="144.0" prefWidth="229.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="10.0" />
+                <Button fx:id="NewButton" layoutX="10.0" layoutY="17.0" mnemonicParsing="false" onAction="#NewClick" prefHeight="25.0" prefWidth="203.0" text="New Campaign" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0" />
+                <Button fx:id="LoadButton" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" onAction="#LoadClick" prefHeight="25.0" prefWidth="203.0" text="Load Campaign" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="40.0" />
+                <Button fx:id="SaveButton" layoutX="14.0" layoutY="82.0" mnemonicParsing="false" onAction="#SaveClick" prefHeight="25.0" prefWidth="203.0" text="Save Campaign" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
+                <Button fx:id="StatsButton" layoutX="14.0" layoutY="127.0" mnemonicParsing="false" onAction="#StatsClick" prefHeight="25.0" prefWidth="203.0" text="Campaign Statistics" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="8.0" layoutY="440.0" prefHeight="86.0" prefWidth="234.0" style="-fx-border-insets: 8 0 0 0; -fx-background-color: #FFFFFF; -fx-border-color: black;" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0">
+            <children>
+                <Label alignment="TOP_LEFT" layoutX="14.0" style="-fx-padding: 0 5; -fx-background-color: inherit;" text="Player Views" />
+                <AnchorPane layoutX="4.0" layoutY="28.0" prefHeight="61.0" prefWidth="228.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="10.0" />
+                <Button fx:id="PlayerStatsButton" layoutX="20.0" layoutY="27.0" mnemonicParsing="false" onAction="#PlayerStatsClick" prefHeight="25.0" prefWidth="203.0" text="Player Stats View" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0" />
+                <Button fx:id="PlayerBattleButton" layoutX="24.0" layoutY="68.0" mnemonicParsing="false" onAction="#BattleButtonClick" prefHeight="25.0" prefWidth="203.0" text="Player Battle Log" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="40.0" />
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
