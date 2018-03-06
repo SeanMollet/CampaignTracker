@@ -55,40 +55,64 @@ public class MainMenuController implements Initializable {
     @FXML
     private void PlayersClick(ActionEvent event) throws IOException {
 
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/PC/PlayerEditor.fxml"), "/styles/Styles.css", "Player Editor");
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/PC/PlayerEditor.fxml"), "Player Editor");
         controller.Show();
     }
 
     @FXML
     private void NewBattleClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleViewer.fxml"), "Battle");
+        controller.Show();
+
     }
 
     @FXML
     private void ViewBattlesClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleListing.fxml"), "Battle Listing");
+        controller.Show();
+
     }
 
     @FXML
     private void EncountersClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Encounters/EncounterManager.fxml"), "Encounter Manager");
+        controller.Show();
+
     }
 
     @FXML
     private void MonstersClick(ActionEvent event) {
+        AppData data = MainApp.getAppData();
+
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterManager.fxml"), "Monster Manager");
+        controller.Show();
+
     }
 
     @FXML
     private void SessClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Session/AdjustSession.fxml"), "Session Selector");
+        controller.Show();
+
     }
 
     @FXML
     private void RollClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/RollOMatic/RollOMatic.fxml"), "Roll-O-Matic");
+        controller.Show();
+
     }
 
     @FXML
     private void LootClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Loot/LootDispenser.fxml"), "Loot Dispenser");
+        controller.Show();
+
     }
 
     @FXML
     private void NewClick(ActionEvent event) {
+
     }
 
     @FXML
@@ -101,14 +125,23 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void StatsClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Session/CampaignStats.fxml"), "Campaign Stats");
+        controller.Show();
+
     }
 
     @FXML
     private void PlayerStatsClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/PC/PCView.fxml"), "Player Status");
+        controller.Show();
+
     }
 
     @FXML
     private void BattleButtonClick(ActionEvent event) {
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Battles/PCBattleView.fxml"), "Battle View");
+        controller.Show();
+
     }
 
 }

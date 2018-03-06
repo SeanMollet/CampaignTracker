@@ -34,7 +34,7 @@ public class BaseForm {
         }
     }
 
-    public static BaseForm LoadForm(URL Form, String Style, String Name) {
+    public static BaseForm LoadForm(URL Form, String Name) {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(Form);
         try {
@@ -53,8 +53,8 @@ public class BaseForm {
                 }
             });
 
-            scene.getStylesheets().add(Style);
-
+            //Done in the FXML
+            //scene.getStylesheets().add(Style);
             stage.setTitle(Name);
             stage.setScene(scene);
 

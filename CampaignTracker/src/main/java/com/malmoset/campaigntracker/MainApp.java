@@ -9,6 +9,16 @@ import javafx.stage.Stage;
 
 public class MainApp extends Application {
 
+    //Property that holds out application data, universally accessible
+    private static AppData appData;
+
+    public static AppData getAppData() {
+        if (appData == null) {
+            appData = new AppData();
+        }
+        return appData;
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainMenu.fxml"));
