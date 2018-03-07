@@ -23,7 +23,8 @@ public class Skill {
     }
 
     public Skill() {
-
+        this.name = new SimpleStringProperty();
+        this.modifier = new SimpleIntegerProperty();
     }
     @JsonProperty("Name")
     private StringProperty name;

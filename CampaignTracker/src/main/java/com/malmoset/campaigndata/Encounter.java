@@ -28,7 +28,9 @@ public class Encounter {
     }
 
     public Encounter() {
+        this.name = new SimpleStringProperty();
         challenge = new SimpleObjectProperty<>(new Fraction(1));
+        this.description = new SimpleStringProperty();
         monsters = new ArrayList<Monster>();
     }
 

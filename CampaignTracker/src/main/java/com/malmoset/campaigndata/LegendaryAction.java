@@ -20,6 +20,10 @@ public class LegendaryAction {
         this.content = new SimpleStringProperty(content);
     }
 
+    public LegendaryAction() {
+        this.name = new SimpleStringProperty();
+        this.content = new SimpleStringProperty();
+    }
     @JsonProperty("Name")
     private StringProperty name;
     @JsonProperty("Content")

@@ -20,6 +20,11 @@ public class Reaction {
         this.content = new SimpleStringProperty(content);
     }
 
+    public Reaction() {
+        this.name = new SimpleStringProperty();
+        this.content = new SimpleStringProperty();
+    }
+
     @JsonProperty("Name")
     private StringProperty name;
     @JsonProperty("Content")

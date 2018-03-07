@@ -38,7 +38,17 @@ public class Player {
     }
 
     public Player() {
-
+        this.name = new SimpleStringProperty("New Player");
+        this.race = new SimpleStringProperty();
+        this.character_class = new SimpleStringProperty();
+        this.initiative = new SimpleIntegerProperty();
+        this.aC = new SimpleIntegerProperty();
+        this.currentHP = new SimpleIntegerProperty();
+        this.maxHP = new SimpleIntegerProperty();
+        this.roll = new SimpleIntegerProperty();
+        this.adv = new SimpleIntegerProperty();
+        this.dead = new SimpleBooleanProperty();
+        this.stable = new SimpleBooleanProperty();
     }
     @JsonProperty("Name")
     private StringProperty name;

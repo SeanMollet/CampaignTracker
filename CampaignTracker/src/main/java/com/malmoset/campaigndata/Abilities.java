@@ -26,7 +26,12 @@ public class Abilities {
     }
 
     public Abilities() {
-
+        this.str = new SimpleIntegerProperty(10);
+        this.dex = new SimpleIntegerProperty(10);
+        this.con = new SimpleIntegerProperty(10);
+        this.intelligence = new SimpleIntegerProperty(10);
+        this.wis = new SimpleIntegerProperty(10);
+        this.cha = new SimpleIntegerProperty(10);
     }
     @JsonProperty("Str")
     private IntegerProperty str;

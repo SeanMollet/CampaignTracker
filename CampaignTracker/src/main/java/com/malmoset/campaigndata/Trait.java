@@ -15,18 +15,24 @@ import javafx.beans.property.StringProperty;
  */
 public class Trait {
 
-    public Trait(@JsonProperty("Name") String name, @JsonProperty("Content") String content) {
+    public Trait(@JsonProperty("Name") String name, @JsonProperty("Content") String content, @JsonProperty("Usage") String usage) {
         this.name = new SimpleStringProperty(name);
         this.content = new SimpleStringProperty(content);
+        this.usage = new SimpleStringProperty(usage);
     }
 
     public Trait() {
-
+        this.name = new SimpleStringProperty();
+        this.content = new SimpleStringProperty();
+        this.usage = new SimpleStringProperty();
     }
+
     @JsonProperty("Name")
     private StringProperty name;
     @JsonProperty("Content")
     private StringProperty content;
+    @JsonProperty("Usage")
+    private StringProperty usage;
 
     public final String getName() {
         return name.get();
@@ -50,6 +56,18 @@ public class Trait {
 
     public StringProperty contentProperty() {
         return content;
+    }
+
+    public final String getUsage() {
+        return usage.get();
+    }
+
+    public final void setUsage(String value) {
+        usage.set(value);
+    }
+
+    public StringProperty usageProperty() {
+        return usage;
     }
 
 }

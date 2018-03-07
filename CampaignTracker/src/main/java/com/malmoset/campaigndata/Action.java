@@ -22,7 +22,9 @@ public class Action {
     }
 
     public Action() {
-
+        this.name = new SimpleStringProperty();
+        this.content = new SimpleStringProperty();
+        this.attack = new SimpleStringProperty();
     }
     @JsonProperty("Name")
     private StringProperty name;

@@ -31,6 +31,9 @@ public class Battle {
 
     public Battle() {
         monsters = new ArrayList<BattleMonster>();
+        this.began = new SimpleObjectProperty<LocalDateTime>();
+        this.battleNumber = new SimpleIntegerProperty();
+        this.session = new SimpleIntegerProperty();
     }
     @JsonProperty("Began")
     private ObjectProperty<LocalDateTime> began;

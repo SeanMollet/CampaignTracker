@@ -5,7 +5,9 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -22,16 +24,17 @@ import javafx.beans.property.StringProperty;
  */
 public class Monster {
 
+    @JsonCreator
     public Monster(@JsonProperty("Name") String name, @JsonProperty("Size") CreatureSize size, @JsonProperty("Type") String type,
-            @JsonProperty("Tags") List<String> tags, @JsonProperty("Source") String source, @JsonProperty("Alignment") String alignment,
+            @JsonProperty("Tags") List<GenericValueString> tags, @JsonProperty("Source") String source, @JsonProperty("Alignment") String alignment,
             @JsonProperty("AC") AC aC, @JsonProperty("HP") HP hP, @JsonProperty("InitiativeModifier") Integer initiativeModifier,
-            @JsonProperty("Speed") List<Speed> speed, @JsonProperty("Abilities") Abilities abilities,
-            @JsonProperty("DamageVulnerabilities") List<String> damageVulnerabilities, @JsonProperty("DamageResistances") List<String> damageResistances,
-            @JsonProperty("DamageImmunities") List<String> damageImmunities, @JsonProperty("ConditionImmunities") List<String> conditionImmunities,
+            @JsonProperty("Speed") List<GenericValueString> speed, @JsonProperty("Abilities") Abilities abilities,
+            @JsonProperty("DamageVulnerabilities") List<GenericValueString> damageVulnerabilities, @JsonProperty("DamageResistances") List<GenericValueString> damageResistances,
+            @JsonProperty("DamageImmunities") List<GenericValueString> damageImmunities, @JsonProperty("ConditionImmunities") List<GenericValueString> conditionImmunities,
             @JsonProperty("Saves") List<Save> saves, @JsonProperty("Skills") List<Skill> skills, @JsonProperty("Senses") List<GenericValueString> senses,
             @JsonProperty("Languages") List<GenericValueString> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Trait> traits,
             @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Reaction> reactions, @JsonProperty("LegendaryActions") List<LegendaryAction> legendaryActions,
-            @JsonProperty("Spells") List<String> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("ReadOnly") Boolean readOnly) {
+            @JsonProperty("Spells") List<GenericValueString> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("ReadOnly") Boolean readOnly) {
         this.name = new SimpleStringProperty(name);
         this.size = new SimpleObjectProperty<>(size);
         this.type = new SimpleStringProperty(type);
@@ -57,11 +60,38 @@ public class Monster {
         this.reactions = reactions;
         this.legendaryActions = legendaryActions;
         this.spells = spells;
-        this.hidden = new SimpleBooleanProperty(hidden);
-        this.readOnly = new SimpleBooleanProperty(readOnly);
+        this.hidden = new SimpleBooleanProperty(hidden == null ? false : hidden);
+        this.readOnly = new SimpleBooleanProperty(readOnly == null ? false : readOnly);
     }
 
     public Monster() {
+        this.name = new SimpleStringProperty("New Monster");
+        this.size = new SimpleObjectProperty<>();
+        this.type = new SimpleStringProperty();
+        this.tags = new ArrayList<GenericValueString>();
+        this.source = new SimpleStringProperty();
+        this.alignment = new SimpleStringProperty();
+        this.aC = new SimpleObjectProperty<>(new AC());
+        this.hP = new SimpleObjectProperty<>(new HP());
+        this.initiativeModifier = new SimpleIntegerProperty();
+        this.speed = new ArrayList<GenericValueString>();
+        this.abilities = new SimpleObjectProperty<>(new Abilities());
+        this.damageVulnerabilities = new ArrayList<GenericValueString>();
+        this.damageResistances = new ArrayList<GenericValueString>();
+        this.damageImmunities = new ArrayList<GenericValueString>();
+        this.conditionImmunities = new ArrayList<GenericValueString>();
+        this.saves = new ArrayList<Save>();
+        this.skills = new ArrayList<Skill>();
+        this.senses = new ArrayList<GenericValueString>();
+        this.languages = new ArrayList<GenericValueString>();
+        this.challenge = new SimpleObjectProperty<>(new Fraction(1));
+        this.traits = new ArrayList<Trait>();
+        this.actions = new ArrayList<Action>();
+        this.reactions = new ArrayList<Reaction>();
+        this.legendaryActions = legendaryActions;
+        this.spells = spells;
+        this.hidden = new SimpleBooleanProperty(false);
+        this.readOnly = new SimpleBooleanProperty(false);
     }
 
     @JsonProperty("Name")
@@ -71,7 +101,7 @@ public class Monster {
     @JsonProperty("Type")
     private StringProperty type;
     @JsonProperty("Tags")
-    private List<String> tags;
+    private List<GenericValueString> tags;
     @JsonProperty("Source")
     private StringProperty source;
     @JsonProperty("Alignment")
@@ -83,17 +113,17 @@ public class Monster {
     @JsonProperty("InitiativeModifier")
     private IntegerProperty initiativeModifier;
     @JsonProperty("Speed")
-    private List<Speed> speed;
+    private List<GenericValueString> speed;
     @JsonProperty("Abilities")
     private ObjectProperty<Abilities> abilities;
     @JsonProperty("DamageVulnerabilities")
-    private List<String> damageVulnerabilities;
+    private List<GenericValueString> damageVulnerabilities;
     @JsonProperty("DamageResistances")
-    private List<String> damageResistances;
+    private List<GenericValueString> damageResistances;
     @JsonProperty("DamageImmunities")
-    private List<String> damageImmunities;
+    private List<GenericValueString> damageImmunities;
     @JsonProperty("ConditionImmunities")
-    private List<String> conditionImmunities;
+    private List<GenericValueString> conditionImmunities;
     @JsonProperty("Saves")
     private List<Save> saves;
     @JsonProperty("Skills")
@@ -113,7 +143,7 @@ public class Monster {
     @JsonProperty("LegendaryActions")
     private List<LegendaryAction> legendaryActions;
     @JsonProperty("Spells")
-    private List<String> spells;
+    private List<GenericValueString> spells;
     @JsonProperty("Hidden")
     private BooleanProperty hidden;
     @JsonProperty("ReadOnly")

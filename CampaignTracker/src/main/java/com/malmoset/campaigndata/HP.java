@@ -24,12 +24,15 @@ public class HP {
         this.hitDiceCount = new SimpleIntegerProperty(hitDiceCount);
         this.hitDice = new SimpleIntegerProperty(hitDice);
         this.hitModifier = new SimpleIntegerProperty(hitModifier);
-        this.notes = new SimpleStringProperty(notes) {
-        };
+        this.notes = new SimpleStringProperty(notes);
     }
 
     public HP() {
-
+        this.hpValue = new SimpleIntegerProperty();
+        this.hitDiceCount = new SimpleIntegerProperty();
+        this.hitDice = new SimpleIntegerProperty();
+        this.hitModifier = new SimpleIntegerProperty();
+        this.notes = new SimpleStringProperty();
     }
     @JsonProperty("Value")
     private IntegerProperty hpValue;

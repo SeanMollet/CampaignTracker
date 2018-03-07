@@ -23,7 +23,8 @@ public class Save {
     }
 
     public Save() {
-
+        this.name = new SimpleStringProperty();
+        this.modifier = new SimpleIntegerProperty();
     }
     @JsonProperty("Name")
     private StringProperty name;

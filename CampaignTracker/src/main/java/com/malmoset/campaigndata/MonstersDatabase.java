@@ -6,10 +6,14 @@
 package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
 import javafx.scene.control.Dialog;
 
 /**
@@ -18,16 +22,23 @@ import javafx.scene.control.Dialog;
  */
 public class MonstersDatabase {
 
-    private ListProperty<Monster> monsters;
-    private ListProperty<Monster> customMonsters;
+    private ArrayList<Monster> monsters;
+    private ArrayList<Monster> customMonsters;
+
+    private ListProperty<Monster> monstersBind;
+    private ListProperty<Monster> customMonstersBind;
 
     public MonstersDatabase() {
-        monsters = new SimpleListProperty<Monster>();
-        customMonsters = new SimpleListProperty<Monster>();
+        monsters = new ArrayList<>();
+        customMonsters = new ArrayList<>();
+
+        monstersBind = new SimpleListProperty<Monster>(FXCollections.observableArrayList(monsters));
+        customMonstersBind = new SimpleListProperty<Monster>(FXCollections.observableArrayList(customMonsters));
         LoadMonsters();
     }
 
     public void LoadMonsters() {
+        String File = "";
         try {
             Map<String, String> files = Utilities.FindFiles("^Monsters.*\\.json");
 
@@ -35,13 +46,15 @@ public class MonstersDatabase {
             mapper.setSerializationInclusion(Include.NON_NULL);
 
             for (Map.Entry<String, String> file : files.entrySet()) {
-                Monster[] newmonsters = mapper.readValue(file.getValue(), Monster[].class);
+                File = file.getKey();
+                List<Monster> newmonsters = mapper.readValue(file.getValue(), new TypeReference<List<Monster>>() {
+                });
                 monsters.addAll(newmonsters);
             }
         } catch (Exception E) {
             //If this blows up, they won't get any entries. That's acceptable
             Dialog dialog = new Dialog();
-            dialog.setTitle("Error");
+            dialog.setTitle("Error in " + File);
             dialog.setContentText(E.toString());
 
             dialog.show();
