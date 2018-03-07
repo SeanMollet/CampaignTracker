@@ -6,3 +6,5 @@ dist/
 nbdist/
 .nb-gradle/
 BookSourceData
+/CampaignTrackerControls/nbproject/private/
+/CampaignTrackerControls/target/

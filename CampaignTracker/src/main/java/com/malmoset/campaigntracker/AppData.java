@@ -22,4 +22,20 @@ public class AppData {
     private Database db;
     private MonstersDatabase mon_db;
 
+    public Database getDb() {
+        return db;
+    }
+
+    public void setDb(Database db) {
+        this.db = db;
+    }
+
+    public MonstersDatabase getMon_db() {
+        return mon_db;
+    }
+
+    public void setMon_db(MonstersDatabase mon_db) {
+        this.mon_db = mon_db;
+    }
+
 }

@@ -14,6 +14,7 @@ import java.util.Map;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -51,7 +52,7 @@ public class MonstersDatabase {
                 File = file.getKey();
                 List<Monster> newmonsters = mapper.readValue(file.getValue(), new TypeReference<List<Monster>>() {
                 });
-                monsters.addAll(newmonsters);
+                monstersBind.addAll(newmonsters);
             }
         } catch (Exception E) {
             //If this blows up, they won't get any entries. That's acceptable
@@ -62,4 +63,29 @@ public class MonstersDatabase {
             dialog.show();
         }
     }
+
+    public final ObservableList<Monster> getMonstersBind() {
+        return monstersBind.get();
+    }
+
+    public final void setMonstersBind(ObservableList<Monster> value) {
+        monstersBind.set(value);
+    }
+
+    public ListProperty<Monster> monstersBindProperty() {
+        return monstersBind;
+    }
+
+    public final ObservableList<Monster> getCustomMonstersBind() {
+        return customMonstersBind.get();
+    }
+
+    public final void setCustomMonstersBind(ObservableList<Monster> value) {
+        customMonstersBind.set(value);
+    }
+
+    public ListProperty<Monster> customMonstersBindProperty() {
+        return customMonstersBind;
+    }
+
 }

@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigntracker.Monsters;
 
+import com.malmoset.campaigndata.Monster;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,12 +18,27 @@ import javafx.fxml.Initializable;
  */
 public class MonsterViewerController extends BaseForm implements Initializable {
 
+    private Monster monster;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+
+    private void BindData() {
+
+    }
+
+    public Monster getMonster() {
+        return monster;
+    }
+
+    public void setMonster(Monster monster) {
+        this.monster = monster;
+        BindData();
     }
 
 }

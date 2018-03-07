@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.malmoset.campaigntrackercontrols.StatDice?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.Monsters.MonsterViewerController">
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="425.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.Monsters.MonsterViewerController">
     <stylesheets>
-        <URL value="@/styles/Styles.css"/>
+        <URL value="@/styles/Styles.css" />
     </stylesheets>
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="General Stats">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="15.0" layoutY="15.0" text="Name" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0" />
+                        <TextField layoutX="56.0" layoutY="10.0" prefHeight="25.0" prefWidth="343.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                        <Label layoutX="11.0" layoutY="46.0" text="Source" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" />
+                        <TextField layoutX="56.0" layoutY="40.0" prefHeight="25.0" prefWidth="343.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0" />
+                        <Label layoutX="11.0" layoutY="80.0" text="Type" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="75.0" />
+                        <TextField layoutX="56.0" layoutY="70.0" prefHeight="25.0" prefWidth="85.0" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="70.0" />
+                        <Label layoutX="145.0" layoutY="75.0" text="Size" AnchorPane.topAnchor="75.0" />
+                        <ChoiceBox layoutX="177.0" layoutY="70.0" prefHeight="27.0" prefWidth="76.0" AnchorPane.topAnchor="70.0" />
+                        <Label layoutX="257.0" layoutY="75.0" text="Align" AnchorPane.topAnchor="75.0" />
+                        <TextField layoutX="291.0" layoutY="70.0" prefHeight="27.0" prefWidth="112.0" AnchorPane.rightAnchor="20.0" />
+                        <Button layoutX="12.0" layoutY="97.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="43.0" text="HP" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
+                        <TextField layoutX="56.0" layoutY="100.0" prefHeight="27.0" prefWidth="49.0" />
+                        <StatDice layoutX="108.0" layoutY="100.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Other Stats">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab text="Actions">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="358.0" layoutY="3.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="65.0" text="Save" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="3.0" />
+   </children>
 </AnchorPane>

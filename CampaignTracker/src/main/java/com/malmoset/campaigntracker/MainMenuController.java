@@ -1,10 +1,14 @@
 package com.malmoset.campaigntracker;
 
+import com.malmoset.campaigndata.Monster;
+import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigndata.Utilities;
+import com.malmoset.campaigntracker.Monsters.MonsterViewerController;
 import com.malmoset.controls.BaseForm;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -88,10 +92,17 @@ public class MainMenuController implements Initializable {
     @FXML
     private void MonstersClick(ActionEvent event) {
         AppData data = MainApp.getAppData();
+        MonstersDatabase monsters = data.getMon_db();
+        ObservableList<Monster> list = monsters.getMonstersBind();
+        Monster monster = list.get(0);
 
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterManager.fxml"), "Monster Manager");
+        MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Manager");
+        controller.setMonster(monster);
+
         controller.Show();
 
+//        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterManager.fxml"), "Monster Manager");
+//        controller.Show();
     }
 
     @FXML
