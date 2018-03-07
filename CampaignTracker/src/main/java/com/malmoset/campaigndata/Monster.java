@@ -26,14 +26,14 @@ public class Monster {
 
     @JsonCreator
     public Monster(@JsonProperty("Name") String name, @JsonProperty("Size") CreatureSize size, @JsonProperty("Type") String type,
-            @JsonProperty("Tags") List<GenericValueString> tags, @JsonProperty("Source") String source, @JsonProperty("Alignment") String alignment,
+            @JsonProperty("Tags") List<String> tags, @JsonProperty("Source") String source, @JsonProperty("Alignment") String alignment,
             @JsonProperty("AC") AC aC, @JsonProperty("HP") HP hP, @JsonProperty("InitiativeModifier") Integer initiativeModifier,
             @JsonProperty("Speed") List<GenericValueString> speed, @JsonProperty("Abilities") Abilities abilities,
             @JsonProperty("DamageVulnerabilities") List<GenericValueString> damageVulnerabilities, @JsonProperty("DamageResistances") List<GenericValueString> damageResistances,
             @JsonProperty("DamageImmunities") List<GenericValueString> damageImmunities, @JsonProperty("ConditionImmunities") List<GenericValueString> conditionImmunities,
             @JsonProperty("Saves") List<Save> saves, @JsonProperty("Skills") List<Skill> skills, @JsonProperty("Senses") List<GenericValueString> senses,
-            @JsonProperty("Languages") List<GenericValueString> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Trait> traits,
-            @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Reaction> reactions, @JsonProperty("LegendaryActions") List<LegendaryAction> legendaryActions,
+            @JsonProperty("Languages") List<GenericValueString> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Action> traits,
+            @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Action> reactions, @JsonProperty("LegendaryActions") List<Action> legendaryActions,
             @JsonProperty("Spells") List<GenericValueString> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("ReadOnly") Boolean readOnly) {
         this.name = new SimpleStringProperty(name);
         this.size = new SimpleObjectProperty<>(size);
@@ -68,7 +68,7 @@ public class Monster {
         this.name = new SimpleStringProperty("New Monster");
         this.size = new SimpleObjectProperty<>();
         this.type = new SimpleStringProperty();
-        this.tags = new ArrayList<GenericValueString>();
+        this.tags = new ArrayList<String>();
         this.source = new SimpleStringProperty();
         this.alignment = new SimpleStringProperty();
         this.aC = new SimpleObjectProperty<>(new AC());
@@ -85,10 +85,10 @@ public class Monster {
         this.senses = new ArrayList<GenericValueString>();
         this.languages = new ArrayList<GenericValueString>();
         this.challenge = new SimpleObjectProperty<>(new Fraction(1));
-        this.traits = new ArrayList<Trait>();
+        this.traits = new ArrayList<Action>();
         this.actions = new ArrayList<Action>();
-        this.reactions = new ArrayList<Reaction>();
-        this.legendaryActions = legendaryActions;
+        this.reactions = new ArrayList<Action>();
+        this.legendaryActions = new ArrayList<Action>();
         this.spells = spells;
         this.hidden = new SimpleBooleanProperty(false);
         this.readOnly = new SimpleBooleanProperty(false);
@@ -101,7 +101,7 @@ public class Monster {
     @JsonProperty("Type")
     private StringProperty type;
     @JsonProperty("Tags")
-    private List<GenericValueString> tags;
+    private List<String> tags;
     @JsonProperty("Source")
     private StringProperty source;
     @JsonProperty("Alignment")
@@ -135,13 +135,13 @@ public class Monster {
     @JsonProperty("Challenge")
     private ObjectProperty<Fraction> challenge;
     @JsonProperty("Traits")
-    private List<Trait> traits;
+    private List<Action> traits;
     @JsonProperty("Actions")
     private List<Action> actions;
     @JsonProperty("Reactions")
-    private List<Reaction> reactions;
+    private List<Action> reactions;
     @JsonProperty("LegendaryActions")
-    private List<LegendaryAction> legendaryActions;
+    private List<Action> legendaryActions;
     @JsonProperty("Spells")
     private List<GenericValueString> spells;
     @JsonProperty("Hidden")

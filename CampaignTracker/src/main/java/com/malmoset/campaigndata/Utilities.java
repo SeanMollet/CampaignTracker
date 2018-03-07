@@ -14,6 +14,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import org.reflections.Reflections;
 import org.reflections.scanners.ResourcesScanner;
@@ -63,8 +65,8 @@ public class Utilities {
             Dialog dialog = new Dialog();
             dialog.setTitle("Error");
             dialog.setContentText(E.toString());
-
-            dialog.show();
+            dialog.getDialogPane().getButtonTypes().add(new ButtonType("Got it!", ButtonData.CANCEL_CLOSE));
+            dialog.showAndWait();
         }
         return files;
     }

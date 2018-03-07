@@ -15,16 +15,18 @@ import javafx.beans.property.StringProperty;
  */
 public class Action {
 
-    public Action(@JsonProperty("Name") String name, @JsonProperty("Content") String content, @JsonProperty("Attack") String attack) {
+    public Action(@JsonProperty("Name") String name, @JsonProperty("Content") String content, @JsonProperty("Attack") String attack, @JsonProperty("Usage") String usage) {
         this.name = new SimpleStringProperty(name);
         this.content = new SimpleStringProperty(content);
         this.attack = new SimpleStringProperty(attack);
+        this.usage = new SimpleStringProperty(usage);
     }
 
     public Action() {
         this.name = new SimpleStringProperty();
         this.content = new SimpleStringProperty();
         this.attack = new SimpleStringProperty();
+        this.usage = new SimpleStringProperty();
     }
     @JsonProperty("Name")
     private StringProperty name;
@@ -32,6 +34,8 @@ public class Action {
     private StringProperty content;
     @JsonProperty("Attack")
     private StringProperty attack;
+    @JsonProperty("Usage")
+    private StringProperty usage;
 
     public final String getName() {
         return name.get();
@@ -67,6 +71,18 @@ public class Action {
 
     public StringProperty attackProperty() {
         return attack;
+    }
+
+    public final String getUsage() {
+        return usage.get();
+    }
+
+    public final void setUsage(String value) {
+        usage.set(value);
+    }
+
+    public StringProperty usageProperty() {
+        return usage;
     }
 
 }

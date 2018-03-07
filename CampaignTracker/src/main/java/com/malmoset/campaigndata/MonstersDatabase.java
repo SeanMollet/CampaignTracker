@@ -14,6 +14,8 @@ import java.util.Map;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 
 /**
@@ -56,7 +58,7 @@ public class MonstersDatabase {
             Dialog dialog = new Dialog();
             dialog.setTitle("Error in " + File);
             dialog.setContentText(E.toString());
-
+            dialog.getDialogPane().getButtonTypes().add(new ButtonType("Got it!", ButtonData.CANCEL_CLOSE));
             dialog.show();
         }
     }
