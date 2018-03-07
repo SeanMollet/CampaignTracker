@@ -23,7 +23,12 @@ public class TestApplication extends Application {
         primaryStage.setTitle("Hello World!");
         StackPane root = new StackPane();
         final StatDice dice = new StatDice();
+        final StatBlock stats = new StatBlock();
+
+        stats.setTranslateY(60);
+        stats.setStatName("Cha");
         root.getChildren().add(dice);
+        root.getChildren().add(stats);
         Scene scene = new Scene(root, 300, 250);
         primaryStage.setScene(scene);
         primaryStage.setOnHiding(new EventHandler<WindowEvent>() {

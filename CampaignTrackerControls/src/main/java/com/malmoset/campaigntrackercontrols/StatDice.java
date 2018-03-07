@@ -6,6 +6,12 @@
 package com.malmoset.campaigntrackercontrols;
 
 import java.io.IOException;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
@@ -25,9 +31,16 @@ public class StatDice extends AnchorPane {
     @FXML
     private Spinner<Integer> DiceCount;
     @FXML
-    private ChoiceBox<?> DiceType;
+    private ChoiceBox<String> DiceType;
     @FXML
     private Spinner<Integer> Modifier;
+
+    private IntegerProperty statDiceCount;
+    private IntegerProperty statDiceSize;
+    private IntegerProperty statModifier;
+
+    private ObservableList<String> diceText;
+    private ObservableList<Integer> diceVal;
 
     public StatDice() {
         super();
@@ -41,10 +54,21 @@ public class StatDice extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        SetupSpinners();
+        SetupControls();
+        BindFields();
     }
 
-    private void SetupSpinners() {
+    private void BindFields() {
+        statDiceCount = new SimpleIntegerProperty(0);
+        statDiceSize = new SimpleIntegerProperty(0);
+        statModifier = new SimpleIntegerProperty(0);
+
+        DiceCount.getValueFactory().valueProperty().bindBidirectional(statDiceCount.asObject());
+        Modifier.getValueFactory().valueProperty().bindBidirectional(statModifier.asObject());
+
+    }
+
+    private void SetupControls() {
         SpinnerValueFactory<Integer> valfact = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1);
         SpinnerValueFactory<Integer> valfact2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(-500, 500, 0);
 
@@ -56,6 +80,52 @@ public class StatDice extends AnchorPane {
 
         IntegerStringConverter.createFor(DiceCount);
         IntegerStringConverter.createFor(Modifier);
+
+        diceText = FXCollections.observableArrayList("D4", "D6", "D8", "D10", "D12", "D20", "D100");
+        diceVal = FXCollections.observableArrayList(4, 6, 8, 10, 12, 20, 100);
+
+        DiceType.setItems(diceText);
+        DiceType.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue ov, Number value, Number new_value) {
+                statDiceSize.set(diceVal.get(new_value.intValue()));
+            }
+        });
+    }
+
+    public final int getStatDiceCount() {
+        return statDiceCount.get();
+    }
+
+    public final void setStatDiceCount(int value) {
+        statDiceCount.set(value);
+    }
+
+    public IntegerProperty statDiceCountProperty() {
+        return statDiceCount;
+    }
+
+    public final int getStatDiceSize() {
+        return statDiceSize.get();
+    }
+
+    public final void setStatDiceSize(int value) {
+        statDiceSize.set(value);
+    }
+
+    public IntegerProperty statDiceSizeProperty() {
+        return statDiceSize;
+    }
+
+    public final int getStatModifier() {
+        return statModifier.get();
+    }
+
+    public final void setStatModifier(int value) {
+        statModifier.set(value);
+    }
+
+    public IntegerProperty statModifierProperty() {
+        return statModifier;
     }
 
 }
