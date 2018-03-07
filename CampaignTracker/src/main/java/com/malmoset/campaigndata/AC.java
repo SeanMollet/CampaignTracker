@@ -5,8 +5,11 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -14,6 +17,17 @@ import javafx.beans.property.StringProperty;
  * @author sean
  */
 public class AC {
+
+    @JsonCreator
+    public AC(@JsonProperty("Value") int Value, @JsonProperty("Notes") String Notes) {
+        this.acValue = new SimpleIntegerProperty(Value);
+        this.notes = new SimpleStringProperty(Notes);
+    }
+
+    public AC() {
+        acValue = new SimpleIntegerProperty();
+        notes = new SimpleStringProperty();
+    }
 
     @JsonProperty("Value")
     private IntegerProperty acValue;

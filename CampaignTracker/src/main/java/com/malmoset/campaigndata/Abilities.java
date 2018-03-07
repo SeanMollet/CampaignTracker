@@ -7,6 +7,7 @@ package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 
 /**
  *
@@ -14,6 +15,19 @@ import javafx.beans.property.IntegerProperty;
  */
 public class Abilities {
 
+    public Abilities(@JsonProperty("Str") Integer str, @JsonProperty("Dex") Integer dex, @JsonProperty("Con") Integer con,
+            @JsonProperty("Int") Integer intelligence, @JsonProperty("Wis") Integer wis, @JsonProperty("Cha") Integer cha) {
+        this.str = new SimpleIntegerProperty(str);
+        this.dex = new SimpleIntegerProperty(dex);
+        this.con = new SimpleIntegerProperty(con);
+        this.intelligence = new SimpleIntegerProperty(intelligence);
+        this.wis = new SimpleIntegerProperty(wis);
+        this.cha = new SimpleIntegerProperty(cha);
+    }
+
+    public Abilities() {
+
+    }
     @JsonProperty("Str")
     private IntegerProperty str;
     @JsonProperty("Dex")

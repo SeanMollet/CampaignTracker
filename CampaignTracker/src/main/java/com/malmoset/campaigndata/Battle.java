@@ -7,11 +7,13 @@ package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
-import javafx.collections.ObservableList;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 /**
  *
@@ -19,13 +21,21 @@ import javafx.collections.ObservableList;
  */
 public class Battle {
 
+    public Battle(@JsonProperty("Began") LocalDateTime began, @JsonProperty("Monsters") List<BattleMonster> monsters,
+            @JsonProperty("BattleNumber") Integer battleNumber, @JsonProperty("Session") Integer session) {
+        this.began = new SimpleObjectProperty<LocalDateTime>(began);
+        this.monsters = monsters;
+        this.battleNumber = new SimpleIntegerProperty(battleNumber);
+        this.session = new SimpleIntegerProperty(session);
+    }
+
+    public Battle() {
+        monsters = new ArrayList<BattleMonster>();
+    }
     @JsonProperty("Began")
     private ObjectProperty<LocalDateTime> began;
-    @JsonProperty("LiveMonsters")
-    private IntegerProperty liveMonsters;
-    @JsonProperty("TotalMonsters")
-    private IntegerProperty totalMonsters;
-    private ListProperty<BattleMonster> monsters;
+    @JsonProperty("Monsters")
+    private List<BattleMonster> monsters;
     @JsonProperty("BattleNumber")
     private IntegerProperty battleNumber;
     @JsonProperty("Session")
@@ -44,39 +54,19 @@ public class Battle {
     }
 
     public final int getLiveMonsters() {
-        return liveMonsters.get();
-    }
-
-    public final void setLiveMonsters(int value) {
-        liveMonsters.set(value);
-    }
-
-    public IntegerProperty liveMonstersProperty() {
-        return liveMonsters;
+        return (int) monsters.stream().filter(x -> x.getCurrentHP() > 0 && !x.isPersuaded()).count();
     }
 
     public final int getTotalMonsters() {
-        return totalMonsters.get();
+        return (int) monsters.stream().count();
     }
 
-    public final void setTotalMonsters(int value) {
-        totalMonsters.set(value);
-    }
-
-    public IntegerProperty totalMonstersProperty() {
-        return totalMonsters;
-    }
-
-    public final ObservableList<BattleMonster> getMonsters() {
-        return monsters.get();
-    }
-
-    public final void setMonsters(ObservableList<BattleMonster> value) {
-        monsters.set(value);
-    }
-
-    public ListProperty<BattleMonster> monstersProperty() {
+    public final List<BattleMonster> getMonsters() {
         return monsters;
+    }
+
+    public final void setMonsters(List<BattleMonster> value) {
+        monsters = value;
     }
 
     public final int getBattleNumber() {

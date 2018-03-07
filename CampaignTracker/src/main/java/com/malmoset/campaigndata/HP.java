@@ -7,6 +7,8 @@ package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -15,6 +17,20 @@ import javafx.beans.property.StringProperty;
  */
 public class HP {
 
+    public HP(@JsonProperty("Value") Integer hpValue, @JsonProperty("HitDiceCount") Integer hitDiceCount,
+            @JsonProperty("HitDice") Integer hitDice, @JsonProperty("HitModifier") Integer hitModifier,
+            @JsonProperty("Notes") String notes) {
+        this.hpValue = new SimpleIntegerProperty(hpValue);
+        this.hitDiceCount = new SimpleIntegerProperty(hitDiceCount);
+        this.hitDice = new SimpleIntegerProperty(hitDice);
+        this.hitModifier = new SimpleIntegerProperty(hitModifier);
+        this.notes = new SimpleStringProperty(notes) {
+        };
+    }
+
+    public HP() {
+
+    }
     @JsonProperty("Value")
     private IntegerProperty hpValue;
     @JsonProperty("HitDiceCount")

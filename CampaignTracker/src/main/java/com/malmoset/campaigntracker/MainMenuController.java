@@ -1,5 +1,6 @@
 package com.malmoset.campaigntracker;
 
+import com.malmoset.campaigndata.Utilities;
 import com.malmoset.controls.BaseForm;
 import java.io.IOException;
 import java.net.URL;
@@ -54,7 +55,11 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void PlayersClick(ActionEvent event) throws IOException {
-
+        Utilities.TestJson();
+//            for (Map.Entry<String, String> file : files.entrySet()) {
+//                Monster[] newmonsters = mapper.readValue(file.getValue(), Monster[].class);
+//                monsters.addAll(newmonsters);
+//            }
         BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/PC/PlayerEditor.fxml"), "Player Editor");
         controller.Show();
     }

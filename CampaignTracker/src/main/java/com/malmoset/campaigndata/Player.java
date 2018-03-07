@@ -8,6 +8,9 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -16,6 +19,27 @@ import javafx.beans.property.StringProperty;
  */
 public class Player {
 
+    public Player(@JsonProperty("Name") String name, @JsonProperty("Race") String race, @JsonProperty("Class") String character_class,
+            @JsonProperty("Initiative") Integer initiative, @JsonProperty("AC") Integer aC, @JsonProperty("CurrentHP") Integer currentHP,
+            @JsonProperty("MaxHP") Integer maxHP, @JsonProperty("Roll") Integer roll, @JsonProperty("Adv") Integer adv,
+            @JsonProperty("Dead") Boolean dead, @JsonProperty("Stable") Boolean stable) {
+        this.name = new SimpleStringProperty(name);
+        this.race = new SimpleStringProperty(race);
+        this.character_class = new SimpleStringProperty(character_class);
+        this.initiative = new SimpleIntegerProperty(initiative);
+        this.aC = new SimpleIntegerProperty(aC);
+        this.currentHP = new SimpleIntegerProperty(currentHP);
+        this.maxHP = new SimpleIntegerProperty(maxHP);
+        this.roll = new SimpleIntegerProperty(roll);
+        this.adv = new SimpleIntegerProperty(adv);
+        this.dead = new SimpleBooleanProperty(dead);
+        this.stable = new SimpleBooleanProperty(stable);
+
+    }
+
+    public Player() {
+
+    }
     @JsonProperty("Name")
     private StringProperty name;
     @JsonProperty("Race")
@@ -38,7 +62,7 @@ public class Player {
     private BooleanProperty dead;
     @JsonProperty("Stable")
     private BooleanProperty stable;
-    @JsonProperty("Appearance")
+
     private StringProperty appearance;
 
     public final String getName() {

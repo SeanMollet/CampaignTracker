@@ -6,6 +6,7 @@
 package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -13,6 +14,10 @@ import javafx.beans.property.StringProperty;
  * @author sean
  */
 public class Speed {
+
+    public Speed(@JsonProperty("Value") String speedValue) {
+        this.speedValue = new SimpleStringProperty(speedValue);
+    }
 
     @JsonProperty("Value")
     private StringProperty speedValue;

@@ -79,6 +79,11 @@ public final class Fraction implements Comparable {
         this.denominator = 1;
     }
 
+    public Fraction(int num) {
+        this.numerator = num;
+        this.denominator = 1;
+    }
+
     public int toInt() {
         if (this.denominator != 0) {
             return (int) (this.numerator / this.denominator);

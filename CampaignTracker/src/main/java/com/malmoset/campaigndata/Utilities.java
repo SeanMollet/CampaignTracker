@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
 import java.net.URL;
@@ -66,5 +67,36 @@ public class Utilities {
             dialog.show();
         }
         return files;
+    }
+
+    public static void TestJson() {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            String text = Resources.toString(Utilities.class.getResource("/LootLibraries/ac.json"), StandardCharsets.UTF_8);
+
+            AC test2 = new AC();
+            test2.setAcValue(15);
+            test2.setNotes("notes and stuff");
+//            test2.getShit().add("shit1");
+//            test2.getShit().add("shit2");
+
+            String json = mapper.writeValueAsString(test2);
+
+            AC test = mapper.readValue(text, AC.class);
+
+            Dialog dialog = new Dialog();
+            dialog.setTitle(test.getNotes());
+            dialog.setContentText(json);
+
+            dialog.show();
+
+        } catch (Exception E) {
+            //If this blows up, they won't get any entries. That's acceptable
+            Dialog dialog = new Dialog();
+            dialog.setTitle("Error");
+            dialog.setContentText(E.toString());
+
+            dialog.show();
+        }
     }
 }

@@ -9,6 +9,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -16,6 +19,19 @@ import javafx.beans.property.StringProperty;
  * @author sean
  */
 public class XPEvent {
+
+    public XPEvent(@JsonProperty("Timestamp") LocalDateTime timestamp, @JsonProperty("Session") Integer session,
+            @JsonProperty("Battle") Integer battle, @JsonProperty("Event") String event, @JsonProperty("Monster") String monster, @JsonProperty("XP") Integer xP) {
+        this.timestamp = new SimpleObjectProperty<>(timestamp);
+        this.session = new SimpleIntegerProperty(session);
+        this.battle = new SimpleIntegerProperty(battle);
+        this.event = new SimpleStringProperty(event);
+        this.monster = new SimpleStringProperty(monster);
+        this.xP = new SimpleIntegerProperty(xP);
+    }
+
+    public XPEvent() {
+    }
 
     @JsonProperty("Timestamp")
     private ObjectProperty<LocalDateTime> timestamp;
