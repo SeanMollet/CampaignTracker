@@ -5,6 +5,8 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
@@ -14,7 +16,15 @@ import javafx.beans.property.SimpleObjectProperty;
  */
 public class CreatureSize {
 
-    private ObjectProperty<CreatureSizes> creatureSize = new SimpleObjectProperty<CreatureSizes>();
+    public CreatureSize(@JsonProperty("Value") String value) {
+        this.value = value;
+    }
+
+    public CreatureSize() {
+        this.creatureSize = new SimpleObjectProperty<>(CreatureSizes.MEDIUM);
+    }
+    @JsonIgnore
+    private ObjectProperty<CreatureSizes> creatureSize;
 
     public final CreatureSizes getCreatureSize() {
         return creatureSize.get();
@@ -26,6 +36,17 @@ public class CreatureSize {
 
     public ObjectProperty<CreatureSizes> creatureSizeProperty() {
         return creatureSize;
+    }
+
+    @JsonProperty("Value")
+    private String value;
+
+    public String getValue() {
+        return creatureSize.toString();
+    }
+
+    public void setValue(String value) {
+        creatureSize = new SimpleObjectProperty<>(CreatureSizes.valueOf(value));
     }
 
     public enum CreatureSizes {

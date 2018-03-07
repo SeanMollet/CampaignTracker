@@ -5,6 +5,8 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Thanks to
  * https://codereview.stackexchange.com/questions/165219/implementation-of-a-fraction-class-in-java
@@ -51,6 +53,23 @@ public final class Fraction implements Comparable {
                 numerator = Long.parseLong(Num) + (wholeNumberValue * denominator);
             }
             return;
+        }
+    }
+
+    public Fraction(@JsonProperty("Numerator") Long numerator, @JsonProperty("Denominator") Long denominator) {
+        if (denominator == 0) {
+            throw new IllegalArgumentException("The denominator is zero.");
+        }
+        if (numerator == 0) {
+            this.numerator = 0;
+            this.denominator = 1;
+        } else {
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
+        if (denominator < 0) {
+            this.numerator = -1 * this.numerator;
+            this.denominator = -1 * this.denominator;
         }
     }
 

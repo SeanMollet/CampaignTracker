@@ -10,6 +10,7 @@ import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -27,10 +28,10 @@ public class Monster {
             @JsonProperty("Speed") List<Speed> speed, @JsonProperty("Abilities") Abilities abilities,
             @JsonProperty("DamageVulnerabilities") List<String> damageVulnerabilities, @JsonProperty("DamageResistances") List<String> damageResistances,
             @JsonProperty("DamageImmunities") List<String> damageImmunities, @JsonProperty("ConditionImmunities") List<String> conditionImmunities,
-            @JsonProperty("Saves") List<Save> saves, @JsonProperty("Skills") List<Skill> skills, @JsonProperty("Senses") List<String> senses,
-            @JsonProperty("Languages") List<String> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Trait> traits,
+            @JsonProperty("Saves") List<Save> saves, @JsonProperty("Skills") List<Skill> skills, @JsonProperty("Senses") List<GenericValueString> senses,
+            @JsonProperty("Languages") List<GenericValueString> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Trait> traits,
             @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Reaction> reactions, @JsonProperty("LegendaryActions") List<LegendaryAction> legendaryActions,
-            @JsonProperty("Spells") List<String> spells, @JsonProperty("Hidden") BooleanProperty hidden, @JsonProperty("ReadOnly") BooleanProperty readOnly) {
+            @JsonProperty("Spells") List<String> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("ReadOnly") Boolean readOnly) {
         this.name = new SimpleStringProperty(name);
         this.size = new SimpleObjectProperty<>(size);
         this.type = new SimpleStringProperty(type);
@@ -56,8 +57,8 @@ public class Monster {
         this.reactions = reactions;
         this.legendaryActions = legendaryActions;
         this.spells = spells;
-        this.hidden = hidden;
-        this.readOnly = readOnly;
+        this.hidden = new SimpleBooleanProperty(hidden);
+        this.readOnly = new SimpleBooleanProperty(readOnly);
     }
 
     public Monster() {
@@ -98,9 +99,9 @@ public class Monster {
     @JsonProperty("Skills")
     private List<Skill> skills;
     @JsonProperty("Senses")
-    private List<String> senses;
+    private List<GenericValueString> senses;
     @JsonProperty("Languages")
-    private List<String> languages;
+    private List<GenericValueString> languages;
     @JsonProperty("Challenge")
     private ObjectProperty<Fraction> challenge;
     @JsonProperty("Traits")

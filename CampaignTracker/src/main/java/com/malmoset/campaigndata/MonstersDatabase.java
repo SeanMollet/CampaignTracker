@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
 import javafx.beans.property.ListProperty;
@@ -31,6 +32,7 @@ public class MonstersDatabase {
             Map<String, String> files = Utilities.FindFiles("^Monsters.*\\.json");
 
             ObjectMapper mapper = new ObjectMapper();
+            mapper.setSerializationInclusion(Include.NON_NULL);
 
             for (Map.Entry<String, String> file : files.entrySet()) {
                 Monster[] newmonsters = mapper.readValue(file.getValue(), Monster[].class);
