@@ -2,7 +2,6 @@ package com.malmoset.campaigntracker;
 
 import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigndata.MonstersDatabase;
-import com.malmoset.campaigndata.Utilities;
 import com.malmoset.campaigntracker.Monsters.MonsterViewerController;
 import com.malmoset.controls.BaseForm;
 import java.io.IOException;
@@ -59,7 +58,6 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void PlayersClick(ActionEvent event) throws IOException {
-        Utilities.TestJson();
 //            for (Map.Entry<String, String> file : files.entrySet()) {
 //                Monster[] newmonsters = mapper.readValue(file.getValue(), Monster[].class);
 //                monsters.addAll(newmonsters);
@@ -96,7 +94,7 @@ public class MainMenuController implements Initializable {
         ObservableList<Monster> list = monsters.getMonstersBind();
         Monster monster = list.get(0);
 
-        MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Manager");
+        MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Manager", false);
         controller.setMonster(monster);
 
         controller.Show();

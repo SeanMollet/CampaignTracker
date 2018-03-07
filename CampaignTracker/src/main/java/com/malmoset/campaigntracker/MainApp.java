@@ -28,6 +28,7 @@ public class MainApp extends Application {
 
         stage.setTitle("Campaign Manager");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

@@ -35,6 +35,10 @@ public class BaseForm {
     }
 
     public static BaseForm LoadForm(URL Form, String Name) {
+        return LoadForm(Form, Name, true);
+    }
+
+    public static BaseForm LoadForm(URL Form, String Name, boolean resizable) {
         Stage stage = new Stage();
         FXMLLoader loader = new FXMLLoader(Form);
         try {
@@ -57,6 +61,7 @@ public class BaseForm {
             //scene.getStylesheets().add(Style);
             stage.setTitle(Name);
             stage.setScene(scene);
+            stage.setResizable(resizable);
 
             return form;
         } catch (Exception E) {

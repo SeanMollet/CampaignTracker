@@ -29,7 +29,9 @@ public class MonsterViewerController extends BaseForm implements Initializable {
     }
 
     private void BindData() {
+        if (this.monster != null) {
 
+        }
     }
 
     public Monster getMonster() {
