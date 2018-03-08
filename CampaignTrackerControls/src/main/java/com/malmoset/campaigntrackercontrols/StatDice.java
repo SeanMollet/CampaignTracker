@@ -60,11 +60,20 @@ public class StatDice extends AnchorPane {
 
     private void BindFields() {
         statDiceCount = new SimpleIntegerProperty(0);
-        statDiceSize = new SimpleIntegerProperty(0);
+        statDiceSize = new SimpleIntegerProperty(10);
         statModifier = new SimpleIntegerProperty(0);
 
         DiceCount.getValueFactory().valueProperty().bindBidirectional(statDiceCount.asObject());
         Modifier.getValueFactory().valueProperty().bindBidirectional(statModifier.asObject());
+
+        statDiceSize.addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue ov, Number value, Number new_value) {
+                if (diceVal.contains((int) new_value)) {
+                    int location = diceVal.indexOf((int) new_value);
+                    DiceType.getSelectionModel().select(location);
+                }
+            }
+        });
 
     }
 
@@ -87,6 +96,7 @@ public class StatDice extends AnchorPane {
         DiceType.setItems(diceText);
         DiceType.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             public void changed(ObservableValue ov, Number value, Number new_value) {
+                //Make sure we don't repeatedly trigger each other
                 statDiceSize.set(diceVal.get(new_value.intValue()));
             }
         });

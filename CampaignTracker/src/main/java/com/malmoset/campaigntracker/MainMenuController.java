@@ -86,7 +86,7 @@ public class MainMenuController implements Initializable {
     @FXML
     private void MonstersClick(ActionEvent event) {
 
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterManager.fxml"), "Monster Manager");
+        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterManager.fxml"), "Monster Manager", true);
         controller.Show();
     }
 

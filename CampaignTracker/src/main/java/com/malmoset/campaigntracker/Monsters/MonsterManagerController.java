@@ -24,9 +24,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 /**
@@ -60,6 +63,8 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         MonstersDatabase monsters = data.getMon_db();
         ObservableList<Monster> list = monsters.getMonstersBind();
 
+        MonstersTable.setEditable(false);
+        //Create the columns
         TableColumn<Monster, String> col1 = new TableColumn<>("Name");
         TableColumn<Monster, String> col2 = new TableColumn<>("Source");
         TableColumn<Monster, String> col3 = new TableColumn<>("Type");
@@ -80,6 +85,42 @@ public class MonsterManagerController extends BaseForm implements Initializable 
 //                                        + "   " + person.getLastName());
         });
         MonstersTable.getColumns().addAll(col1, col2, col3, col4, col5, col6);
+
+        //Set up the rows
+        EventHandler<MouseEvent> doubleClick = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() > 1) {
+                    TableRow row = (TableRow) ((TableCell) event.getSource()).getParent();
+                    if (row != null) {
+                        Monster selectedMonster = (Monster) row.getItem();
+                        if (selectedMonster != null) {
+                            LoadMonster(selectedMonster);
+                        }
+                    }
+                }
+            }
+        };
+        col1.setCellFactory(DoubleClickFactory(doubleClick));
+        col2.setCellFactory(DoubleClickFactory(doubleClick));
+        col3.setCellFactory(DoubleClickFactory(doubleClick));
+        //col4.setCellFactory(DoubleClickFactory(doubleClick));
+//        MonstersTable.setOnMouseClicked(event -> {
+//            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
+//                Node node = ((Node) event.getTarget()).getParent();
+//                System.out.println(MonstersTable.getSelectionModel().getSelectedItem());
+//            }
+//        });
+//        MonstersTable.setRowFactory(tv -> {
+//            TableRow<Monster> row = new TableRow<>();
+//            row.setOnMouseClicked(event -> {
+//                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2 && (!row.isEmpty())) {
+//                    Monster rowData = row.getItem();
+//                    System.out.println(rowData);
+//                }
+//            });
+//            return row;
+//        });
 
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Monster> filteredData = new FilteredList<>(list, p -> true);
@@ -119,16 +160,34 @@ public class MonsterManagerController extends BaseForm implements Initializable 
 
     }
 
-    private void LoadMonster() {
-        AppData data = MainApp.getAppData();
-        MonstersDatabase monsters = data.getMon_db();
-        ObservableList<Monster> list = monsters.getMonstersBind();
-        Monster monster = list.get(0);
+    private void LoadMonster(Monster monster) {
 
-        MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Manager", false);
-        controller.setMonster(monster);
+        MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Manager", true);
+        controller.setMonster(monster.clone());
 
         controller.Show();
+    }
+
+    private Callback<TableColumn<Monster, String>, TableCell<Monster, String>> DoubleClickFactory(EventHandler<MouseEvent> event) {
+        return new Callback<TableColumn<Monster, String>, TableCell<Monster, String>>() {
+            public TableCell call(TableColumn p) {
+                TableCell cell = new TableCell<Monster, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(empty ? null : getString());
+                        setGraphic(null);
+                    }
+
+                    private String getString() {
+                        return getItem() == null ? "" : getItem().toString();
+                    }
+                };
+
+                cell.addEventFilter(MouseEvent.MOUSE_CLICKED, event);
+                return cell;
+            }
+        };
     }
 
     private TableColumn ButtonCol(String text, String header, String style, EventHandler<ActionEvent> event) {

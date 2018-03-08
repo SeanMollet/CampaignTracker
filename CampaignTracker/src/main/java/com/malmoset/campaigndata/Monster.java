@@ -6,9 +6,13 @@
 package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -29,7 +33,7 @@ public class Monster {
             @JsonProperty("Speed") List<GenericValueString> speed, @JsonProperty("Abilities") Abilities abilities,
             @JsonProperty("DamageVulnerabilities") List<GenericValueString> damageVulnerabilities, @JsonProperty("DamageResistances") List<GenericValueString> damageResistances,
             @JsonProperty("DamageImmunities") List<GenericValueString> damageImmunities, @JsonProperty("ConditionImmunities") List<GenericValueString> conditionImmunities,
-            @JsonProperty("Saves") List<Save> saves, @JsonProperty("Skills") List<Skill> skills, @JsonProperty("Senses") List<GenericValueString> senses,
+            @JsonProperty("Saves") List<StatWithModifier> saves, @JsonProperty("Skills") List<StatWithModifier> skills, @JsonProperty("Senses") List<GenericValueString> senses,
             @JsonProperty("Languages") List<GenericValueString> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Action> traits,
             @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Action> reactions, @JsonProperty("LegendaryActions") List<Action> legendaryActions,
             @JsonProperty("Spells") List<GenericValueString> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("ReadOnly") Boolean readOnly) {
@@ -78,8 +82,8 @@ public class Monster {
         this.damageResistances = new ArrayList<GenericValueString>();
         this.damageImmunities = new ArrayList<GenericValueString>();
         this.conditionImmunities = new ArrayList<GenericValueString>();
-        this.saves = new ArrayList<Save>();
-        this.skills = new ArrayList<Skill>();
+        this.saves = new ArrayList<StatWithModifier>();
+        this.skills = new ArrayList<StatWithModifier>();
         this.senses = new ArrayList<GenericValueString>();
         this.languages = new ArrayList<GenericValueString>();
         this.challenge = new Fraction(1);
@@ -123,9 +127,9 @@ public class Monster {
     @JsonProperty("ConditionImmunities")
     private List<GenericValueString> conditionImmunities;
     @JsonProperty("Saves")
-    private List<Save> saves;
+    private List<StatWithModifier> saves;
     @JsonProperty("Skills")
-    private List<Skill> skills;
+    private List<StatWithModifier> skills;
     @JsonProperty("Senses")
     private List<GenericValueString> senses;
     @JsonProperty("Languages")
@@ -315,19 +319,19 @@ public class Monster {
         this.conditionImmunities = conditionImmunities;
     }
 
-    public List<Save> getSaves() {
+    public List<StatWithModifier> getSaves() {
         return saves;
     }
 
-    public void setSaves(List<Save> saves) {
+    public void setSaves(List<StatWithModifier> saves) {
         this.saves = saves;
     }
 
-    public List<Skill> getSkills() {
+    public List<StatWithModifier> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<Skill> skills) {
+    public void setSkills(List<StatWithModifier> skills) {
         this.skills = skills;
     }
 
@@ -371,7 +375,39 @@ public class Monster {
         this.spells = spells;
     }
 
+    public List<Action> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<Action> actions) {
+        this.actions = actions;
+    }
+
+    public List<Action> getLegendaryActions() {
+        return legendaryActions;
+    }
+
+    public void setLegendaryActions(List<Action> legendaryActions) {
+        this.legendaryActions = legendaryActions;
+    }
+
+    @JsonIgnore
     public String getDisplayType() {
         return this.size.getValue() + " " + this.type.get() + " " + this.alignment.get();
+    }
+
+    public Monster clone() {
+        ObjectMapper mapper = new ObjectMapper();
+        //mapper.configure(SerializationFeature.FAIL_ON_SELF_REFERENCES, false);
+        String json;
+        try {
+            json = mapper.writeValueAsString(this);
+            Monster newmonster = mapper.readValue(json, Monster.class);
+            return newmonster;
+        } catch (Exception ex) {
+            Logger.getLogger(Monster.class.getName()).log(Level.INFO, null, ex);
+        }
+
+        return new Monster();
     }
 }

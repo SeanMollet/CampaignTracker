@@ -6,6 +6,7 @@
 package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.malmoset.dice.Dice;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -44,6 +45,12 @@ public class HP {
     private IntegerProperty hitModifier;
     @JsonProperty("Notes")
     private StringProperty notes;
+
+    public void RollHP() {
+        if (hitDiceCount.get() > 0 && hitDice.get() > 0) {
+            hpValue.set(Dice.rollXwithMod(hitDiceCount.get(), hitDice.get(), hitModifier.get()));
+        }
+    }
 
     public final int getHpValue() {
         return hpValue.get();

@@ -24,20 +24,25 @@ import javafx.beans.value.ObservableValue;
  */
 public final class Fraction implements Comparable, ObservableValue {
 
+    @JsonProperty("Numerator")
     private long numerator;
+    @JsonProperty("Denominator")
     private long denominator;
     @JsonIgnore
     private StringProperty strValue;
 
+    @JsonIgnore
     public final String getStrValue() {
         return strValue.get();
     }
 
+    @JsonIgnore
     public final void setStrValue(String value) {
         this.fromString(value);
         strValue.set(this.toString());
     }
 
+    @JsonIgnore
     public StringProperty strValueProperty() {
         return strValue;
     }
@@ -278,6 +283,7 @@ public final class Fraction implements Comparable, ObservableValue {
     }
 
     @Override
+    @JsonIgnore
     public Object getValue() {
         return this;
     }
@@ -298,6 +304,26 @@ public final class Fraction implements Comparable, ObservableValue {
 //        if (Ilistener != null && Ilistener.contains(listener)) {
 //            Ilistener.remove(listener);
 //        }
+    }
+
+    public long getNumerator() {
+        return numerator;
+    }
+
+    public void setNumerator(long numerator) {
+        String oldValue = toString();
+        this.numerator = numerator;
+        onChange(oldValue, this.toString());
+    }
+
+    public long getDenominator() {
+        return denominator;
+    }
+
+    public void setDenominator(long denominator) {
+        String oldValue = toString();
+        this.denominator = denominator;
+        onChange(oldValue, this.toString());
     }
 
 }

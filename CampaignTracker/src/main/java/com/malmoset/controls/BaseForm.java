@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -62,6 +63,17 @@ public class BaseForm {
             stage.setTitle(Name);
             stage.setScene(scene);
             stage.setResizable(resizable);
+            if (resizable) {
+                if (root instanceof AnchorPane) {
+                    AnchorPane rootPane = (AnchorPane) root;
+                    if (rootPane != null) {
+                        //Account for the titlebar
+                        double titleBar = Double.isNaN(stage.getHeight()) ? 20 : stage.getHeight() - rootPane.getHeight();
+                        stage.setMinHeight(rootPane.getMinHeight() + titleBar);
+                        stage.setMinWidth(rootPane.getMinWidth());
+                    }
+                }
+            }
 
             return form;
         } catch (Exception E) {

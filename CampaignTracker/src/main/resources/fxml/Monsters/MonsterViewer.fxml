@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.malmoset.campaigntrackercontrols.NoHeaderTableView?>
+<?import com.malmoset.campaigntrackercontrols.NumberTextField?>
 <?import com.malmoset.campaigntrackercontrols.StatBlock?>
 <?import com.malmoset.campaigntrackercontrols.StatDice?>
-<?import com.malmoset.campaigntrackercontrols.NumberTextField?>
-<?import com.malmoset.campaigntrackercontrols.NoHeaderTableView?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="524.0" prefWidth="393.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.Monsters.MonsterViewerController">
+<AnchorPane id="AnchorPane" minHeight="524.0" minWidth="393.0" prefHeight="524.0" prefWidth="393.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.Monsters.MonsterViewerController">
     <stylesheets>
         <URL value="@/styles/Styles.css" />
     </stylesheets>
@@ -34,12 +33,12 @@
                                 <TextField fx:id="TypeField" layoutX="56.0" layoutY="70.0" prefHeight="25.0" prefWidth="85.0" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="70.0" />
                                 <Label layoutX="145.0" layoutY="75.0" text="Size" AnchorPane.topAnchor="75.0" />
                                 <ChoiceBox fx:id="SizeField" layoutX="177.0" layoutY="70.0" prefHeight="27.0" prefWidth="76.0" AnchorPane.topAnchor="70.0" />
-                                <Label layoutX="257.0" layoutY="75.0" text="Align" AnchorPane.topAnchor="75.0" />
-                                <TextField fx:id="AlignField" layoutX="291.0" layoutY="70.0" prefHeight="27.0" prefWidth="94.0" AnchorPane.rightAnchor="5.0" />
+                                <Label layoutX="257.0" layoutY="75.0" text="Align" AnchorPane.rightAnchor="105.0" AnchorPane.topAnchor="75.0" />
+                                <TextField fx:id="AlignField" layoutX="291.0" layoutY="70.0" prefHeight="27.0" prefWidth="94.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="5.0" />
                                 <Button fx:id="HPButton" layoutX="12.0" layoutY="97.0" mnemonicParsing="false" onAction="#HPButtonClick" prefHeight="27.0" prefWidth="43.0" text="HP" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />
                                 <TextField fx:id="HPField" layoutX="56.0" layoutY="100.0" prefHeight="27.0" prefWidth="49.0" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="100.0" />
                                 <StatDice fx:id="HPDice" layoutX="108.0" layoutY="100.0" AnchorPane.leftAnchor="108.0" AnchorPane.topAnchor="100.0" />
-                                <TextField fx:id="HPNotesField" layoutX="300.0" layoutY="100.0" prefHeight="27.0" prefWidth="88.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
+                                <TextField fx:id="HPNotesField" layoutX="300.0" layoutY="100.0" prefHeight="27.0" prefWidth="88.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0" />
                                 <Label layoutX="16.0" layoutY="137.0" text="AC" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="135.0" />
                                 <NumberTextField fx:id="ACField" layoutX="61.0" layoutY="127.0" prefHeight="25.0" prefWidth="85.0" AnchorPane.leftAnchor="56.0" AnchorPane.topAnchor="130.0" />
                                 <TextField fx:id="ACNotesField" layoutX="145.0" layoutY="130.0" prefHeight="27.0" prefWidth="259.0" AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="130.0" />
@@ -49,22 +48,28 @@
                                 <Label layoutX="145.0" layoutY="165.0" text="Challenge" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="165.0" />
                                 <StatBlock fx:id="StrField" layoutX="11.0" layoutY="187.0" statName="Str" statValue="10" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="190.0" />
                                 <StatBlock fx:id="DexField" layoutX="116.0" layoutY="187.0" statName="Dex" statValue="10" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="190.0" />
-                                <StatBlock fx:id="ConField" layoutX="211.0" layoutY="187.0" statName="Con" statValue="10" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="190.0" />
+                                <StatBlock fx:id="ConField" layoutX="211.0" layoutY="187.0" statName="Con" statValue="10" AnchorPane.leftAnchor="298.0" AnchorPane.topAnchor="190.0" />
                                 <StatBlock fx:id="IntField" layoutX="10.0" layoutY="223.0" statName="Int" statValue="10" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="220.0" />
                                 <StatBlock fx:id="WisField" layoutX="115.0" layoutY="223.0" statName="Wis" statValue="10" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="220.0" />
-                                <StatBlock fx:id="ChaField" layoutX="210.0" layoutY="223.0" statName="Cha" statValue="10" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="220.0" />
+                                <StatBlock fx:id="ChaField" layoutX="210.0" layoutY="223.0" statName="Cha" statValue="10" AnchorPane.leftAnchor="298.0" AnchorPane.topAnchor="220.0" />
                                 <NoHeaderTableView fx:id="SpeedList" layoutX="41.0" layoutY="255.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="250.0" />
                                 <Label layoutX="10.0" layoutY="254.0" text="Speed" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="255.0" />
                                 <NoHeaderTableView fx:id="SavesList" layoutX="249.0" layoutY="256.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="250.0" />
-                                <Label layoutX="218.0" layoutY="255.0" text="Saves" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="255.0" />
-                                <ListView fx:id="DmgVulList" layoutX="57.0" layoutY="335.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="330.0" />
+                                <Label layoutX="218.0" layoutY="255.0" text="Saves" AnchorPane.rightAnchor="156.0" AnchorPane.topAnchor="255.0" />
+                                <NoHeaderTableView fx:id="DmgVulList" layoutX="57.0" layoutY="335.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="330.0" />
                                 <Label layoutX="26.0" layoutY="334.0" text="Damage&#10;Vulnerable" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="335.0" />
-                                <ListView fx:id="DmgResList" layoutX="265.0" layoutY="336.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="330.0" />
-                                <Label layoutX="234.0" layoutY="335.0" text="Damage&#10;Resistant" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="335.0" />
-                                <ListView fx:id="ConImList" layoutX="57.0" layoutY="417.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="410.0" />
+                                <NoHeaderTableView fx:id="DmgResList" layoutX="265.0" layoutY="336.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="330.0" />
+                                <Label layoutX="234.0" layoutY="335.0" text="Damage&#10;Resistant" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="335.0" />
+                                <NoHeaderTableView fx:id="ConImList" layoutX="57.0" layoutY="417.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="410.0" />
                                 <Label layoutX="26.0" layoutY="416.0" text="Condition&#10;Immune" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="415.0" />
-                                <ListView fx:id="DmgImList" layoutX="265.0" layoutY="418.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="410.0" />
-                                <Label layoutX="234.0" layoutY="417.0" text="Damage&#10;Immune" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="415.0" />
+                                <NoHeaderTableView fx:id="DmgImList" layoutX="265.0" layoutY="418.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="410.0" />
+                                <Label layoutX="234.0" layoutY="417.0" text="Damage&#10;Immune" AnchorPane.rightAnchor="142.0" AnchorPane.topAnchor="415.0" />
+                                <Button fx:id="AddSpeedButton" layoutX="35.0" layoutY="298.0" mnemonicParsing="false" onAction="#AddSpeed" style="-fx-font-size: 10px;" text="Add" AnchorPane.leftAnchor="42.0" />
+                                <Button fx:id="AddSavesButton" layoutX="227.0" layoutY="298.0" mnemonicParsing="false" onAction="#AddSaves" style="-fx-font-size: 10px;" text="Add" AnchorPane.rightAnchor="123.0" />
+                                <Button fx:id="AddDmgVulnButton" layoutX="35.0" layoutY="378.0" mnemonicParsing="false" onAction="#AddDmgVuln" style="-fx-font-size: 10px;" text="Add" AnchorPane.leftAnchor="42.0" />
+                                <Button fx:id="AddDmsResButton" layoutX="227.0" layoutY="378.0" mnemonicParsing="false" onAction="#AddDmgRes" style="-fx-font-size: 10px;" text="Add" AnchorPane.rightAnchor="123.0" />
+                                <Button fx:id="AddConImmunButton" layoutX="35.0" layoutY="458.0" mnemonicParsing="false" onAction="#AddConImmun" style="-fx-font-size: 10px;" text="Add" AnchorPane.leftAnchor="42.0" />
+                                <Button fx:id="AddDmgImmunButton" layoutX="227.0" layoutY="458.0" mnemonicParsing="false" onAction="#AddDmgImmun" style="-fx-font-size: 10px;" text="Add" AnchorPane.rightAnchor="123.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -73,14 +78,18 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="SkillsList" layoutX="87.0" layoutY="17.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="5.0" />
+                                <NoHeaderTableView fx:id="SkillsList" layoutX="87.0" layoutY="17.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="223.0" AnchorPane.topAnchor="5.0" />
                                 <Label text="Skills" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                                <TableView fx:id="LanguageList" layoutX="269.0" layoutY="14.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
-                                <Label layoutX="182.0" layoutY="-3.0" text="Languages" AnchorPane.leftAnchor="190.0" AnchorPane.topAnchor="10.0" />
+                                <NoHeaderTableView fx:id="LanguageList" layoutX="269.0" layoutY="14.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
+                                <Label layoutX="182.0" layoutY="-3.0" text="Languages" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="10.0" />
                                 <Label layoutX="10.0" layoutY="10.0" text="Traits" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
-                                <TableView fx:id="TraitsList" layoutX="10.0" layoutY="108.0" prefHeight="238.0" prefWidth="373.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
-                                <Label layoutX="20.0" layoutY="20.0" text="Senses" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="340.0" />
-                                <TableView fx:id="SensesList" layoutX="20.0" layoutY="118.0" prefHeight="238.0" prefWidth="373.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="360.0" />
+                                <TableView fx:id="TraitsList" layoutX="10.0" layoutY="108.0" prefHeight="235.0" prefWidth="373.0" AnchorPane.bottomAnchor="156.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
+                                <Label layoutX="20.0" layoutY="20.0" text="Senses" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="10.0" />
+                                <NoHeaderTableView fx:id="SensesList" layoutX="20.0" layoutY="118.0" prefHeight="121.0" prefWidth="373.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                <Button fx:id="AddSkilsButton" layoutX="11.0" layoutY="53.0" mnemonicParsing="false" onAction="#AddSkils" style="-fx-font-size: 10px;" text="Add" AnchorPane.leftAnchor="22.0" />
+                                <Button fx:id="AddLangButton" layoutX="224.0" layoutY="53.0" mnemonicParsing="false" onAction="#AddLang" style="-fx-font-size: 10px;" text="Add" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="53.0" />
+                                <Button fx:id="AddTraitButton" layoutX="115.0" layoutY="337.0" mnemonicParsing="false" onAction="#AddTrait" style="-fx-font-size: 10px;" text="▲Add" AnchorPane.bottomAnchor="133.0" AnchorPane.rightAnchor="55.0" />
+                                <Button fx:id="AddSenseButton" layoutX="341.0" layoutY="337.0" mnemonicParsing="false" onAction="#AddSense" style="-fx-font-size: 10px;" text="▼Add" AnchorPane.bottomAnchor="133.0" AnchorPane.rightAnchor="10.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -90,11 +99,14 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
                                 <Label text="Actions" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
-                                <TableView fx:id="ActionsList" prefHeight="145.0" prefWidth="373.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
-                                <Label layoutX="14.0" layoutY="204.0" text="Reactions" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="170.0" />
-                                <TableView fx:id="ReactionsList" layoutX="14.0" layoutY="227.0" prefHeight="145.0" prefWidth="373.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="185.0" />
-                                <Label layoutX="24.0" layoutY="214.0" text="Legendary Actions" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="335.0" />
-                                <TableView fx:id="LegActionsList" layoutX="24.0" layoutY="237.0" prefHeight="150.0" prefWidth="373.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="350.0" />
+                                <TableView fx:id="ActionsList" layoutX="10.0" layoutY="20.0" prefHeight="139.0" prefWidth="373.0" AnchorPane.bottomAnchor="332.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                                <Label layoutX="14.0" layoutY="204.0" text="Reactions" AnchorPane.bottomAnchor="304.0" AnchorPane.leftAnchor="10.0" />
+                                <TableView fx:id="ReactionsList" layoutX="14.0" layoutY="227.0" prefHeight="140.0" prefWidth="373.0" AnchorPane.bottomAnchor="166.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                <Label layoutX="24.0" layoutY="214.0" text="Legendary Actions" AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="10.0" />
+                                <TableView fx:id="LegActionsList" layoutX="24.0" layoutY="237.0" prefHeight="129.0" prefWidth="373.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                <Button fx:id="AddActionButton" layoutX="242.0" layoutY="160.0" mnemonicParsing="false" onAction="#AddAction" style="-fx-font-size: 10px;" text="▲Add" AnchorPane.bottomAnchor="310.0" AnchorPane.rightAnchor="55.0" />
+                                <Button fx:id="AddReactionButton" layoutX="341.0" layoutY="160.0" mnemonicParsing="false" onAction="#AddReaction" style="-fx-font-size: 10px;" text="▼Add" AnchorPane.bottomAnchor="310.0" AnchorPane.rightAnchor="10.0" />
+                                <Button fx:id="AddLegActionButton" layoutX="341.0" layoutY="327.0" mnemonicParsing="false" onAction="#AddLegAction" style="-fx-font-size: 10px;" text="▼Add" AnchorPane.bottomAnchor="143.0" AnchorPane.rightAnchor="10.0" />
                             </children>
                         </AnchorPane>
                     </content>

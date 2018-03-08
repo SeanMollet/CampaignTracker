@@ -15,14 +15,14 @@ import javafx.beans.property.StringProperty;
  *
  * @author sean
  */
-public class Skill {
+public class StatWithModifier {
 
-    public Skill(@JsonProperty("Name") String name, @JsonProperty("Modifier") Integer modifier) {
+    public StatWithModifier(@JsonProperty("Name") String name, @JsonProperty("Modifier") Integer modifier) {
         this.name = new SimpleStringProperty(name);
         this.modifier = new SimpleIntegerProperty(modifier);
     }
 
-    public Skill() {
+    public StatWithModifier() {
         this.name = new SimpleStringProperty();
         this.modifier = new SimpleIntegerProperty();
     }
