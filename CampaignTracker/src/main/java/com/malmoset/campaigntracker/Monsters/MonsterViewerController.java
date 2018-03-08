@@ -18,9 +18,12 @@ import com.malmoset.campaigntrackercontrols.NoHeaderTableView;
 import com.malmoset.campaigntrackercontrols.NumberTextField;
 import com.malmoset.campaigntrackercontrols.StatBlock;
 import com.malmoset.campaigntrackercontrols.StatDice;
+import com.malmoset.campaigntrackercontrols.YesNoDialog;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -275,8 +278,19 @@ public class MonsterViewerController extends BaseForm implements Initializable {
     @FXML
     private void SaveButtonClick(ActionEvent event) {
         AppData data = MainApp.getAppData();
-        MonstersDatabase monsters = data.getMon_db();
-        monsters.getMonstersBind().add(monster.clone());
+        MonstersDatabase mondb = data.getMon_db();
+        List<Monster> list = mondb.getMonstersBind();
+        List<Monster> replace = list.stream().filter(x -> x.nameProperty().get().toLowerCase().trim().equals(monster.getName().toLowerCase().trim())).collect(Collectors.toList());
+
+        if (replace.size() > 0) {
+            if (YesNoDialog.Display("Duplicates found", "Would you like to replace duplicates?", false) == YesNoDialog.Results.YES) {
+
+                for (Monster rep : replace) {
+                    list.remove(rep);
+                }
+            }
+        }
+        list.add(monster);
     }
 
     @FXML

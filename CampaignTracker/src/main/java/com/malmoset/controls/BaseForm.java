@@ -66,7 +66,7 @@ public class BaseForm {
             if (resizable) {
                 if (root instanceof AnchorPane) {
                     AnchorPane rootPane = (AnchorPane) root;
-                    if (rootPane != null) {
+                    if (rootPane != null && rootPane.getMinWidth() > 0 && rootPane.getMinHeight() > 0) {
                         //Account for the titlebar
                         double titleBar = Double.isNaN(stage.getHeight()) ? 20 : stage.getHeight() - rootPane.getHeight();
                         stage.setMinHeight(rootPane.getMinHeight() + titleBar);

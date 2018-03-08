@@ -280,13 +280,14 @@ public class MonsterManagerController extends BaseForm implements Initializable 
 
                 for (Monster monster : newmonsters) {
                     //See if it already exists
-                    if (list.stream().filter(x -> x.nameProperty().get() == monster.getName()).count() > 0) {
+                    List<Monster> replace = list.stream().filter(x -> x.nameProperty().get().toLowerCase().trim().equals(monster.getName().toLowerCase().trim())).collect(Collectors.toList());
+
+                    if (replace.size() > 0) {
                         if (!ReplaceAsked) {
                             Replace = (YesNoDialog.Display("Duplicates found", "Would you like to replace duplicates?", false) == YesNoDialog.Results.YES);
                             ReplaceAsked = true;
                         }
                         if (Replace) {
-                            List<Monster> replace = list.stream().filter(x -> x.nameProperty().get() == monster.getName()).collect(Collectors.toList());
                             for (Monster rep : replace) {
                                 list.remove(rep);
                             }
