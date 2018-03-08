@@ -1,6 +1,7 @@
 package com.malmoset.campaigntracker;
 
 import com.malmoset.controls.BaseForm;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,6 +11,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class MainMenuController implements Initializable {
 
@@ -118,10 +121,35 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void LoadClick(ActionEvent event) {
+        Stage stage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Export Custom Monsters");
+        FileChooser.ExtensionFilter monsterExtensionFilter
+                = new FileChooser.ExtensionFilter(
+                        "Campaign Files (.ctct)", "*.ctct");
+        fileChooser.getExtensionFilters().add(monsterExtensionFilter);
+        fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
+        File file = fileChooser.showOpenDialog(stage);
+        if (file != null && file.length() > 0) {
+            MainApp.getAppData().getDb().LoadFile(file);
+        }
     }
 
     @FXML
     private void SaveClick(ActionEvent event) {
+        Stage stage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Export Custom Monsters");
+        FileChooser.ExtensionFilter monsterExtensionFilter
+                = new FileChooser.ExtensionFilter(
+                        "Campaign Files (.ctct)", "*.ctct");
+        fileChooser.getExtensionFilters().add(monsterExtensionFilter);
+        fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
+        File file = fileChooser.showSaveDialog(stage);
+
+        if (file != null && file.length() > 0) {
+            MainApp.getAppData().getDb().SaveFile(file);
+        }
     }
 
     @FXML

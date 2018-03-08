@@ -31,6 +31,12 @@ public class XPEvent {
     }
 
     public XPEvent() {
+        this.timestamp = new SimpleObjectProperty<>(LocalDateTime.now());
+        this.session = new SimpleIntegerProperty(0);
+        this.battle = new SimpleIntegerProperty(0);
+        this.event = new SimpleStringProperty("");
+        this.monster = new SimpleStringProperty("");
+        this.xP = new SimpleIntegerProperty(0);
     }
 
     @JsonProperty("Timestamp")

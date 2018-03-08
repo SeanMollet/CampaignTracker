@@ -15,7 +15,6 @@ import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.Styles;
-import com.malmoset.campaigntrackercontrols.YesNoDialog;
 import com.malmoset.controls.BaseForm;
 import java.io.File;
 import java.io.IOException;
@@ -275,26 +274,8 @@ public class MonsterManagerController extends BaseForm implements Initializable 
                 List<Monster> newmonsters = mapper.readValue(file, new TypeReference<List<Monster>>() {
                 });
 
-                boolean Replace = false;
-                boolean ReplaceAsked = false;
+                monsters.ImportMonsters(newmonsters);
 
-                for (Monster monster : newmonsters) {
-                    //See if it already exists
-                    List<Monster> replace = list.stream().filter(x -> x.nameProperty().get().toLowerCase().trim().equals(monster.getName().toLowerCase().trim())).collect(Collectors.toList());
-
-                    if (replace.size() > 0) {
-                        if (!ReplaceAsked) {
-                            Replace = (YesNoDialog.Display("Duplicates found", "Would you like to replace duplicates?", false) == YesNoDialog.Results.YES);
-                            ReplaceAsked = true;
-                        }
-                        if (Replace) {
-                            for (Monster rep : replace) {
-                                list.remove(rep);
-                            }
-                        }
-                    }
-                    list.add(monster);
-                }
             } catch (JsonProcessingException ex) {
                 Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {

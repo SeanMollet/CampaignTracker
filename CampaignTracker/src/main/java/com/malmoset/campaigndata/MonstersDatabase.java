@@ -8,9 +8,11 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.malmoset.campaigntrackercontrols.YesNoDialog;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
@@ -58,6 +60,30 @@ public class MonstersDatabase {
             dialog.setContentText(E.toString());
             dialog.getDialogPane().getButtonTypes().add(new ButtonType("Got it!", ButtonData.CANCEL_CLOSE));
             dialog.show();
+        }
+    }
+
+    public void ImportMonsters(List<Monster> newmonsters) {
+        boolean Replace = false;
+        boolean ReplaceAsked = false;
+        ObservableList<Monster> list = monstersBind.get();
+
+        for (Monster monster : newmonsters) {
+            //See if it already exists
+            List<Monster> replace = list.stream().filter(x -> x.nameProperty().get().toLowerCase().trim().equals(monster.getName().toLowerCase().trim())).collect(Collectors.toList());
+
+            if (replace.size() > 0) {
+                if (!ReplaceAsked) {
+                    Replace = (YesNoDialog.Display("Duplicate monsters found", "Would you like to replace duplicate monsters?", false) == YesNoDialog.Results.YES);
+                    ReplaceAsked = true;
+                }
+                if (Replace) {
+                    for (Monster rep : replace) {
+                        list.remove(rep);
+                    }
+                }
+            }
+            list.add(monster);
         }
     }
 

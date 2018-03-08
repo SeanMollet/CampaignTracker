@@ -97,8 +97,8 @@ public class Utilities {
             Dialog dialog = new Dialog();
             dialog.setTitle("Error");
             dialog.setContentText(E.toString());
-
-            dialog.show();
+            dialog.getDialogPane().getButtonTypes().add(new ButtonType("Got it!", ButtonData.CANCEL_CLOSE));
+            dialog.showAndWait();
         }
     }
 //Various auto resize methods, don't appear to work very well
