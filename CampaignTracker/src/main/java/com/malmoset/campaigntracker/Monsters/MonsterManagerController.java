@@ -10,6 +10,7 @@ import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
+import com.malmoset.campaigntrackercontrols.Styles;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,13 +18,16 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -64,7 +68,18 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         col2.setCellValueFactory(new PropertyValueFactory<>("Source"));
         col3.setCellValueFactory(new PropertyValueFactory<>("DisplayType"));
         col4.setCellValueFactory(cellData -> cellData.getValue().getChallenge());
-        MonstersTable.getColumns().addAll(col1, col2, col3, col4);
+
+        TableColumn<Monster, String> col5 = ButtonCol("Battle", "Add", Styles.getSmall(), event -> {
+//                                Person person = getTableView().getItems().get(getIndex());
+//                                System.out.println(person.getFirstName()
+//                                        + "   " + person.getLastName());
+        });
+        TableColumn<Monster, String> col6 = ButtonCol("Encounter", "Add", Styles.getSmall(), event -> {
+//                                Person person = getTableView().getItems().get(getIndex());
+//                                System.out.println(person.getFirstName()
+//                                        + "   " + person.getLastName());
+        });
+        MonstersTable.getColumns().addAll(col1, col2, col3, col4, col5, col6);
 
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Monster> filteredData = new FilteredList<>(list, p -> true);
@@ -114,6 +129,41 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         controller.setMonster(monster);
 
         controller.Show();
+    }
+
+    private TableColumn ButtonCol(String text, String header, String style, EventHandler<ActionEvent> event) {
+        TableColumn actionCol = new TableColumn(header);
+        actionCol.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+
+        Callback<TableColumn<Monster, String>, TableCell<Monster, String>> cellFactory
+                = //
+                new Callback<TableColumn<Monster, String>, TableCell<Monster, String>>() {
+            @Override
+            public TableCell call(final TableColumn<Monster, String> param) {
+                final TableCell<Monster, String> cell = new TableCell<Monster, String>() {
+
+                    final Button btn = new Button(text);
+
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                            setText(null);
+                        } else {
+                            btn.setStyle(style);
+                            btn.setOnAction(event);
+                            setGraphic(btn);
+                            setText(null);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+
+        actionCol.setCellFactory(cellFactory);
+        return actionCol;
     }
 
     @FXML
