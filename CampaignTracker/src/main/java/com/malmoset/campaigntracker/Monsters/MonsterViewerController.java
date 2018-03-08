@@ -9,7 +9,10 @@ import com.malmoset.campaigndata.Action;
 import com.malmoset.campaigndata.CreatureSize.CreatureSizes;
 import com.malmoset.campaigndata.GenericValueString;
 import com.malmoset.campaigndata.Monster;
+import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigndata.StatWithModifier;
+import com.malmoset.campaigntracker.AppData;
+import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.IntegerStringConverter;
 import com.malmoset.campaigntrackercontrols.NoHeaderTableView;
 import com.malmoset.campaigntrackercontrols.NumberTextField;
@@ -271,6 +274,9 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
     @FXML
     private void SaveButtonClick(ActionEvent event) {
+        AppData data = MainApp.getAppData();
+        MonstersDatabase monsters = data.getMon_db();
+        monsters.getMonstersBind().add(monster.clone());
     }
 
     @FXML

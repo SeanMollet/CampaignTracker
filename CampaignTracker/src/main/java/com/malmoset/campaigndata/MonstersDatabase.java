@@ -26,17 +26,14 @@ import javafx.scene.control.Dialog;
 public class MonstersDatabase {
 
     private ArrayList<Monster> monsters;
-    private ArrayList<Monster> customMonsters;
 
     private ListProperty<Monster> monstersBind;
-    private ListProperty<Monster> customMonstersBind;
 
     public MonstersDatabase() {
         monsters = new ArrayList<>();
-        customMonsters = new ArrayList<>();
 
         monstersBind = new SimpleListProperty<Monster>(FXCollections.observableArrayList(monsters));
-        customMonstersBind = new SimpleListProperty<Monster>(FXCollections.observableArrayList(customMonsters));
+
         LoadMonsters();
     }
 
@@ -74,18 +71,6 @@ public class MonstersDatabase {
 
     public ListProperty<Monster> monstersBindProperty() {
         return monstersBind;
-    }
-
-    public final ObservableList<Monster> getCustomMonstersBind() {
-        return customMonstersBind.get();
-    }
-
-    public final void setCustomMonstersBind(ObservableList<Monster> value) {
-        customMonstersBind.set(value);
-    }
-
-    public ListProperty<Monster> customMonstersBindProperty() {
-        return customMonstersBind;
     }
 
 }

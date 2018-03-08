@@ -5,15 +5,26 @@
  */
 package com.malmoset.campaigntracker.Monsters;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.malmoset.campaigndata.Fraction;
 import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.Styles;
+import com.malmoset.campaigntrackercontrols.YesNoDialog;
 import com.malmoset.controls.BaseForm;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -30,6 +41,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 /**
@@ -104,23 +117,6 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         col1.setCellFactory(DoubleClickFactory(doubleClick));
         col2.setCellFactory(DoubleClickFactory(doubleClick));
         col3.setCellFactory(DoubleClickFactory(doubleClick));
-        //col4.setCellFactory(DoubleClickFactory(doubleClick));
-//        MonstersTable.setOnMouseClicked(event -> {
-//            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2) {
-//                Node node = ((Node) event.getTarget()).getParent();
-//                System.out.println(MonstersTable.getSelectionModel().getSelectedItem());
-//            }
-//        });
-//        MonstersTable.setRowFactory(tv -> {
-//            TableRow<Monster> row = new TableRow<>();
-//            row.setOnMouseClicked(event -> {
-//                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2 && (!row.isEmpty())) {
-//                    Monster rowData = row.getItem();
-//                    System.out.println(rowData);
-//                }
-//            });
-//            return row;
-//        });
 
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Monster> filteredData = new FilteredList<>(list, p -> true);
@@ -227,14 +223,89 @@ public class MonsterManagerController extends BaseForm implements Initializable 
 
     @FXML
     private void ExportButtonClick(ActionEvent event) {
+        Stage stage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Export Custom Monsters");
+        FileChooser.ExtensionFilter monsterExtensionFilter
+                = new FileChooser.ExtensionFilter(
+                        "Monster Files (.ctmo)", "*.ctmo");
+        fileChooser.getExtensionFilters().add(monsterExtensionFilter);
+        fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
+        File file = fileChooser.showSaveDialog(stage);
+        if (file != null) {
+            AppData data = MainApp.getAppData();
+            MonstersDatabase monsters = data.getMon_db();
+            ObservableList<Monster> list = monsters.getMonstersBind();
+            List<Monster> customMonsters = list.stream().filter(x -> x.readOnlyProperty().get() == false).collect(Collectors.toList());
+
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            try {
+                mapper.writeValue(file, customMonsters);
+            } catch (JsonProcessingException ex) {
+                Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
     }
 
     @FXML
     private void ImportButtonClick(ActionEvent event) {
+        AppData data = MainApp.getAppData();
+        MonstersDatabase monsters = data.getMon_db();
+        ObservableList<Monster> list = monsters.getMonstersBind();
+
+        Stage stage = new Stage();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Export Custom Monsters");
+        FileChooser.ExtensionFilter monsterExtensionFilter
+                = new FileChooser.ExtensionFilter(
+                        "Monster Files (.ctmo)", "*.ctmo");
+        fileChooser.getExtensionFilters().add(monsterExtensionFilter);
+        fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
+        File file = fileChooser.showOpenDialog(stage);
+        if (file != null) {
+
+            ObjectMapper mapper = new ObjectMapper();
+            try {
+                //mapper.writeValue(file, customMonsters);
+                List<Monster> newmonsters = mapper.readValue(file, new TypeReference<List<Monster>>() {
+                });
+
+                boolean Replace = false;
+                boolean ReplaceAsked = false;
+
+                for (Monster monster : newmonsters) {
+                    //See if it already exists
+                    if (list.stream().filter(x -> x.nameProperty().get() == monster.getName()).count() > 0) {
+                        if (!ReplaceAsked) {
+                            Replace = (YesNoDialog.Display("Duplicates found", "Would you like to replace duplicates?", false) == YesNoDialog.Results.YES);
+                            ReplaceAsked = true;
+                        }
+                        if (Replace) {
+                            List<Monster> replace = list.stream().filter(x -> x.nameProperty().get() == monster.getName()).collect(Collectors.toList());
+                            for (Monster rep : replace) {
+                                list.remove(rep);
+                            }
+                        }
+                    }
+                    list.add(monster);
+                }
+            } catch (JsonProcessingException ex) {
+                Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
     }
 
     @FXML
     private void NewButtonClick(ActionEvent event) {
+        LoadMonster(new Monster());
     }
 
 }
