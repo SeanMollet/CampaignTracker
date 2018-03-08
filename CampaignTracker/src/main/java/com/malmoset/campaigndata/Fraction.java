@@ -5,7 +5,15 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 
 /**
  * Thanks to
@@ -14,50 +22,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author sean
  */
-public final class Fraction implements Comparable {
+public final class Fraction implements Comparable, ObservableValue {
 
     private long numerator;
-
     private long denominator;
+    @JsonIgnore
+    private StringProperty strValue;
 
-    public Fraction(String inValue) {
-        inValue = inValue.trim();
+    public final String getStrValue() {
+        return strValue.get();
+    }
 
-        //If they give us garbage, give them a 0 back
-        if (inValue == null || inValue == "") {
-            numerator = 0;
-            denominator = 1;
-            return;
-        }
+    public final void setStrValue(String value) {
+        this.fromString(value);
+        strValue.set(this.toString());
+    }
 
-        // Not special, is it a Fraction?
-        int slashPos = inValue.indexOf('/');
+    public StringProperty strValueProperty() {
+        return strValue;
+    }
 
-        if (slashPos > -1) {
-            Long wholeNumberValue = 0l;
-            //Check if there is a whole value on the left
-            int spaceLoc = inValue.indexOf(' ');
-            if (spaceLoc > -1) {
-                String wholeValueStr = inValue.substring(0, spaceLoc);
-                inValue = inValue.substring(spaceLoc).trim();
-                if (Utilities.tryParseLong(inValue)) {
-                    wholeNumberValue = Long.parseLong(inValue);
-                }
-                slashPos = inValue.indexOf('/');
-            }
-            // string is in the form of numerator/denominator
-            String denom = inValue.substring(slashPos + 1);
-            String Num = inValue.substring(0, slashPos);
-            if (Utilities.tryParseLong(denom) && Utilities.tryParseLong(Num)) {
-                denominator = Long.parseLong(denom);
-                numerator = Long.parseLong(Num) + (wholeNumberValue * denominator);
-            }
-            return;
-        }
+    private void ConfigProp() {
+        strValue = new SimpleStringProperty(this.toString());
+        strValue.addListener((observable, oldValue, newValue) -> {
+            fromString(newValue);
+        });
     }
 
     public Fraction() {
         this(0l, 1l, true);
+    }
+
+    public Fraction(int num) {
+        this((long) num, 1l);
+    }
+
+    public Fraction(Long num) {
+        this(num, 1l);
+    }
+
+    public Fraction(String inValue) {
+        fromString(inValue);
     }
 
     public Fraction(@JsonProperty("Numerator") Long numerator, @JsonProperty("Denominator") Long denominator) {
@@ -82,16 +87,47 @@ public final class Fraction implements Comparable {
         if (wantToReduce == true) {
             this.reduce();
         }
+        ConfigProp();
     }
 
-    public Fraction(Long num) {
-        this.numerator = num;
-        this.denominator = 1;
-    }
+    private boolean fromString(String inValue) {
+        inValue = inValue.trim();
+        String oldValue = this.toString();
 
-    public Fraction(int num) {
-        this.numerator = num;
-        this.denominator = 1;
+        //If they give us garbage, give them a 0 back
+        if (inValue == null || inValue == "") {
+            numerator = 0;
+            denominator = 1;
+            return true;
+        }
+
+        // Not special, is it a Fraction?
+        int slashPos = inValue.indexOf('/');
+
+        if (slashPos > -1) {
+            Long wholeNumberValue = 0l;
+            //Check if there is a whole value on the left
+            int spaceLoc = inValue.indexOf(' ');
+            if (spaceLoc > -1) {
+                String wholeValueStr = inValue.substring(0, spaceLoc);
+                inValue = inValue.substring(spaceLoc).trim();
+                if (Utilities.tryParseLong(inValue)) {
+                    wholeNumberValue = Long.parseLong(inValue);
+                }
+                slashPos = inValue.indexOf('/');
+            }
+            // string is in the form of numerator/denominator
+            String denom = inValue.substring(slashPos + 1);
+            String Num = inValue.substring(0, slashPos);
+            if (Utilities.tryParseLong(denom) && Utilities.tryParseLong(Num)) {
+                denominator = Long.parseLong(denom);
+                numerator = Long.parseLong(Num) + (wholeNumberValue * denominator);
+                ConfigProp();
+                onChange(oldValue, this.toString());
+                return true;
+            }
+        }
+        return false;
     }
 
     public int toInt() {
@@ -184,10 +220,10 @@ public final class Fraction implements Comparable {
                 return 1;
             }
 
-            long leftScale = this.numerator * right.denominator;
-            long rightScale = right.numerator * this.denominator;
+            Long leftScale = this.numerator * right.denominator;
+            Long rightScale = right.numerator * this.denominator;
 
-            return Long.compare(leftScale, leftScale);
+            return leftScale.compareTo(rightScale);
         }
 
         if (o instanceof Long || o instanceof Integer) {
@@ -213,6 +249,55 @@ public final class Fraction implements Comparable {
             return -1;
         }
         return 1;
+    }
+
+    private List<ChangeListener> cListener;
+
+    private void onChange(String oldValue, String newValue) {
+        if (cListener != null) {
+            for (ChangeListener listener : cListener) {
+                listener.changed(this, oldValue, newValue);
+            }
+        }
+    }
+
+    @Override
+    public void addListener(ChangeListener listener) {
+
+        if (cListener == null) {
+            cListener = new ArrayList<>();
+        }
+        cListener.add(listener);
+    }
+
+    @Override
+    public void removeListener(ChangeListener listener) {
+        if (cListener != null && cListener.contains(listener)) {
+            cListener.remove(listener);
+        }
+    }
+
+    @Override
+    public Object getValue() {
+        return this;
+    }
+
+    //private List<InvalidationListener> Ilistener;
+    @Override
+    public void addListener(InvalidationListener listener) {
+//We're never invalid
+//        if (Ilistener == null) {
+//            Ilistener = new ArrayList<>();
+//        }
+//        Ilistener.add(listener);
+    }
+
+    @Override
+    public void removeListener(InvalidationListener listener) {
+//We're never invalid
+//        if (Ilistener != null && Ilistener.contains(listener)) {
+//            Ilistener.remove(listener);
+//        }
     }
 
 }

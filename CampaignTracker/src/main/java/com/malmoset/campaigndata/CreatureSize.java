@@ -7,8 +7,11 @@ package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import java.util.ArrayList;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -17,36 +20,40 @@ import javafx.beans.property.SimpleObjectProperty;
 public class CreatureSize {
 
     public CreatureSize(@JsonProperty("Value") String value) {
-        this.value = value;
+        this.sizeValue = new SimpleStringProperty();
+        this.setValue(value);
     }
 
     public CreatureSize() {
-        this.creatureSize = new SimpleObjectProperty<>(CreatureSizes.MEDIUM);
+        this("MEDIUM");
     }
+
     @JsonIgnore
-    private ObjectProperty<CreatureSizes> creatureSize;
-
-    public final CreatureSizes getCreatureSize() {
-        return creatureSize.get();
-    }
-
-    public final void setCreatureSize(CreatureSizes value) {
-        creatureSize.set(value);
-    }
-
-    public ObjectProperty<CreatureSizes> creatureSizeProperty() {
-        return creatureSize;
-    }
+    private CreatureSizes size;
+    @JsonIgnore
+    private StringProperty sizeValue;
 
     @JsonProperty("Value")
-    private String value;
-
-    public String getValue() {
-        return creatureSize.toString();
+    public final String getValue() {
+        return sizeValue.get();
     }
 
-    public void setValue(String value) {
-        creatureSize = new SimpleObjectProperty<>(CreatureSizes.valueOf(value));
+    public final void setValue(String value) {
+        this.size = CreatureSizes.fromString(value);
+        this.sizeValue.set(this.size.toString());
+    }
+
+    public StringProperty valueProperty() {
+        return sizeValue;
+    }
+
+    public CreatureSizes getSize() {
+        return size;
+    }
+
+    public void setSize(CreatureSizes size) {
+        //Make sure both variables are set
+        setValue(size.toString());
     }
 
     public enum CreatureSizes {
@@ -59,7 +66,7 @@ public class CreatureSize {
 
         private String string;
 
-        CreatureSizes(String size) {
+        private CreatureSizes(String size) {
             string = size;
         }
 
@@ -70,6 +77,23 @@ public class CreatureSize {
         @Override
         public String toString() {
             return string;
+        }
+
+        public static CreatureSizes fromString(String text) {
+            for (CreatureSizes b : CreatureSizes.values()) {
+                if (b.toString().equalsIgnoreCase(text)) {
+                    return b;
+                }
+            }
+            return CreatureSizes.MEDIUM;
+        }
+
+        public static ObservableList<String> getSizes() {
+            ArrayList<String> output = new ArrayList<>();
+            for (CreatureSizes b : CreatureSizes.values()) {
+                output.add(b.toString());
+            }
+            return FXCollections.observableArrayList(output);
         }
     }
 }

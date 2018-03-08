@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -36,16 +34,16 @@ public class Monster {
             @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Action> reactions, @JsonProperty("LegendaryActions") List<Action> legendaryActions,
             @JsonProperty("Spells") List<GenericValueString> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("ReadOnly") Boolean readOnly) {
         this.name = new SimpleStringProperty(name);
-        this.size = new SimpleObjectProperty<>(size);
+        this.size = size;
         this.type = new SimpleStringProperty(type);
         this.tags = tags;
         this.source = new SimpleStringProperty(source);
         this.alignment = new SimpleStringProperty(alignment);
-        this.aC = new SimpleObjectProperty<>(aC);
-        this.hP = new SimpleObjectProperty<>(hP);
+        this.aC = aC;
+        this.hP = hP;
         this.initiativeModifier = new SimpleIntegerProperty(initiativeModifier);
         this.speed = speed;
-        this.abilities = new SimpleObjectProperty<>(abilities);
+        this.abilities = abilities;
         this.damageVulnerabilities = damageVulnerabilities;
         this.damageResistances = damageResistances;
         this.damageImmunities = damageImmunities;
@@ -54,7 +52,7 @@ public class Monster {
         this.skills = skills;
         this.senses = senses;
         this.languages = languages;
-        this.challenge = new SimpleObjectProperty<>(challenge);
+        this.challenge = challenge;
         this.traits = traits;
         this.actions = actions;
         this.reactions = reactions;
@@ -66,16 +64,16 @@ public class Monster {
 
     public Monster() {
         this.name = new SimpleStringProperty("New Monster");
-        this.size = new SimpleObjectProperty<>();
+        this.size = new CreatureSize();
         this.type = new SimpleStringProperty();
         this.tags = new ArrayList<String>();
         this.source = new SimpleStringProperty();
         this.alignment = new SimpleStringProperty();
-        this.aC = new SimpleObjectProperty<>(new AC());
-        this.hP = new SimpleObjectProperty<>(new HP());
+        this.aC = new AC();
+        this.hP = new HP();
         this.initiativeModifier = new SimpleIntegerProperty();
         this.speed = new ArrayList<GenericValueString>();
-        this.abilities = new SimpleObjectProperty<>(new Abilities());
+        this.abilities = new Abilities();
         this.damageVulnerabilities = new ArrayList<GenericValueString>();
         this.damageResistances = new ArrayList<GenericValueString>();
         this.damageImmunities = new ArrayList<GenericValueString>();
@@ -84,7 +82,7 @@ public class Monster {
         this.skills = new ArrayList<Skill>();
         this.senses = new ArrayList<GenericValueString>();
         this.languages = new ArrayList<GenericValueString>();
-        this.challenge = new SimpleObjectProperty<>(new Fraction(1));
+        this.challenge = new Fraction(1);
         this.traits = new ArrayList<Action>();
         this.actions = new ArrayList<Action>();
         this.reactions = new ArrayList<Action>();
@@ -97,7 +95,7 @@ public class Monster {
     @JsonProperty("Name")
     private StringProperty name;
     @JsonProperty("Size")
-    private ObjectProperty<CreatureSize> size;
+    private CreatureSize size;
     @JsonProperty("Type")
     private StringProperty type;
     @JsonProperty("Tags")
@@ -107,15 +105,15 @@ public class Monster {
     @JsonProperty("Alignment")
     private StringProperty alignment;
     @JsonProperty("AC")
-    private ObjectProperty<AC> aC;
+    private AC aC;
     @JsonProperty("HP")
-    private ObjectProperty<HP> hP;
+    private HP hP;
     @JsonProperty("InitiativeModifier")
     private IntegerProperty initiativeModifier;
     @JsonProperty("Speed")
     private List<GenericValueString> speed;
     @JsonProperty("Abilities")
-    private ObjectProperty<Abilities> abilities;
+    private Abilities abilities;
     @JsonProperty("DamageVulnerabilities")
     private List<GenericValueString> damageVulnerabilities;
     @JsonProperty("DamageResistances")
@@ -133,7 +131,7 @@ public class Monster {
     @JsonProperty("Languages")
     private List<GenericValueString> languages;
     @JsonProperty("Challenge")
-    private ObjectProperty<Fraction> challenge;
+    private Fraction challenge;
     @JsonProperty("Traits")
     private List<Action> traits;
     @JsonProperty("Actions")
@@ -162,14 +160,6 @@ public class Monster {
     }
 
     public final CreatureSize getSize() {
-        return size.get();
-    }
-
-    public final void setSize(CreatureSize value) {
-        size.set(value);
-    }
-
-    public ObjectProperty<CreatureSize> sizeProperty() {
         return size;
     }
 
@@ -210,27 +200,19 @@ public class Monster {
     }
 
     public final AC getAC() {
-        return aC.get();
-    }
-
-    public final void setAC(AC value) {
-        aC.set(value);
-    }
-
-    public ObjectProperty<AC> aCProperty() {
         return aC;
     }
 
+    public final void setAC(AC value) {
+        aC = value;
+    }
+
     public final HP getHP() {
-        return hP.get();
+        return hP;
     }
 
     public final void setHP(HP value) {
-        hP.set(value);
-    }
-
-    public ObjectProperty<HP> hPProperty() {
-        return hP;
+        hP = value;
     }
 
     public final int getInitiativeModifier() {
@@ -246,27 +228,19 @@ public class Monster {
     }
 
     public final Abilities getAbilities() {
-        return abilities.get();
-    }
-
-    public final void setAbilities(Abilities value) {
-        abilities.set(value);
-    }
-
-    public ObjectProperty<Abilities> abilitiesProperty() {
         return abilities;
     }
 
+    public final void setAbilities(Abilities value) {
+        abilities = value;
+    }
+
     public final Fraction getChallenge() {
-        return challenge.get();
+        return challenge;
     }
 
     public final void setChallenge(Fraction value) {
-        challenge.set(value);
-    }
-
-    public ObjectProperty<Fraction> challengeProperty() {
-        return challenge;
+        challenge = value;
     }
 
     public final boolean isHidden() {
@@ -293,4 +267,111 @@ public class Monster {
         return readOnly;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    public List<GenericValueString> getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(List<GenericValueString> speed) {
+        this.speed = speed;
+    }
+
+    public List<GenericValueString> getDamageVulnerabilities() {
+        return damageVulnerabilities;
+    }
+
+    public void setDamageVulnerabilities(List<GenericValueString> damageVulnerabilities) {
+        this.damageVulnerabilities = damageVulnerabilities;
+    }
+
+    public List<GenericValueString> getDamageResistances() {
+        return damageResistances;
+    }
+
+    public void setDamageResistances(List<GenericValueString> damageResistances) {
+        this.damageResistances = damageResistances;
+    }
+
+    public List<GenericValueString> getDamageImmunities() {
+        return damageImmunities;
+    }
+
+    public void setDamageImmunities(List<GenericValueString> damageImmunities) {
+        this.damageImmunities = damageImmunities;
+    }
+
+    public List<GenericValueString> getConditionImmunities() {
+        return conditionImmunities;
+    }
+
+    public void setConditionImmunities(List<GenericValueString> conditionImmunities) {
+        this.conditionImmunities = conditionImmunities;
+    }
+
+    public List<Save> getSaves() {
+        return saves;
+    }
+
+    public void setSaves(List<Save> saves) {
+        this.saves = saves;
+    }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
+
+    public List<GenericValueString> getSenses() {
+        return senses;
+    }
+
+    public void setSenses(List<GenericValueString> senses) {
+        this.senses = senses;
+    }
+
+    public List<GenericValueString> getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(List<GenericValueString> languages) {
+        this.languages = languages;
+    }
+
+    public List<Action> getTraits() {
+        return traits;
+    }
+
+    public void setTraits(List<Action> traits) {
+        this.traits = traits;
+    }
+
+    public List<Action> getReactions() {
+        return reactions;
+    }
+
+    public void setReactions(List<Action> reactions) {
+        this.reactions = reactions;
+    }
+
+    public List<GenericValueString> getSpells() {
+        return spells;
+    }
+
+    public void setSpells(List<GenericValueString> spells) {
+        this.spells = spells;
+    }
+
+    public String getDisplayType() {
+        return this.size.getValue() + " " + this.type.get() + " " + this.alignment.get();
+    }
 }
