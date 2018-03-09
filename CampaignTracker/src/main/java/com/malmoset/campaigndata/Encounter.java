@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author sean
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Encounter {
 
     public Encounter(@JsonProperty("Name") String name, @JsonProperty("Challenge") Fraction challenge,

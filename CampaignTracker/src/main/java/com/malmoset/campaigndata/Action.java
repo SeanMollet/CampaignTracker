@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -13,6 +14,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author sean
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Action {
 
     public Action(@JsonProperty("Name") String name, @JsonProperty("Content") String content, @JsonProperty("Attack") String attack, @JsonProperty("Usage") String usage) {

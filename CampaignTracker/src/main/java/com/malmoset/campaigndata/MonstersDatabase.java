@@ -8,6 +8,7 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.malmoset.campaigntrackercontrols.GotItDialog;
 import com.malmoset.campaigntrackercontrols.YesNoDialog;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +18,6 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 
 /**
  *
@@ -55,11 +53,7 @@ public class MonstersDatabase {
             }
         } catch (Exception E) {
             //If this blows up, they won't get any entries. That's acceptable
-            Dialog dialog = new Dialog();
-            dialog.setTitle("Error in " + File);
-            dialog.setContentText(E.toString());
-            dialog.getDialogPane().getButtonTypes().add(new ButtonType("Got it!", ButtonData.CANCEL_CLOSE));
-            dialog.show();
+            GotItDialog.GotIt("Could not load monsters", "Error in \" + File");
         }
     }
 

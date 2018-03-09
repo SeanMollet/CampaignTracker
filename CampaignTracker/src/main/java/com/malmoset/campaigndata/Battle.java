@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import javafx.beans.property.SimpleObjectProperty;
  *
  * @author sean
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Battle {
 
     public Battle(@JsonProperty("Began") LocalDateTime began, @JsonProperty("Monsters") List<BattleMonster> monsters,
@@ -36,6 +38,7 @@ public class Battle {
         this.session = new SimpleIntegerProperty();
     }
     @JsonProperty("Began")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSX")
     private ObjectProperty<LocalDateTime> began;
     @JsonProperty("Monsters")
     private List<BattleMonster> monsters;

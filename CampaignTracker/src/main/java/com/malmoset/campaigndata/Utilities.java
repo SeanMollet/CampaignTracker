@@ -8,15 +8,13 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
+import com.malmoset.campaigntrackercontrols.GotItDialog;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import org.reflections.Reflections;
 import org.reflections.scanners.ResourcesScanner;
 
@@ -62,11 +60,7 @@ public class Utilities {
             }
         } catch (Exception E) {
             //If this blows up, they won't get any entries. That's acceptable
-            Dialog dialog = new Dialog();
-            dialog.setTitle("Error");
-            dialog.setContentText(E.toString());
-            dialog.getDialogPane().getButtonTypes().add(new ButtonType("Got it!", ButtonData.CANCEL_CLOSE));
-            dialog.showAndWait();
+            GotItDialog.GotIt("Could not load monsters", "Error in book files");
         }
         return files;
     }
@@ -86,19 +80,10 @@ public class Utilities {
 
             AC test = mapper.readValue(text, AC.class);
 
-            Dialog dialog = new Dialog();
-            dialog.setTitle(test.getNotes());
-            dialog.setContentText(json);
-
-            dialog.show();
+            GotItDialog.GotIt("Json Data", json);
 
         } catch (Exception E) {
-            //If this blows up, they won't get any entries. That's acceptable
-            Dialog dialog = new Dialog();
-            dialog.setTitle("Error");
-            dialog.setContentText(E.toString());
-            dialog.getDialogPane().getButtonTypes().add(new ButtonType("Got it!", ButtonData.CANCEL_CLOSE));
-            dialog.showAndWait();
+            GotItDialog.GotIt("Could not load monsters", "Error");
         }
     }
 //Various auto resize methods, don't appear to work very well

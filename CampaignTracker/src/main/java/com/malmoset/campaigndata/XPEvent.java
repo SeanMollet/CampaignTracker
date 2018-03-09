@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import javafx.beans.property.IntegerProperty;
@@ -18,6 +19,7 @@ import javafx.beans.property.StringProperty;
  *
  * @author sean
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class XPEvent {
 
     public XPEvent(@JsonProperty("Timestamp") LocalDateTime timestamp, @JsonProperty("Session") Integer session,
@@ -40,6 +42,7 @@ public class XPEvent {
     }
 
     @JsonProperty("Timestamp")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSX")
     private ObjectProperty<LocalDateTime> timestamp;
     @JsonProperty("Session")
     private IntegerProperty session;

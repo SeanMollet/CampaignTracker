@@ -5,26 +5,34 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JSR310Module;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.google.common.io.Files;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterManagerController;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
+import javafx.beans.property.MapProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleMapProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 
 /**
  *
@@ -41,9 +49,11 @@ public class Database {
     @JsonProperty("CustomMonsters")
     private ListProperty<Monster> customMonsters;
     @JsonProperty("XP")
-    private ListProperty<XPEvent> xP;
+    private MapProperty<Integer, ObservableList<XPEvent>> xP;
     @JsonProperty("Session")
     private IntegerProperty session;
+    @JsonIgnore
+    private StringProperty campaignName;
 
     public Database(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters, @JsonProperty("Players") List<Player> players,
             @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("Session") Integer session) {
@@ -57,6 +67,7 @@ public class Database {
         this.customMonsters = new SimpleListProperty(FXCollections.observableArrayList(customMonsters));
 
         this.session = new SimpleIntegerProperty(session);
+        this.campaignName = new SimpleStringProperty("");
     }
 
     public Database() {
@@ -69,13 +80,14 @@ public class Database {
         ArrayList<Player> player_list = new ArrayList<>();
         players = new SimpleListProperty(FXCollections.observableArrayList(player_list));
 
-        ArrayList<XPEvent> xp_list = new ArrayList<>();
-        xP = new SimpleListProperty(FXCollections.observableArrayList(xp_list));
+        HashMap<Integer, ObservableList<XPEvent>> xp_list = new HashMap<>();
+        xP = new SimpleMapProperty<Integer, ObservableList<XPEvent>>(FXCollections.observableMap(xp_list));
 
         ArrayList<Monster> mon_list = new ArrayList<>();
         customMonsters = new SimpleListProperty(FXCollections.observableArrayList(mon_list));
 
         session = new SimpleIntegerProperty(1);
+        this.campaignName = new SimpleStringProperty("");
 
     }
 
@@ -86,6 +98,7 @@ public class Database {
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
             try {
                 mapper.writeValue(file, this);
+                this.campaignName.set(Files.getNameWithoutExtension(file.toString()));
             } catch (JsonProcessingException ex) {
                 Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -95,32 +108,41 @@ public class Database {
         }
     }
 
-    public void LoadFile(File file) {
+    public boolean LoadFile(File file) {
 
         if (file != null) {
 
             ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new JSR310Module());
             mapper.registerModule(new JavaTimeModule());
 
             try {
-                BaseDatabase newdb = mapper.readValue(file, BaseDatabase.class);
+                //Replace .net formatted datetime with ISO standard (also removes timezone)
+                String json = new String(java.nio.file.Files.readAllBytes(file.toPath()));
+                json = json.replaceAll("(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3})[\\d:-]+", "$1");
+                BaseDatabase newdb = mapper.readValue(json, BaseDatabase.class);
                 battles.set(FXCollections.observableArrayList(newdb.getBattles()));
                 encounters.set(FXCollections.observableArrayList(newdb.getEncounters()));
                 players.set(FXCollections.observableArrayList(newdb.getPlayers()));
-                xP.set(FXCollections.observableArrayList(newdb.getxP()));
                 session.set(newdb.getSession());
+
+                xP.get().clear();
+                for (Map.Entry<Integer, List<XPEvent>> entry : newdb.getxP().entrySet()) {
+                    xP.get().put(entry.getKey(), FXCollections.observableList(entry.getValue()));
+                }
+
                 List<Monster> custom = newdb.getCustomMonsters();
                 if (custom != null && custom.size() > 0) {
                     MainApp.getAppData().getMon_db().ImportMonsters(custom);
                 }
+                this.campaignName.set(Files.getNameWithoutExtension(file.toString()));
+                return true;
             } catch (JsonProcessingException ex) {
                 Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
                 Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
             }
-
         }
+        return false;
     }
 
     public final ObservableList<Battle> getBattles() {
@@ -159,15 +181,15 @@ public class Database {
         return players;
     }
 
-    public final ObservableList<XPEvent> getXP() {
+    public final ObservableMap<Integer, ObservableList<XPEvent>> getXP() {
         return xP.get();
     }
 
-    public final void setXP(ObservableList<XPEvent> value) {
+    public final void setXP(ObservableMap<Integer, ObservableList<XPEvent>> value) {
         xP.set(value);
     }
 
-    public ListProperty<XPEvent> xPProperty() {
+    public MapProperty<Integer, ObservableList<XPEvent>> xPProperty() {
         return xP;
     }
 
@@ -193,6 +215,18 @@ public class Database {
 
     public ListProperty<Monster> customMonstersProperty() {
         return customMonsters;
+    }
+
+    public final String getCampaignName() {
+        return campaignName.get();
+    }
+
+    public final void setCampaignName(String value) {
+        campaignName.set(value);
+    }
+
+    public StringProperty campaignNameProperty() {
+        return campaignName;
     }
 
 }

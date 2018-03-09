@@ -6,6 +6,7 @@
 package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,6 +18,7 @@ import javafx.collections.ObservableList;
  *
  * @author sean
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CreatureSize {
 
     public CreatureSize(@JsonProperty("Value") String value) {

@@ -5,13 +5,11 @@
  */
 package com.malmoset.controls;
 
+import com.malmoset.campaigntrackercontrols.GotItDialog;
 import java.net.URL;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -79,11 +77,7 @@ public class BaseForm {
 
             return form;
         } catch (Exception E) {
-            Dialog dialog = new Dialog();
-            dialog.setTitle("Error");
-            dialog.setContentText(E.toString());
-            dialog.getDialogPane().getButtonTypes().add(new ButtonType("Got it!", ButtonBar.ButtonData.CANCEL_CLOSE));
-            dialog.showAndWait();
+            GotItDialog.GotIt("Error loading " + Name, E.toString());
 
         }
         return null;

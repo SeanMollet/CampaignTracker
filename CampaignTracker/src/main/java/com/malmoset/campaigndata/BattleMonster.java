@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import javafx.beans.property.BooleanProperty;
@@ -18,6 +19,7 @@ import javafx.beans.property.SimpleObjectProperty;
  *
  * @author sean
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BattleMonster extends Monster {
 
     public BattleMonster(@JsonProperty("Spawned") LocalDateTime spawned, @JsonProperty("Index") Integer index,

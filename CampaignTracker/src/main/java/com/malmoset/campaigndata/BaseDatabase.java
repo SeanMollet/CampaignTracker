@@ -15,18 +15,21 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author sean
  */
 //Mirrors the setup of Database since Jackson doesn't understand the new bindable types
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BaseDatabase {
 
     public BaseDatabase(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters, @JsonProperty("Players") List<Player> players,
-            @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("Session") Integer session) {
+            @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("XP") Map<Integer, List<XPEvent>> xP, @JsonProperty("Session") Integer session) {
         this.battles = battles;
         this.encounters = encounters;
         this.players = players;
@@ -44,7 +47,7 @@ public class BaseDatabase {
     @JsonProperty("CustomMonsters")
     private List<Monster> customMonsters;
     @JsonProperty("XP")
-    private List<XPEvent> xP;
+    private Map<Integer, List<XPEvent>> xP;
     @JsonProperty("Session")
     private Integer session;
 
@@ -80,11 +83,11 @@ public class BaseDatabase {
         this.customMonsters = customMonsters;
     }
 
-    public List<XPEvent> getxP() {
+    public Map<Integer, List<XPEvent>> getxP() {
         return xP;
     }
 
-    public void setxP(List<XPEvent> xP) {
+    public void setxP(Map<Integer, List<XPEvent>> xP) {
         this.xP = xP;
     }
 
