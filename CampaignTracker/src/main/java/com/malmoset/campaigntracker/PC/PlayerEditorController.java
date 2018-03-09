@@ -253,7 +253,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         public void cancelEdit() {
             super.cancelEdit();
 
-            setText((String) getItem());
+            setText(converter.toString(getItem()));
             setGraphic(null);
         }
 
@@ -352,7 +352,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         }
 
         private String getString() {
-            return getItem() == null ? "" : getItem().toString();
+            return getItem() == null ? "" : converter.toString(getItem());
         }
     }
 
