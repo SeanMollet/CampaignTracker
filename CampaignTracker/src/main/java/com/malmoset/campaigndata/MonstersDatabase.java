@@ -23,7 +23,7 @@ import javafx.collections.ObservableList;
  *
  * @author sean
  */
-public class MonstersDatabase {
+public final class MonstersDatabase {
 
     private ArrayList<Monster> monsters;
 

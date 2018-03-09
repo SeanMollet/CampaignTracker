@@ -6,6 +6,7 @@
 package com.malmoset.campaigntracker;
 
 import com.malmoset.campaigndata.Database;
+import com.malmoset.campaigndata.Loot.LootTables;
 import com.malmoset.campaigndata.MonstersDatabase;
 
 /**
@@ -17,10 +18,13 @@ public class AppData {
     public AppData() {
         db = new Database();
         mon_db = new MonstersDatabase();
+        loot = LootTables.loadLoot();
+
     }
 
     private Database db;
     private MonstersDatabase mon_db;
+    private LootTables loot;
 
     public Database getDb() {
         return db;

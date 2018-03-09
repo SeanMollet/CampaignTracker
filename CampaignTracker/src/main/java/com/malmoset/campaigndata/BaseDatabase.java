@@ -15,6 +15,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.malmoset.campaigndata.Loot.LootItem;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
@@ -28,14 +29,16 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BaseDatabase {
 
-    public BaseDatabase(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters, @JsonProperty("Players") List<Player> players,
-            @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("XP") Map<Integer, List<XPEvent>> xP, @JsonProperty("Session") Integer session) {
+    public BaseDatabase(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters,
+            @JsonProperty("Players") List<Player> players, @JsonProperty("CustomMonsters") List<Monster> customMonsters,
+            @JsonProperty("XP") Map<Integer, List<XPEvent>> xP, @JsonProperty("Session") Integer session, @JsonProperty("Loot") List<LootItem> loot) {
         this.battles = battles;
         this.encounters = encounters;
         this.players = players;
         this.customMonsters = customMonsters;
         this.xP = xP;
         this.session = session;
+        this.loot = loot;
     }
 
     @JsonProperty("Battles")
@@ -50,6 +53,8 @@ public class BaseDatabase {
     private Map<Integer, List<XPEvent>> xP;
     @JsonProperty("Session")
     private Integer session;
+    @JsonProperty("Loot")
+    private List<LootItem> loot;
 
     public List<Battle> getBattles() {
         return battles;
@@ -97,6 +102,14 @@ public class BaseDatabase {
 
     public void setSession(Integer session) {
         this.session = session;
+    }
+
+    public List<LootItem> getLoot() {
+        return loot;
+    }
+
+    public void setLoot(List<LootItem> loot) {
+        this.loot = loot;
     }
 
 }

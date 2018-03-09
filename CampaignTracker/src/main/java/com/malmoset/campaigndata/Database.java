@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.malmoset.campaigndata.Loot.LootItem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -52,11 +53,13 @@ public class Database {
     private MapProperty<Integer, ObservableList<XPEvent>> xP;
     @JsonProperty("Session")
     private IntegerProperty session;
+    @JsonProperty("Loot")
+    private ListProperty<LootItem> loot;
     @JsonIgnore
     private StringProperty campaignName;
 
     public Database(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters, @JsonProperty("Players") List<Player> players,
-            @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("Session") Integer session) {
+            @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("Session") Integer session, @JsonProperty("Loot") List<LootItem> loot) {
         this.battles = new SimpleListProperty(FXCollections.observableArrayList(battles));
 
         this.encounters = new SimpleListProperty(FXCollections.observableArrayList(encounters));
@@ -68,6 +71,7 @@ public class Database {
 
         this.session = new SimpleIntegerProperty(session);
         this.campaignName = new SimpleStringProperty("");
+        this.loot = new SimpleListProperty(FXCollections.observableArrayList(loot));
     }
 
     public Database() {
@@ -88,6 +92,9 @@ public class Database {
 
         session = new SimpleIntegerProperty(1);
         this.campaignName = new SimpleStringProperty("");
+
+        ArrayList<LootItem> loot_list = new ArrayList<>();
+        loot = new SimpleListProperty(FXCollections.observableArrayList(loot_list));
 
     }
 
@@ -134,6 +141,7 @@ public class Database {
                 if (custom != null && custom.size() > 0) {
                     MainApp.getAppData().getMon_db().ImportMonsters(custom);
                 }
+                loot.set(FXCollections.observableArrayList(newdb.getLoot()));
                 this.campaignName.set(Files.getNameWithoutExtension(file.toString()));
                 return true;
             } catch (JsonProcessingException ex) {
