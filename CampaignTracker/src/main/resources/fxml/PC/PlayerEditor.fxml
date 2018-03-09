@@ -16,6 +16,6 @@
         <Spinner fx:id="DmgSpinner" layoutX="10.0" layoutY="365.0" prefHeight="27.0" prefWidth="68.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="10.0" />
         <Button layoutX="95.0" layoutY="365.0" mnemonicParsing="false" onAction="#DmgAllClick" text="Dmg All" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="90.0" />
         <Button layoutX="169.0" layoutY="365.0" mnemonicParsing="false" onAction="#HealAllClick" text="Heal All" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="169.0" />
-      <Button layoutX="521.0" layoutY="365.0" mnemonicParsing="false" onAction="#AddClick" text="Add" AnchorPane.rightAnchor="10.0" />
+      <Button layoutX="521.0" layoutY="365.0" mnemonicParsing="false" onAction="#AddClick" text="Add" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="10.0" />
     </children>
 </AnchorPane>

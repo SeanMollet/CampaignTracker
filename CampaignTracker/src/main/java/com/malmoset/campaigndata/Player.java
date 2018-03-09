@@ -5,8 +5,11 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.malmoset.campaigntrackercontrols.HPAppearance;
+import java.util.Comparator;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -25,33 +28,54 @@ public class Player {
             @JsonProperty("Initiative") Integer initiative, @JsonProperty("AC") Integer aC, @JsonProperty("CurrentHP") Integer currentHP,
             @JsonProperty("MaxHP") Integer maxHP, @JsonProperty("Roll") Integer roll, @JsonProperty("Adv") Integer adv,
             @JsonProperty("Dead") Boolean dead, @JsonProperty("Stable") Boolean stable) {
-        this.name = new SimpleStringProperty(name);
-        this.race = new SimpleStringProperty(race);
-        this.character_class = new SimpleStringProperty(character_class);
-        this.initiative = new SimpleIntegerProperty(initiative);
-        this.aC = new SimpleIntegerProperty(aC);
-        this.currentHP = new SimpleIntegerProperty(currentHP);
-        this.maxHP = new SimpleIntegerProperty(maxHP);
-        this.roll = new SimpleIntegerProperty(roll);
-        this.adv = new SimpleIntegerProperty(adv);
-        this.dead = new SimpleBooleanProperty(dead);
-        this.stable = new SimpleBooleanProperty(stable);
-
+        this();
+        this.name.set(name);
+        this.race.set(race);
+        this.character_class.set(character_class);
+        this.initiative.set(initiative);
+        this.aC.set(aC);
+        this.currentHP.set(currentHP);
+        this.maxHP.set(maxHP);
+        this.roll.set(roll);
+        this.adv.set(adv);
+        this.dead.set(dead);
+        this.stable.set(stable);
+        setAppearance("");
+        BindProperties();
     }
 
     public Player() {
         this.name = new SimpleStringProperty("New Player");
-        this.race = new SimpleStringProperty();
+        this.race = new SimpleStringProperty("");
         this.character_class = new SimpleStringProperty();
-        this.initiative = new SimpleIntegerProperty();
-        this.aC = new SimpleIntegerProperty();
-        this.currentHP = new SimpleIntegerProperty();
-        this.maxHP = new SimpleIntegerProperty();
-        this.roll = new SimpleIntegerProperty();
-        this.adv = new SimpleIntegerProperty();
-        this.dead = new SimpleBooleanProperty();
-        this.stable = new SimpleBooleanProperty();
+        this.initiative = new SimpleIntegerProperty(0);
+        this.aC = new SimpleIntegerProperty(0);
+        this.currentHP = new SimpleIntegerProperty(0);
+        this.maxHP = new SimpleIntegerProperty(0);
+        this.roll = new SimpleIntegerProperty(0);
+        this.adv = new SimpleIntegerProperty(0);
+        this.dead = new SimpleBooleanProperty(false);
+        this.stable = new SimpleBooleanProperty(false);
+        this.hpToChange = new SimpleIntegerProperty(0);
+        setAppearance("");
+        BindProperties();
     }
+
+    private void BindProperties() {
+        this.currentHP.addListener((e) -> {
+            setAppearance("");
+        });
+        this.maxHP.addListener((e) -> {
+            setAppearance("");
+        });
+        this.dead.addListener((e) -> {
+            setAppearance("");
+        });
+        this.stable.addListener((e) -> {
+            setAppearance("");
+        });
+    }
+
     @JsonProperty("Name")
     private StringProperty name;
     @JsonProperty("Race")
@@ -74,8 +98,10 @@ public class Player {
     private BooleanProperty dead;
     @JsonProperty("Stable")
     private BooleanProperty stable;
-
+    @JsonIgnore
     private StringProperty appearance;
+    @JsonIgnore
+    private IntegerProperty hpToChange;
 
     public final String getName() {
         return name.get();
@@ -142,7 +168,19 @@ public class Player {
     }
 
     public final void setCurrentHP(int value) {
-        currentHP.set(value);
+        if (currentHP.get() != value) {
+            currentHP.set(value);
+            if (currentHP.get() > 0) {
+                this.stable.set(false);
+                this.dead.set(false);
+            }
+            if (currentHP.get() <= maxHP.get() * -2) {
+                this.stable.set(false);
+                this.dead.set(true);
+            }
+        }
+
+        setAppearance("");
     }
 
     public IntegerProperty currentHPProperty() {
@@ -155,6 +193,7 @@ public class Player {
 
     public final void setMaxHP(int value) {
         maxHP.set(value);
+        setAppearance("");
     }
 
     public IntegerProperty maxHPProperty() {
@@ -191,6 +230,7 @@ public class Player {
 
     public final void setDead(boolean value) {
         dead.set(value);
+        setAppearance("");
     }
 
     public BooleanProperty deadProperty() {
@@ -203,6 +243,7 @@ public class Player {
 
     public final void setStable(boolean value) {
         stable.set(value);
+        setAppearance("");
     }
 
     public BooleanProperty stableProperty() {
@@ -214,11 +255,48 @@ public class Player {
     }
 
     public final void setAppearance(String value) {
-        appearance.set(value);
+        String app = HPAppearance.Appearance(this.currentHP.get(), this.maxHP.get());
+        if (this.dead.get()) {
+            app = "Dead";
+        } else if (currentHP.get() <= 0 && this.stable.get()) {
+            app = "Stable";
+        } else if (currentHP.get() <= 0) {
+            app = "Unconscious";
+        }
+        if (appearance == null) {
+            appearance = new SimpleStringProperty();
+        }
+        appearance.set(app);
     }
 
     public StringProperty appearanceProperty() {
         return appearance;
     }
 
+    public final int getHpToChange() {
+        return hpToChange.get();
+    }
+
+    public final void setHpToChange(int value) {
+        hpToChange.set(value);
+    }
+
+    public IntegerProperty hpToChangeProperty() {
+        return hpToChange;
+    }
+
+    public static Comparator<Player> CompareInitiative() {
+        return (Player p1, Player p2) -> {
+            if (p1.getRoll() < p2.getRoll()) {
+                return 1;
+            }
+            if (p1.getRoll() > p2.getRoll()) {
+                return -1;
+            }
+            if (p1.getRoll() == p2.getRoll()) {
+                return -1 * Integer.compare(p1.getInitiative(), p2.getInitiative());
+            }
+            return 0;
+        };
+    }
 }
