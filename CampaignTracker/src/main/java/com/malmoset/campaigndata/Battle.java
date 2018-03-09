@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
@@ -59,10 +60,12 @@ public class Battle {
         return began;
     }
 
+    @JsonIgnore
     public final int getLiveMonsters() {
         return (int) monsters.stream().filter(x -> x.getCurrentHP() > 0 && !x.isPersuaded()).count();
     }
 
+    @JsonIgnore
     public final int getTotalMonsters() {
         return (int) monsters.stream().count();
     }

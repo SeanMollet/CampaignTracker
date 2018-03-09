@@ -9,11 +9,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.malmoset.campaigntrackercontrols.HPAppearance;
+import com.malmoset.dice.Dice;
 import java.util.Comparator;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -26,7 +29,7 @@ public class Player {
 
     public Player(@JsonProperty("Name") String name, @JsonProperty("Race") String race, @JsonProperty("Class") String character_class,
             @JsonProperty("Initiative") Integer initiative, @JsonProperty("AC") Integer aC, @JsonProperty("CurrentHP") Integer currentHP,
-            @JsonProperty("MaxHP") Integer maxHP, @JsonProperty("Roll") Integer roll, @JsonProperty("Adv") Integer adv,
+            @JsonProperty("MaxHP") Integer maxHP, @JsonProperty("Roll") Integer roll, @JsonProperty("Adv") Dice.RollTypes adv,
             @JsonProperty("Dead") Boolean dead, @JsonProperty("Stable") Boolean stable) {
         this();
         this.name.set(name);
@@ -53,7 +56,7 @@ public class Player {
         this.currentHP = new SimpleIntegerProperty(0);
         this.maxHP = new SimpleIntegerProperty(0);
         this.roll = new SimpleIntegerProperty(0);
-        this.adv = new SimpleIntegerProperty(0);
+        this.adv = new SimpleObjectProperty(Dice.RollTypes.NORMAL);
         this.dead = new SimpleBooleanProperty(false);
         this.stable = new SimpleBooleanProperty(false);
         this.hpToChange = new SimpleIntegerProperty(0);
@@ -76,37 +79,28 @@ public class Player {
         });
     }
 
-    @JsonProperty("Name")
     private StringProperty name;
-    @JsonProperty("Race")
     private StringProperty race;
-    @JsonProperty("Class")
     private StringProperty character_class;
-    @JsonProperty("Initiative")
     private IntegerProperty initiative;
-    @JsonProperty("AC")
     private IntegerProperty aC;
-    @JsonProperty("CurrentHP")
     private IntegerProperty currentHP;
-    @JsonProperty("MaxHP")
     private IntegerProperty maxHP;
-    @JsonProperty("Roll")
     private IntegerProperty roll;
-    @JsonProperty("Adv")
-    private IntegerProperty adv;
-    @JsonProperty("Dead")
+    private ObjectProperty<Dice.RollTypes> adv;
     private BooleanProperty dead;
-    @JsonProperty("Stable")
     private BooleanProperty stable;
     @JsonIgnore
     private StringProperty appearance;
     @JsonIgnore
     private IntegerProperty hpToChange;
 
+    @JsonProperty("Name")
     public final String getName() {
         return name.get();
     }
 
+    @JsonProperty("Name")
     public final void setName(String value) {
         name.set(value);
     }
@@ -115,10 +109,12 @@ public class Player {
         return name;
     }
 
+    @JsonProperty("Race")
     public final String getRace() {
         return race.get();
     }
 
+    @JsonProperty("Race")
     public final void setRace(String value) {
         race.set(value);
     }
@@ -127,10 +123,12 @@ public class Player {
         return race;
     }
 
+    @JsonProperty("Class")
     public final String getCharacter_class() {
         return character_class.get();
     }
 
+    @JsonProperty("Class")
     public final void setCharacter_class(String value) {
         character_class.set(value);
     }
@@ -139,10 +137,12 @@ public class Player {
         return character_class;
     }
 
+    @JsonProperty("Initiative")
     public final int getInitiative() {
         return initiative.get();
     }
 
+    @JsonProperty("Initiative")
     public final void setInitiative(int value) {
         initiative.set(value);
     }
@@ -151,10 +151,12 @@ public class Player {
         return initiative;
     }
 
+    @JsonProperty("AC")
     public final int getAC() {
         return aC.get();
     }
 
+    @JsonProperty("AC")
     public final void setAC(int value) {
         aC.set(value);
     }
@@ -163,10 +165,12 @@ public class Player {
         return aC;
     }
 
+    @JsonProperty("CurrentHP")
     public final int getCurrentHP() {
         return currentHP.get();
     }
 
+    @JsonProperty("CurrentHP")
     public final void setCurrentHP(int value) {
         if (currentHP.get() != value) {
             currentHP.set(value);
@@ -187,10 +191,12 @@ public class Player {
         return currentHP;
     }
 
+    @JsonProperty("MaxHP")
     public final int getMaxHP() {
         return maxHP.get();
     }
 
+    @JsonProperty("MaxHP")
     public final void setMaxHP(int value) {
         maxHP.set(value);
         setAppearance("");
@@ -200,10 +206,12 @@ public class Player {
         return maxHP;
     }
 
+    @JsonProperty("Roll")
     public final int getRoll() {
         return roll.get();
     }
 
+    @JsonProperty("Roll")
     public final void setRoll(int value) {
         roll.set(value);
     }
@@ -212,22 +220,26 @@ public class Player {
         return roll;
     }
 
-    public final int getAdv() {
+    @JsonProperty("Adv")
+    public final Dice.RollTypes getAdv() {
         return adv.get();
     }
 
-    public final void setAdv(int value) {
+    @JsonProperty("Adv")
+    public final void setAdv(Dice.RollTypes value) {
         adv.set(value);
     }
 
-    public IntegerProperty advProperty() {
+    public ObjectProperty<Dice.RollTypes> advProperty() {
         return adv;
     }
 
+    @JsonProperty("Dead")
     public final boolean isDead() {
         return dead.get();
     }
 
+    @JsonProperty("Dead")
     public final void setDead(boolean value) {
         dead.set(value);
         setAppearance("");
@@ -237,10 +249,12 @@ public class Player {
         return dead;
     }
 
+    @JsonProperty("Stable")
     public final boolean isStable() {
         return stable.get();
     }
 
+    @JsonProperty("Stable")
     public final void setStable(boolean value) {
         stable.set(value);
         setAppearance("");

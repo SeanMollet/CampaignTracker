@@ -5,6 +5,7 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
@@ -23,45 +24,61 @@ import javafx.beans.property.SimpleObjectProperty;
 public class BattleMonster extends Monster {
 
     public BattleMonster(@JsonProperty("Spawned") LocalDateTime spawned, @JsonProperty("Index") Integer index,
-            @JsonProperty("Persuaded") Boolean persuaded, @JsonProperty("XPGiven") Integer xPGiven) {
+            @JsonProperty("Persuaded") Boolean persuaded, @JsonProperty("XPGiven") Integer xPGiven, @JsonProperty("CurrentHP") Integer currenthp) {
+        super();
         this.spawned = new SimpleObjectProperty<>(spawned);
         this.index = new SimpleIntegerProperty(index);
         this.persuaded = new SimpleBooleanProperty(persuaded);
         this.xPGiven = new SimpleIntegerProperty(xPGiven);
+        this.savingRoll = new SimpleIntegerProperty();
+        this.hPtoChange = new SimpleIntegerProperty();
+        this.currentHP = new SimpleIntegerProperty(currenthp);
     }
 
-    public BattleMonster(Monster monster) {
-
+    public BattleMonster() {
+        super();
+        this.spawned = new SimpleObjectProperty<>(LocalDateTime.now());
+        this.index = new SimpleIntegerProperty();
+        this.persuaded = new SimpleBooleanProperty();
+        this.xPGiven = new SimpleIntegerProperty();
+        this.savingRoll = new SimpleIntegerProperty();
+        this.hPtoChange = new SimpleIntegerProperty();
+        this.currentHP = new SimpleIntegerProperty();
     }
-    @JsonProperty("Spawned")
+
     private ObjectProperty<LocalDateTime> spawned;
-    @JsonProperty("Index")
     private IntegerProperty index;
     @JsonProperty("Persuaded")
     private BooleanProperty persuaded;
-    @JsonProperty("XPGiven")
     private IntegerProperty xPGiven;
+    @JsonIgnore
     private IntegerProperty savingRoll;
+    @JsonIgnore
     private IntegerProperty hPtoChange;
-
+    @JsonIgnore
     private boolean currentHPSet = false;
-    private int currentHP;
+
+    @JsonProperty("CurrentHP")
+    private IntegerProperty currentHP;
 
     public int getCurrentHP() {
         if (!currentHPSet) {
-            currentHP = this.getHP().getHpValue();
+            currentHP.set(this.getHP().getHpValue());
         }
-        return currentHP;
+        return currentHP.get();
     }
 
     public void setCurrentHP(int value) {
-        currentHP = value;
+        currentHP.set(value);
+        currentHPSet = true;
     }
 
+    @JsonProperty("Spawned")
     public final LocalDateTime getSpawned() {
         return spawned.get();
     }
 
+    @JsonProperty("Spawned")
     public final void setSpawned(LocalDateTime value) {
         spawned.set(value);
     }
@@ -70,10 +87,12 @@ public class BattleMonster extends Monster {
         return spawned;
     }
 
+    @JsonProperty("Index")
     public final int getIndex() {
         return index.get();
     }
 
+    @JsonProperty("Index")
     public final void setIndex(int value) {
         index.set(value);
     }
@@ -94,10 +113,12 @@ public class BattleMonster extends Monster {
         return persuaded;
     }
 
+    @JsonProperty("XPGiven")
     public final int getXPGiven() {
         return xPGiven.get();
     }
 
+    @JsonProperty("XPGiven")
     public final void setXPGiven(int value) {
         xPGiven.set(value);
     }

@@ -13,11 +13,11 @@ import com.malmoset.campaigntrackercontrols.IntegerStringConverter;
 import com.malmoset.campaigntrackercontrols.SpinnerUtils;
 import com.malmoset.campaigntrackercontrols.Styles;
 import com.malmoset.controls.BaseForm;
-import com.malmoset.dice.Dice;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -100,7 +100,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         TableColumn<Player, Integer> col6 = new TableColumn<>("Max HP");
         TableColumn<Player, Integer> col7 = new TableColumn<>("Dex");
         TableColumn<Player, Integer> col8 = new TableColumn<>("Roll");
-        TableColumn<Player, Integer> col9 = new TableColumn<>("Adv");
+        TableColumn<Player, String> col9 = new TableColumn<>("Adv");
         TableColumn<Player, Boolean> col10 = new TableColumn<>("Dead");
         TableColumn<Player, Boolean> col11 = new TableColumn<>("Stable");
         TableColumn<Player, String> col12 = new TableColumn<>("Appearance");
@@ -114,7 +114,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         col6.setCellValueFactory(cellData -> cellData.getValue().maxHPProperty().asObject());
         col7.setCellValueFactory(cellData -> cellData.getValue().initiativeProperty().asObject());
         col8.setCellValueFactory(cellData -> cellData.getValue().rollProperty().asObject());
-        col9.setCellValueFactory(cellData -> cellData.getValue().advProperty().asObject());
+        col9.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().advProperty().toString()));
         col10.setCellValueFactory(cellData -> cellData.getValue().deadProperty());
         col11.setCellValueFactory(cellData -> cellData.getValue().stableProperty());
         col12.setCellValueFactory(cellData -> cellData.getValue().appearanceProperty());
@@ -123,13 +123,14 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         col1.setCellFactory(strcellFactory);
         col2.setCellFactory(strcellFactory);
         col3.setCellFactory(strcellFactory);
+        col9.setCellFactory(strcellFactory);
 
         col4.setCellFactory(intcellFactory);
         col5.setCellFactory(intcellFactory);
         col6.setCellFactory(intcellFactory);
         col7.setCellFactory(intcellFactory);
         col8.setCellFactory(intcellFactory);
-        col9.setCellFactory(intcellFactory);
+
         col13.setCellFactory(intcellFactory);
 
         col10.setCellFactory(tc -> new CheckBoxTableCell<>());
@@ -181,8 +182,8 @@ public class PlayerEditorController extends BaseForm implements Initializable {
     private void RollInitClick(ActionEvent event) {
         ObservableList<Player> players = MainApp.getAppData().getDb().getPlayers();
         for (Player player : players) {
-            int roll = Dice.roll(20, Dice.RollTypes.values()[player.getAdv()]) + player.getInitiative();
-            player.setRoll(roll);
+            //int roll = Dice.roll(20, Dice.RollTypes.values()[player.getAdv()]) + player.getInitiative();
+            //player.setRoll(roll);
         }
         //Switch to sorting by roll and initiative modifier
         BindSortedList();

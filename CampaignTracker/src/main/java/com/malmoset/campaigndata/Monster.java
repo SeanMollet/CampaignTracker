@@ -412,4 +412,19 @@ public class Monster {
 
         return new Monster();
     }
+
+    public BattleMonster readyForBattle() {
+        ObjectMapper mapper = new ObjectMapper();
+        //mapper.configure(SerializationFeature.FAIL_ON_SELF_REFERENCES, false);
+        String json;
+        try {
+            json = mapper.writeValueAsString(this);
+            BattleMonster newmonster = mapper.readValue(json, BattleMonster.class);
+            return newmonster;
+        } catch (Exception ex) {
+            Logger.getLogger(Monster.class.getName()).log(Level.INFO, null, ex);
+        }
+
+        return new BattleMonster();
+    }
 }

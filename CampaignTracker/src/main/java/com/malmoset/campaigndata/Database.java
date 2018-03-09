@@ -5,14 +5,15 @@
  */
 package com.malmoset.campaigndata;
 
-import com.malmoset.campaigndata.Loot.LootItem;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.common.io.Files;
+import com.malmoset.campaigndata.Loot.LootItem;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterManagerController;
 import java.io.File;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.MapProperty;
@@ -101,8 +103,15 @@ public class Database {
     public void SaveFile(File file) {
         if (file != null) {
 
+            //Copy over any custom monsters we have
+            List<Monster> customs = MainApp.getAppData().getMon_db().getMonstersBind().stream().filter(x -> x.isReadOnly() == false).collect(Collectors.toList());
+            if (customs != null) {
+                customMonsters = new SimpleListProperty(FXCollections.observableArrayList(customs));
+            }
+
             ObjectMapper mapper = new ObjectMapper();
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
             try {
                 mapper.writeValue(file, this);
                 this.campaignName.set(Files.getNameWithoutExtension(file.toString()));
@@ -121,11 +130,14 @@ public class Database {
 
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
+            mapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
 
             try {
                 //Replace .net formatted datetime with ISO standard (also removes timezone)
                 String json = new String(java.nio.file.Files.readAllBytes(file.toPath()));
                 json = json.replaceAll("(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3})[\\d:-]+", "$1");
+                //We renamed this field, typo in the .net version
+                json = json.replaceAll("\"monsters\"", "\"Monsters\"");
                 BaseDatabase newdb = mapper.readValue(json, BaseDatabase.class);
                 battles.set(FXCollections.observableArrayList(newdb.getBattles()));
                 encounters.set(FXCollections.observableArrayList(newdb.getEncounters()));
