@@ -149,7 +149,7 @@ public class MainMenuController implements Initializable {
         fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
         File file = fileChooser.showSaveDialog(stage);
 
-        if (file != null && file.length() > 0) {
+        if (file != null) {
             MainApp.getAppData().getDb().SaveFile(file);
         }
     }

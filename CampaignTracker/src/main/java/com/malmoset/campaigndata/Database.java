@@ -57,6 +57,8 @@ public class Database {
     private IntegerProperty session;
     @JsonProperty("Loot")
     private ListProperty<LootItem> loot;
+    @JsonProperty("DBVersion")
+    private Integer dbVersion = 1;
     @JsonIgnore
     private StringProperty campaignName;
 
@@ -135,7 +137,7 @@ public class Database {
             try {
                 //Replace .net formatted datetime with ISO standard (also removes timezone)
                 String json = new String(java.nio.file.Files.readAllBytes(file.toPath()));
-                json = json.replaceAll("(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3})[\\d:-]+", "$1");
+                json = json.replaceAll("(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{2})[\\d:-]+", "$1");
                 //We renamed this field, typo in the .net version
                 json = json.replaceAll("\"monsters\"", "\"Monsters\"");
                 BaseDatabase newdb = mapper.readValue(json, BaseDatabase.class);
@@ -247,6 +249,14 @@ public class Database {
 
     public StringProperty campaignNameProperty() {
         return campaignName;
+    }
+
+    public Integer getDbVersion() {
+        return dbVersion;
+    }
+
+    public void setDbVersion(Integer dbVersion) {
+        this.dbVersion = dbVersion;
     }
 
 }

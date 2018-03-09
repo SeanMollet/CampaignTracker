@@ -8,8 +8,8 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import javafx.beans.property.IntegerProperty;
@@ -24,9 +24,9 @@ import javafx.beans.property.SimpleObjectProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Battle {
 
-    public Battle(@JsonProperty("Began") LocalDateTime began, @JsonProperty("Monsters") List<BattleMonster> monsters,
+    public Battle(@JsonProperty("Began") Date began, @JsonProperty("Monsters") List<BattleMonster> monsters,
             @JsonProperty("BattleNumber") Integer battleNumber, @JsonProperty("Session") Integer session) {
-        this.began = new SimpleObjectProperty<LocalDateTime>(began);
+        this.began = new SimpleObjectProperty<Date>(began);
         this.monsters = monsters;
         this.battleNumber = new SimpleIntegerProperty(battleNumber);
         this.session = new SimpleIntegerProperty(session);
@@ -34,13 +34,13 @@ public class Battle {
 
     public Battle() {
         monsters = new ArrayList<BattleMonster>();
-        this.began = new SimpleObjectProperty<LocalDateTime>();
+        this.began = new SimpleObjectProperty<Date>();
         this.battleNumber = new SimpleIntegerProperty();
         this.session = new SimpleIntegerProperty();
     }
     @JsonProperty("Began")
-    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSX")
-    private ObjectProperty<LocalDateTime> began;
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
+    private ObjectProperty<Date> began;
     @JsonProperty("Monsters")
     private List<BattleMonster> monsters;
     @JsonProperty("BattleNumber")
@@ -48,15 +48,15 @@ public class Battle {
     @JsonProperty("Session")
     private IntegerProperty session;
 
-    public final LocalDateTime getBegan() {
+    public final Date getBegan() {
         return began.get();
     }
 
-    public final void setBegan(LocalDateTime value) {
+    public final void setBegan(Date value) {
         began.set(value);
     }
 
-    public ObjectProperty<LocalDateTime> beganProperty() {
+    public ObjectProperty<Date> beganProperty() {
         return began;
     }
 

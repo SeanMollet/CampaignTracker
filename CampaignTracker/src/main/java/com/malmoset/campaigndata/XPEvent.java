@@ -7,7 +7,7 @@ package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.LocalDateTime;
+import java.util.Date;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -22,7 +22,7 @@ import javafx.beans.property.StringProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class XPEvent {
 
-    public XPEvent(@JsonProperty("Timestamp") LocalDateTime timestamp, @JsonProperty("Session") Integer session,
+    public XPEvent(@JsonProperty("Timestamp") Date timestamp, @JsonProperty("Session") Integer session,
             @JsonProperty("Battle") Integer battle, @JsonProperty("Event") String event, @JsonProperty("Monster") String monster, @JsonProperty("XP") Integer xP) {
         this.timestamp = new SimpleObjectProperty<>(timestamp);
         this.session = new SimpleIntegerProperty(session);
@@ -33,7 +33,7 @@ public class XPEvent {
     }
 
     public XPEvent() {
-        this.timestamp = new SimpleObjectProperty<>(LocalDateTime.now());
+        this.timestamp = new SimpleObjectProperty<>(new Date());
         this.session = new SimpleIntegerProperty(0);
         this.battle = new SimpleIntegerProperty(0);
         this.event = new SimpleStringProperty("");
@@ -41,36 +41,35 @@ public class XPEvent {
         this.xP = new SimpleIntegerProperty(0);
     }
 
-    @JsonProperty("Timestamp")
-    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSX")
-    private ObjectProperty<LocalDateTime> timestamp;
-    @JsonProperty("Session")
+    private ObjectProperty<Date> timestamp;
     private IntegerProperty session;
-    @JsonProperty("Battle")
     private IntegerProperty battle;
-    @JsonProperty("Event")
     private StringProperty event;
-    @JsonProperty("Monster")
     private StringProperty monster;
-    @JsonProperty("XP")
     private IntegerProperty xP;
 
-    public final LocalDateTime getTimestamp() {
+    @JsonProperty("Timestamp")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
+    public final Date getTimestamp() {
         return timestamp.get();
     }
 
-    public final void setTimestamp(LocalDateTime value) {
+    @JsonProperty("Timestamp")
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
+    public final void setTimestamp(Date value) {
         timestamp.set(value);
     }
 
-    public ObjectProperty<LocalDateTime> timestampProperty() {
+    public ObjectProperty<Date> timestampProperty() {
         return timestamp;
     }
 
+    @JsonProperty("Session")
     public final int getSession() {
         return session.get();
     }
 
+    @JsonProperty("Session")
     public final void setSession(int value) {
         session.set(value);
     }
@@ -79,10 +78,12 @@ public class XPEvent {
         return session;
     }
 
+    @JsonProperty("Battle")
     public final int getBattle() {
         return battle.get();
     }
 
+    @JsonProperty("Battle")
     public final void setBattle(int value) {
         battle.set(value);
     }
@@ -91,10 +92,12 @@ public class XPEvent {
         return battle;
     }
 
+    @JsonProperty("Event")
     public final String getEvent() {
         return event.get();
     }
 
+    @JsonProperty("Event")
     public final void setEvent(String value) {
         event.set(value);
     }
@@ -103,10 +106,12 @@ public class XPEvent {
         return event;
     }
 
+    @JsonProperty("Monster")
     public final String getMonster() {
         return monster.get();
     }
 
+    @JsonProperty("Monster")
     public final void setMonster(String value) {
         monster.set(value);
     }
@@ -115,10 +120,12 @@ public class XPEvent {
         return monster;
     }
 
+    @JsonProperty("XP")
     public final int getXP() {
         return xP.get();
     }
 
+    @JsonProperty("XP")
     public final void setXP(int value) {
         xP.set(value);
     }

@@ -8,7 +8,7 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.time.LocalDateTime;
+import java.util.Date;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -23,7 +23,7 @@ import javafx.beans.property.SimpleObjectProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BattleMonster extends Monster {
 
-    public BattleMonster(@JsonProperty("Spawned") LocalDateTime spawned, @JsonProperty("Index") Integer index,
+    public BattleMonster(@JsonProperty("Spawned") Date spawned, @JsonProperty("Index") Integer index,
             @JsonProperty("Persuaded") Boolean persuaded, @JsonProperty("XPGiven") Integer xPGiven, @JsonProperty("CurrentHP") Integer currenthp) {
         super();
         this.spawned = new SimpleObjectProperty<>(spawned);
@@ -37,7 +37,7 @@ public class BattleMonster extends Monster {
 
     public BattleMonster() {
         super();
-        this.spawned = new SimpleObjectProperty<>(LocalDateTime.now());
+        this.spawned = new SimpleObjectProperty<>(new Date());
         this.index = new SimpleIntegerProperty();
         this.persuaded = new SimpleBooleanProperty();
         this.xPGiven = new SimpleIntegerProperty();
@@ -46,7 +46,7 @@ public class BattleMonster extends Monster {
         this.currentHP = new SimpleIntegerProperty();
     }
 
-    private ObjectProperty<LocalDateTime> spawned;
+    private ObjectProperty<Date> spawned;
     private IntegerProperty index;
     @JsonProperty("Persuaded")
     private BooleanProperty persuaded;
@@ -74,16 +74,18 @@ public class BattleMonster extends Monster {
     }
 
     @JsonProperty("Spawned")
-    public final LocalDateTime getSpawned() {
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
+    public final Date getSpawned() {
         return spawned.get();
     }
 
     @JsonProperty("Spawned")
-    public final void setSpawned(LocalDateTime value) {
+    //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
+    public final void setSpawned(Date value) {
         spawned.set(value);
     }
 
-    public ObjectProperty<LocalDateTime> spawnedProperty() {
+    public ObjectProperty<Date> spawnedProperty() {
         return spawned;
     }
 
