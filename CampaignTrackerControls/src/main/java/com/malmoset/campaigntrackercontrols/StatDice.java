@@ -100,6 +100,17 @@ public class StatDice extends AnchorPane {
                 statDiceSize.set(diceVal.get(new_value.intValue()));
             }
         });
+
+        DiceCount.focusedProperty().addListener((s, ov, nv) -> {
+            if (!nv) {
+                SpinnerUtils.commitEditorText(DiceCount);
+            }
+        });
+        Modifier.focusedProperty().addListener((s, ov, nv) -> {
+            if (!nv) {
+                SpinnerUtils.commitEditorText(Modifier);
+            }
+        });
     }
 
     public final int getStatDiceCount() {

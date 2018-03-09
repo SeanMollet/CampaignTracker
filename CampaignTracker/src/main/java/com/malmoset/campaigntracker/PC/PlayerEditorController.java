@@ -10,6 +10,7 @@ import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
 import com.malmoset.campaigntrackercontrols.IntegerStringConverter;
+import com.malmoset.campaigntrackercontrols.SpinnerUtils;
 import com.malmoset.campaigntrackercontrols.Styles;
 import com.malmoset.controls.BaseForm;
 import com.malmoset.dice.Dice;
@@ -63,6 +64,11 @@ public class PlayerEditorController extends BaseForm implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         DataBind();
+        DmgSpinner.focusedProperty().addListener((s, ov, nv) -> {
+            if (!nv) {
+                SpinnerUtils.commitEditorText(DmgSpinner);
+            }
+        });
     }
 
     public void DataBind() {
