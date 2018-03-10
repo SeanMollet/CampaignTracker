@@ -14,6 +14,7 @@ import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
+import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
 import com.malmoset.campaigntrackercontrols.Styles;
 import com.malmoset.controls.BaseForm;
 import java.io.File;
@@ -86,16 +87,27 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         col3.setCellValueFactory(new PropertyValueFactory<>("DisplayType"));
         col4.setCellValueFactory(cellData -> cellData.getValue().getChallenge());
 
-        TableColumn<Monster, String> col5 = ButtonCol("Battle", "Add", Styles.getSmall(), event -> {
-//                                Person person = getTableView().getItems().get(getIndex());
-//                                System.out.println(person.getFirstName()
-//                                        + "   " + person.getLastName());
-        });
-        TableColumn<Monster, String> col6 = ButtonCol("Encounter", "Add", Styles.getSmall(), event -> {
-//                                Person person = getTableView().getItems().get(getIndex());
-//                                System.out.println(person.getFirstName()
-//                                        + "   " + person.getLastName());
-        });
+//        TableColumn<Monster, String> col5 = ButtonCol("Battle", "Add", Styles.getSmall(), event -> {
+//                                Monster monster = getTableView().getItems().get(getIndex());
+////                                System.out.println(person.getFirstName()
+////                                        + "   " + person.getLastName());
+//        });
+        TableColumn<Monster, Button> col5 = new TableColumn<>("Add");
+        col5.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+        col5.setCellFactory(ActionButtonTableCell.<Monster>forTableColumn("Battle", Styles.getSmall(), (Monster monster) -> {
+            if (MainApp.getAppData().current_battleProperty().get() != null) {
+                MainApp.getAppData().current_battleProperty().get().getMonsters().add(monster.readyForBattle());
+            }
+            return monster;
+        }));
+        TableColumn<Monster, Button> col6 = new TableColumn<>("Add");
+        col6.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
+        col6.setCellFactory(ActionButtonTableCell.<Monster>forTableColumn("Encounter", Styles.getSmall(), (Monster monster) -> {
+            if (MainApp.getAppData().current_encounterProperty().get() != null) {
+                MainApp.getAppData().current_encounterProperty().get().getMonsters().add(monster.readyForBattle());
+            }
+            return monster;
+        }));
         MonstersTable.getColumns().addAll(col1, col2, col3, col4, col5, col6);
 
         //Set up the rows
@@ -157,7 +169,7 @@ public class MonsterManagerController extends BaseForm implements Initializable 
 
     private void LoadMonster(Monster monster) {
 
-        MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Manager", true);
+        MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Viewer", true);
         controller.setMonster(monster.clone());
 
         controller.Show();

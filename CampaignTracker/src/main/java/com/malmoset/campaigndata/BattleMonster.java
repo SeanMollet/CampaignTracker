@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
+import java.util.List;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -24,15 +25,35 @@ import javafx.beans.property.SimpleObjectProperty;
 public class BattleMonster extends Monster {
 
     public BattleMonster(@JsonProperty("Spawned") Date spawned, @JsonProperty("Index") Integer index,
-            @JsonProperty("Persuaded") Boolean persuaded, @JsonProperty("XPGiven") Integer xPGiven, @JsonProperty("CurrentHP") Integer currenthp) {
-        super();
-        this.spawned = new SimpleObjectProperty<>(spawned);
-        this.index = new SimpleIntegerProperty(index);
-        this.persuaded = new SimpleBooleanProperty(persuaded);
-        this.xPGiven = new SimpleIntegerProperty(xPGiven);
-        this.savingRoll = new SimpleIntegerProperty();
-        this.hPtoChange = new SimpleIntegerProperty();
-        this.currentHP = new SimpleIntegerProperty(currenthp);
+            @JsonProperty("Persuaded") Boolean persuaded, @JsonProperty("XPGiven") Integer xPGiven, @JsonProperty("CurrentHP") Integer currenthp,
+            //Below here are directly from moster
+            @JsonProperty("Name") String name, @JsonProperty("Size") CreatureSize size, @JsonProperty("Type") String type,
+            @JsonProperty("Tags") List<String> tags, @JsonProperty("Source") String source, @JsonProperty("Alignment") String alignment,
+            @JsonProperty("AC") AC aC, @JsonProperty("HP") HP hP, @JsonProperty("InitiativeModifier") Integer initiativeModifier,
+            @JsonProperty("Speed") List<GenericValueString> speed, @JsonProperty("Abilities") Abilities abilities,
+            @JsonProperty("DamageVulnerabilities") List<GenericValueString> damageVulnerabilities, @JsonProperty("DamageResistances") List<GenericValueString> damageResistances,
+            @JsonProperty("DamageImmunities") List<GenericValueString> damageImmunities, @JsonProperty("ConditionImmunities") List<GenericValueString> conditionImmunities,
+            @JsonProperty("Saves") List<StatWithModifier> saves, @JsonProperty("Skills") List<StatWithModifier> skills, @JsonProperty("Senses") List<GenericValueString> senses,
+            @JsonProperty("Languages") List<GenericValueString> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Action> traits,
+            @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Action> reactions, @JsonProperty("LegendaryActions") List<Action> legendaryActions,
+            @JsonProperty("Spells") List<GenericValueString> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("Unknown") Boolean unknown, @JsonProperty("ReadOnly") Boolean readOnly) {
+        super(name, size, type,
+                tags, source, alignment,
+                aC, hP, initiativeModifier,
+                speed, abilities,
+                damageVulnerabilities, damageResistances,
+                damageImmunities, conditionImmunities,
+                saves, skills, senses,
+                languages, challenge, traits,
+                actions, reactions, legendaryActions,
+                spells, hidden, unknown, readOnly);
+        this.spawned = new SimpleObjectProperty<>(spawned != null ? spawned : new Date());
+        this.index = new SimpleIntegerProperty(index != null ? index : 0);
+        this.persuaded = new SimpleBooleanProperty(persuaded != null ? persuaded : false);
+        this.xPGiven = new SimpleIntegerProperty(xPGiven != null ? xPGiven : 0);
+        this.savingRoll = new SimpleIntegerProperty(0);
+        this.hPtoChange = new SimpleIntegerProperty(0);
+        this.currentHP = new SimpleIntegerProperty(currenthp != null ? currenthp : hP.getHpValue());
     }
 
     public BattleMonster() {

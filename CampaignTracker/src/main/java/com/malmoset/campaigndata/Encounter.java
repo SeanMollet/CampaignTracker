@@ -7,12 +7,20 @@ package com.malmoset.campaigndata;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -26,14 +34,21 @@ public class Encounter {
         this.name = new SimpleStringProperty(name);
         this.challenge = new SimpleObjectProperty<>(challenge);
         this.description = new SimpleStringProperty(description);
-        this.monsters = monsters;
+        this.monsters = new SimpleListProperty(FXCollections.observableArrayList(monsters));;
     }
 
     public Encounter() {
         this.name = new SimpleStringProperty();
         challenge = new SimpleObjectProperty<>(new Fraction(1));
         this.description = new SimpleStringProperty();
-        monsters = new ArrayList<Monster>();
+        monsters = new SimpleListProperty(FXCollections.observableArrayList(new ArrayList<Monster>()));
+    }
+
+    private void BindData() {
+        monsters.get().addListener((ListChangeListener<Monster>) c
+                -> {
+            setChallenge(null);
+        });
     }
 
     @JsonProperty("Name")
@@ -43,7 +58,7 @@ public class Encounter {
     @JsonProperty("Description")
     private StringProperty description;
     @JsonProperty("Monsters")
-    private List<Monster> monsters;
+    private ListProperty<Monster> monsters;
 
     public final String getName() {
         return name.get();
@@ -62,7 +77,11 @@ public class Encounter {
     }
 
     public final void setChallenge(Fraction value) {
-        challenge.set(value);
+        Fraction sum = new Fraction(0);
+        for (Monster monster : monsters) {
+            sum = Fraction.add(sum, monster.getChallenge(), true);
+        }
+        challenge.set(sum);
     }
 
     public ObjectProperty<Fraction> challengeProperty() {
@@ -81,12 +100,30 @@ public class Encounter {
         return description;
     }
 
-    public List<Monster> getMonsters() {
+    public final ObservableList<Monster> getMonsters() {
+        return monsters.get();
+    }
+
+    public final void setMonsters(ObservableList<Monster> value) {
+        monsters.set(value);
+    }
+
+    public ListProperty<Monster> monstersProperty() {
         return monsters;
     }
 
-    public void setMonsters(List<Monster> monsters) {
-        this.monsters = monsters;
-    }
+    public Encounter Clone() {
+        ObjectMapper mapper = new ObjectMapper();
 
+        String json;
+        try {
+            json = mapper.writeValueAsString(this);
+            Encounter newencounter = mapper.readValue(json, Encounter.class);
+            return newencounter;
+        } catch (Exception ex) {
+            Logger.getLogger(Monster.class.getName()).log(Level.INFO, null, ex);
+        }
+
+        return new Encounter();
+    }
 }

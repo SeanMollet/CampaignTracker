@@ -22,15 +22,27 @@ import javafx.stage.Stage;
 public class BaseForm {
 
     private Scene scene;
+    private Stage stage;
 
     public void setScene(Scene scene) {
         this.scene = scene;
+        if (scene != null) {
+            stage = (Stage) scene.getWindow();
+            stage.focusedProperty().addListener((s, ov, nv) -> {
+                if (nv) {
+                    onActivated();
+                }
+            });
+        }
+    }
+
+    public void onActivated() {
 
     }
 
     public void Show() {
         if (scene != null) {
-            Stage stage = (Stage) scene.getWindow();
+            stage = (Stage) scene.getWindow();
             stage.show();
         }
     }
@@ -46,7 +58,6 @@ public class BaseForm {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             BaseForm form = (BaseForm) loader.getController();
-            form.setScene(scene);
 
             scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
                 if (event.getCode().equals(KeyCode.ESCAPE)) {
@@ -62,6 +73,7 @@ public class BaseForm {
             //scene.getStylesheets().add(Style);
             stage.setTitle(Name);
             stage.setScene(scene);
+            form.setScene(scene);
             stage.setResizable(resizable);
             if (resizable) {
                 if (root instanceof AnchorPane) {

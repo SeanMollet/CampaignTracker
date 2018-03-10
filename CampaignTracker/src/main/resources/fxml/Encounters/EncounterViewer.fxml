@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.Encounters.EncounterViewerController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.Encounters.EncounterViewerController">
     <stylesheets>
-        <URL value="@/styles/Styles.css"/>
+        <URL value="@/styles/Styles.css" />
     </stylesheets>
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Name" AnchorPane.leftAnchor="10.0" />
+      <TextField fx:id="NameBox" layoutX="50.0" layoutY="9.0" prefHeight="27.0" prefWidth="400.0" AnchorPane.topAnchor="8.0" />
+      <Label layoutX="14.0" layoutY="46.0" text="Desc" AnchorPane.leftAnchor="10.0" />
+      <TextArea fx:id="DescBox" layoutX="50.0" layoutY="40.0" prefHeight="84.0" prefWidth="542.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+      <Button layoutX="527.0" layoutY="9.0" mnemonicParsing="false" onAction="#SaveClick" text="Save" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="8.0" />
+      <TableView fx:id="MonstersTable" layoutX="12.0" layoutY="130.0" prefHeight="210.0" prefWidth="238.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="130.0" />
+      <Button layoutX="484.0" layoutY="9.0" mnemonicParsing="false" onAction="#DeleteClick" text="Delete" AnchorPane.topAnchor="8.0" />
+   </children>
 </AnchorPane>

@@ -38,7 +38,7 @@ public class Monster {
             @JsonProperty("Saves") List<StatWithModifier> saves, @JsonProperty("Skills") List<StatWithModifier> skills, @JsonProperty("Senses") List<GenericValueString> senses,
             @JsonProperty("Languages") List<GenericValueString> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Action> traits,
             @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Action> reactions, @JsonProperty("LegendaryActions") List<Action> legendaryActions,
-            @JsonProperty("Spells") List<GenericValueString> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("ReadOnly") Boolean readOnly) {
+            @JsonProperty("Spells") List<GenericValueString> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("Unknown") Boolean unknown, @JsonProperty("ReadOnly") Boolean readOnly) {
         this.name = new SimpleStringProperty(name);
         this.size = size;
         this.type = new SimpleStringProperty(type);
@@ -65,6 +65,7 @@ public class Monster {
         this.legendaryActions = legendaryActions;
         this.spells = spells;
         this.hidden = new SimpleBooleanProperty(hidden == null ? false : hidden);
+        this.unknown = new SimpleBooleanProperty(unknown == null ? false : unknown);
         this.readOnly = new SimpleBooleanProperty(readOnly == null ? false : readOnly);
     }
 
@@ -95,6 +96,7 @@ public class Monster {
         this.legendaryActions = new ArrayList<Action>();
         this.spells = spells;
         this.hidden = new SimpleBooleanProperty(false);
+        this.unknown = new SimpleBooleanProperty(false);
         this.readOnly = new SimpleBooleanProperty(false);
     }
 
@@ -150,6 +152,8 @@ public class Monster {
     private List<GenericValueString> spells;
     @JsonProperty("Hidden")
     private BooleanProperty hidden;
+    @JsonProperty("Unknown")
+    private BooleanProperty unknown;
     @JsonProperty("ReadOnly")
     private BooleanProperty readOnly;
 
@@ -391,6 +395,18 @@ public class Monster {
 
     public void setLegendaryActions(List<Action> legendaryActions) {
         this.legendaryActions = legendaryActions;
+    }
+
+    public final boolean isUnknown() {
+        return unknown.get();
+    }
+
+    public final void setUnknown(boolean value) {
+        unknown.set(value);
+    }
+
+    public BooleanProperty unknownProperty() {
+        return unknown;
     }
 
     @JsonIgnore

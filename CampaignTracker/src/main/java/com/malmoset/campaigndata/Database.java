@@ -16,6 +16,7 @@ import com.google.common.io.Files;
 import com.malmoset.campaigndata.Loot.LootItem;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterManagerController;
+import com.malmoset.campaigntrackercontrols.YesNoDialog;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -102,6 +103,27 @@ public class Database {
 
     }
 
+    public void ImportEncounters(List<Encounter> imported) {
+        boolean Replace = false;
+        boolean ReplaceAsked = false;
+
+        for (Encounter encounter : imported) {
+            List<Encounter> replace = encounters.stream().filter(x -> x.getName().equals(encounter.getName())).collect(Collectors.toList());
+            if (replace.size() > 0) {
+                if (!ReplaceAsked) {
+                    Replace = (YesNoDialog.Display("Duplicate encounters found", "Would you like to replace duplicate encounters?", false) == YesNoDialog.Results.YES);
+                    ReplaceAsked = true;
+                }
+                if (Replace) {
+                    for (Encounter repenc : replace) {
+                        encounters.remove(repenc);
+                    }
+                }
+            }
+            encounters.add(encounter);
+        }
+    }
+
     public void SaveFile(File file) {
         if (file != null) {
 
@@ -144,7 +166,7 @@ public class Database {
                 battles.set(FXCollections.observableArrayList(newdb.getBattles()));
                 encounters.set(FXCollections.observableArrayList(newdb.getEncounters()));
                 players.set(FXCollections.observableArrayList(newdb.getPlayers()));
-                session.set(newdb.getSession());
+                session.set(newdb.getSession() + 1);
 
                 xP.get().clear();
                 for (Map.Entry<Integer, List<XPEvent>> entry : newdb.getxP().entrySet()) {
