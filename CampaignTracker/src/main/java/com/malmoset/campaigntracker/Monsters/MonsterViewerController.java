@@ -224,9 +224,9 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         attackCol.setCellValueFactory(cellData -> cellData.getValue().attackProperty());
         contentCol.setCellValueFactory(cellData -> cellData.getValue().contentProperty());
 
-        nameCol.setMaxWidth(150);
-        attackCol.setMaxWidth(250);
-        contentCol.setMaxWidth(500);
+        nameCol.setPrefWidth(150);
+        attackCol.setPrefWidth(250);
+        contentCol.setPrefWidth(500);
         nameCol.setCellFactory(multiLineCellFactory());
         attackCol.setCellFactory(multiLineCellFactory());
         contentCol.setCellFactory(multiLineCellFactory());
