@@ -7,15 +7,21 @@ package com.malmoset.campaigntracker.Battles;
 
 import com.malmoset.campaigndata.Battle;
 import com.malmoset.campaigntracker.MainApp;
+import com.malmoset.campaigntrackercontrols.DoubleClickFactory;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -51,7 +57,37 @@ public class BattleListingController extends BaseForm implements Initializable {
         col5.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getTotalMonsters()).asObject());
 
         BattlesTable.getColumns().addAll(col1, col2, col3, col4, col5);
+
+        //Set up the rows
+        EventHandler<MouseEvent> doubleClick = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() > 1) {
+                    TableRow row = (TableRow) ((TableCell) event.getSource()).getParent();
+                    if (row != null) {
+                        Battle selectedBattle = (Battle) row.getItem();
+                        if (selectedBattle != null) {
+                            LoadBattle(selectedBattle);
+                        }
+                    }
+                }
+            }
+        };
+
+        col1.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col2.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col3.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col4.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col5.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+
         BattlesTable.setItems(MainApp.getAppData().getDb().battlesProperty());
 
     }
+
+    private void LoadBattle(Battle battle) {
+        BattleViewerController controller = (BattleViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleViewer.fxml"), "Battle");
+        controller.setBattle(battle);
+        controller.Show();
+    }
+
 }

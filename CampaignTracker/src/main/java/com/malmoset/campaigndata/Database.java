@@ -225,6 +225,13 @@ public class Database {
         return players;
     }
 
+    public final ObservableList<XPEvent> getSessionXP() {
+        if (!xP.containsKey(session.get())) {
+            xP.put(session.get(), FXCollections.observableArrayList(new ArrayList<>()));
+        }
+        return xP.get(session.get());
+    }
+
     public final ObservableMap<Integer, ObservableList<XPEvent>> getXP() {
         return xP.get();
     }

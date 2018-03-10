@@ -1,5 +1,7 @@
 package com.malmoset.campaigntracker;
 
+import com.malmoset.campaigndata.Battle;
+import com.malmoset.campaigntracker.Battles.BattleViewerController;
 import com.malmoset.controls.BaseForm;
 import java.io.File;
 import java.io.IOException;
@@ -69,9 +71,10 @@ public class MainMenuController implements Initializable {
 
     @FXML
     private void NewBattleClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleViewer.fxml"), "Battle");
+        Battle battle = new Battle();
+        BattleViewerController controller = (BattleViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleViewer.fxml"), "Battle");
+        controller.setBattle(battle);
         controller.Show();
-
     }
 
     @FXML

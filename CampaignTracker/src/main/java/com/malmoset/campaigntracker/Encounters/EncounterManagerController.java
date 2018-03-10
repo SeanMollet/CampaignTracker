@@ -13,6 +13,7 @@ import com.malmoset.campaigndata.Encounter;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterManagerController;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
+import com.malmoset.campaigntrackercontrols.DoubleClickFactory;
 import com.malmoset.campaigntrackercontrols.Styles;
 import com.malmoset.controls.BaseForm;
 import java.io.File;
@@ -39,7 +40,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -107,9 +107,9 @@ public class EncounterManagerController extends BaseForm implements Initializabl
             }
         };
 
-        col1.setCellFactory(DoubleClickFactory(doubleClick));
-        col2.setCellFactory(DoubleClickFactory(doubleClick));
-        col3.setCellFactory(DoubleClickFactory(doubleClick));
+        col1.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col2.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col3.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
 
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Encounter> filteredData = new FilteredList<>(MainApp.getAppData().getDb().getEncounters(), p -> true);
@@ -149,28 +149,6 @@ public class EncounterManagerController extends BaseForm implements Initializabl
 
         controller.Show();
 
-    }
-
-    private Callback<TableColumn<Encounter, String>, TableCell<Encounter, String>> DoubleClickFactory(EventHandler<MouseEvent> event) {
-        return new Callback<TableColumn<Encounter, String>, TableCell<Encounter, String>>() {
-            public TableCell call(TableColumn p) {
-                TableCell cell = new TableCell<Encounter, String>() {
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        setText(empty ? null : getString());
-                        setGraphic(null);
-                    }
-
-                    private String getString() {
-                        return getItem() == null ? "" : getItem().toString();
-                    }
-                };
-
-                cell.addEventFilter(MouseEvent.MOUSE_CLICKED, event);
-                return cell;
-            }
-        };
     }
 
     @FXML

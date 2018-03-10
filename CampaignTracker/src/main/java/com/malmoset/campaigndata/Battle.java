@@ -13,9 +13,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -27,13 +31,13 @@ public class Battle {
     public Battle(@JsonProperty("Began") Date began, @JsonProperty("Monsters") List<BattleMonster> monsters,
             @JsonProperty("BattleNumber") Integer battleNumber, @JsonProperty("Session") Integer session) {
         this.began = new SimpleObjectProperty<Date>(began);
-        this.monsters = monsters;
+        this.monsters = new SimpleListProperty(FXCollections.observableArrayList(monsters));
         this.battleNumber = new SimpleIntegerProperty(battleNumber);
         this.session = new SimpleIntegerProperty(session);
     }
 
     public Battle() {
-        monsters = new ArrayList<BattleMonster>();
+        monsters = new SimpleListProperty(FXCollections.observableArrayList(new ArrayList<BattleMonster>()));
         this.began = new SimpleObjectProperty<Date>();
         this.battleNumber = new SimpleIntegerProperty();
         this.session = new SimpleIntegerProperty();
@@ -42,7 +46,7 @@ public class Battle {
     //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
     private ObjectProperty<Date> began;
     @JsonProperty("Monsters")
-    private List<BattleMonster> monsters;
+    private SimpleListProperty<BattleMonster> monsters;
     @JsonProperty("BattleNumber")
     private IntegerProperty battleNumber;
     @JsonProperty("Session")
@@ -70,12 +74,16 @@ public class Battle {
         return (int) monsters.stream().count();
     }
 
-    public final List<BattleMonster> getMonsters() {
-        return monsters;
+    public final ObservableList<BattleMonster> getMonsters() {
+        return monsters.get();
     }
 
-    public final void setMonsters(List<BattleMonster> value) {
-        monsters = value;
+    public final void setMonsters(ObservableList<BattleMonster> value) {
+        monsters.set(value);
+    }
+
+    public final ListProperty monstersProperty() {
+        return monsters;
     }
 
     public final int getBattleNumber() {

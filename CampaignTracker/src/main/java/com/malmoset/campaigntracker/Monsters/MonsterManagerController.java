@@ -15,6 +15,7 @@ import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
+import com.malmoset.campaigntrackercontrols.DoubleClickFactory;
 import com.malmoset.campaigntrackercontrols.Styles;
 import com.malmoset.controls.BaseForm;
 import java.io.File;
@@ -125,9 +126,9 @@ public class MonsterManagerController extends BaseForm implements Initializable 
                 }
             }
         };
-        col1.setCellFactory(DoubleClickFactory(doubleClick));
-        col2.setCellFactory(DoubleClickFactory(doubleClick));
-        col3.setCellFactory(DoubleClickFactory(doubleClick));
+        col1.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col2.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col3.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
 
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Monster> filteredData = new FilteredList<>(list, p -> true);
@@ -173,28 +174,6 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         controller.setMonster(monster.clone());
 
         controller.Show();
-    }
-
-    private Callback<TableColumn<Monster, String>, TableCell<Monster, String>> DoubleClickFactory(EventHandler<MouseEvent> event) {
-        return new Callback<TableColumn<Monster, String>, TableCell<Monster, String>>() {
-            public TableCell call(TableColumn p) {
-                TableCell cell = new TableCell<Monster, String>() {
-                    @Override
-                    public void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        setText(empty ? null : getString());
-                        setGraphic(null);
-                    }
-
-                    private String getString() {
-                        return getItem() == null ? "" : getItem().toString();
-                    }
-                };
-
-                cell.addEventFilter(MouseEvent.MOUSE_CLICKED, event);
-                return cell;
-            }
-        };
     }
 
     private TableColumn ButtonCol(String text, String header, String style, EventHandler<ActionEvent> event) {

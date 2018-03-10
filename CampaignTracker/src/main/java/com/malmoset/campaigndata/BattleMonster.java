@@ -8,6 +8,7 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.malmoset.campaigntrackercontrols.HPAppearance;
 import java.util.Date;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
@@ -16,6 +17,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
@@ -54,6 +57,7 @@ public class BattleMonster extends Monster {
         this.savingRoll = new SimpleIntegerProperty(0);
         this.hPtoChange = new SimpleIntegerProperty(0);
         this.currentHP = new SimpleIntegerProperty(currenthp != null ? currenthp : hP.getHpValue());
+        setAppearance("");
     }
 
     public BattleMonster() {
@@ -65,6 +69,7 @@ public class BattleMonster extends Monster {
         this.savingRoll = new SimpleIntegerProperty();
         this.hPtoChange = new SimpleIntegerProperty();
         this.currentHP = new SimpleIntegerProperty();
+        setAppearance("");
     }
 
     private ObjectProperty<Date> spawned;
@@ -72,6 +77,8 @@ public class BattleMonster extends Monster {
     @JsonProperty("Persuaded")
     private BooleanProperty persuaded;
     private IntegerProperty xPGiven;
+    @JsonIgnore
+    private StringProperty appearance;
     @JsonIgnore
     private IntegerProperty savingRoll;
     @JsonIgnore
@@ -172,6 +179,32 @@ public class BattleMonster extends Monster {
 
     public IntegerProperty hPtoChangeProperty() {
         return hPtoChange;
+    }
+
+    public final String getAppearance() {
+        return appearance.get();
+    }
+
+    public final void setAppearance(String value) {
+        String app = HPAppearance.Appearance(this.currentHP.get(), this.getHP().getHpValue());
+        if (this.persuaded.get()) {
+            app = "Persuaded";
+        } else if (currentHP.get() <= 0) {
+            app = "Dead";
+        }
+
+        if (appearance == null) {
+            appearance = new SimpleStringProperty();
+        }
+        appearance.set(app);
+    }
+
+    public StringProperty appearanceProperty() {
+        return appearance;
+    }
+
+    public IntegerProperty currentHPProperty() {
+        return currentHP;
     }
 
 }
