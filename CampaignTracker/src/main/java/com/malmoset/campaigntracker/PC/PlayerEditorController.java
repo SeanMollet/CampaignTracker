@@ -86,7 +86,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         Callback<TableColumn<Player, Dice.RollTypes>, TableCell<Player, Dice.RollTypes>> advcellFactory
                 = new Callback<TableColumn<Player, Dice.RollTypes>, TableCell<Player, Dice.RollTypes>>() {
             public TableCell call(TableColumn p) {
-                return new ChoiceBoxEditCell(new DiceStringConverter(), FXCollections.observableArrayList(Dice.RollTypesList()));
+                return new ChoiceBoxEditCell(new DiceStringConverter(), FXCollections.observableArrayList(Dice.RollTypesList()), 1);
             }
         };
         //Create the columns
@@ -138,21 +138,31 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         TableColumn<Player, Button> col14 = new TableColumn<>("HP");
         col14.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
         col14.setCellFactory(ActionButtonTableCell.<Player>forTableColumn("Dmg", Styles.getSmall(), (Player player) -> {
-            int newHP = player.getCurrentHP() - player.getHpToChange();
+            int newHP;
+            if (player.getHpToChange() > 0) {
+                newHP = player.getCurrentHP() - player.getHpToChange();
+            } else {
+                newHP = player.getCurrentHP() - DmgSpinner.getValue();
+            }
             player.setCurrentHP(newHP);
             return player;
         }));
         TableColumn<Player, Button> col15 = new TableColumn<>("HP");
         col15.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
         col15.setCellFactory(ActionButtonTableCell.<Player>forTableColumn("Heal", Styles.getSmall(), (Player player) -> {
-            int newhp = player.getCurrentHP() + player.getHpToChange();
-            if (newhp > player.getMaxHP()) {
-                newhp = player.getMaxHP();
+            int newHP;
+            if (player.getHpToChange() > 0) {
+                newHP = player.getCurrentHP() + player.getHpToChange();
+            } else {
+                newHP = player.getCurrentHP() + DmgSpinner.getValue();
+            }
+            if (newHP > player.getMaxHP()) {
+                newHP = player.getMaxHP();
             }
             //If they have bonus HP or something and are already higher than max
             //This prevents us messing that up
-            if (newhp > player.getCurrentHP()) {
-                player.setCurrentHP(newhp);
+            if (newHP > player.getCurrentHP()) {
+                player.setCurrentHP(newHP);
             }
             return player;
         }));
@@ -181,8 +191,8 @@ public class PlayerEditorController extends BaseForm implements Initializable {
     private void RollInitClick(ActionEvent event) {
         ObservableList<Player> players = MainApp.getAppData().getDb().getPlayers();
         for (Player player : players) {
-            //int roll = Dice.roll(20, Dice.RollTypes.values()[player.getAdv()]) + player.getInitiative();
-            //player.setRoll(roll);
+            int roll = Dice.roll(20, player.getAdv()) + player.getInitiative();
+            player.setRoll(roll);
         }
         //Switch to sorting by roll and initiative modifier
         BindSortedList();

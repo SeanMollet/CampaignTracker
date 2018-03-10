@@ -27,18 +27,20 @@ public class ChoiceBoxEditCell<S, T> extends TableCell<S, T> {
     private ChoiceBox choiceField;
     private StringConverter converter;
     private ObservableList<String> list;
+    private int trimStringLength = -1;
 
     public ChoiceBoxEditCell() {
-        this(new DefaultStringConverter(), FXCollections.observableArrayList(new ArrayList<String>()));
+        this(new DefaultStringConverter(), FXCollections.observableArrayList(new ArrayList<String>()), -1);
     }
 
     public ChoiceBoxEditCell(ObservableList<String> list) {
-        this(new DefaultStringConverter(), list);
+        this(new DefaultStringConverter(), list, -1);
     }
 
-    public ChoiceBoxEditCell(StringConverter converter, ObservableList<String> list) {
+    public ChoiceBoxEditCell(StringConverter converter, ObservableList<String> list, int TrimLength) {
         this.converter = converter;
         this.list = list;
+        this.trimStringLength = TrimLength;
     }
 
     @Override
@@ -76,6 +78,9 @@ public class ChoiceBoxEditCell<S, T> extends TableCell<S, T> {
                 setGraphic(choiceField);
             } else {
                 String text = getString();
+                if (trimStringLength > 0) {
+                    text = text.substring(0, trimStringLength);
+                }
                 setText(text);
                 setGraphic(null);
             }
