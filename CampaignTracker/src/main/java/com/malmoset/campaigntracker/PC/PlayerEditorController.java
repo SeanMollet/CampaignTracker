@@ -120,7 +120,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         col7.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
         col8.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
 
-        col13.setCellFactory(TextEditCell.editCellFactory());
+        col13.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
 
         col10.setCellFactory(tc -> new CheckBoxTableCell<>());
         col11.setCellFactory(tc -> new CheckBoxTableCell<>());
@@ -187,6 +187,8 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         //Switch to sorting by roll and initiative modifier
         BindSortedList();
         sortedData.comparatorProperty().setValue(Player.CompareInitiative());
+        //Add 1 to the rolls, mostly so it will notify the player visible form
+        MainApp.getAppData().getDb().initiativeRollsProperty().set(MainApp.getAppData().getDb().initiativeRollsProperty().get() + 1);
     }
 
     @FXML

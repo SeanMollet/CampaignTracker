@@ -97,7 +97,7 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         col5.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
         col5.setCellFactory(ActionButtonTableCell.<Monster>forTableColumn("Battle", Styles.getSmall(), (Monster monster) -> {
             if (MainApp.getAppData().current_battleProperty().get() != null) {
-                MainApp.getAppData().current_battleProperty().get().AddMonster(monster);
+                MainApp.getAppData().current_battleProperty().get().AddMonster(monster, true);
             }
             return monster;
         }));

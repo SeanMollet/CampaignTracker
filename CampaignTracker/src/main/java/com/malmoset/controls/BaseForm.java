@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 public class BaseForm {
 
     private Scene scene;
-    private Stage stage;
+    public Stage stage;
 
     public void setScene(Scene scene) {
         this.scene = scene;

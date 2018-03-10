@@ -8,6 +8,7 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.HPAppearance;
 import com.malmoset.dice.Dice;
 import java.util.Date;
@@ -58,8 +59,11 @@ public class BattleMonster extends Monster {
         this.savingRoll = new SimpleIntegerProperty(0);
         this.hPtoChange = new SimpleIntegerProperty(0);
         this.currentHP = new SimpleIntegerProperty(currenthp != null ? currenthp : hP.getHpValue());
+        this.pcName = new SimpleStringProperty();
+        this.pcType = new SimpleStringProperty();
         currentHPSet = true;
         setAppearance("");
+        BindFields();
     }
 
     public BattleMonster() {
@@ -71,9 +75,20 @@ public class BattleMonster extends Monster {
         this.savingRoll = new SimpleIntegerProperty();
         this.hPtoChange = new SimpleIntegerProperty();
         this.currentHP = new SimpleIntegerProperty();
+        this.pcName = new SimpleStringProperty();
+        this.pcType = new SimpleStringProperty();
         setAppearance("");
+        BindFields();
     }
 
+    private void BindFields() {
+        this.unknownProperty().addListener((obv, oldval, newval) -> {
+            setAppearance("");
+        });
+        this.hiddenProperty().addListener((obv, oldval, newval) -> {
+            MainApp.getAppData().getDb().monsterRevealsProperty().set(MainApp.getAppData().getDb().monsterRevealsProperty().get() + 1);
+        });
+    }
     private ObjectProperty<Date> spawned;
     private IntegerProperty index;
     @JsonProperty("Persuaded")
@@ -87,6 +102,10 @@ public class BattleMonster extends Monster {
     private IntegerProperty hPtoChange;
     @JsonIgnore
     private boolean currentHPSet = false;
+    @JsonIgnore
+    private StringProperty pcName;
+    @JsonIgnore
+    private StringProperty pcType;
 
     @JsonProperty("CurrentHP")
     private IntegerProperty currentHP;
@@ -220,6 +239,15 @@ public class BattleMonster extends Monster {
             appearance = new SimpleStringProperty();
         }
         appearance.set(app);
+
+        //Handle PC view of name and type
+        if (this.unknownProperty().get()) {
+            this.pcName.set("Unknown");
+            this.pcType.set(this.getSize().getValue() + " " + this.getType());
+        } else {
+            this.pcName.set(this.getName());
+            this.pcType.set(this.getDisplayType());
+        }
     }
 
     public StringProperty appearanceProperty() {
@@ -228,6 +256,30 @@ public class BattleMonster extends Monster {
 
     public IntegerProperty currentHPProperty() {
         return currentHP;
+    }
+
+    public final String getPcName() {
+        return pcName.get();
+    }
+
+    public final void setPcName(String value) {
+        pcName.set(value);
+    }
+
+    public StringProperty pcNameProperty() {
+        return pcName;
+    }
+
+    public final String getPcType() {
+        return pcType.get();
+    }
+
+    public final void setPcType(String value) {
+        pcType.set(value);
+    }
+
+    public StringProperty pcTypeProperty() {
+        return pcType;
     }
 
 }

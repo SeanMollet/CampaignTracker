@@ -73,9 +73,15 @@ public class Battle {
         }
     }
 
-    public void AddMonster(Monster monster) {
+    public void AddMonster(Monster monster, boolean Hidden) {
         BattleMonster converted = monster.readyForBattle();
         converted.indexProperty().set(monsters.getSize() + 1);
+        //If they're adding directly to a battle, we hide
+        //If not, then we allow the encounter to dictate what we do
+        if (Hidden) {
+            converted.setHidden(Hidden);
+            converted.setUnknown(Hidden);
+        }
         monsters.add(converted);
     }
 

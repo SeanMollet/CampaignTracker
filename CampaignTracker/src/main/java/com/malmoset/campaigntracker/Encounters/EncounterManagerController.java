@@ -9,7 +9,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.malmoset.campaigndata.Battle;
 import com.malmoset.campaigndata.Encounter;
+import com.malmoset.campaigndata.Monster;
+import com.malmoset.campaigntracker.Battles.BattleViewerController;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterManagerController;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
@@ -84,7 +87,15 @@ public class EncounterManagerController extends BaseForm implements Initializabl
         col4.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
 
         col4.setCellFactory(ActionButtonTableCell.<Encounter>forTableColumn("Battle", Styles.getSmall(), (Encounter encounter) -> {
+            Battle battle = new Battle();
+            BattleViewerController controller = (BattleViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleViewer.fxml"), "Battle");
+            MainApp.getAppData().getDb().battlesProperty().add(battle);
+            controller.setBattle(battle);
+            for (Monster monster : encounter.getMonsters()) {
+                battle.AddMonster(monster, false);
+            }
 
+            controller.Show();
             return encounter;
         }));
 

@@ -62,6 +62,10 @@ public class Database {
     private Integer dbVersion = 1;
     @JsonIgnore
     private StringProperty campaignName;
+    @JsonIgnore
+    private IntegerProperty initiativeRolls;
+    @JsonIgnore
+    private IntegerProperty monsterReveals;
 
     public Database(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters, @JsonProperty("Players") List<Player> players,
             @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("Session") Integer session, @JsonProperty("Loot") List<LootItem> loot) {
@@ -77,6 +81,8 @@ public class Database {
         this.session = new SimpleIntegerProperty(session);
         this.campaignName = new SimpleStringProperty("");
         this.loot = new SimpleListProperty(FXCollections.observableArrayList(loot));
+        this.initiativeRolls = new SimpleIntegerProperty(0);
+        this.monsterReveals = new SimpleIntegerProperty(0);
     }
 
     public Database() {
@@ -100,7 +106,8 @@ public class Database {
 
         ArrayList<LootItem> loot_list = new ArrayList<>();
         loot = new SimpleListProperty(FXCollections.observableArrayList(loot_list));
-
+        this.initiativeRolls = new SimpleIntegerProperty(0);
+        this.monsterReveals = new SimpleIntegerProperty(0);
     }
 
     public void ImportEncounters(List<Encounter> imported) {
@@ -293,6 +300,42 @@ public class Database {
 
     public void setDbVersion(Integer dbVersion) {
         this.dbVersion = dbVersion;
+    }
+
+    public final ObservableList<LootItem> getLoot() {
+        return loot.get();
+    }
+
+    public final void setLoot(ObservableList<LootItem> value) {
+        loot.set(value);
+    }
+
+    public ListProperty<LootItem> lootProperty() {
+        return loot;
+    }
+
+    public final int getInitiativeRolls() {
+        return initiativeRolls.get();
+    }
+
+    public final void setInitiativeRolls(int value) {
+        initiativeRolls.set(value);
+    }
+
+    public IntegerProperty initiativeRollsProperty() {
+        return initiativeRolls;
+    }
+
+    public final int getMonsterReveals() {
+        return monsterReveals.get();
+    }
+
+    public final void setMonsterReveals(int value) {
+        monsterReveals.set(value);
+    }
+
+    public IntegerProperty monsterRevealsProperty() {
+        return monsterReveals;
     }
 
 }

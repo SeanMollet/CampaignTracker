@@ -211,6 +211,13 @@ public class BattleViewerController extends BaseForm implements Initializable {
         col1.setPrefWidth(200);
         col4.setPrefWidth(300);
 
+        col1.setCellFactory(TextEditCell.editCellFactory());
+        col2.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+        col3.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+        col4.setCellFactory(TextEditCell.editCellFactory());
+        col5.setCellFactory(TextEditCell.editCellFactory());
+        col6.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+
         XPTable.getColumns().clear();
         XPTable.getColumns().addAll(col1, col2, col3, col4, col5, col6);
 
