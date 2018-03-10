@@ -64,12 +64,6 @@
                                 <Label layoutX="26.0" layoutY="416.0" text="Condition&#10;Immune" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="415.0" />
                                 <NoHeaderTableView fx:id="DmgImList" layoutX="265.0" layoutY="418.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="410.0" />
                                 <Label layoutX="234.0" layoutY="417.0" text="Damage&#10;Immune" AnchorPane.rightAnchor="142.0" AnchorPane.topAnchor="415.0" />
-                                <Button fx:id="AddSpeedButton" layoutX="35.0" layoutY="298.0" mnemonicParsing="false" onAction="#AddSpeed" style="-fx-font-size: 10px;" text="Add" AnchorPane.leftAnchor="42.0" />
-                                <Button fx:id="AddSavesButton" layoutX="227.0" layoutY="298.0" mnemonicParsing="false" onAction="#AddSaves" style="-fx-font-size: 10px;" text="Add" AnchorPane.rightAnchor="123.0" />
-                                <Button fx:id="AddDmgVulnButton" layoutX="35.0" layoutY="378.0" mnemonicParsing="false" onAction="#AddDmgVuln" style="-fx-font-size: 10px;" text="Add" AnchorPane.leftAnchor="42.0" />
-                                <Button fx:id="AddDmsResButton" layoutX="227.0" layoutY="378.0" mnemonicParsing="false" onAction="#AddDmgRes" style="-fx-font-size: 10px;" text="Add" AnchorPane.rightAnchor="123.0" />
-                                <Button fx:id="AddConImmunButton" layoutX="35.0" layoutY="458.0" mnemonicParsing="false" onAction="#AddConImmun" style="-fx-font-size: 10px;" text="Add" AnchorPane.leftAnchor="42.0" />
-                                <Button fx:id="AddDmgImmunButton" layoutX="227.0" layoutY="458.0" mnemonicParsing="false" onAction="#AddDmgImmun" style="-fx-font-size: 10px;" text="Add" AnchorPane.rightAnchor="123.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -86,10 +80,6 @@
                                 <TableView fx:id="TraitsList" layoutX="10.0" layoutY="108.0" prefHeight="235.0" prefWidth="373.0" AnchorPane.bottomAnchor="156.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0" />
                                 <Label layoutX="20.0" layoutY="20.0" text="Senses" AnchorPane.bottomAnchor="134.0" AnchorPane.leftAnchor="10.0" />
                                 <NoHeaderTableView fx:id="SensesList" layoutX="20.0" layoutY="118.0" prefHeight="121.0" prefWidth="373.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                <Button fx:id="AddSkilsButton" layoutX="11.0" layoutY="53.0" mnemonicParsing="false" onAction="#AddSkils" style="-fx-font-size: 10px;" text="Add" AnchorPane.leftAnchor="22.0" />
-                                <Button fx:id="AddLangButton" layoutX="224.0" layoutY="53.0" mnemonicParsing="false" onAction="#AddLang" style="-fx-font-size: 10px;" text="Add" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="53.0" />
-                                <Button fx:id="AddTraitButton" layoutX="115.0" layoutY="337.0" mnemonicParsing="false" onAction="#AddTrait" style="-fx-font-size: 10px;" text="▲Add" AnchorPane.bottomAnchor="133.0" AnchorPane.rightAnchor="55.0" />
-                                <Button fx:id="AddSenseButton" layoutX="341.0" layoutY="337.0" mnemonicParsing="false" onAction="#AddSense" style="-fx-font-size: 10px;" text="▼Add" AnchorPane.bottomAnchor="133.0" AnchorPane.rightAnchor="10.0" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -99,14 +89,11 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
                                 <Label text="Actions" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="5.0" />
-                                <TableView fx:id="ActionsList" layoutX="10.0" layoutY="20.0" prefHeight="139.0" prefWidth="373.0" AnchorPane.bottomAnchor="332.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
+                                <TableView fx:id="ActionsList" layoutX="10.0" layoutY="20.0" prefHeight="150.0" prefWidth="373.0" AnchorPane.bottomAnchor="321.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0" />
                                 <Label layoutX="14.0" layoutY="204.0" text="Reactions" AnchorPane.bottomAnchor="304.0" AnchorPane.leftAnchor="10.0" />
-                                <TableView fx:id="ReactionsList" layoutX="14.0" layoutY="227.0" prefHeight="140.0" prefWidth="373.0" AnchorPane.bottomAnchor="166.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+                                <TableView fx:id="ReactionsList" layoutX="14.0" layoutY="227.0" prefHeight="149.0" prefWidth="373.0" AnchorPane.bottomAnchor="157.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
                                 <Label layoutX="24.0" layoutY="214.0" text="Legendary Actions" AnchorPane.bottomAnchor="139.0" AnchorPane.leftAnchor="10.0" />
                                 <TableView fx:id="LegActionsList" layoutX="24.0" layoutY="237.0" prefHeight="129.0" prefWidth="373.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
-                                <Button fx:id="AddActionButton" layoutX="242.0" layoutY="160.0" mnemonicParsing="false" onAction="#AddAction" style="-fx-font-size: 10px;" text="▲Add" AnchorPane.bottomAnchor="310.0" AnchorPane.rightAnchor="55.0" />
-                                <Button fx:id="AddReactionButton" layoutX="341.0" layoutY="160.0" mnemonicParsing="false" onAction="#AddReaction" style="-fx-font-size: 10px;" text="▼Add" AnchorPane.bottomAnchor="310.0" AnchorPane.rightAnchor="10.0" />
-                                <Button fx:id="AddLegActionButton" layoutX="341.0" layoutY="327.0" mnemonicParsing="false" onAction="#AddLegAction" style="-fx-font-size: 10px;" text="▼Add" AnchorPane.bottomAnchor="143.0" AnchorPane.rightAnchor="10.0" />
                             </children>
                         </AnchorPane>
                     </content>

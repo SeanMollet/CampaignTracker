@@ -67,6 +67,7 @@ public class StatDice extends AnchorPane {
         Modifier.getValueFactory().valueProperty().bindBidirectional(statModifier.asObject());
 
         statDiceSize.addListener(new ChangeListener<Number>() {
+            @Override
             public void changed(ObservableValue ov, Number value, Number new_value) {
                 if (diceVal.contains((int) new_value)) {
                     int location = diceVal.indexOf((int) new_value);

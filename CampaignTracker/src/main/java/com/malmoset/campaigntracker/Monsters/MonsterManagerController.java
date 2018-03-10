@@ -15,8 +15,8 @@ import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
-import com.malmoset.campaigntrackercontrols.DoubleClickFactory;
 import com.malmoset.campaigntrackercontrols.Styles;
+import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
 import com.malmoset.controls.BaseForm;
 import java.io.File;
 import java.io.IOException;
@@ -97,7 +97,7 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         col5.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
         col5.setCellFactory(ActionButtonTableCell.<Monster>forTableColumn("Battle", Styles.getSmall(), (Monster monster) -> {
             if (MainApp.getAppData().current_battleProperty().get() != null) {
-                MainApp.getAppData().current_battleProperty().get().getMonsters().add(monster.readyForBattle());
+                MainApp.getAppData().current_battleProperty().get().AddMonster(monster);
             }
             return monster;
         }));
@@ -112,23 +112,20 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         MonstersTable.getColumns().addAll(col1, col2, col3, col4, col5, col6);
 
         //Set up the rows
-        EventHandler<MouseEvent> doubleClick = new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() > 1) {
-                    TableRow row = (TableRow) ((TableCell) event.getSource()).getParent();
-                    if (row != null) {
-                        Monster selectedMonster = (Monster) row.getItem();
-                        if (selectedMonster != null) {
-                            LoadMonster(selectedMonster);
-                        }
+        EventHandler<MouseEvent> doubleClick = (MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() > 1) {
+                TableRow row = (TableRow) ((TableCell) event.getSource()).getParent();
+                if (row != null) {
+                    Monster selectedMonster = (Monster) row.getItem();
+                    if (selectedMonster != null) {
+                        LoadMonster(selectedMonster);
                     }
                 }
             }
         };
-        col1.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
-        col2.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
-        col3.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col1.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
+        col2.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
+        col3.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
 
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Monster> filteredData = new FilteredList<>(list, p -> true);

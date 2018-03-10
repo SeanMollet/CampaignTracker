@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.util.Callback;
 import javafx.util.StringConverter;
 import javafx.util.converter.DefaultStringConverter;
 
@@ -28,6 +29,18 @@ import javafx.util.converter.DefaultStringConverter;
 //https://gist.github.com/abhinayagarwal/9383881
 //Thanks!
 public class TextEditCell<S, T> extends TableCell<S, T> {
+
+    public static <S, T> Callback<TableColumn<S, T>, TableCell<S, T>> editCellFactory() {
+        return editCellFactory(new DefaultStringConverter());
+    }
+
+    public static <S, T> Callback<TableColumn<S, T>, TableCell<S, T>> editCellFactory(StringConverter converter) {
+        return new Callback<TableColumn<S, T>, TableCell<S, T>>() {
+            public TableCell call(TableColumn p) {
+                return new TextEditCell(converter);
+            }
+        };
+    }
 
     private TextField textField;
     private StringConverter converter;

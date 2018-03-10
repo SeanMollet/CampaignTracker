@@ -131,6 +131,10 @@ public final class Fraction implements Comparable, ObservableValue {
                 onChange(oldValue, this.toString());
                 return true;
             }
+        } else {
+            //Assume it's a whole number
+            numerator = Long.parseLong(inValue);
+            denominator = 1;
         }
         return false;
     }
@@ -212,6 +216,11 @@ public final class Fraction implements Comparable, ObservableValue {
             a = t;
         }
         return a;
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
     }
 
     @Override

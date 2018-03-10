@@ -9,6 +9,7 @@ import com.malmoset.campaigndata.Encounter;
 import com.malmoset.campaigndata.Fraction;
 import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigntracker.MainApp;
+import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,15 +18,12 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
-import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -81,7 +79,8 @@ public class EncounterViewerController extends BaseForm implements Initializable
         col6.setCellValueFactory(cellData -> cellData.getValue().unknownProperty());
 
         col3.setPrefWidth(250);
-        col3.setCellFactory(multiLineCellFactory());
+        col3.setMaxWidth(400);
+        col3.setCellFactory(TableViewCellFactories.multiLineCellFactory());
         col5.setCellFactory(tc -> new CheckBoxTableCell<>());
         col6.setCellFactory(tc -> new CheckBoxTableCell<>());
 
@@ -89,30 +88,6 @@ public class EncounterViewerController extends BaseForm implements Initializable
         MonstersTable.setItems(encounter.getMonsters());
         MonstersTable.setEditable(true);
 
-    }
-
-    Callback<TableColumn<Monster, String>, TableCell<Monster, String>> multiLineCellFactory() {
-        return new Callback<TableColumn<Monster, String>, TableCell<Monster, String>>() {
-            @Override
-            public TableCell call(TableColumn param) {
-                final TableCell cell = new TableCell() {
-                    private Text text;
-
-                    @Override
-                    public void updateItem(Object item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (!isEmpty() && item != null) {
-                            text = new Text(item.toString());
-                            text.wrappingWidthProperty().bind(this.widthProperty());
-                            //text.setWrappingWidth(250);
-                            setGraphic(text);
-                        }
-                    }
-                };
-                cell.setMaxWidth(400.0);
-                return cell;
-            }
-        };
     }
 
     public Encounter getEncounter() {

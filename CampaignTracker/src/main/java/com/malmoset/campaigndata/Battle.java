@@ -8,6 +8,7 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.malmoset.campaigntracker.MainApp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -38,9 +39,14 @@ public class Battle {
 
     public Battle() {
         monsters = new SimpleListProperty(FXCollections.observableArrayList(new ArrayList<BattleMonster>()));
-        this.began = new SimpleObjectProperty<Date>();
-        this.battleNumber = new SimpleIntegerProperty();
-        this.session = new SimpleIntegerProperty();
+        this.began = new SimpleObjectProperty<Date>(new Date());
+        if (MainApp.isAppDataUP()) {
+            this.battleNumber = new SimpleIntegerProperty(MainApp.getAppData().getDb().getBattleNumber());
+            this.session = new SimpleIntegerProperty(MainApp.getAppData().getDb().getSession());
+        } else {
+            this.battleNumber = new SimpleIntegerProperty(1);
+            this.session = new SimpleIntegerProperty(1);
+        }
     }
     @JsonProperty("Began")
     //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SS")
@@ -51,6 +57,27 @@ public class Battle {
     private IntegerProperty battleNumber;
     @JsonProperty("Session")
     private IntegerProperty session;
+
+    public void GrantXP(Integer Session, String Reason, BattleMonster monster) {
+        if (monster.xPGivenProperty().get() <= 0) {
+            XPEvent xp = new XPEvent();
+            xp.setEvent(monster.getName() + " " + ((Integer) monster.getIndex()).toString() + " " + Reason);
+            xp.setSession(Session);
+            xp.setBattle(this.getBattleNumber());
+            xp.setMonster(monster.getName());
+            xp.setTimestamp(new Date());
+
+            xp.setXP(BattleXP.GetXP(monster.getChallenge()));
+            monster.setXPGiven(xp.getXP());
+            MainApp.getAppData().getDb().getSessionXP().add(xp);
+        }
+    }
+
+    public void AddMonster(Monster monster) {
+        BattleMonster converted = monster.readyForBattle();
+        converted.indexProperty().set(monsters.getSize() + 1);
+        monsters.add(converted);
+    }
 
     public final Date getBegan() {
         return began.get();
@@ -112,13 +139,15 @@ public class Battle {
 
     public static class BattleXP {
 
-        BattleXP() {
-            LoadXP();
-        }
-
         private static HashMap<Fraction, Integer> XPDic;
 
         public static int GetXP(Fraction CR) {
+            if (XPDic == null) {
+                LoadXP();
+            }
+            //Java doesn't use equality in a useful way for this lookup, so we do it by hand
+            //Optional<Map.Entry<Fraction, Integer>> entry = XPDic.entrySet().stream().filter(x -> x.getKey().equals(CR)).findFirst();
+            //if (entry.isPresent()) {
             if (XPDic.containsKey(CR)) {
                 return XPDic.get(CR);
             }
@@ -131,7 +160,7 @@ public class Battle {
         }
 
         private static void LoadXP() {
-            XPDic = new HashMap<Fraction, Integer>();
+            XPDic = new HashMap<>();
             XPDic.put(new Fraction("0"), 10);
             XPDic.put(new Fraction("1/8"), 25);
             XPDic.put(new Fraction("1/4"), 50);

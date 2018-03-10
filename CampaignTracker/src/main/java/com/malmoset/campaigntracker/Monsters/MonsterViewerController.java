@@ -13,15 +13,20 @@ import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigndata.StatWithModifier;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
+import com.malmoset.campaigntrackercontrols.AddDeleteContextMenu;
 import com.malmoset.campaigntrackercontrols.IntegerStringConverter;
 import com.malmoset.campaigntrackercontrols.NoHeaderTableView;
 import com.malmoset.campaigntrackercontrols.NumberTextField;
 import com.malmoset.campaigntrackercontrols.StatBlock;
 import com.malmoset.campaigntrackercontrols.StatDice;
+import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
+import com.malmoset.campaigntrackercontrols.TextEditCell;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,13 +34,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.text.Text;
-import javafx.util.Callback;
 import javafx.util.converter.NumberStringConverter;
 
 /**
@@ -112,32 +113,6 @@ public class MonsterViewerController extends BaseForm implements Initializable {
     private TableView<Action> LegActionsList;
     @FXML
     private Button SaveButton;
-    @FXML
-    private Button AddSpeedButton;
-    @FXML
-    private Button AddSavesButton;
-    @FXML
-    private Button AddDmgVulnButton;
-    @FXML
-    private Button AddDmsResButton;
-    @FXML
-    private Button AddConImmunButton;
-    @FXML
-    private Button AddDmgImmunButton;
-    @FXML
-    private Button AddSkilsButton;
-    @FXML
-    private Button AddLangButton;
-    @FXML
-    private Button AddTraitButton;
-    @FXML
-    private Button AddSenseButton;
-    @FXML
-    private Button AddActionButton;
-    @FXML
-    private Button AddReactionButton;
-    @FXML
-    private Button AddLegActionButton;
 
     /**
      * Initializes the controller class.
@@ -191,31 +166,8 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         }
     }
 
-    Callback<TableColumn<Action, String>, TableCell<Action, String>> multiLineCellFactory() {
-        return new Callback<TableColumn<Action, String>, TableCell<Action, String>>() {
-            @Override
-            public TableCell call(TableColumn param) {
-                final TableCell cell = new TableCell() {
-                    private Text text;
-
-                    @Override
-                    public void updateItem(Object item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (!isEmpty() && item != null) {
-                            text = new Text(item.toString());
-                            text.wrappingWidthProperty().bind(this.widthProperty());
-                            //text.setWrappingWidth(250);
-                            setGraphic(text);
-                        }
-                    }
-                };
-                cell.setMaxWidth(400.0);
-                return cell;
-            }
-        };
-    }
-
-    private void configActionsTable(TableView table, ObservableList list) {
+    private void configActionsTable(TableView table, ObservableList<Action> list) {
+        table.setItems(list);
 
         TableColumn<Action, String> nameCol = new TableColumn<>("Name");
         TableColumn<Action, String> attackCol = new TableColumn<>("Attack");
@@ -224,39 +176,153 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         attackCol.setCellValueFactory(cellData -> cellData.getValue().attackProperty());
         contentCol.setCellValueFactory(cellData -> cellData.getValue().contentProperty());
 
+        boolean hasAttack = false;
+        boolean hasContent = false;
+        for (Action ac : list) {
+            if (ac.getAttack() != null && ac.getAttack().length() > 0) {
+                hasAttack = true;
+            }
+            if (ac.getContent() != null && ac.getContent().length() > 0) {
+                hasContent = true;
+            }
+        }
+
         nameCol.setPrefWidth(150);
-        attackCol.setPrefWidth(250);
-        contentCol.setPrefWidth(500);
-        nameCol.setCellFactory(multiLineCellFactory());
-        attackCol.setCellFactory(multiLineCellFactory());
-        contentCol.setCellFactory(multiLineCellFactory());
-        table.setItems(list);
+        nameCol.setMaxWidth(400);
+        if (hasAttack) {
+            attackCol.setPrefWidth(200);
+            attackCol.setMaxWidth(400);
+        } else {
+            attackCol.setPrefWidth(20);
+            attackCol.setMaxWidth(400);
+        }
+        if (hasContent) {
+            contentCol.prefWidthProperty().bind(table.widthProperty().subtract(5).subtract(nameCol.widthProperty()).subtract(attackCol.widthProperty()));
+//            contentCol.setPrefWidth(500);
+//            contentCol.setMaxWidth(500);
+        } else {
+            contentCol.setPrefWidth(20);
+            contentCol.setMaxWidth(500);
+        }
+
+        nameCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
+        attackCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
+        contentCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
+
         table.getColumns().addAll(nameCol, attackCol, contentCol);
-        table.setEditable(true);
+
+        if (!monster.isReadOnly()) {
+            table.setEditable(true);
+            table.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+                    (ActionEvent event) -> {
+                        Object selected = table.getSelectionModel().getSelectedItem();
+                        if (selected != null) {
+                            list.remove(selected);
+                        }
+                    },
+                    (ActionEvent event) -> {
+                        Action object = new Action();
+                        list.add(object);
+                    }));
+        }
     }
 
     private void configModifierTable(TableView table, ObservableList list) {
+        table.setItems(list);
+
         TableColumn<StatWithModifier, String> statCol = new TableColumn<>("Name");
         TableColumn<StatWithModifier, Integer> valueCol = new TableColumn<>("Modifier");
         statCol.setMaxWidth(100.0);
         valueCol.setMaxWidth(50.0);
         statCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         valueCol.setCellValueFactory(cellData -> cellData.getValue().modifierProperty().asObject());
-        statCol.setCellFactory(TextFieldTableCell.forTableColumn());
-        valueCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        table.setItems(list);
+        statCol.setCellFactory(TextEditCell.editCellFactory());
+        valueCol.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+
         table.getColumns().addAll(statCol, valueCol);
-        table.setEditable(true);
+
+        if (!monster.isReadOnly()) {
+            table.setEditable(true);
+            table.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+                    (ActionEvent event) -> {
+                        Object selected = table.getSelectionModel().getSelectedItem();
+                        if (selected != null) {
+                            list.remove(selected);
+                        }
+                    },
+                    (ActionEvent event) -> {
+                        try {
+                            StatWithModifier object = new StatWithModifier();
+                            list.add(object);
+                        } catch (Exception ex) {
+                            Logger.getLogger(MonsterViewerController.class.getName()).log(Level.INFO, null, ex);
+                        }
+                    }));
+        }
     }
 
     private void configGenericTable(TableView table, ObservableList list) {
+        table.setItems(list);
         TableColumn<GenericValueString, String> valueCol = new TableColumn<>("Value");
         valueCol.setCellValueFactory(cellData -> cellData.getValue().valueProperty());
-        valueCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        valueCol.setCellFactory(TextEditCell.editCellFactory());
 
-        table.setItems(list);
         table.getColumns().add(valueCol);
-        table.setEditable(true);
+
+        if (!monster.isReadOnly()) {
+            table.setEditable(true);
+            table.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+                    (ActionEvent event) -> {
+                        Object selected = table.getSelectionModel().getSelectedItem();
+                        if (selected != null) {
+                            list.remove(selected);
+                        }
+                    },
+                    (ActionEvent event) -> {
+                        try {
+                            GenericValueString object = new GenericValueString();
+                            list.add(object);
+                        } catch (Exception ex) {
+                            Logger.getLogger(MonsterViewerController.class.getName()).log(Level.INFO, null, ex);
+                        }
+                    }));
+        }
+
+    }
+
+    public void SetRO(boolean readonly) {
+        NameField.setEditable(!readonly);
+        SourceField.setEditable(!readonly);
+        TypeField.setEditable(!readonly);
+        SizeField.setDisable(readonly);
+        AlignField.setEditable(!readonly);
+        HPField.setEditable(!readonly);
+        HPDice.setDisable(readonly);
+        HPNotesField.setEditable(!readonly);
+        ACField.setEditable(!readonly);
+        ACNotesField.setEditable(!readonly);
+        InitField.setEditable(!readonly);
+        CHField.setEditable(!readonly);
+        StrField.setDisable(readonly);
+        DexField.setDisable(readonly);
+        ConField.setDisable(readonly);
+        IntField.setDisable(readonly);
+        WisField.setDisable(readonly);
+        ChaField.setDisable(readonly);
+        SpeedList.setEditable(!readonly);
+        SavesList.setEditable(!readonly);
+        DmgVulList.setEditable(!readonly);
+        DmgResList.setEditable(!readonly);
+        ConImList.setEditable(!readonly);
+        DmgImList.setEditable(!readonly);
+        SkillsList.setEditable(!readonly);
+        LanguageList.setEditable(!readonly);
+        TraitsList.setEditable(!readonly);
+        SensesList.setEditable(!readonly);
+        ActionsList.setEditable(!readonly);
+        ReactionsList.setEditable(!readonly);
+        LegActionsList.setEditable(!readonly);
+        SaveButton.setVisible(!readonly);
     }
 
     public Monster getMonster() {
@@ -266,6 +332,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
     public void setMonster(Monster monster) {
         this.monster = monster;
         BindData();
+        SetRO(monster.isReadOnly());
     }
 
     @FXML
@@ -280,71 +347,6 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         ArrayList<Monster> newmonsters = new ArrayList<>();
         newmonsters.add(monster);
         mondb.ImportMonsters(newmonsters);
-    }
-
-    @FXML
-    private void AddSpeed(ActionEvent event) {
-        SpeedList.getItems().add(new GenericValueString("New"));
-    }
-
-    @FXML
-    private void AddSaves(ActionEvent event) {
-        SavesList.getItems().add(new StatWithModifier("New", 0));
-    }
-
-    @FXML
-    private void AddDmgVuln(ActionEvent event) {
-        DmgVulList.getItems().add(new GenericValueString("New"));
-    }
-
-    @FXML
-    private void AddDmgRes(ActionEvent event) {
-        DmgResList.getItems().add(new GenericValueString("New"));
-    }
-
-    @FXML
-    private void AddConImmun(ActionEvent event) {
-        ConImList.getItems().add(new GenericValueString("New"));
-    }
-
-    @FXML
-    private void AddDmgImmun(ActionEvent event) {
-        DmgImList.getItems().add(new GenericValueString("New"));
-    }
-
-    @FXML
-    private void AddSkils(ActionEvent event) {
-        SkillsList.getItems().add(new StatWithModifier("New", 0));
-    }
-
-    @FXML
-    private void AddLang(ActionEvent event) {
-        LanguageList.getItems().add(new GenericValueString("New"));
-    }
-
-    @FXML
-    private void AddTrait(ActionEvent event) {
-        TraitsList.getItems().add(new Action("New", "", "", ""));
-    }
-
-    @FXML
-    private void AddSense(ActionEvent event) {
-        SensesList.getItems().add(new GenericValueString("New"));
-    }
-
-    @FXML
-    private void AddAction(ActionEvent event) {
-        ActionsList.getItems().add(new Action("New", "", "", ""));
-    }
-
-    @FXML
-    private void AddReaction(ActionEvent event) {
-        ReactionsList.getItems().add(new Action("New", "", "", ""));
-    }
-
-    @FXML
-    private void AddLegAction(ActionEvent event) {
-        LegActionsList.getItems().add(new Action("New", "", "", ""));
     }
 
 }

@@ -5,10 +5,15 @@
  */
 package com.malmoset.campaigndata;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -120,4 +125,40 @@ public class Abilities {
         return cha;
     }
 
+    public int getModifier(String ability) {
+        int mod = 10;
+        switch (ability) {
+            case "Str":
+                mod = str.get();
+                break;
+            case "Dex":
+                mod = dex.get();
+                break;
+            case "Con":
+                mod = con.get();
+                break;
+            case "Int":
+                mod = intelligence.get();
+                break;
+            case "Wis":
+                mod = wis.get();
+                break;
+            case "Cha":
+                mod = cha.get();
+                break;
+        }
+        return (mod - 10) / 2;
+    }
+
+    @JsonIgnore
+    public static ObservableList<String> AbilitiesList() {
+        List<String> abil = new ArrayList<>();
+        abil.add("Str");
+        abil.add("Dex");
+        abil.add("Con");
+        abil.add("Int");
+        abil.add("Wis");
+        abil.add("Cha");
+        return FXCollections.observableArrayList(abil);
+    }
 }

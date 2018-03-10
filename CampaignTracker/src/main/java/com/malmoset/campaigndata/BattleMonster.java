@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.malmoset.campaigntrackercontrols.HPAppearance;
+import com.malmoset.dice.Dice;
 import java.util.Date;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
@@ -57,6 +58,7 @@ public class BattleMonster extends Monster {
         this.savingRoll = new SimpleIntegerProperty(0);
         this.hPtoChange = new SimpleIntegerProperty(0);
         this.currentHP = new SimpleIntegerProperty(currenthp != null ? currenthp : hP.getHpValue());
+        currentHPSet = true;
         setAppearance("");
     }
 
@@ -89,9 +91,28 @@ public class BattleMonster extends Monster {
     @JsonProperty("CurrentHP")
     private IntegerProperty currentHP;
 
+    public void RollSave(String type) {
+        int statmod = this.getAbilities().getModifier(type);
+        int savemod = 0;
+        for (StatWithModifier save : this.getSaves()) {
+            if (save.getName().toLowerCase().trim().startsWith(type.toLowerCase().trim())) {
+                savemod = save.getModifier();
+            }
+        }
+        //They're only allowed one of the two
+        //If the specific saving properties are greater than the stat, use them instead
+        if (savemod > statmod) {
+            statmod = savemod;
+        }
+        //Roll it!
+        this.savingRollProperty().set(Dice.roll(20, Dice.RollTypes.Normal) + statmod);
+
+    }
+
     public int getCurrentHP() {
         if (!currentHPSet) {
             currentHP.set(this.getHP().getHpValue());
+            currentHPSet = true;
         }
         return currentHP.get();
     }
@@ -99,6 +120,7 @@ public class BattleMonster extends Monster {
     public void setCurrentHP(int value) {
         currentHP.set(value);
         currentHPSet = true;
+        setAppearance("");
     }
 
     @JsonProperty("Spawned")
@@ -137,6 +159,7 @@ public class BattleMonster extends Monster {
 
     public final void setPersuaded(boolean value) {
         persuaded.set(value);
+        setAppearance("");
     }
 
     public BooleanProperty persuadedProperty() {

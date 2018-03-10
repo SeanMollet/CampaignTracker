@@ -12,6 +12,10 @@ public class MainApp extends Application {
     //Property that holds out application data, universally accessible
     private static AppData appData;
 
+    public static boolean isAppDataUP() {
+        return appData != null;
+    }
+
     public static AppData getAppData() {
         if (appData == null) {
             appData = new AppData();

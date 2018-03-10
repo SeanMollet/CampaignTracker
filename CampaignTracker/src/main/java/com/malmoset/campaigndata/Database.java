@@ -189,6 +189,13 @@ public class Database {
         return false;
     }
 
+    public int getBattleNumber() {
+        if (battles != null) {
+            return battles.getSize() + 1;
+        }
+        return 1;
+    }
+
     public final ObservableList<Battle> getBattles() {
         return battles.get();
     }

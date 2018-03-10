@@ -9,13 +9,14 @@ import javafx.event.EventHandler;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 /**
  *
  * @author sean
  */
-public class DoubleClickFactory {
+public class TableViewCellFactories {
 
     public static <S, T> Callback<TableColumn<S, T>, TableCell<S, T>> DoubleClickFactory(EventHandler<MouseEvent> event) {
         return new Callback<TableColumn<S, T>, TableCell<S, T>>() {
@@ -35,6 +36,37 @@ public class DoubleClickFactory {
                     }
                 };
                 cell.addEventFilter(MouseEvent.MOUSE_CLICKED, event);
+                return cell;
+            }
+        };
+    }
+
+    public static <S, T> Callback<TableColumn<S, T>, TableCell<S, T>> multiLineCellFactory() {
+        return multiLineCellFactory(null);
+    }
+
+    public static <S, T> Callback<TableColumn<S, T>, TableCell<S, T>> multiLineCellFactory(EventHandler<MouseEvent> event) {
+        return new Callback<TableColumn<S, T>, TableCell<S, T>>() {
+            @Override
+            public TableCell call(TableColumn param) {
+                final TableCell cell = new TableCell() {
+                    private Text text;
+
+                    @Override
+                    public void updateItem(Object item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!isEmpty() && item != null) {
+                            text = new Text(item.toString());
+                            text.wrappingWidthProperty().bind(this.widthProperty());
+                            //text.setWrappingWidth(200);
+                            setGraphic(text);
+                        }
+                    }
+                };
+
+                if (event != null) {
+                    cell.addEventFilter(MouseEvent.MOUSE_CLICKED, event);
+                }
                 return cell;
             }
         };

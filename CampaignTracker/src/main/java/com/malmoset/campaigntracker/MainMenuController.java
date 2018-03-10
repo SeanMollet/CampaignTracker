@@ -73,6 +73,7 @@ public class MainMenuController implements Initializable {
     private void NewBattleClick(ActionEvent event) {
         Battle battle = new Battle();
         BattleViewerController controller = (BattleViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleViewer.fxml"), "Battle");
+        MainApp.getAppData().getDb().battlesProperty().add(battle);
         controller.setBattle(battle);
         controller.Show();
     }

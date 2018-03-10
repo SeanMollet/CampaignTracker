@@ -73,16 +73,6 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         PlayerTable.setEditable(false);
 
         //Generic editable factory
-        Callback<TableColumn<Player, String>, TableCell<Player, String>> strcellFactory = new Callback<TableColumn<Player, String>, TableCell<Player, String>>() {
-            public TableCell call(TableColumn p) {
-                return new TextEditCell();
-            }
-        };
-        Callback<TableColumn<Player, Integer>, TableCell<Player, Integer>> intcellFactory = new Callback<TableColumn<Player, Integer>, TableCell<Player, Integer>>() {
-            public TableCell call(TableColumn p) {
-                return new TextEditCell(new IntegerStringConverter());
-            }
-        };
         Callback<TableColumn<Player, Dice.RollTypes>, TableCell<Player, Dice.RollTypes>> advcellFactory
                 = new Callback<TableColumn<Player, Dice.RollTypes>, TableCell<Player, Dice.RollTypes>>() {
             public TableCell call(TableColumn p) {
@@ -118,19 +108,19 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         col12.setCellValueFactory(cellData -> cellData.getValue().appearanceProperty());
         col13.setCellValueFactory(cellData -> cellData.getValue().hpToChangeProperty().asObject());
 
-        col1.setCellFactory(strcellFactory);
-        col2.setCellFactory(strcellFactory);
-        col3.setCellFactory(strcellFactory);
+        col1.setCellFactory(TextEditCell.editCellFactory());
+        col2.setCellFactory(TextEditCell.editCellFactory());
+        col3.setCellFactory(TextEditCell.editCellFactory());
 
         col9.setCellFactory(advcellFactory);
 
-        col4.setCellFactory(intcellFactory);
-        col5.setCellFactory(intcellFactory);
-        col6.setCellFactory(intcellFactory);
-        col7.setCellFactory(intcellFactory);
-        col8.setCellFactory(intcellFactory);
+        col4.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+        col5.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+        col6.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+        col7.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+        col8.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
 
-        col13.setCellFactory(intcellFactory);
+        col13.setCellFactory(TextEditCell.editCellFactory());
 
         col10.setCellFactory(tc -> new CheckBoxTableCell<>());
         col11.setCellFactory(tc -> new CheckBoxTableCell<>());

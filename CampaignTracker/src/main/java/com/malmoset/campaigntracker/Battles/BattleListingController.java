@@ -7,12 +7,14 @@ package com.malmoset.campaigntracker.Battles;
 
 import com.malmoset.campaigndata.Battle;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.campaigntrackercontrols.DoubleClickFactory;
+import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,28 +61,34 @@ public class BattleListingController extends BaseForm implements Initializable {
         BattlesTable.getColumns().addAll(col1, col2, col3, col4, col5);
 
         //Set up the rows
-        EventHandler<MouseEvent> doubleClick = new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() > 1) {
-                    TableRow row = (TableRow) ((TableCell) event.getSource()).getParent();
-                    if (row != null) {
-                        Battle selectedBattle = (Battle) row.getItem();
-                        if (selectedBattle != null) {
-                            LoadBattle(selectedBattle);
-                        }
+        EventHandler<MouseEvent> doubleClick = (MouseEvent event) -> {
+            if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() > 1) {
+                TableRow row = (TableRow) ((TableCell) event.getSource()).getParent();
+                if (row != null) {
+                    Battle selectedBattle = (Battle) row.getItem();
+                    if (selectedBattle != null) {
+                        LoadBattle(selectedBattle);
                     }
                 }
             }
         };
 
-        col1.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
-        col2.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
-        col3.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
-        col4.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
-        col5.setCellFactory(DoubleClickFactory.DoubleClickFactory(doubleClick));
+        col1.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
+        col2.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
+        col3.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
+        col4.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
+        col5.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
 
-        BattlesTable.setItems(MainApp.getAppData().getDb().battlesProperty());
+        SortedList<Battle> sortedData = new SortedList<>(MainApp.getAppData().getDb().battlesProperty());
+
+        //Sort them in Descending order by date
+        sortedData.comparatorProperty().set((Comparator) (Object o1, Object o2) -> {
+            Battle left = (Battle) o1;
+            Battle right = (Battle) o2;
+            return left.getBegan().compareTo(right.getBegan()) * -1;
+        });
+
+        BattlesTable.setItems(sortedData);
 
     }
 
