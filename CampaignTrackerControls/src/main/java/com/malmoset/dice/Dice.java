@@ -5,6 +5,8 @@
  */
 package com.malmoset.dice;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -46,7 +48,7 @@ public class Dice {
     public static int rollXwithMod(int DiceCount, int DiceSize, int Modifier) {
         int roll = 0;
         for (int a = 0; a < DiceCount; a++) {
-            roll += roll(DiceSize, RollTypes.NORMAL);
+            roll += roll(DiceSize, RollTypes.Normal);
         }
         roll += Modifier;
         return roll;
@@ -56,15 +58,15 @@ public class Dice {
         int roll = singleRoll(size);
 
         switch (rolltype) {
-            case NORMAL:
+            case Normal:
                 return roll;
-            case ADVANTAGE:
+            case Advantage:
                 int advRoll = singleRoll(size);
                 if (advRoll > roll) {
                     return advRoll;
                 }
                 return roll;
-            case DISADVANTAGE:
+            case Disadvantage:
                 int disadvRoll = singleRoll(size);
                 if (disadvRoll < roll) {
                     return disadvRoll;
@@ -97,9 +99,18 @@ public class Dice {
         }
     }
 
+    public static List<String> RollTypesList() {
+        ArrayList<String> types = new ArrayList<>();
+        types.add("Normal");
+        types.add("Advantage");
+        types.add("Disadvantage");
+        return types;
+    }
+
     public enum RollTypes {
-        NORMAL,
-        ADVANTAGE,
-        DISADVANTAGE
+        Normal,
+        Advantage,
+        Disadvantage;
+
     }
 }

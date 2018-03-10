@@ -6,8 +6,9 @@
 package com.malmoset.campaigntrackercontrols;
 
 //Thanks to http://news.kynosarges.org/2016/10/28/javafx-spinner-for-numbers/
+import com.malmoset.dice.Dice;
 import javafx.scene.control.*;
-import javafx.util.converter.NumberStringConverter;
+import javafx.util.StringConverter;
 
 /**
  * Converts between user-edited strings and {@link Integer} values. Accepts an
@@ -19,29 +20,48 @@ import javafx.util.converter.NumberStringConverter;
  * @author Christoph Nahr
  * @version 1.0.2
  */
-public class DiceStringConverter extends NumberStringConverter {
+public class DiceStringConverter extends StringConverter<Dice.RollTypes> {
 
     @Override
-    public Integer fromString(String s) {
+    public Dice.RollTypes fromString(String s) {
         if (s == null || s.isEmpty()) {
-            return 0;
+            return Dice.RollTypes.Normal;
         }
 
         try {
-            //Trim off the D
-            if (s.toLowerCase().contains("d")) {
-                s = s.substring(1);
-            }
-            return Integer.valueOf(s);
-        } catch (NumberFormatException e) {
-            return 0;
+            //String result = s.toUpperCase().trim();
+            Dice.RollTypes type = Dice.RollTypes.valueOf(s);
+            return type;
+        } catch (Exception e) {
+            return Dice.RollTypes.Normal;
         }
     }
 
-    public String toString(Integer value) {
+    @Override
+    public String toString(Dice.RollTypes value) {
         if (value == null) {
-            return "D0";
+            value = Dice.RollTypes.Normal;
         }
-        return "D" + Integer.toString(value);
+//        String result = toTitleCase(value.toString());
+//        return result;
+        return value.toString();
+    }
+
+    public static String toTitleCase(String input) {
+        StringBuilder titleCase = new StringBuilder();
+        boolean nextTitleCase = true;
+
+        for (char c : input.toCharArray()) {
+            if (Character.isSpaceChar(c)) {
+                nextTitleCase = true;
+            } else if (nextTitleCase) {
+                c = Character.toTitleCase(c);
+                nextTitleCase = false;
+            }
+
+            titleCase.append(c);
+        }
+
+        return titleCase.toString();
     }
 }

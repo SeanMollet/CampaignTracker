@@ -9,39 +9,32 @@ import com.malmoset.campaigndata.Player;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
+import com.malmoset.campaigntrackercontrols.ChoiceBoxEditCell;
+import com.malmoset.campaigntrackercontrols.DiceStringConverter;
 import com.malmoset.campaigntrackercontrols.IntegerStringConverter;
 import com.malmoset.campaigntrackercontrols.SpinnerUtils;
 import com.malmoset.campaigntrackercontrols.Styles;
+import com.malmoset.campaigntrackercontrols.TextEditCell;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.dice.Dice;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Cell;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
-import javafx.util.StringConverter;
-import javafx.util.converter.DefaultStringConverter;
 
 /**
  * FXML Controller class
@@ -82,15 +75,20 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         //Generic editable factory
         Callback<TableColumn<Player, String>, TableCell<Player, String>> strcellFactory = new Callback<TableColumn<Player, String>, TableCell<Player, String>>() {
             public TableCell call(TableColumn p) {
-                return new EditingCell();
+                return new TextEditCell();
             }
         };
         Callback<TableColumn<Player, Integer>, TableCell<Player, Integer>> intcellFactory = new Callback<TableColumn<Player, Integer>, TableCell<Player, Integer>>() {
             public TableCell call(TableColumn p) {
-                return new EditingCell(new IntegerStringConverter());
+                return new TextEditCell(new IntegerStringConverter());
             }
         };
-
+        Callback<TableColumn<Player, Dice.RollTypes>, TableCell<Player, Dice.RollTypes>> advcellFactory
+                = new Callback<TableColumn<Player, Dice.RollTypes>, TableCell<Player, Dice.RollTypes>>() {
+            public TableCell call(TableColumn p) {
+                return new ChoiceBoxEditCell(new DiceStringConverter(), FXCollections.observableArrayList(Dice.RollTypesList()));
+            }
+        };
         //Create the columns
         TableColumn<Player, String> col1 = new TableColumn<>("Name");
         TableColumn<Player, String> col2 = new TableColumn<>("Race");
@@ -100,7 +98,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         TableColumn<Player, Integer> col6 = new TableColumn<>("Max HP");
         TableColumn<Player, Integer> col7 = new TableColumn<>("Dex");
         TableColumn<Player, Integer> col8 = new TableColumn<>("Roll");
-        TableColumn<Player, String> col9 = new TableColumn<>("Adv");
+        TableColumn<Player, Dice.RollTypes> col9 = new TableColumn<>("Adv");
         TableColumn<Player, Boolean> col10 = new TableColumn<>("Dead");
         TableColumn<Player, Boolean> col11 = new TableColumn<>("Stable");
         TableColumn<Player, String> col12 = new TableColumn<>("Appearance");
@@ -114,7 +112,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         col6.setCellValueFactory(cellData -> cellData.getValue().maxHPProperty().asObject());
         col7.setCellValueFactory(cellData -> cellData.getValue().initiativeProperty().asObject());
         col8.setCellValueFactory(cellData -> cellData.getValue().rollProperty().asObject());
-        col9.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().advProperty().toString()));
+        col9.setCellValueFactory(cellData -> cellData.getValue().advProperty());
         col10.setCellValueFactory(cellData -> cellData.getValue().deadProperty());
         col11.setCellValueFactory(cellData -> cellData.getValue().stableProperty());
         col12.setCellValueFactory(cellData -> cellData.getValue().appearanceProperty());
@@ -123,7 +121,8 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         col1.setCellFactory(strcellFactory);
         col2.setCellFactory(strcellFactory);
         col3.setCellFactory(strcellFactory);
-        col9.setCellFactory(strcellFactory);
+
+        col9.setCellFactory(advcellFactory);
 
         col4.setCellFactory(intcellFactory);
         col5.setCellFactory(intcellFactory);
@@ -219,142 +218,6 @@ public class PlayerEditorController extends BaseForm implements Initializable {
     @FXML
     private void AddClick(ActionEvent event) {
         MainApp.getAppData().getDb().getPlayers().add(new Player());
-    }
-
-    //Concept and some layout taken from:
-    //https://stackoverflow.com/questions/22211860/javafx-tab-through-editable-cells
-    //https://gist.github.com/abhinayagarwal/9383881
-    //Thanks!
-    class EditingCell<S, T> extends TableCell<S, T> {
-
-        private TextField textField;
-        private StringConverter converter;
-
-        public EditingCell(StringConverter converter) {
-            this.converter = converter;
-        }
-
-        public EditingCell() {
-            this.converter = new DefaultStringConverter();
-        }
-
-        @Override
-        public void startEdit() {
-            if (!isEmpty()) {
-                super.startEdit();
-                textField = createTextField(this, converter);
-                setText(null);
-                setGraphic(textField);
-                textField.selectAll();
-                textField.requestFocus();
-            }
-        }
-
-        @Override
-        public void cancelEdit() {
-            super.cancelEdit();
-
-            setText(converter.toString(getItem()));
-            setGraphic(null);
-        }
-
-        @Override
-        public void updateItem(T item, boolean empty) {
-            super.updateItem(item, empty);
-
-            if (empty) {
-                setText(null);
-                setGraphic(null);
-            } else {
-                if (isEditing()) {
-                    if (textField != null) {
-                        textField.setText(getString());
-                    }
-                    setText(null);
-                    setGraphic(textField);
-                } else {
-                    setText(getString());
-                    setGraphic(null);
-                }
-            }
-        }
-
-        private <T> TextField createTextField(final Cell<T> cell, final StringConverter<T> converter) {
-            final TextField textField = new TextField(getString());
-            textField.setMinWidth(this.getWidth() - this.getGraphicTextGap() * 2);
-            textField.focusedProperty().addListener(new ChangeListener<Boolean>() {
-                @Override
-                public void changed(ObservableValue<? extends Boolean> arg0,
-                        Boolean oldValue, Boolean newValue) {
-                    if (!newValue) {
-                        cell.commitEdit(converter.fromString(textField.getText()));
-                    }
-                }
-            });
-            textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-                @Override
-                public void handle(KeyEvent t) {
-                    if (t.getCode() == KeyCode.ENTER) {
-                        cell.commitEdit(converter.fromString(textField.getText()));
-                    } else if (t.getCode() == KeyCode.ESCAPE) {
-                        cell.cancelEdit();
-                    } else if (t.getCode() == KeyCode.TAB) {
-                        cell.commitEdit(converter.fromString(textField.getText()));
-                        TableColumn nextColumn = getNextColumn(!t.isShiftDown());
-                        if (nextColumn != null) {
-                            getTableView().edit(getTableRow().getIndex(), nextColumn);
-                        }
-                    }
-                }
-            });
-            return textField;
-        }
-
-        private TableColumn<S, ?> getNextColumn(boolean forward) {
-            List<TableColumn<S, ?>> columns = new ArrayList<>();
-            for (TableColumn<S, ?> column : getTableView().getColumns()) {
-                columns.addAll(getLeaves(column));
-            }
-            // There is no other column that supports editing.
-            if (columns.size() < 2) {
-                return null;
-            }
-            int currentIndex = columns.indexOf(getTableColumn());
-            int nextIndex = currentIndex;
-            if (forward) {
-                nextIndex++;
-                if (nextIndex > columns.size() - 1) {
-                    nextIndex = 0;
-                }
-            } else {
-                nextIndex--;
-                if (nextIndex < 0) {
-                    nextIndex = columns.size() - 1;
-                }
-            }
-            return columns.get(nextIndex);
-        }
-
-        private List<TableColumn<S, ?>> getLeaves(
-                TableColumn<S, ?> root) {
-            List<TableColumn<S, ?>> columns = new ArrayList<>();
-            if (root.getColumns().isEmpty()) {
-                // We only want the leaves that are editable.
-                if (root.isEditable()) {
-                    columns.add(root);
-                }
-                return columns;
-            } else {
-                for (TableColumn<S, ?> column : root.getColumns()) {
-                    columns.addAll(getLeaves(column));
-                }
-                return columns;
-            }
-        }
-
-        private String getString() {
-            return getItem() == null ? "" : converter.toString(getItem());
-        }
     }
 
 }

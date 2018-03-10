@@ -56,7 +56,7 @@ public class Player {
         this.currentHP = new SimpleIntegerProperty(0);
         this.maxHP = new SimpleIntegerProperty(0);
         this.roll = new SimpleIntegerProperty(0);
-        this.adv = new SimpleObjectProperty(Dice.RollTypes.NORMAL);
+        this.adv = new SimpleObjectProperty(Dice.RollTypes.Normal);
         this.dead = new SimpleBooleanProperty(false);
         this.stable = new SimpleBooleanProperty(false);
         this.hpToChange = new SimpleIntegerProperty(0);
