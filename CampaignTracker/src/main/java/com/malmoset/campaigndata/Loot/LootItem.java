@@ -18,6 +18,12 @@ package com.malmoset.campaigndata.Loot;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -28,62 +34,64 @@ import javafx.collections.ObservableList;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LootItem {
 
-    private LootType type;
-    private Integer count;
-    private String item;
+    private ObjectProperty<LootType> type;
+    private IntegerProperty count;
+    private StringProperty item;
 
     public LootItem(@JsonProperty("type") LootType type, @JsonProperty("count") Integer count, @JsonProperty("item") String item) {
-        this.type = type;
-        this.count = count;
-        this.item = item;
+        this();
+        this.type.set(type);
+        this.count.set(count);
+        this.item.set(item);
     }
 
     public LootItem() {
-        type = LootType.MONEY;
-        count = 0;
-        item = "";
+        type = new SimpleObjectProperty<>(LootType.MONEY);
+        count = new SimpleIntegerProperty(0);
+        item = new SimpleStringProperty("");
     }
 
-    public LootType getType() {
+    public final LootType getType() {
+        return type.get();
+    }
+
+    public final void setType(LootType value) {
+        type.set(value);
+    }
+
+    public ObjectProperty<LootType> typeProperty() {
         return type;
     }
 
-    public void setType(LootType type) {
-        this.type = type;
+    public final int getCount() {
+        return count.get();
     }
 
-    public Integer getCount() {
+    public final void setCount(int value) {
+        count.set(value);
+    }
+
+    public IntegerProperty countProperty() {
         return count;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public final String getItem() {
+        return item.get();
     }
 
-    public String getItem() {
+    public final void setItem(String value) {
+        item.set(value);
+    }
+
+    public StringProperty itemProperty() {
         return item;
     }
 
-    public void setItem(String item) {
-        this.item = item;
-    }
-
     public enum LootType {
-        MONEY("Money"),
-        GEMSTONES("Gem Stone"),
-        ARTOBJECTS("Art Object"),
-        MAGICITEMS("Magic Item");
-
-        private String type;
-
-        LootType(String input) {
-            this.type = input;
-        }
-
-        @Override
-        public String toString() {
-            return type;
-        }
+        MONEY,
+        GEMSTONE,
+        ARTOBJECT,
+        MAGICITEM;
 
         public static ObservableList<String> getLootTypes() {
             ArrayList<String> results = new ArrayList<>();

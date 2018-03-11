@@ -10,6 +10,7 @@ import com.malmoset.campaigndata.Battle;
 import com.malmoset.campaigndata.BattleMonster;
 import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigndata.XPEvent;
+import com.malmoset.campaigntracker.Loot.LootDispenserController;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterViewerController;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
@@ -281,6 +282,9 @@ public class BattleViewerController extends BaseForm implements Initializable {
 
     @FXML
     private void LootClick(ActionEvent event) {
+        LootDispenserController controller = (LootDispenserController) BaseForm.LoadForm(getClass().getResource("/fxml/Loot/LootDispenser.fxml"), "Loot Dispenser");
+        controller.LoadBattle(battle);
+        controller.Show();
     }
 
     @FXML

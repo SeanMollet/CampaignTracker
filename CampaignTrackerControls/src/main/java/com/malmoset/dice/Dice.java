@@ -24,12 +24,13 @@ public class Dice {
             int multiplier = 1;
             int dicecount = 0;
             int dicesize = 0;
+            //I really need to redo this with a regex
             if (coin.contains("*")) {
                 if (tryParseInt(coin.substring(coin.indexOf("*") + 1))) {
                     multiplier = Integer.parseInt(coin.substring(coin.indexOf("*") + 1));
                 }
-                if (tryParseInt(coin.substring(coin.indexOf("d") + 1, coin.indexOf("*") - coin.indexOf("d") - 1))) {
-                    dicesize = Integer.parseInt(coin.substring(coin.indexOf("d") + 1, coin.indexOf("*") - coin.indexOf("d") - 1));
+                if (tryParseInt(coin.substring(coin.indexOf("d") + 1, coin.indexOf("*")))) {
+                    dicesize = Integer.parseInt(coin.substring(coin.indexOf("d") + 1, coin.indexOf("*")));
                 }
             } else {
                 if (tryParseInt(coin.substring(coin.indexOf("d") + 1))) {

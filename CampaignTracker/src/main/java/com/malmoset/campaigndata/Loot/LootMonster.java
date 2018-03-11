@@ -18,6 +18,12 @@ package com.malmoset.campaigndata.Loot;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.malmoset.campaigndata.Fraction;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
@@ -27,37 +33,58 @@ import com.malmoset.campaigndata.Fraction;
 public class LootMonster {
 
     public LootMonster(@JsonProperty("quantity") Integer quantity, @JsonProperty("monsterName") String monsterName, @JsonProperty("challenge") Fraction challenge, @JsonProperty("hoard") boolean hoard) {
-        this.quantity = quantity;
-        this.monsterName = monsterName;
+        this();
+        this.quantity.set(quantity);
+        this.monsterName.set(monsterName);
         this.challenge = challenge;
-        this.hoard = hoard;
+        this.hoard.set(hoard);
     }
 
     public LootMonster() {
-        this.quantity = 0;
-        this.monsterName = "";
+        this.quantity = new SimpleIntegerProperty(0);
+        this.monsterName = new SimpleStringProperty("");
         this.challenge = new Fraction("0");
-        this.hoard = false;
+        this.hoard = new SimpleBooleanProperty(false);
     }
-    private Integer quantity;
-    private String monsterName;
+    private IntegerProperty quantity;
+    private StringProperty monsterName;
     private Fraction challenge;
-    private boolean hoard;
+    private BooleanProperty hoard;
 
-    public Integer getQuantity() {
+    public final int getQuantity() {
+        return quantity.get();
+    }
+
+    public final void setQuantity(int value) {
+        quantity.set(value);
+    }
+
+    public IntegerProperty quantityProperty() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public final String getMonsterName() {
+        return monsterName.get();
     }
 
-    public String getMonsterName() {
+    public final void setMonsterName(String value) {
+        monsterName.set(value);
+    }
+
+    public StringProperty monsterNameProperty() {
         return monsterName;
     }
 
-    public void setMonsterName(String monsterName) {
-        this.monsterName = monsterName;
+    public final boolean isHoard() {
+        return hoard.get();
+    }
+
+    public final void setHoard(boolean value) {
+        hoard.set(value);
+    }
+
+    public BooleanProperty hoardProperty() {
+        return hoard;
     }
 
     public Fraction getChallenge() {
@@ -66,14 +93,6 @@ public class LootMonster {
 
     public void setChallenge(Fraction challenge) {
         this.challenge = challenge;
-    }
-
-    public boolean isHoard() {
-        return hoard;
-    }
-
-    public void setHoard(boolean hoard) {
-        this.hoard = hoard;
     }
 
 }

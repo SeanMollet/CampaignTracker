@@ -74,4 +74,12 @@ public class AppData {
         return current_battle;
     }
 
+    public LootTables getLoot() {
+        return loot;
+    }
+
+    public void setLoot(LootTables loot) {
+        this.loot = loot;
+    }
+
 }
