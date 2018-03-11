@@ -5,8 +5,13 @@
  */
 package com.malmoset.campaigntrackercontrols;
 
+import com.malmoset.dice.Dice;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -38,12 +43,14 @@ public class StatDice extends AnchorPane {
     private IntegerProperty statDiceCount;
     private IntegerProperty statDiceSize;
     private IntegerProperty statModifier;
+    private BooleanProperty modifierVisible;
 
     private ObservableList<String> diceText;
     private ObservableList<Integer> diceVal;
 
     public StatDice() {
         super();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/StatDice.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -56,6 +63,23 @@ public class StatDice extends AnchorPane {
 
         SetupControls();
         BindFields();
+    }
+
+    public int RollTotal() {
+        int total = 0;
+        for (int a = 0; a < statDiceCount.get(); a++) {
+            total += Dice.roll(statDiceSize.get(), Dice.RollTypes.Normal);
+        }
+        return total;
+    }
+
+    public List<Integer> RollAll() {
+        List<Integer> rolls = new ArrayList<>();
+
+        for (int a = 0; a < statDiceCount.get(); a++) {
+            rolls.add(Dice.roll(statDiceSize.get(), Dice.RollTypes.Normal));
+        }
+        return rolls;
     }
 
     private void BindFields() {
@@ -79,6 +103,17 @@ public class StatDice extends AnchorPane {
     }
 
     private void SetupControls() {
+        modifierVisible = new SimpleBooleanProperty(true);
+        modifierVisible.addListener((obs, oldval, newval) -> {
+            if (newval) {
+                this.setPrefWidth(185);
+                this.Modifier.setVisible(true);
+            } else {
+                this.setPrefWidth(125);
+                this.Modifier.setVisible(false);
+            }
+        });
+
         SpinnerValueFactory<Integer> valfact = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1);
         SpinnerValueFactory<Integer> valfact2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(-500, 500, 0);
 
@@ -148,6 +183,18 @@ public class StatDice extends AnchorPane {
 
     public IntegerProperty statModifierProperty() {
         return statModifier;
+    }
+
+    public final boolean isModifierVisible() {
+        return modifierVisible.get();
+    }
+
+    public final void setModifierVisible(boolean value) {
+        modifierVisible.set(value);
+    }
+
+    public BooleanProperty modifierVisibleProperty() {
+        return modifierVisible;
     }
 
 }

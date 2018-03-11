@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
@@ -105,6 +106,26 @@ public class Battle {
     @JsonIgnore
     public final int getTotalMonsters() {
         return (int) monsters.stream().count();
+    }
+
+    @JsonIgnore
+    public final int getPersuadedMonsters() {
+        return (int) monsters.stream().filter(x -> x.isPersuaded()).count();
+    }
+
+    @JsonIgnore
+    public final int getUntouchedMonsters() {
+        return (int) monsters.stream().filter(x -> x.getCurrentHP() > 0 && !x.isPersuaded()).count();
+    }
+
+    @JsonIgnore
+    public final int getDeadMonsters() {
+        return (int) monsters.stream().filter(x -> x.getCurrentHP() <= 0 && !x.isPersuaded()).count();
+    }
+
+    @JsonIgnore
+    public final int getTotalXP() {
+        return (int) monsters.stream().collect(Collectors.summingInt(x -> x.getXPGiven()));
     }
 
     public final ObservableList<BattleMonster> getMonsters() {
