@@ -262,3 +262,15 @@ __pycache__/
 /Data/
 .DS_Store
 /BookSourceData/
+=======
+CampaignTracker/target
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+BookSourceData
+/CampaignTrackerControls/nbproject/private/
+/CampaignTrackerControls/target/
+>>>>>>> 8822db1de7aa4b23ca4b10d65f4a5b4ea47f9239
