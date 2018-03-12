@@ -15,9 +15,11 @@
  */
 package com.malmoset.campaigndata;
 
-import com.malmoset.campaigndata.Loot.LootItem;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.malmoset.campaigndata.Loot.LootItem;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,15 +34,39 @@ public class BaseDatabase {
     public BaseDatabase(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters,
             @JsonProperty("Players") List<Player> players, @JsonProperty("CustomMonsters") List<Monster> customMonsters,
             @JsonProperty("XP") Map<Integer, List<XPEvent>> xP, @JsonProperty("Session") Integer session, @JsonProperty("Loot") List<LootItem> loot) {
-        this.battles = battles;
-        this.encounters = encounters;
-        this.players = players;
-        this.customMonsters = customMonsters;
-        this.xP = xP;
-        this.session = session;
-        this.loot = loot;
+        this();
+        if (battles != null) {
+            this.battles = battles;
+        }
+        if (encounters != null) {
+            this.encounters = encounters;
+        }
+        if (players != null) {
+            this.players = players;
+        }
+        if (customMonsters != null) {
+            this.customMonsters = customMonsters;
+        }
+        if (xP != null) {
+            this.xP = xP;
+        }
+        if (session != null) {
+            this.session = session;
+        }
+        if (loot != null) {
+            this.loot = loot;
+        }
     }
 
+    public BaseDatabase() {
+        battles = new ArrayList<>();
+        encounters = new ArrayList<>();
+        players = new ArrayList<>();
+        customMonsters = new ArrayList<>();
+        xP = new HashMap<>();
+        session = 1;
+        loot = new ArrayList<>();
+    }
     @JsonProperty("Battles")
     private List<Battle> battles;
     @JsonProperty("Encounters")

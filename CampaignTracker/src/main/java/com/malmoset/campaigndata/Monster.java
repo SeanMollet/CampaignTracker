@@ -39,31 +39,68 @@ public class Monster {
             @JsonProperty("Languages") List<GenericValueString> languages, @JsonProperty("Challenge") Fraction challenge, @JsonProperty("Traits") List<Action> traits,
             @JsonProperty("Actions") List<Action> actions, @JsonProperty("Reactions") List<Action> reactions, @JsonProperty("LegendaryActions") List<Action> legendaryActions,
             @JsonProperty("Spells") List<GenericValueString> spells, @JsonProperty("Hidden") Boolean hidden, @JsonProperty("Unknown") Boolean unknown, @JsonProperty("ReadOnly") Boolean readOnly) {
+        this();
         this.name = new SimpleStringProperty(name);
         this.size = size;
         this.type = new SimpleStringProperty(type);
-        this.tags = tags;
+        if (tags != null) {
+            this.tags = tags;
+        }
         this.source = new SimpleStringProperty(source);
         this.alignment = new SimpleStringProperty(alignment);
-        this.aC = aC;
-        this.hP = hP;
+        if (aC != null) {
+            this.aC = aC;
+        }
+        if (hP != null) {
+            this.hP = hP;
+        }
         this.initiativeModifier = new SimpleIntegerProperty(initiativeModifier);
-        this.speed = speed;
-        this.abilities = abilities;
-        this.damageVulnerabilities = damageVulnerabilities;
-        this.damageResistances = damageResistances;
-        this.damageImmunities = damageImmunities;
-        this.conditionImmunities = conditionImmunities;
-        this.saves = saves;
-        this.skills = skills;
-        this.senses = senses;
+        if (speed != null) {
+            this.speed = speed;
+        }
+        if (abilities != null) {
+            this.abilities = abilities;
+        }
+        if (damageVulnerabilities != null) {
+            this.damageVulnerabilities = damageVulnerabilities;
+        }
+        if (damageResistances != null) {
+            this.damageResistances = damageResistances;
+        }
+        if (damageImmunities != null) {
+            this.damageImmunities = damageImmunities;
+        }
+        if (conditionImmunities != null) {
+            this.conditionImmunities = conditionImmunities;
+        }
+        if (saves != null) {
+            this.saves = saves;
+        }
+        if (skills != null) {
+            this.skills = skills;
+        }
+        if (senses != null) {
+            this.senses = senses;
+        }
         this.languages = languages;
-        this.challenge = challenge;
-        this.traits = traits;
-        this.actions = actions;
-        this.reactions = reactions;
-        this.legendaryActions = legendaryActions;
-        this.spells = spells;
+        if (challenge != null) {
+            this.challenge = challenge;
+        }
+        if (traits != null) {
+            this.traits = traits;
+        }
+        if (actions != null) {
+            this.actions = actions;
+        }
+        if (reactions != null) {
+            this.reactions = reactions;
+        }
+        if (legendaryActions != null) {
+            this.legendaryActions = legendaryActions;
+        }
+        if (spells != null) {
+            this.spells = spells;
+        }
         this.hidden = new SimpleBooleanProperty(hidden == null ? false : hidden);
         this.unknown = new SimpleBooleanProperty(unknown == null ? false : unknown);
         this.readOnly = new SimpleBooleanProperty(readOnly == null ? false : readOnly);
@@ -73,27 +110,27 @@ public class Monster {
         this.name = new SimpleStringProperty("New Monster");
         this.size = new CreatureSize();
         this.type = new SimpleStringProperty();
-        this.tags = new ArrayList<String>();
+        this.tags = new ArrayList<>();
         this.source = new SimpleStringProperty();
         this.alignment = new SimpleStringProperty();
         this.aC = new AC();
         this.hP = new HP();
         this.initiativeModifier = new SimpleIntegerProperty();
-        this.speed = new ArrayList<GenericValueString>();
+        this.speed = new ArrayList<>();
         this.abilities = new Abilities();
-        this.damageVulnerabilities = new ArrayList<GenericValueString>();
-        this.damageResistances = new ArrayList<GenericValueString>();
-        this.damageImmunities = new ArrayList<GenericValueString>();
-        this.conditionImmunities = new ArrayList<GenericValueString>();
-        this.saves = new ArrayList<StatWithModifier>();
-        this.skills = new ArrayList<StatWithModifier>();
-        this.senses = new ArrayList<GenericValueString>();
-        this.languages = new ArrayList<GenericValueString>();
+        this.damageVulnerabilities = new ArrayList<>();
+        this.damageResistances = new ArrayList<>();
+        this.damageImmunities = new ArrayList<>();
+        this.conditionImmunities = new ArrayList<>();
+        this.saves = new ArrayList<>();
+        this.skills = new ArrayList<>();
+        this.senses = new ArrayList<>();
+        this.languages = new ArrayList<>();
         this.challenge = new Fraction(1);
-        this.traits = new ArrayList<Action>();
-        this.actions = new ArrayList<Action>();
-        this.reactions = new ArrayList<Action>();
-        this.legendaryActions = new ArrayList<Action>();
+        this.traits = new ArrayList<>();
+        this.actions = new ArrayList<>();
+        this.reactions = new ArrayList<>();
+        this.legendaryActions = new ArrayList<>();
         this.spells = spells;
         this.hidden = new SimpleBooleanProperty(false);
         this.unknown = new SimpleBooleanProperty(false);

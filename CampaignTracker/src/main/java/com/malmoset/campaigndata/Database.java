@@ -135,6 +135,9 @@ public class Database {
         if (file != null) {
 
             //Copy over any custom monsters we have
+            if (customMonsters != null) {
+                customMonsters.clear();
+            }
             List<Monster> customs = MainApp.getAppData().getMon_db().getMonstersBind().stream().filter(x -> x.isReadOnly() == false).collect(Collectors.toList());
             if (customs != null) {
                 customMonsters = new SimpleListProperty(FXCollections.observableArrayList(customs));
@@ -185,6 +188,7 @@ public class Database {
                     MainApp.getAppData().getMon_db().ImportMonsters(custom);
                 }
                 loot.set(FXCollections.observableArrayList(newdb.getLoot()));
+
                 this.campaignName.set(Files.getNameWithoutExtension(file.toString()));
                 return true;
             } catch (JsonProcessingException ex) {
