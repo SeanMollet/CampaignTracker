@@ -223,6 +223,7 @@ public class LootDispenserController extends BaseForm implements Initializable {
                                     newitem.setType(LootItem.LootType.GEMSTONE);
                                     newitem.setItem(gemchoices.get().getTable().get(Dice.roll(gemchoices.get().getTable().size(), Dice.RollTypes.Normal) - 1));
                                     newitem.setCount(gemsCount);
+                                    lootdrops.add(newitem);
                                 }
                             }
                             if (rolltable.getArtobjects() != null) {
@@ -235,6 +236,7 @@ public class LootDispenserController extends BaseForm implements Initializable {
                                     newitem.setType(LootItem.LootType.ARTOBJECT);
                                     newitem.setItem(artchoices.get().getTable().get(Dice.roll(artchoices.get().getTable().size(), Dice.RollTypes.Normal) - 1));
                                     newitem.setCount(artCount);
+                                    lootdrops.add(newitem);
                                 }
                             }
 

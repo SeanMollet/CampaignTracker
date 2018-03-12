@@ -59,15 +59,16 @@ public final class Fraction implements Comparable, ObservableValue {
     }
 
     public Fraction(int num) {
-        this((long) num, 1l);
+        this((long) num, 1L);
     }
 
     public Fraction(Long num) {
-        this(num, 1l);
+        this(num, 1L);
     }
 
     public Fraction(String inValue) {
         fromString(inValue);
+        ConfigProp();
     }
 
     public Fraction(@JsonProperty("Numerator") Long numerator, @JsonProperty("Denominator") Long denominator) {

@@ -119,6 +119,7 @@ public class EncounterManagerController extends BaseForm implements Initializabl
         col2.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
         col3.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
 
+        col3.prefWidthProperty().bind(EncountersBox.widthProperty().subtract(5).subtract(col1.widthProperty()).subtract(col2.widthProperty()));
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Encounter> filteredData = new FilteredList<>(MainApp.getAppData().getDb().getEncounters(), p -> true);
 
