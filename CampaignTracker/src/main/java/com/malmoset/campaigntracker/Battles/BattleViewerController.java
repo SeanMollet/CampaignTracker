@@ -116,6 +116,7 @@ public class BattleViewerController extends BaseForm implements Initializable {
         TableColumn<BattleMonster, Integer> col3 = new TableColumn<>("ID");
         TableColumn<BattleMonster, String> col4 = new TableColumn<>("Name");
         TableColumn<BattleMonster, String> col5 = new TableColumn<>("Type");
+        TableColumn<BattleMonster, Integer> col14 = new TableColumn<>("AC");
         TableColumn<BattleMonster, String> col6 = new TableColumn<>("Appearance");
         TableColumn<BattleMonster, Integer> col7 = new TableColumn<>("Save");
         TableColumn<BattleMonster, Integer> col8 = new TableColumn<>("CurrentHP");
@@ -132,6 +133,7 @@ public class BattleViewerController extends BaseForm implements Initializable {
         col8.setCellValueFactory(cellData -> cellData.getValue().currentHPProperty().asObject());
         col9.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getHP().getHpValue()).asObject());
         col10.setCellValueFactory(cellData -> cellData.getValue().hPtoChangeProperty().asObject());
+        col14.setCellValueFactory(cellData -> cellData.getValue().getAC().acValueProperty().asObject());
 
         col5.setPrefWidth(100);
 
@@ -176,6 +178,7 @@ public class BattleViewerController extends BaseForm implements Initializable {
         col8.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
         col9.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
         col10.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
+        col14.setCellFactory(TextEditCell.editCellFactory(new IntegerStringConverter()));
 
         col4.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
         col5.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
@@ -189,7 +192,7 @@ public class BattleViewerController extends BaseForm implements Initializable {
         }));
 
         MonstersTable.getColumns().clear();
-        MonstersTable.getColumns().addAll(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13);
+        MonstersTable.getColumns().addAll(col1, col2, col3, col4, col5, col14, col6, col7, col8, col9, col10, col11, col12, col13);
 
         MonstersTable.setEditable(true);
     }
