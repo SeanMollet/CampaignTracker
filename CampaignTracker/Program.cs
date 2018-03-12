@@ -54,6 +54,7 @@ namespace CampaignTracker
             //Update the monsters DB if the custom ones are changed (loading, etc...)
             db.onMonstersUpdated += (object sender) => { mon_db.UpdateCustomMonsters(db.database.CustomMonsters); };
 
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             try

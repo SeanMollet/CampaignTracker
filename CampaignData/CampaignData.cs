@@ -115,7 +115,11 @@ namespace CampaignData
 
         public string GetDatabaseJson()
         {
-            return JsonConvert.SerializeObject(database,Formatting.Indented);
+            return JsonConvert.SerializeObject(database, Formatting.Indented, new JsonSerializerSettings
+            {
+                DateTimeZoneHandling = DateTimeZoneHandling.Unspecified,
+                DateFormatString = "yyyy-MM-dd'T'HH:mm:ss.FFF"
+            });
         }
         private void BindNotifications()
         {

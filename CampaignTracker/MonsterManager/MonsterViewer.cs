@@ -166,5 +166,10 @@ namespace CampaignTracker
         {
             this.HPValue.Text = this.statDice1.Roll.ToString();
         }
+
+        private void abilitiesControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
