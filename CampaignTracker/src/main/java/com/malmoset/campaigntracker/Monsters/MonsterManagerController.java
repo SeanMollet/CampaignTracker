@@ -15,6 +15,7 @@ import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
+import com.malmoset.campaigntrackercontrols.AddDeleteContextMenu;
 import com.malmoset.campaigntrackercontrols.Styles;
 import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
 import com.malmoset.controls.BaseForm;
@@ -129,6 +130,17 @@ public class MonsterManagerController extends BaseForm implements Initializable 
 
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Monster> filteredData = new FilteredList<>(list, p -> true);
+
+        MonstersTable.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+                (ActionEvent event) -> {
+                    Monster selected = MonstersTable.getSelectionModel().getSelectedItem();
+                    if (selected != null && !selected.isReadOnly()) {
+                        list.remove(selected);
+                    }
+                },
+                (ActionEvent event) -> {
+                    LoadMonster(new Monster());
+                }));
 
         // 2. Set the filter Predicate whenever the filter changes.
         SearchBox.textProperty().addListener((observable, oldValue, newValue) -> {

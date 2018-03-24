@@ -28,7 +28,7 @@ public class AC {
 
     public AC() {
         acValue = new SimpleIntegerProperty();
-        notes = new SimpleStringProperty();
+        notes = new SimpleStringProperty("");
     }
 
     @JsonProperty("Value")

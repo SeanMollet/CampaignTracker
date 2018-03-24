@@ -8,7 +8,9 @@ package com.malmoset.campaigntracker.PC;
 import com.malmoset.campaigndata.Player;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
+import com.malmoset.campaigntracker.Monsters.MonsterViewerController;
 import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
+import com.malmoset.campaigntrackercontrols.AddDeleteContextMenu;
 import com.malmoset.campaigntrackercontrols.ChoiceBoxEditCell;
 import com.malmoset.campaigntrackercontrols.DiceStringConverter;
 import com.malmoset.campaigntrackercontrols.IntegerStringConverter;
@@ -19,6 +21,8 @@ import com.malmoset.controls.BaseForm;
 import com.malmoset.dice.Dice;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.SortedList;
@@ -159,6 +163,21 @@ public class PlayerEditorController extends BaseForm implements Initializable {
 
         PlayerTable.getColumns().addAll(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13, col14, col15);
 
+        PlayerTable.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+                (ActionEvent event) -> {
+                    Player selected = PlayerTable.getSelectionModel().getSelectedItem();
+                    if (selected != null) {
+                        MainApp.getAppData().getDb().getPlayers().remove(selected);
+                    }
+                },
+                (ActionEvent event) -> {
+                    try {
+                        Player object = new Player();
+                        MainApp.getAppData().getDb().getPlayers().add(object);
+                    } catch (Exception ex) {
+                        Logger.getLogger(MonsterViewerController.class.getName()).log(Level.INFO, null, ex);
+                    }
+                }));
         // 4. Bind the SortedList comparator to the TableView comparator.
         BindSortedList();
 

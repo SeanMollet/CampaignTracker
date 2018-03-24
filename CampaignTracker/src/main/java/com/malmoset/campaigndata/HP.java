@@ -35,7 +35,7 @@ public class HP {
         this.hitDiceCount = new SimpleIntegerProperty();
         this.hitDice = new SimpleIntegerProperty();
         this.hitModifier = new SimpleIntegerProperty();
-        this.notes = new SimpleStringProperty();
+        this.notes = new SimpleStringProperty("");
     }
     @JsonProperty("Value")
     private IntegerProperty hpValue;

@@ -109,10 +109,10 @@ public class Monster {
     public Monster() {
         this.name = new SimpleStringProperty("New Monster");
         this.size = new CreatureSize();
-        this.type = new SimpleStringProperty();
+        this.type = new SimpleStringProperty("");
         this.tags = new ArrayList<>();
-        this.source = new SimpleStringProperty();
-        this.alignment = new SimpleStringProperty();
+        this.source = new SimpleStringProperty("Custom Monster");
+        this.alignment = new SimpleStringProperty("");
         this.aC = new AC();
         this.hP = new HP();
         this.initiativeModifier = new SimpleIntegerProperty();

@@ -11,8 +11,10 @@ import com.malmoset.campaigndata.XPEvent;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -71,6 +73,12 @@ public class PCBattleViewController extends BaseForm implements Initializable {
     private void BindData() {
         BindBattle();
         BindXP();
+
+        //If the session changes, rebind our data
+        MainApp.getAppData().getDb().sessionProperty().addListener((obs, old, newval)
+                -> {
+            BindXP();
+        });
     }
 
     private void BindBattle() {
@@ -103,29 +111,25 @@ public class PCBattleViewController extends BaseForm implements Initializable {
     }
 
     private void BindXP() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyy HH:mm:ss");
+
         TableColumn<XPEvent, String> col1 = new TableColumn<>("Timestamp");
         TableColumn<XPEvent, Integer> col2 = new TableColumn<>("Session");
         TableColumn<XPEvent, Integer> col3 = new TableColumn<>("Battle");
         TableColumn<XPEvent, String> col4 = new TableColumn<>("Event");
         TableColumn<XPEvent, String> col5 = new TableColumn<>("Monster");
 
-        col1.setCellValueFactory(cellData -> cellData.getValue().timestampProperty().asString());
+        col1.setCellValueFactory(cellData -> new SimpleStringProperty(sdf.format(cellData.getValue().timestampProperty().get())));
         col2.setCellValueFactory(cellData -> cellData.getValue().sessionProperty().asObject());
         col3.setCellValueFactory(cellData -> cellData.getValue().battleProperty().asObject());
         col4.setCellValueFactory(cellData -> cellData.getValue().eventProperty());
         col5.setCellValueFactory(cellData -> cellData.getValue().monsterProperty());
 
-        col1.setPrefWidth(200);
-        col4.setPrefWidth(300);
+        col1.setPrefWidth(140);
+        col4.setPrefWidth(190);
 
         XPTable.getColumns().clear();
         XPTable.getColumns().addAll(col1, col2, col3, col4, col5);
-
-        //If the session changes, rebind our data
-        MainApp.getAppData().getDb().sessionProperty().addListener((obs, old, newval)
-                -> {
-            BindXP();
-        });
 
         SortedList<XPEvent> sortedData = new SortedList<>(MainApp.getAppData().getDb().getSessionXP());
 
