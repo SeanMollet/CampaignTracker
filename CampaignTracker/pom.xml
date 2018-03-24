@@ -165,7 +165,7 @@
                     <bundleArguments>
                         <!--  dont include JRE, use installed one-->
                         <!--  <runtime />-->
-                        <icon>${project.basedir}/main/deploy/package/windows/Iconcubic-Dnd-Dice-D20.ico</icon>
+                        <!--                        <icon>${project.basedir}/main/deploy/package/windows/Iconcubic-Dnd-Dice-D20.ico</icon>-->
                     </bundleArguments>
                     <permissions>
                         <permission>all-permissions</permission>
