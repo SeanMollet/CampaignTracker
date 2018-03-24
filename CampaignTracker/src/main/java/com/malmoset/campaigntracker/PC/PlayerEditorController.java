@@ -98,8 +98,8 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         TableColumn<Player, String> col12 = new TableColumn<>("Appearance");
         TableColumn<Player, Integer> col13 = new TableColumn<>("HP");
 
-        col1.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        col2.setCellValueFactory(new PropertyValueFactory<>("Race"));
+        col1.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+        col2.setCellValueFactory(cellData -> cellData.getValue().raceProperty());
         col3.setCellValueFactory(cellData -> cellData.getValue().character_classProperty());
         col4.setCellValueFactory(cellData -> cellData.getValue().aCProperty().asObject());
         col5.setCellValueFactory(cellData -> cellData.getValue().currentHPProperty().asObject());
