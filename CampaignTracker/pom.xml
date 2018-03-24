@@ -64,11 +64,13 @@
             <artifactId>guava</artifactId>
             <version>24.0-jre</version>
         </dependency>
-        <dependency>
+        <!--        <dependency>
             <groupId>com.malmoset</groupId>
-            <artifactId>campaigntrackercontrols</artifactId>
+            <artifactId>CampaignTrackerControls</artifactId>
             <version>1.0</version>
-        </dependency>
+                        <scope>system</scope>
+            <systemPath>${project.basedir}/../CampaignTrackerControls/target/CampaignTrackerControls-1.0.jar</systemPath>
+        </dependency>-->
     </dependencies>
     <build>
         <plugins>
@@ -98,7 +100,6 @@
                 <executions>
                     <execution>
                         <id>unpack-dependencies</id>
-
                         <phase>package</phase>
                         <goals>
                             <goal>exec</goal>
@@ -153,22 +154,24 @@
                     </additionalClasspathElements>
                 </configuration>
             </plugin>
-            <!--            <plugin>
+            <plugin>
                 <groupId>com.zenjava</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>8.8.3</version>
                 <configuration>
                     <vendor>Malmoset</vendor>
                     <mainClass>com.malmoset.campaigntracker.MainApp</mainClass>
+                    <appName>${project.artifactId}</appName>
                     <bundleArguments>
-                        <runtime />  dont include JRE, use installed one
+                        <!--  dont include JRE, use installed one-->
+                        <!--  <runtime />-->
+                        <icon>${project.basedir}/main/deploy/package/windows/Iconcubic-Dnd-Dice-D20.ico</icon>
                     </bundleArguments>
                     <permissions>
                         <permission>all-permissions</permission>
                     </permissions>
-                    <icon>Iconcubic-Dnd-Dice-D20.ico</icon>
                 </configuration>
-            </plugin>-->
+            </plugin>
             <!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>

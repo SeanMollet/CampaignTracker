@@ -37,7 +37,7 @@ public class StatBlock extends AnchorPane {
 
     public StatBlock() {
         super();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/StatBlock.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Controls/StatBlock.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

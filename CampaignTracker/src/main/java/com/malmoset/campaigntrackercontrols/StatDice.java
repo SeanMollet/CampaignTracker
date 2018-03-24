@@ -51,7 +51,7 @@ public class StatDice extends AnchorPane {
     public StatDice() {
         super();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/StatDice.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Controls/StatDice.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
