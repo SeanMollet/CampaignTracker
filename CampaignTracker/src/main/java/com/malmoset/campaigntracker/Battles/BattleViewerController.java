@@ -13,14 +13,14 @@ import com.malmoset.campaigndata.XPEvent;
 import com.malmoset.campaigntracker.Loot.LootDispenserController;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterViewerController;
-import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
-import com.malmoset.campaigntrackercontrols.AddDeleteContextMenu;
-import com.malmoset.campaigntrackercontrols.IntegerStringConverter;
-import com.malmoset.campaigntrackercontrols.SpinnerUtils;
-import com.malmoset.campaigntrackercontrols.Styles;
-import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
-import com.malmoset.campaigntrackercontrols.TextEditCell;
+import com.malmoset.controls.ActionButtonTableCell;
+import com.malmoset.controls.AddDeleteContextMenu;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.IntegerStringConverter;
+import com.malmoset.controls.SpinnerUtils;
+import com.malmoset.controls.Styles;
+import com.malmoset.controls.TableViewCellFactories;
+import com.malmoset.controls.TextEditCell;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.ResourceBundle;
@@ -278,7 +278,7 @@ public class BattleViewerController extends BaseForm implements Initializable {
     private void LoadMonster(Monster monster) {
 
         MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Viewer", true);
-        controller.setMonster(monster.clone());
+        controller.setMonster(battle.monstersProperty(), monster.clone());
 
         controller.Show();
     }

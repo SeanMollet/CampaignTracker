@@ -13,15 +13,15 @@ import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigndata.StatWithModifier;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.campaigntrackercontrols.AddDeleteContextMenu;
-import com.malmoset.campaigntrackercontrols.IntegerStringConverter;
-import com.malmoset.campaigntrackercontrols.NoHeaderTableView;
-import com.malmoset.campaigntrackercontrols.NumberTextField;
-import com.malmoset.campaigntrackercontrols.StatBlock;
-import com.malmoset.campaigntrackercontrols.StatDice;
-import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
-import com.malmoset.campaigntrackercontrols.TextEditCell;
+import com.malmoset.controls.AddDeleteContextMenu;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.IntegerStringConverter;
+import com.malmoset.controls.NoHeaderTableView;
+import com.malmoset.controls.NumberTextField;
+import com.malmoset.controls.StatBlock;
+import com.malmoset.controls.StatDice;
+import com.malmoset.controls.TableViewCellFactories;
+import com.malmoset.controls.TextEditCell;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -114,6 +114,8 @@ public class MonsterViewerController extends BaseForm implements Initializable {
     @FXML
     private Button SaveButton;
 
+    private ObservableList<Monster> saveList;
+
     /**
      * Initializes the controller class.
      */
@@ -197,7 +199,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
             attackCol.setMaxWidth(400);
         }
         if (hasContent) {
-            contentCol.prefWidthProperty().bind(table.widthProperty().subtract(5).subtract(nameCol.widthProperty()).subtract(attackCol.widthProperty()));
+            contentCol.prefWidthProperty().bind(table.widthProperty().subtract(20).subtract(nameCol.widthProperty()).subtract(attackCol.widthProperty()));
 //            contentCol.setPrefWidth(500);
 //            contentCol.setMaxWidth(500);
         } else {
@@ -329,7 +331,8 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         return monster;
     }
 
-    public void setMonster(Monster monster) {
+    public void setMonster(ObservableList<Monster> list, Monster monster) {
+        saveList = list;
         this.monster = monster;
         BindData();
         SetRO(monster.isReadOnly());
@@ -346,7 +349,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         MonstersDatabase mondb = data.getMon_db();
         ArrayList<Monster> newmonsters = new ArrayList<>();
         newmonsters.add(monster);
-        mondb.ImportMonsters(newmonsters);
+        mondb.ImportMonsters(saveList, newmonsters);
     }
 
 }

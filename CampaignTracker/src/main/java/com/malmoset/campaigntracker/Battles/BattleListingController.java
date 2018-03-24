@@ -7,7 +7,7 @@ package com.malmoset.campaigntracker.Battles;
 
 import com.malmoset.campaigndata.Battle;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
+import com.malmoset.controls.TableViewCellFactories;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
 import java.util.Comparator;

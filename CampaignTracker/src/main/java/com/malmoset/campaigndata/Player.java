@@ -8,7 +8,7 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.malmoset.campaigntrackercontrols.HPAppearance;
+import com.malmoset.controls.HPAppearance;
 import com.malmoset.dice.Dice;
 import java.util.Comparator;
 import javafx.beans.property.BooleanProperty;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.malmoset.campaigntrackercontrols;
+package com.malmoset.controls;
 
 //Thanks to http://news.kynosarges.org/2016/10/28/javafx-spinner-for-numbers/
 import com.malmoset.dice.Dice;

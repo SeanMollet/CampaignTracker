@@ -16,7 +16,7 @@ import com.google.common.io.Files;
 import com.malmoset.campaigndata.Loot.LootItem;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterManagerController;
-import com.malmoset.campaigntrackercontrols.YesNoDialog;
+import com.malmoset.controls.YesNoDialog;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -185,7 +185,7 @@ public class Database {
 
                 List<Monster> custom = newdb.getCustomMonsters();
                 if (custom != null && custom.size() > 0) {
-                    MainApp.getAppData().getMon_db().ImportMonsters(custom);
+                    MainApp.getAppData().getMon_db().ImportMonsters(MainApp.getAppData().getMon_db().getMonstersBind(), custom);
                 }
                 loot.set(FXCollections.observableArrayList(newdb.getLoot()));
 

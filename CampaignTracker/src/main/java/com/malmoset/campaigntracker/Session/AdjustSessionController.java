@@ -6,7 +6,7 @@
 package com.malmoset.campaigntracker.Session;
 
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.campaigntrackercontrols.SpinnerUtils;
+import com.malmoset.controls.SpinnerUtils;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -5,7 +5,7 @@
  */
 package com.malmoset.campaigntracker.RollOMatic;
 
-import com.malmoset.campaigntrackercontrols.StatDice;
+import com.malmoset.controls.StatDice;
 import com.malmoset.controls.BaseForm;
 import java.net.URL;
 import java.util.ArrayList;

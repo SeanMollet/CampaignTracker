@@ -15,10 +15,10 @@ import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigntracker.Battles.BattleViewerController;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterManagerController;
-import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
-import com.malmoset.campaigntrackercontrols.Styles;
-import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
+import com.malmoset.controls.ActionButtonTableCell;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.Styles;
+import com.malmoset.controls.TableViewCellFactories;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -119,7 +119,7 @@ public class EncounterManagerController extends BaseForm implements Initializabl
         col2.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
         col3.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
 
-        col3.prefWidthProperty().bind(EncountersBox.widthProperty().subtract(5).subtract(col1.widthProperty()).subtract(col2.widthProperty()));
+        col3.prefWidthProperty().bind(EncountersBox.widthProperty().subtract(20).subtract(col1.widthProperty()).subtract(col2.widthProperty()));
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Encounter> filteredData = new FilteredList<>(MainApp.getAppData().getDb().getEncounters(), p -> true);
 

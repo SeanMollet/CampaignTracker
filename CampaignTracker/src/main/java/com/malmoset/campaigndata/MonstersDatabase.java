@@ -8,8 +8,8 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.malmoset.campaigntrackercontrols.GotItDialog;
-import com.malmoset.campaigntrackercontrols.YesNoDialog;
+import com.malmoset.controls.GotItDialog;
+import com.malmoset.controls.YesNoDialog;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,14 +57,14 @@ public final class MonstersDatabase {
         }
     }
 
-    public void ImportMonsters(List<Monster> newmonsters) {
+    public void ImportMonsters(ObservableList<Monster> list, List<Monster> newmonsters) {
         boolean Replace = false;
         boolean ReplaceAsked = false;
-        ObservableList<Monster> list = monstersBind.get();
 
         for (Monster monster : newmonsters) {
             //See if it already exists
-            List<Monster> replace = list.stream().filter(x -> x.nameProperty().get().toLowerCase().trim().equals(monster.getName().toLowerCase().trim())).collect(Collectors.toList());
+            List<Monster> replace = list.stream().filter(x -> x.nameProperty().get().trim().equalsIgnoreCase(monster.getName().trim())
+                    && x.sourceProperty().get().trim().equalsIgnoreCase(monster.getSource().trim())).collect(Collectors.toList());
 
             if (replace.size() > 0) {
                 if (!ReplaceAsked) {

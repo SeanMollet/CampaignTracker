@@ -14,11 +14,11 @@ import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.campaigntrackercontrols.ActionButtonTableCell;
-import com.malmoset.campaigntrackercontrols.AddDeleteContextMenu;
-import com.malmoset.campaigntrackercontrols.Styles;
-import com.malmoset.campaigntrackercontrols.TableViewCellFactories;
+import com.malmoset.controls.ActionButtonTableCell;
+import com.malmoset.controls.AddDeleteContextMenu;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.Styles;
+import com.malmoset.controls.TableViewCellFactories;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -64,6 +64,8 @@ public class MonsterManagerController extends BaseForm implements Initializable 
     private Button ImportButton;
     @FXML
     private Button NewButton;
+
+    private SortedList<Monster> sortedData;
 
     /**
      * Initializes the controller class.
@@ -168,7 +170,7 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         });
 
         // 3. Wrap the FilteredList in a SortedList.
-        SortedList<Monster> sortedData = new SortedList<>(filteredData);
+        sortedData = new SortedList<>(filteredData);
 
         // 4. Bind the SortedList comparator to the TableView comparator.
         sortedData.comparatorProperty().bind(MonstersTable.comparatorProperty());
@@ -180,7 +182,7 @@ public class MonsterManagerController extends BaseForm implements Initializable 
     private void LoadMonster(Monster monster) {
 
         MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Viewer", true);
-        controller.setMonster(monster.clone());
+        controller.setMonster(MainApp.getAppData().getMon_db().getMonstersBind(), monster.clone());
 
         controller.Show();
     }
@@ -274,7 +276,7 @@ public class MonsterManagerController extends BaseForm implements Initializable 
                 List<Monster> newmonsters = mapper.readValue(file, new TypeReference<List<Monster>>() {
                 });
 
-                monsters.ImportMonsters(newmonsters);
+                monsters.ImportMonsters(list, newmonsters);
 
             } catch (JsonProcessingException ex) {
                 Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);

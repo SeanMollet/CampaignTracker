@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.campaigntrackercontrols.HPAppearance;
+import com.malmoset.controls.HPAppearance;
 import com.malmoset.dice.Dice;
 import java.util.Date;
 import java.util.List;

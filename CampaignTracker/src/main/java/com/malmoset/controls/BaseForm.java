@@ -5,7 +5,6 @@
  */
 package com.malmoset.controls;
 
-import com.malmoset.campaigntrackercontrols.GotItDialog;
 import java.net.URL;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

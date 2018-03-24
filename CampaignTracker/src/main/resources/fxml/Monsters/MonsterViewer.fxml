@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.malmoset.campaigntrackercontrols.NoHeaderTableView?>
-<?import com.malmoset.campaigntrackercontrols.NumberTextField?>
-<?import com.malmoset.campaigntrackercontrols.StatBlock?>
-<?import com.malmoset.campaigntrackercontrols.StatDice?>
+<?import com.malmoset.controls.NoHeaderTableView?>
+<?import com.malmoset.controls.NumberTextField?>
+<?import com.malmoset.controls.StatBlock?>
+<?import com.malmoset.controls.StatDice?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>

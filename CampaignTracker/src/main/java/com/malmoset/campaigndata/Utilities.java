@@ -8,7 +8,7 @@ package com.malmoset.campaigndata;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.Files;
 import com.google.common.io.Resources;
-import com.malmoset.campaigntrackercontrols.GotItDialog;
+import com.malmoset.controls.GotItDialog;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
