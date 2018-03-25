@@ -34,6 +34,7 @@ public class BaseForm {
                     onActivated();
                 }
             });
+
             PlatformSpecific.SetupIcon(stage);
 
             //Set the stylesheet if one has been specified or use a default
@@ -42,6 +43,16 @@ public class BaseForm {
             }
             scene.getStylesheets().add(style);
 
+        }
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void close() {
+        if (stage != null) {
+            stage.close();
         }
     }
 
@@ -65,7 +76,10 @@ public class BaseForm {
     }
 
     public static BaseForm LoadForm(URL Form, String Name, boolean resizable) {
-        Stage stage = new Stage();
+        return LoadForm(Form, Name, resizable, new Stage());
+    }
+
+    public static BaseForm LoadForm(URL Form, String Name, boolean resizable, Stage stage) {
         FXMLLoader loader = new FXMLLoader(Form);
         try {
             Parent root = loader.load();
