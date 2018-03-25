@@ -200,6 +200,31 @@ public class Database {
         return false;
     }
 
+    public void NewDB() {
+        ArrayList<Battle> battle_list = new ArrayList<>();
+        battles.set(FXCollections.observableArrayList(battle_list));
+
+        ArrayList<Encounter> encounter_list = new ArrayList<>();
+        encounters.set(FXCollections.observableArrayList(encounter_list));
+
+        ArrayList<Player> player_list = new ArrayList<>();
+        players.set(FXCollections.observableArrayList(player_list));
+
+        HashMap<Integer, ObservableList<XPEvent>> xp_list = new HashMap<>();
+        xP.set(FXCollections.observableMap(xp_list));
+
+        ArrayList<Monster> mon_list = new ArrayList<>();
+        customMonsters.set(FXCollections.observableArrayList(mon_list));
+
+        session.set(1);
+        this.campaignName.set("New Campaign");
+
+        ArrayList<LootItem> loot_list = new ArrayList<>();
+        loot.set(FXCollections.observableArrayList(loot_list));
+        this.initiativeRolls.set(0);
+        this.monsterReveals.set(0);
+    }
+
     public int getBattleNumber() {
         if (battles != null) {
             return battles.getSize() + 1;

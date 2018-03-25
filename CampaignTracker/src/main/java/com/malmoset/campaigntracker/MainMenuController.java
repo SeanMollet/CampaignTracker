@@ -1,9 +1,5 @@
 package com.malmoset.campaigntracker;
 
-import com.malmoset.campaigndata.Battle;
-import com.malmoset.campaigntracker.Battles.BattleViewerController;
-import com.malmoset.controls.BaseForm;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,8 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 public class MainMenuController implements Initializable {
 
@@ -57,126 +51,79 @@ public class MainMenuController implements Initializable {
         MainApp.getAppData().getDb().campaignNameProperty().addListener((arg, oldVal, newVal) -> {
             HeaderLabel.setText("Main Menu - " + newVal);
         });
+
+        PlatformSpecific.SetupMenu();
+
     }
 
     @FXML
     private void PlayersClick(ActionEvent event) throws IOException {
-//            for (Map.Entry<String, String> file : files.entrySet()) {
-//                Monster[] newmonsters = mapper.readValue(file.getValue(), Monster[].class);
-//                monsters.addAll(newmonsters);
-//            }
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/PC/PlayerEditor.fxml"), "Player Editor");
-        controller.Show();
+        MenuActions.PlayersClick();
     }
 
     @FXML
     private void NewBattleClick(ActionEvent event) {
-        Battle battle = new Battle();
-        BattleViewerController controller = (BattleViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleViewer.fxml"), "Battle");
-        MainApp.getAppData().getDb().battlesProperty().add(battle);
-        controller.setBattle(battle);
-        controller.Show();
+        MenuActions.NewBattleClick();
     }
 
     @FXML
     private void ViewBattlesClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleListing.fxml"), "Battle Listing");
-        controller.Show();
-
+        MenuActions.ViewBattlesClick();
     }
 
     @FXML
     private void EncountersClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Encounters/EncounterManager.fxml"), "Encounter Manager");
-        controller.Show();
-
+        MenuActions.EncountersClick();
     }
 
     @FXML
     private void MonstersClick(ActionEvent event) {
-
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterManager.fxml"), "Monster Manager", true);
-        controller.Show();
+        MenuActions.MonstersClick();
     }
 
     @FXML
     private void SessClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Session/AdjustSession.fxml"), "Session Selector");
-        controller.Show();
-
+        MenuActions.SessClick();
     }
 
     @FXML
     private void RollClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/RollOMatic/RollOMatic.fxml"), "Roll-O-Matic");
-        controller.Show();
-
+        MenuActions.RollClick();
     }
 
     @FXML
     private void LootClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Loot/LootDispenser.fxml"), "Loot Dispenser");
-        controller.Show();
-
+        MenuActions.LootClick();
     }
 
     @FXML
     private void NewClick(ActionEvent event) {
-
+        MenuActions.NewClick();
     }
 
     @FXML
     private void LoadClick(ActionEvent event) {
-        Stage stage = new Stage();
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Export Custom Monsters");
-        FileChooser.ExtensionFilter monsterExtensionFilter
-                = new FileChooser.ExtensionFilter(
-                        "Campaign Files (.ctct)", "*.ctct");
-        fileChooser.getExtensionFilters().add(monsterExtensionFilter);
-        fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
-        File file = fileChooser.showOpenDialog(stage);
-        if (file != null && file.length() > 0) {
-            MainApp.getAppData().getDb().LoadFile(file);
-        }
+        MenuActions.LoadClick();
     }
 
     @FXML
     private void SaveClick(ActionEvent event) {
-        Stage stage = new Stage();
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Export Custom Monsters");
-        FileChooser.ExtensionFilter monsterExtensionFilter
-                = new FileChooser.ExtensionFilter(
-                        "Campaign Files (.ctct)", "*.ctct");
-        fileChooser.getExtensionFilters().add(monsterExtensionFilter);
-        fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
-        File file = fileChooser.showSaveDialog(stage);
-
-        if (file != null) {
-            MainApp.getAppData().getDb().SaveFile(file);
-        }
+        MenuActions.SaveClick();
     }
 
     @FXML
     private void StatsClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Session/CampaignStats.fxml"), "Campaign Stats");
-        controller.Show();
-
+        MenuActions.StatsClick();
     }
 
     @FXML
     private void PlayerStatsClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/PC/PCView.fxml"), "Player Status");
-        controller.Show();
-
+        MenuActions.PlayerStatsClick();
     }
 
     @FXML
     private void BattleButtonClick(ActionEvent event) {
-        BaseForm controller = BaseForm.LoadForm(getClass().getResource("/fxml/Battles/PCBattleView.fxml"), "Battle View");
-        controller.Show();
-
+        MenuActions.BattleButtonClick();
     }
 
 }

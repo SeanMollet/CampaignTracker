@@ -30,6 +30,8 @@ public class MainApp extends Application {
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
 
+        PlatformSpecific.SetupIcon(stage);
+
         stage.setTitle("Campaign Manager");
         stage.setScene(scene);
         stage.setResizable(false);

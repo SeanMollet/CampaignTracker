@@ -98,6 +98,8 @@ public class EncounterViewerController extends BaseForm implements Initializable
                     Monster selectedMonster = (Monster) row.getItem();
                     if (selectedMonster != null) {
                         MonsterViewerController controller = (MonsterViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Monsters/MonsterViewer.fxml"), "Monster Viewer", true);
+                        //Inside an encounter, they can edit the monster to their hearts content
+                        selectedMonster.setReadOnly(false);
                         controller.setMonster(encounter.getMonsters(), selectedMonster);
 
                         controller.Show();

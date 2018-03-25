@@ -122,6 +122,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        setStyle("/styles/Styles.css");
     }
 
     private void BindData() {
@@ -324,7 +325,9 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         ActionsList.setEditable(!readonly);
         ReactionsList.setEditable(!readonly);
         LegActionsList.setEditable(!readonly);
-        SaveButton.setVisible(!readonly);
+        SaveButton.setDisable(readonly);
+        SaveButton.setText(readonly ? "Read Only" : "Save");
+
     }
 
     public Monster getMonster() {

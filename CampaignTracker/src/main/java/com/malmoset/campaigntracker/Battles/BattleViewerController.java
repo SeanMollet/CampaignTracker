@@ -167,6 +167,8 @@ public class BattleViewerController extends BaseForm implements Initializable {
                 if (row != null) {
                     BattleMonster selectedMonster = (BattleMonster) row.getItem();
                     if (selectedMonster != null) {
+                        //Inside a battle, they can edit the monster to their hearts content
+                        selectedMonster.setReadOnly(false);
                         LoadMonster((Monster) selectedMonster);
                     }
                 }

@@ -5,6 +5,7 @@
  */
 package com.malmoset.controls;
 
+import com.malmoset.campaigntracker.PlatformSpecific;
 import java.net.URL;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,6 +23,7 @@ public class BaseForm {
 
     private Scene scene;
     public Stage stage;
+    private String style;
 
     public void setScene(Scene scene) {
         this.scene = scene;
@@ -32,6 +34,13 @@ public class BaseForm {
                     onActivated();
                 }
             });
+            PlatformSpecific.SetupIcon(stage);
+            //Set the stylesheet if one has been specified
+            if (style != null && style.length() > 0) {
+                scene.getStylesheets().clear();
+                scene.getStylesheets().add(style);
+            }
+
         }
     }
 
@@ -44,6 +53,10 @@ public class BaseForm {
             stage = (Stage) scene.getWindow();
             stage.show();
         }
+    }
+
+    public void setStyle(String stylesheet) {
+        style = stylesheet;
     }
 
     public static BaseForm LoadForm(URL Form, String Name) {

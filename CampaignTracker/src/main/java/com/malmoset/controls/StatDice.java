@@ -84,7 +84,7 @@ public class StatDice extends AnchorPane {
 
     private void BindFields() {
         statDiceCount = new SimpleIntegerProperty(0);
-        statDiceSize = new SimpleIntegerProperty(10);
+        statDiceSize = new SimpleIntegerProperty(0);
         statModifier = new SimpleIntegerProperty(0);
 
         DiceCount.getValueFactory().valueProperty().bindBidirectional(statDiceCount.asObject());
@@ -99,6 +99,8 @@ public class StatDice extends AnchorPane {
                 }
             }
         });
+        //We set the default here, so it triggers the above listener and properly sets the combobox
+        statDiceSize.set(10);
 
     }
 
@@ -147,6 +149,7 @@ public class StatDice extends AnchorPane {
                 SpinnerUtils.commitEditorText(Modifier);
             }
         });
+
     }
 
     public final int getStatDiceCount() {
