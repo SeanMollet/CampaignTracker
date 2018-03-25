@@ -35,11 +35,12 @@ public class BaseForm {
                 }
             });
             PlatformSpecific.SetupIcon(stage);
-            //Set the stylesheet if one has been specified
-            if (style != null && style.length() > 0) {
-                scene.getStylesheets().clear();
-                scene.getStylesheets().add(style);
+
+            //Set the stylesheet if one has been specified or use a default
+            if (style == null || style.length() == 0) {
+                style = "/styles/Styles.css";
             }
+            scene.getStylesheets().add(style);
 
         }
     }

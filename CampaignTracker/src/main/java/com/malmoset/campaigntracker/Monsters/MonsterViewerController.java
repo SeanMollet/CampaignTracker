@@ -122,7 +122,6 @@ public class MonsterViewerController extends BaseForm implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        setStyle("/styles/Styles.css");
     }
 
     private void BindData() {
