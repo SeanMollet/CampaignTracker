@@ -7,11 +7,17 @@ package com.malmoset.controls;
 
 import com.malmoset.campaigntracker.PlatformSpecific;
 import java.net.URL;
+import java.util.ArrayList;
+import javafx.event.EventTarget;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -24,6 +30,7 @@ public class BaseForm {
     private Scene scene;
     public Stage stage;
     private String style;
+    private boolean alwaysOnTop = false;
 
     public void setScene(Scene scene) {
         this.scene = scene;
@@ -31,7 +38,7 @@ public class BaseForm {
             stage = (Stage) scene.getWindow();
             stage.focusedProperty().addListener((s, ov, nv) -> {
                 if (nv) {
-                    onActivated();
+                    onPrivateActivated();
                 }
             });
 
@@ -42,7 +49,6 @@ public class BaseForm {
                 style = "/styles/Styles.css";
             }
             scene.getStylesheets().add(style);
-
         }
     }
 
@@ -54,6 +60,13 @@ public class BaseForm {
         if (stage != null) {
             stage.close();
         }
+    }
+
+    //Make sure our always on top status is correct
+    //Then call inherited onActivated functions
+    private void onPrivateActivated() {
+        syncAlwaysOnTop();
+        onActivated();
     }
 
     public void onActivated() {
@@ -96,15 +109,28 @@ public class BaseForm {
                 }
             });
 
+            scene.addEventFilter(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+                if (e.getButton() == MouseButton.SECONDARY && e.getClickCount() == 1) {
+                    boolean dispMenu = true;
+                    //Make sure we're clicking on the base pane
+                    EventTarget target = e.getTarget();
+                    if (target instanceof AnchorPane) {
+                        ContextMenu alwaysOnTop = ContextMenus.AlwaysonTopMenu(form);
+                        alwaysOnTop.show(stage, e.getScreenX(), e.getScreenY());
+                    }
+                }
+            });
+
             //Done in the FXML
             //scene.getStylesheets().add(Style);
             stage.setTitle(Name);
             stage.setScene(scene);
             form.setScene(scene);
             stage.setResizable(resizable);
-            if (resizable) {
-                if (root instanceof AnchorPane) {
-                    AnchorPane rootPane = (AnchorPane) root;
+
+            if (root instanceof AnchorPane) {
+                AnchorPane rootPane = (AnchorPane) root;
+                if (resizable) {
                     if (rootPane != null && rootPane.getMinWidth() > 0 && rootPane.getMinHeight() > 0) {
                         //Account for the titlebar
                         double titleBar = Double.isNaN(stage.getHeight()) ? 20 : stage.getHeight() - rootPane.getHeight();
@@ -114,12 +140,44 @@ public class BaseForm {
                 }
             }
 
+            //Attach a context menu to the frame
             return form;
         } catch (Exception E) {
             GotItDialog.GotIt("Error loading " + Name, E.toString());
 
         }
         return null;
+    }
+
+    private static void addAllDescendents(Parent parent, ArrayList<Node> nodes) {
+        for (Node node : parent.getChildrenUnmodifiable()) {
+            nodes.add(node);
+            if (node instanceof Parent) {
+                addAllDescendents((Parent) node, nodes);
+            }
+        }
+    }
+
+    public boolean isAlwaysOnTop() {
+        return alwaysOnTop;
+    }
+
+    public void setAlwaysOnTop(boolean alwaysOnTop) {
+        if (stage != null) {
+            stage.setAlwaysOnTop(alwaysOnTop);
+        }
+        this.alwaysOnTop = alwaysOnTop;
+    }
+
+    public void invertAlwaysOnTop() {
+        setAlwaysOnTop(!alwaysOnTop);
+    }
+
+    public void syncAlwaysOnTop() {
+        if (stage.isAlwaysOnTop() != alwaysOnTop) {
+            stage.setAlwaysOnTop(alwaysOnTop);
+        }
+
     }
 
 }

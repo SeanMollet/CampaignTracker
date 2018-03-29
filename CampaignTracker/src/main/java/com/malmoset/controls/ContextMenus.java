@@ -14,7 +14,26 @@ import javafx.scene.control.MenuItem;
  *
  * @author sean
  */
-public class AddDeleteContextMenu {
+public class ContextMenus {
+
+    public static ContextMenu AlwaysonTopMenu(BaseForm baseform) {
+        final ContextMenu contextMenu = new ContextMenu();
+        if (baseform != null) {
+            MenuItem add;
+            if (baseform.isAlwaysOnTop()) {
+                add = new MenuItem("✔ Always on Top");
+            } else {
+                add = new MenuItem("Always on Top");
+            }
+
+            contextMenu.getItems().add(add);
+            add.setOnAction((ActionEvent event) -> {
+                baseform.invertAlwaysOnTop();
+            });
+        }
+        return contextMenu;
+
+    }
 
     public static ContextMenu DelContextMenu(EventHandler<ActionEvent> delevent) {
         return AddDelContextMenu(delevent, null);
