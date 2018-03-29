@@ -51,6 +51,10 @@ public class StatDice extends AnchorPane {
     public StatDice() {
         super();
 
+        statDiceCount = new SimpleIntegerProperty(0);
+        statDiceSize = new SimpleIntegerProperty(0);
+        statModifier = new SimpleIntegerProperty(0);
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Controls/StatDice.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -62,7 +66,6 @@ public class StatDice extends AnchorPane {
         }
 
         SetupControls();
-        BindFields();
     }
 
     public int RollTotal() {
@@ -82,28 +85,6 @@ public class StatDice extends AnchorPane {
         return rolls;
     }
 
-    private void BindFields() {
-        statDiceCount = new SimpleIntegerProperty(0);
-        statDiceSize = new SimpleIntegerProperty(0);
-        statModifier = new SimpleIntegerProperty(0);
-
-        DiceCount.getValueFactory().valueProperty().bindBidirectional(statDiceCount.asObject());
-        Modifier.getValueFactory().valueProperty().bindBidirectional(statModifier.asObject());
-
-        statDiceSize.addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue ov, Number value, Number new_value) {
-                if (diceVal.contains((int) new_value)) {
-                    int location = diceVal.indexOf((int) new_value);
-                    DiceType.getSelectionModel().select(location);
-                }
-            }
-        });
-        //We set the default here, so it triggers the above listener and properly sets the combobox
-        statDiceSize.set(10);
-
-    }
-
     private void SetupControls() {
         modifierVisible = new SimpleBooleanProperty(true);
         modifierVisible.addListener((obs, oldval, newval) -> {
@@ -118,6 +99,9 @@ public class StatDice extends AnchorPane {
 
         SpinnerValueFactory<Integer> valfact = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1);
         SpinnerValueFactory<Integer> valfact2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(-500, 500, 0);
+
+        valfact.valueProperty().bindBidirectional(statDiceCount.asObject());
+        valfact2.valueProperty().bindBidirectional(statModifier.asObject());
 
         DiceCount.setValueFactory(valfact);
         Modifier.setValueFactory(valfact2);
@@ -147,6 +131,30 @@ public class StatDice extends AnchorPane {
         Modifier.focusedProperty().addListener((s, ov, nv) -> {
             if (!nv) {
                 SpinnerUtils.commitEditorText(Modifier);
+            }
+        });
+
+        statDiceSize.addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue ov, Number value, Number new_value) {
+                if (diceVal.contains((int) new_value)) {
+                    int location = diceVal.indexOf((int) new_value);
+                    DiceType.getSelectionModel().select(location);
+                }
+            }
+        });
+        //We set the default here, so it triggers the above listener and properly sets the combobox
+        statDiceSize.set(10);
+
+        //Allow arrow keys to edit
+        DiceCount.getEditor().setOnKeyPressed(event -> {
+            switch (event.getCode()) {
+                case UP:
+                    DiceCount.increment(1);
+                    break;
+                case DOWN:
+                    DiceCount.decrement(1);
+                    break;
             }
         });
 

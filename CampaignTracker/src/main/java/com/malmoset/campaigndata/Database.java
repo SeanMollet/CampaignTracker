@@ -58,6 +58,8 @@ public class Database {
     private IntegerProperty session;
     @JsonProperty("Loot")
     private ListProperty<LootItem> loot;
+    @JsonProperty("RollOMatic")
+    private ListProperty<RollOMaticPreset> RollOMatics;
     @JsonProperty("DBVersion")
     private Integer dbVersion = 1;
     @JsonIgnore
@@ -68,21 +70,27 @@ public class Database {
     private IntegerProperty monsterReveals;
 
     public Database(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters, @JsonProperty("Players") List<Player> players,
-            @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("Session") Integer session, @JsonProperty("Loot") List<LootItem> loot) {
-        this.battles = new SimpleListProperty(FXCollections.observableArrayList(battles));
+            @JsonProperty("CustomMonsters") List<Monster> customMonsters, @JsonProperty("Session") Integer session, @JsonProperty("Loot") List<LootItem> loot,
+            @JsonProperty("RollOMatic") List<RollOMaticPreset> Rollomatics, @JsonProperty("DBVersion") Integer dbver) {
+        this();
+        this.battles.set(FXCollections.observableArrayList(battles));
 
-        this.encounters = new SimpleListProperty(FXCollections.observableArrayList(encounters));
+        this.encounters.set(FXCollections.observableArrayList(encounters));
 
-        this.players = new SimpleListProperty(FXCollections.observableArrayList(players));
+        this.players.set(FXCollections.observableArrayList(players));
 
         //this.xP = new SimpleListProperty(FXCollections.observableArrayList(xP));
-        this.customMonsters = new SimpleListProperty(FXCollections.observableArrayList(customMonsters));
+        this.customMonsters.set(FXCollections.observableArrayList(customMonsters));
 
-        this.session = new SimpleIntegerProperty(session);
-        this.campaignName = new SimpleStringProperty("");
-        this.loot = new SimpleListProperty(FXCollections.observableArrayList(loot));
-        this.initiativeRolls = new SimpleIntegerProperty(0);
-        this.monsterReveals = new SimpleIntegerProperty(0);
+        this.session.set(session);
+        this.campaignName.set("");
+        this.loot.set(FXCollections.observableArrayList(loot));
+        this.RollOMatics.set(FXCollections.observableArrayList(Rollomatics));
+        this.initiativeRolls.set(0);
+        this.monsterReveals.set(0);
+        if (dbver != null) {
+            this.dbVersion = dbver;
+        }
     }
 
     public Database() {
@@ -106,6 +114,10 @@ public class Database {
 
         ArrayList<LootItem> loot_list = new ArrayList<>();
         loot = new SimpleListProperty(FXCollections.observableArrayList(loot_list));
+
+        ArrayList<RollOMaticPreset> roll_list = new ArrayList<>();
+        this.RollOMatics = new SimpleListProperty(FXCollections.observableArrayList(roll_list));
+
         this.initiativeRolls = new SimpleIntegerProperty(0);
         this.monsterReveals = new SimpleIntegerProperty(0);
     }
@@ -365,6 +377,18 @@ public class Database {
 
     public IntegerProperty monsterRevealsProperty() {
         return monsterReveals;
+    }
+
+    public final ObservableList<RollOMaticPreset> getRollOMatics() {
+        return RollOMatics.get();
+    }
+
+    public final void setRollOMatics(ObservableList<RollOMaticPreset> value) {
+        RollOMatics.set(value);
+    }
+
+    public ListProperty<RollOMaticPreset> RollOMaticsProperty() {
+        return RollOMatics;
     }
 
 }

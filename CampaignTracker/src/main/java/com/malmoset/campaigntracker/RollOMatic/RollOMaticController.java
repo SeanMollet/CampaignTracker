@@ -5,17 +5,27 @@
  */
 package com.malmoset.campaigntracker.RollOMatic;
 
-import com.malmoset.controls.StatDice;
+import com.malmoset.campaigndata.RollOMaticPreset;
+import com.malmoset.campaigndata.RollOMaticPreset.SingleDiceBox;
+import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.StatDice;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+import javafx.collections.ListChangeListener;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -42,10 +52,17 @@ public class RollOMaticController extends BaseForm implements Initializable {
     private StatDice Dice8;
     @FXML
     private CheckBox ShowAllRolls;
-
-    private List<StatDice> dice;
     @FXML
     private TextArea Results;
+    @FXML
+    private TextField SaveName;
+    @FXML
+    private Button SaveButton;
+    @FXML
+    private ListView<RollOMaticPreset> SavedRolls;
+    private List<StatDice> dice;
+    private boolean nameUpdatedAutomatically = false;
+    private boolean userChangedName = false;
 
     /**
      * Initializes the controller class.
@@ -65,6 +82,95 @@ public class RollOMaticController extends BaseForm implements Initializable {
         dice.add(Dice7);
         dice.add(Dice8);
 
+        SavedRolls.setCellFactory(param -> new ListCell<RollOMaticPreset>() {
+            @Override
+            protected void updateItem(RollOMaticPreset item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getName() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getName());
+                }
+            }
+
+        });
+
+        SavedRolls.setEditable(false);
+        SavedRolls.getSelectionModel().selectedItemProperty().addListener((obv, oldval, newval) -> {
+            if (newval != null && newval.getBoxes() != null) {
+                int a = 0;
+                for (StatDice die : dice) {
+                    if (newval.getBoxes().size() > a) {
+                        die.setStatDiceSize(newval.getBoxes().get(a).getDiceSize());
+                        die.setStatDiceCount(newval.getBoxes().get(a).getDiceCount());
+                    } else {
+                        die.setStatDiceSize(10);
+                        die.setStatDiceCount(0);
+                    }
+                    a++;
+                }
+                this.SaveName.setText(newval.getName());
+            }
+        });
+
+        //Bind our data and make sure it's rebinded as necessary
+        MainApp.getAppData().getDb().RollOMaticsProperty().addListener((ListChangeListener) (c) -> {
+            BindList();
+        });
+        BindList();
+
+        for (StatDice die : dice) {
+            die.statDiceCountProperty().addListener((obv, oldval, newval) -> {
+                UpdateName();
+            });
+            die.statDiceSizeProperty().addListener((obv, oldval, newval) -> {
+                UpdateName();
+            });
+        }
+
+        this.SaveName.textProperty().addListener((obv, oldval, newval) -> {
+            if (!nameUpdatedAutomatically) {
+                //If the user changes the name, then we'll stop automatically editing it
+                //If they clear it or put it back to default, we'll go back to auto
+                if (newval.trim().length() == 0 || newval.equals(getAutoName())) {
+                    userChangedName = false;
+                } else {
+                    userChangedName = true;
+                }
+            }
+            nameUpdatedAutomatically = false;
+        });
+
+    }
+
+    private void UpdateName() {
+        if (!userChangedName) {
+            nameUpdatedAutomatically = true;
+            this.SaveName.setText(getAutoName());
+        }
+    }
+
+    private String getAutoName() {
+        StringBuilder sb = new StringBuilder();
+        for (StatDice die : dice) {
+            if (die.getStatDiceCount() > 0) {
+                if (sb.length() > 0) {
+                    sb.append(" ");
+                }
+                sb.append(die.getStatDiceCount());
+                sb.append("D");
+                sb.append(die.getStatDiceSize());
+            }
+        }
+        return sb.toString();
+    }
+
+    private void BindList() {
+        SortedList<RollOMaticPreset> orderedPresets = new SortedList(MainApp.getAppData().getDb().getRollOMatics());
+        //Sort by the name
+        orderedPresets.comparatorProperty().setValue((left, right) -> left.getName().compareTo(right.getName()));
+        SavedRolls.setItems(orderedPresets);
     }
 
     @FXML
@@ -91,8 +197,32 @@ public class RollOMaticController extends BaseForm implements Initializable {
                 }
                 sb.append("\n");
             }
+            a++;
         }
         Results.setText(sb.toString());
+    }
+
+    @FXML
+    private void SaveClick(ActionEvent event) {
+        if (this.SaveName.getText().length() > 0) {
+            List<SingleDiceBox> preset_dice = new ArrayList<>();
+            for (StatDice die : dice) {
+                if (die.getStatDiceCount() > 0) {
+                    SingleDiceBox box = new SingleDiceBox(die.getStatDiceSize(), die.getStatDiceCount());
+                    preset_dice.add(box);
+                }
+            }
+            RollOMaticPreset preset = new RollOMaticPreset(preset_dice, this.SaveName.getText());
+
+            //Overwrite if it already exists
+            List<RollOMaticPreset> existing = MainApp.getAppData().getDb().getRollOMatics().stream().filter(x -> x.getName().equals(preset.getName())).collect(Collectors.toList());
+            if (existing != null) {
+                for (RollOMaticPreset exist : existing) {
+                    MainApp.getAppData().getDb().getRollOMatics().remove(exist);
+                }
+            }
+            MainApp.getAppData().getDb().getRollOMatics().add(preset);
+        }
     }
 
 }
