@@ -9,6 +9,7 @@ import com.malmoset.campaigndata.RollOMaticPreset;
 import com.malmoset.campaigndata.RollOMaticPreset.SingleDiceBox;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.StatDice;
 import java.net.URL;
 import java.util.ArrayList;
@@ -22,10 +23,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -97,6 +101,7 @@ public class RollOMaticController extends BaseForm implements Initializable {
         });
 
         SavedRolls.setEditable(false);
+        //Loading a saved preset
         SavedRolls.getSelectionModel().selectedItemProperty().addListener((obv, oldval, newval) -> {
             if (newval != null && newval.getBoxes() != null) {
                 int a = 0;
@@ -111,6 +116,21 @@ public class RollOMaticController extends BaseForm implements Initializable {
                     a++;
                 }
                 this.SaveName.setText(newval.getName());
+            }
+        });
+
+        //Context menu to delete one
+        SavedRolls.addEventFilter(MouseEvent.MOUSE_CLICKED, (MouseEvent e) -> {
+            if (e.getButton() == MouseButton.SECONDARY && e.getClickCount() == 1) {
+
+                ContextMenu contextMenu = ContextMenus.DelContextMenu(
+                        (ActionEvent event) -> {
+                            RollOMaticPreset preset = SavedRolls.getSelectionModel().getSelectedItem();
+                            if (preset != null) {
+                                MainApp.getAppData().getDb().getRollOMatics().remove(preset);
+                            }
+                        });
+                contextMenu.show(stage, e.getScreenX(), e.getScreenY());
             }
         });
 

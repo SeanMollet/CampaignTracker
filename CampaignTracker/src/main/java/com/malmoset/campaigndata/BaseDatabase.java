@@ -33,7 +33,8 @@ public class BaseDatabase {
 
     public BaseDatabase(@JsonProperty("Battles") List<Battle> battles, @JsonProperty("Encounters") List<Encounter> encounters,
             @JsonProperty("Players") List<Player> players, @JsonProperty("CustomMonsters") List<Monster> customMonsters,
-            @JsonProperty("XP") Map<Integer, List<XPEvent>> xP, @JsonProperty("Session") Integer session, @JsonProperty("Loot") List<LootItem> loot) {
+            @JsonProperty("XP") Map<Integer, List<XPEvent>> xP, @JsonProperty("Session") Integer session, @JsonProperty("RollOMatic") List<RollOMaticPreset> Rollomatics,
+            @JsonProperty("Loot") List<LootItem> loot) {
         this();
         if (battles != null) {
             this.battles = battles;
@@ -56,6 +57,9 @@ public class BaseDatabase {
         if (loot != null) {
             this.loot = loot;
         }
+        if (Rollomatics != null) {
+            this.Rollomatics = Rollomatics;
+        }
     }
 
     public BaseDatabase() {
@@ -66,6 +70,7 @@ public class BaseDatabase {
         xP = new HashMap<>();
         session = 1;
         loot = new ArrayList<>();
+        Rollomatics = new ArrayList<>();
     }
     @JsonProperty("Battles")
     private List<Battle> battles;
@@ -81,6 +86,8 @@ public class BaseDatabase {
     private Integer session;
     @JsonProperty("Loot")
     private List<LootItem> loot;
+    @JsonProperty("RollOMatic")
+    private List<RollOMaticPreset> Rollomatics;
 
     public List<Battle> getBattles() {
         return battles;
@@ -136,6 +143,14 @@ public class BaseDatabase {
 
     public void setLoot(List<LootItem> loot) {
         this.loot = loot;
+    }
+
+    public List<RollOMaticPreset> getRollomatics() {
+        return Rollomatics;
+    }
+
+    public void setRollomatics(List<RollOMaticPreset> Rollomatics) {
+        this.Rollomatics = Rollomatics;
     }
 
 }

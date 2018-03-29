@@ -65,6 +65,8 @@ public class Database {
     @JsonIgnore
     private StringProperty campaignName;
     @JsonIgnore
+    private StringProperty campaignPath;
+    @JsonIgnore
     private IntegerProperty initiativeRolls;
     @JsonIgnore
     private IntegerProperty monsterReveals;
@@ -111,6 +113,7 @@ public class Database {
 
         session = new SimpleIntegerProperty(1);
         this.campaignName = new SimpleStringProperty("");
+        this.campaignPath = new SimpleStringProperty("");
 
         ArrayList<LootItem> loot_list = new ArrayList<>();
         loot = new SimpleListProperty(FXCollections.observableArrayList(loot_list));
@@ -200,8 +203,10 @@ public class Database {
                     MainApp.getAppData().getMon_db().ImportMonsters(MainApp.getAppData().getMon_db().getMonstersBind(), custom);
                 }
                 loot.set(FXCollections.observableArrayList(newdb.getLoot()));
+                RollOMatics.set(FXCollections.observableArrayList(newdb.getRollomatics()));
 
                 this.campaignName.set(Files.getNameWithoutExtension(file.toString()));
+                this.campaignPath.set(file.getParent());
                 return true;
             } catch (JsonProcessingException ex) {
                 Logger.getLogger(MonsterManagerController.class.getName()).log(Level.SEVERE, null, ex);
@@ -333,6 +338,18 @@ public class Database {
 
     public StringProperty campaignNameProperty() {
         return campaignName;
+    }
+
+    public final String getCampaignPath() {
+        return campaignPath.get();
+    }
+
+    public final void setCampaignPath(String value) {
+        campaignPath.set(value);
+    }
+
+    public StringProperty campaignPathProperty() {
+        return campaignPath;
     }
 
     public Integer getDbVersion() {

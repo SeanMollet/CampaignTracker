@@ -90,6 +90,9 @@ public class MenuActions {
                         "Campaign Files (.ctct)", "*.ctct");
         fileChooser.getExtensionFilters().add(monsterExtensionFilter);
         fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
+        if (MainApp.getAppData().getDb().getCampaignPath() != null && MainApp.getAppData().getDb().getCampaignPath().length() > 0) {
+            fileChooser.setInitialDirectory(new File(MainApp.getAppData().getDb().getCampaignPath()));
+        }
         File file = fileChooser.showOpenDialog(stage);
         if (file != null && file.length() > 0) {
             MainApp.getAppData().getDb().LoadFile(file);
@@ -105,6 +108,12 @@ public class MenuActions {
                         "Campaign Files (.ctct)", "*.ctct");
         fileChooser.getExtensionFilters().add(monsterExtensionFilter);
         fileChooser.setSelectedExtensionFilter(monsterExtensionFilter);
+        if (MainApp.getAppData().getDb().getCampaignPath() != null) {
+            fileChooser.setInitialDirectory(new File(MainApp.getAppData().getDb().getCampaignPath()));
+        }
+        if (MainApp.getAppData().getDb().getCampaignName() != null) {
+            fileChooser.setInitialFileName(MainApp.getAppData().getDb().getCampaignName());
+        }
         File file = fileChooser.showSaveDialog(stage);
 
         if (file != null) {
