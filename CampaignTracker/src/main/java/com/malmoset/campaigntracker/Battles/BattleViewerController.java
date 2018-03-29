@@ -14,7 +14,7 @@ import com.malmoset.campaigntracker.Loot.LootDispenserController;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterViewerController;
 import com.malmoset.controls.ActionButtonTableCell;
-import com.malmoset.controls.AddDeleteContextMenu;
+import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.BaseForm;
 import com.malmoset.controls.IntegerStringConverter;
 import com.malmoset.controls.SpinnerUtils;
@@ -186,7 +186,7 @@ public class BattleViewerController extends BaseForm implements Initializable {
         col5.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
         col6.setCellFactory(TableViewCellFactories.DoubleClickFactory(doubleClick));
 
-        MonstersTable.setContextMenu(AddDeleteContextMenu.DelContextMenu((ActionEvent event) -> {
+        MonstersTable.setContextMenu(ContextMenus.DelContextMenu((ActionEvent event) -> {
             BattleMonster monster = MonstersTable.getSelectionModel().getSelectedItem();
             if (monster != null) {
                 battle.monstersProperty().remove(monster);

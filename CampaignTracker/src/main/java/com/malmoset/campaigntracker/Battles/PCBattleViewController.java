@@ -61,13 +61,7 @@ public class PCBattleViewController extends BaseForm implements Initializable {
         MainApp.getAppData().getDb().monsterRevealsProperty().addListener((obs, oldval, newval) -> {
             BindBattle();
         });
-    }
-
-    @Override
-    public void onActivated() {
-        if (stage != null) {
-            stage.setAlwaysOnTop(true);
-        }
+        setAlwaysOnTop(true);
     }
 
     private void BindData() {

@@ -19,7 +19,7 @@ import com.malmoset.campaigndata.Loot.LootMonster;
 import com.malmoset.campaigndata.Loot.Magicitem;
 import com.malmoset.campaigndata.Loot.MagicitemTable;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.controls.AddDeleteContextMenu;
+import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.BaseForm;
 import com.malmoset.controls.ChoiceBoxEditCell;
 import com.malmoset.controls.GotItDialog;
@@ -116,7 +116,7 @@ public class LootDispenserController extends BaseForm implements Initializable {
             col3.setCellFactory(TextEditCell.editCellFactory());
             col4.setCellFactory(tc -> new CheckBoxTableCell<>());
             MonstersTable.getColumns().addAll(col1, col2, col3, col4);
-            MonstersTable.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+            MonstersTable.setContextMenu(ContextMenus.AddDelContextMenu(
                     (ActionEvent event) -> {
                         Object selected = MonstersTable.getSelectionModel().getSelectedItem();
                         if (selected != null) {
@@ -145,7 +145,7 @@ public class LootDispenserController extends BaseForm implements Initializable {
             col3.prefWidthProperty().bind(LootTable.widthProperty().subtract(20).subtract(col1.widthProperty()).subtract(col2.widthProperty()));
 
             LootTable.getColumns().addAll(col1, col2, col3);
-            LootTable.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+            LootTable.setContextMenu(ContextMenus.AddDelContextMenu(
                     (ActionEvent event) -> {
                         Object selected = LootTable.getSelectionModel().getSelectedItem();
                         if (selected != null) {

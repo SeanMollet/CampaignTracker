@@ -15,7 +15,7 @@ import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.controls.ActionButtonTableCell;
-import com.malmoset.controls.AddDeleteContextMenu;
+import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.BaseForm;
 import com.malmoset.controls.Styles;
 import com.malmoset.controls.TableViewCellFactories;
@@ -133,7 +133,7 @@ public class MonsterManagerController extends BaseForm implements Initializable 
         // 1. Wrap the ObservableList in a FilteredList (initially display all data).
         FilteredList<Monster> filteredData = new FilteredList<>(list, p -> true);
 
-        MonstersTable.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+        MonstersTable.setContextMenu(ContextMenus.AddDelContextMenu(
                 (ActionEvent event) -> {
                     Monster selected = MonstersTable.getSelectionModel().getSelectedItem();
                     if (selected != null && !selected.isReadOnly()) {

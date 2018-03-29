@@ -10,7 +10,7 @@ import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterViewerController;
 import com.malmoset.controls.ActionButtonTableCell;
-import com.malmoset.controls.AddDeleteContextMenu;
+import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.ChoiceBoxEditCell;
 import com.malmoset.controls.DiceStringConverter;
 import com.malmoset.controls.IntegerStringConverter;
@@ -163,7 +163,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
 
         PlayerTable.getColumns().addAll(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13, col14, col15);
 
-        PlayerTable.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+        PlayerTable.setContextMenu(ContextMenus.AddDelContextMenu(
                 (ActionEvent event) -> {
                     Player selected = PlayerTable.getSelectionModel().getSelectedItem();
                     if (selected != null) {

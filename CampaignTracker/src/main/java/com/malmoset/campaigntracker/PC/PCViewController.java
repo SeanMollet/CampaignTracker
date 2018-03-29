@@ -38,13 +38,7 @@ public class PCViewController extends BaseForm implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         BindData();
-    }
-
-    @Override
-    public void onActivated() {
-        if (stage != null) {
-            stage.setAlwaysOnTop(true);
-        }
+        setAlwaysOnTop(true);
     }
 
     private void BindData() {

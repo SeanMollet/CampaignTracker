@@ -13,7 +13,7 @@ import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigndata.StatWithModifier;
 import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.controls.AddDeleteContextMenu;
+import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.BaseForm;
 import com.malmoset.controls.IntegerStringConverter;
 import com.malmoset.controls.NoHeaderTableView;
@@ -215,7 +215,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
         if (!monster.isReadOnly()) {
             table.setEditable(true);
-            table.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+            table.setContextMenu(ContextMenus.AddDelContextMenu(
                     (ActionEvent event) -> {
                         Object selected = table.getSelectionModel().getSelectedItem();
                         if (selected != null) {
@@ -245,7 +245,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
         if (!monster.isReadOnly()) {
             table.setEditable(true);
-            table.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+            table.setContextMenu(ContextMenus.AddDelContextMenu(
                     (ActionEvent event) -> {
                         Object selected = table.getSelectionModel().getSelectedItem();
                         if (selected != null) {
@@ -273,7 +273,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
         if (!monster.isReadOnly()) {
             table.setEditable(true);
-            table.setContextMenu(AddDeleteContextMenu.AddDelContextMenu(
+            table.setContextMenu(ContextMenus.AddDelContextMenu(
                     (ActionEvent event) -> {
                         Object selected = table.getSelectionModel().getSelectedItem();
                         if (selected != null) {
