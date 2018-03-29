@@ -9,12 +9,10 @@ import com.malmoset.campaigndata.Action;
 import com.malmoset.campaigndata.CreatureSize.CreatureSizes;
 import com.malmoset.campaigndata.GenericValueString;
 import com.malmoset.campaigndata.Monster;
-import com.malmoset.campaigndata.MonstersDatabase;
 import com.malmoset.campaigndata.StatWithModifier;
-import com.malmoset.campaigntracker.AppData;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.IntegerStringConverter;
 import com.malmoset.controls.NoHeaderTableView;
 import com.malmoset.controls.NumberTextField;
@@ -37,6 +35,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.util.converter.NumberStringConverter;
 
 /**
@@ -124,6 +123,22 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         // TODO
     }
 
+    @Override
+    public void onActivated() {
+        TraitsList.getColumns().get(0).setPrefWidth(SpeedList.getColumns().get(0).getPrefWidth() - 1);
+        TraitsList.getColumns().get(0).setPrefWidth(SpeedList.getColumns().get(0).getPrefWidth() + 1);
+
+        ActionsList.getColumns().get(0).setPrefWidth(ActionsList.getColumns().get(0).getPrefWidth() - 1);
+        ActionsList.getColumns().get(0).setPrefWidth(ActionsList.getColumns().get(0).getPrefWidth() + 1);
+
+        ReactionsList.getColumns().get(0).setPrefWidth(ReactionsList.getColumns().get(0).getPrefWidth() - 1);
+        ReactionsList.getColumns().get(0).setPrefWidth(ReactionsList.getColumns().get(0).getPrefWidth() + 1);
+
+        LegActionsList.getColumns().get(0).setPrefWidth(LegActionsList.getColumns().get(0).getPrefWidth() - 1);
+        LegActionsList.getColumns().get(0).setPrefWidth(LegActionsList.getColumns().get(0).getPrefWidth() + 1);
+
+    }
+
     private void BindData() {
         //        Modifier.getValueFactory().valueProperty().bindBidirectional(statModifier.asObject());
 
@@ -180,8 +195,17 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
         boolean hasAttack = false;
         boolean hasContent = false;
+        String longestAttack = "";
+        String longestName = "";
         for (Action ac : list) {
+            if (ac.getName() != null && ac.getName().length() > longestName.length()) {
+                longestName = ac.getName();
+            }
             if (ac.getAttack() != null && ac.getAttack().length() > 0) {
+                //Find the longest one to use for sizing
+                if (ac.getAttack().length() > longestAttack.length()) {
+                    longestAttack = ac.getAttack();
+                }
                 hasAttack = true;
             }
             if (ac.getContent() != null && ac.getContent().length() > 0) {
@@ -189,14 +213,26 @@ public class MonsterViewerController extends BaseForm implements Initializable {
             }
         }
 
-        nameCol.setPrefWidth(150);
-        nameCol.setMaxWidth(400);
+        {
+            //Measure the size needed to hold the longest attack string
+            final Text text = new Text(longestName);
+            text.applyCss();
+            double size = text.getLayoutBounds().getWidth() + 5;
+            double maxwidth = 100;
+
+            nameCol.setPrefWidth(size < maxwidth ? size : maxwidth);
+            nameCol.maxWidthProperty().bind(table.widthProperty().divide(4));
+        }
         if (hasAttack) {
-            attackCol.setPrefWidth(200);
-            attackCol.setMaxWidth(400);
+            //Measure the size needed to hold the longest attack string
+            final Text text = new Text(longestAttack);
+            text.applyCss();
+
+            attackCol.setPrefWidth(text.getLayoutBounds().getWidth() + 5);
+            nameCol.maxWidthProperty().bind(table.widthProperty().divide(3));
         } else {
             attackCol.setPrefWidth(20);
-            attackCol.setMaxWidth(400);
+            nameCol.maxWidthProperty().bind(table.widthProperty().divide(3));
         }
         if (hasContent) {
             contentCol.prefWidthProperty().bind(table.widthProperty().subtract(20).subtract(nameCol.widthProperty()).subtract(attackCol.widthProperty()));
@@ -204,7 +240,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 //            contentCol.setMaxWidth(500);
         } else {
             contentCol.setPrefWidth(20);
-            contentCol.setMaxWidth(500);
+            nameCol.maxWidthProperty().bind(table.widthProperty().divide(0.7));
         }
 
         nameCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
@@ -347,11 +383,9 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
     @FXML
     private void SaveButtonClick(ActionEvent event) {
-        AppData data = MainApp.getAppData();
-        MonstersDatabase mondb = data.getMon_db();
         ArrayList<Monster> newmonsters = new ArrayList<>();
         newmonsters.add(monster);
-        mondb.ImportMonsters(saveList, newmonsters);
+        MainApp.getAppData().getMon_db().ImportMonsters(saveList, newmonsters);
     }
 
 }
