@@ -57,8 +57,7 @@ public class TableViewCellFactories {
                         super.updateItem(item, empty);
                         if (!isEmpty() && item != null) {
                             text = new Text(item.toString());
-                            text.wrappingWidthProperty().bind(this.widthProperty());
-                            //text.setWrappingWidth(200);
+                            text.wrappingWidthProperty().bind(this.widthProperty().subtract(5));
                             setGraphic(text);
                         }
                     }

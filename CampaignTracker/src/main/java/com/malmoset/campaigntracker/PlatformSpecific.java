@@ -16,7 +16,11 @@
 package com.malmoset.campaigntracker;
 
 import de.codecentric.centerdevice.MenuToolkit;
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
@@ -32,6 +36,49 @@ import javafx.stage.Stage;
  */
 public class PlatformSpecific {
 
+    public static Path getMonsterBooksFolder() throws IOException {
+        return getDocumentsFolder().resolve("Monster Books");
+    }
+
+    public static Path getLootBooksFolder() throws IOException {
+        return getDocumentsFolder().resolve("Loot Books");
+    }
+
+    public static Path getDocumentsFolder() throws IOException {
+        //For now, this seems to work without being platform specific
+        //But, it's here in case it ever needs to change
+
+        String currentUsersHomeDir = System.getProperty("user.home");
+        Path ctFolder = Paths.get(currentUsersHomeDir, "Campaign Tracker");
+        if (!Files.isDirectory(ctFolder)) {
+            Files.createDirectory(ctFolder);
+        }
+        return ctFolder;
+
+    }
+
+    private static Path getAppDataFolder() {
+        Path userHome = Paths.get(System.getProperty("user.home"));
+        Path localData;
+        final String localAppData = System.getenv("LOCALAPPDATA");
+        if (localAppData != null) {
+            localData = Paths.get(localAppData);
+            if (!Files.isDirectory(localData)) {
+                throw new RuntimeException("%LOCALAPPDATA% set to nonexistent directory " + localData);
+            }
+        } else {
+            localData = userHome.resolve(Paths.get("AppData", "Local"));
+            if (!Files.isDirectory(localData)) {
+                localData = userHome.resolve(Paths.get("Local Settings", "Application Data"));
+            }
+            if (!Files.isDirectory(localData)) {
+                throw new RuntimeException("%LOCALAPPDATA% is undefined, and neither "
+                        + userHome.resolve(Paths.get("AppData", "Local")) + " nor "
+                        + userHome.resolve(Paths.get("Local Settings", "Application Data")) + " have been found");
+            }
+        }
+        return localData;
+    }
     private static MenuBar bar;
 
     public static MenuBar getBar() {

@@ -72,7 +72,7 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <NoHeaderTableView fx:id="SkillsList" layoutX="87.0" layoutY="17.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="223.0" AnchorPane.topAnchor="5.0" />
+                                <NoHeaderTableView fx:id="SkillsList" layoutX="87.0" layoutY="17.0" prefHeight="75.0" prefWidth="133.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="5.0" />
                                 <Label text="Skills" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                                 <NoHeaderTableView fx:id="LanguageList" layoutX="269.0" layoutY="14.0" prefHeight="75.0" prefWidth="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
                                 <Label layoutX="182.0" layoutY="-3.0" text="Languages" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="10.0" />

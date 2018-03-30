@@ -10,7 +10,6 @@ import com.malmoset.campaigndata.CreatureSize.CreatureSizes;
 import com.malmoset.campaigndata.GenericValueString;
 import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigndata.StatWithModifier;
-import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.controls.BaseForm;
 import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.IntegerStringConverter;
@@ -21,10 +20,10 @@ import com.malmoset.controls.StatDice;
 import com.malmoset.controls.TableViewCellFactories;
 import com.malmoset.controls.TextEditCell;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -115,6 +114,8 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
     private ObservableList<Monster> saveList;
 
+    private boolean tablesRedrawn = false;
+
     /**
      * Initializes the controller class.
      */
@@ -125,17 +126,29 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
     @Override
     public void onActivated() {
-        TraitsList.getColumns().get(0).setPrefWidth(SpeedList.getColumns().get(0).getPrefWidth() - 1);
-        TraitsList.getColumns().get(0).setPrefWidth(SpeedList.getColumns().get(0).getPrefWidth() + 1);
+        System.out.println(this.getStage().getTitle() + "Activated");
+        //On MacOS, this can run right away.
+        //Windows has a little delay from initial display until the form actually works
+        //So, we use runLater to add a little delay to this
+        //Seems to work well on Mac and Windows
+        if (!tablesRedrawn) {
+            Platform.runLater(() -> {
+                //Voodoo to force re-drawing the tables
+                //This fixes the line wrapping and makes them look good
+                TraitsList.getColumns().get(0).setVisible(false);
+                TraitsList.getColumns().get(0).setVisible(true);
 
-        ActionsList.getColumns().get(0).setPrefWidth(ActionsList.getColumns().get(0).getPrefWidth() - 1);
-        ActionsList.getColumns().get(0).setPrefWidth(ActionsList.getColumns().get(0).getPrefWidth() + 1);
+                ActionsList.getColumns().get(0).setVisible(false);
+                ActionsList.getColumns().get(0).setVisible(true);
 
-        ReactionsList.getColumns().get(0).setPrefWidth(ReactionsList.getColumns().get(0).getPrefWidth() - 1);
-        ReactionsList.getColumns().get(0).setPrefWidth(ReactionsList.getColumns().get(0).getPrefWidth() + 1);
+                ReactionsList.getColumns().get(0).setVisible(false);
+                ReactionsList.getColumns().get(0).setVisible(true);
 
-        LegActionsList.getColumns().get(0).setPrefWidth(LegActionsList.getColumns().get(0).getPrefWidth() - 1);
-        LegActionsList.getColumns().get(0).setPrefWidth(LegActionsList.getColumns().get(0).getPrefWidth() + 1);
+                LegActionsList.getColumns().get(0).setVisible(false);
+                LegActionsList.getColumns().get(0).setVisible(true);
+            });
+            tablesRedrawn = true;
+        }
 
     }
 
@@ -193,6 +206,12 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         attackCol.setCellValueFactory(cellData -> cellData.getValue().attackProperty());
         contentCol.setCellValueFactory(cellData -> cellData.getValue().contentProperty());
 
+        nameCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
+        attackCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
+        contentCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
+
+        table.getColumns().addAll(nameCol, attackCol, contentCol);
+
         boolean hasAttack = false;
         boolean hasContent = false;
         String longestAttack = "";
@@ -214,12 +233,13 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         }
 
         {
-            //Measure the size needed to hold the longest attack string
+            //Measure the size needed to hold the longest name string
             final Text text = new Text(longestName);
             text.applyCss();
             double size = text.getLayoutBounds().getWidth() + 5;
-            double maxwidth = 100;
+            double maxwidth = 200;
 
+            nameCol.setMinWidth(100);
             nameCol.setPrefWidth(size < maxwidth ? size : maxwidth);
             nameCol.maxWidthProperty().bind(table.widthProperty().divide(4));
         }
@@ -228,11 +248,12 @@ public class MonsterViewerController extends BaseForm implements Initializable {
             final Text text = new Text(longestAttack);
             text.applyCss();
 
-            attackCol.setPrefWidth(text.getLayoutBounds().getWidth() + 5);
-            nameCol.maxWidthProperty().bind(table.widthProperty().divide(3));
+            attackCol.setMinWidth(65);
+            attackCol.setPrefWidth(text.getLayoutBounds().getWidth() + 10);
+            attackCol.maxWidthProperty().bind(table.widthProperty().divide(3));
         } else {
             attackCol.setPrefWidth(20);
-            nameCol.maxWidthProperty().bind(table.widthProperty().divide(3));
+            attackCol.maxWidthProperty().bind(table.widthProperty().divide(3));
         }
         if (hasContent) {
             contentCol.prefWidthProperty().bind(table.widthProperty().subtract(20).subtract(nameCol.widthProperty()).subtract(attackCol.widthProperty()));
@@ -240,14 +261,8 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 //            contentCol.setMaxWidth(500);
         } else {
             contentCol.setPrefWidth(20);
-            nameCol.maxWidthProperty().bind(table.widthProperty().divide(0.7));
+            contentCol.maxWidthProperty().bind(table.widthProperty().multiply(0.7));
         }
-
-        nameCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
-        attackCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
-        contentCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
-
-        table.getColumns().addAll(nameCol, attackCol, contentCol);
 
         if (!monster.isReadOnly()) {
             table.setEditable(true);
@@ -263,6 +278,7 @@ public class MonsterViewerController extends BaseForm implements Initializable {
                         list.add(object);
                     }));
         }
+
     }
 
     private void configModifierTable(TableView table, ObservableList list) {
@@ -270,8 +286,10 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
         TableColumn<StatWithModifier, String> statCol = new TableColumn<>("Name");
         TableColumn<StatWithModifier, Integer> valueCol = new TableColumn<>("Modifier");
-        statCol.setMaxWidth(100.0);
-        valueCol.setMaxWidth(50.0);
+        statCol.prefWidthProperty().bind(table.widthProperty().multiply(0.7).subtract(7));
+        //statCol.setMaxWidth(100.0);
+        valueCol.prefWidthProperty().bind(table.widthProperty().multiply(0.3).subtract(7));
+        //valueCol.setMaxWidth(50.0);
         statCol.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         valueCol.setCellValueFactory(cellData -> cellData.getValue().modifierProperty().asObject());
         statCol.setCellFactory(TextEditCell.editCellFactory());
@@ -360,8 +378,8 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         ActionsList.setEditable(!readonly);
         ReactionsList.setEditable(!readonly);
         LegActionsList.setEditable(!readonly);
-        SaveButton.setDisable(readonly);
-        SaveButton.setText(readonly ? "Read Only" : "Save");
+//        SaveButton.setDisable(readonly);
+//        SaveButton.setText(readonly ? "Read Only" : "Save");
 
     }
 
@@ -383,9 +401,9 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
     @FXML
     private void SaveButtonClick(ActionEvent event) {
-        ArrayList<Monster> newmonsters = new ArrayList<>();
-        newmonsters.add(monster);
-        MainApp.getAppData().getMon_db().ImportMonsters(saveList, newmonsters);
+//        ArrayList<Monster> newmonsters = new ArrayList<>();
+//        newmonsters.add(monster);
+//        MainApp.getAppData().getMon_db().ImportMonsters(saveList, newmonsters);
     }
 
 }

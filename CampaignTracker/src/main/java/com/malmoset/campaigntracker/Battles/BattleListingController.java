@@ -7,14 +7,16 @@ package com.malmoset.campaigntracker.Battles;
 
 import com.malmoset.campaigndata.Battle;
 import com.malmoset.campaigntracker.MainApp;
-import com.malmoset.controls.TableViewCellFactories;
+import com.malmoset.campaigntracker.MenuActions;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.TableViewCellFactories;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -96,6 +98,11 @@ public class BattleListingController extends BaseForm implements Initializable {
         BattleViewerController controller = (BattleViewerController) BaseForm.LoadForm(getClass().getResource("/fxml/Battles/BattleViewer.fxml"), "Battle");
         controller.setBattle(battle);
         controller.Show();
+    }
+
+    @FXML
+    private void NewBattleClick(ActionEvent event) {
+        MenuActions.NewBattleClick();
     }
 
 }

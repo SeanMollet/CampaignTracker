@@ -180,4 +180,8 @@ public class BaseForm {
 
     }
 
+    public Stage getStage() {
+        return stage;
+    }
+
 }
