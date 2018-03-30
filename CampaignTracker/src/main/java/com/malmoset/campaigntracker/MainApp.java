@@ -54,7 +54,7 @@ public class MainApp extends Application {
 
                         PlatformSpecific.SetupIcon(Menustage);
 
-                        Menustage.setTitle("Campaign Manager");
+                        Menustage.setTitle("Campaign Tracker");
                         Menustage.setScene(scene);
                         Menustage.setResizable(false);
                         Menustage.show();

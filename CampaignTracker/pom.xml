@@ -159,7 +159,7 @@
                 <configuration>
                     <vendor>Malmoset</vendor>
                     <mainClass>com.malmoset.campaigntracker.MainApp</mainClass>
-                    <appName>${project.artifactId}</appName>
+                    <appName>Campaign Tracker</appName>
                     <bundleArguments>
                         <!--  dont include JRE, use installed one-->
                         <!--  <runtime />-->
