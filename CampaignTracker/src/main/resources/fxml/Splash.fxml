@@ -4,9 +4,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="527.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.SplashController">
+<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="491.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.malmoset.campaigntracker.SplashController">
     <children>
-        <ImageView fitHeight="546.0" fitWidth="474.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <ImageView fitHeight="524.0" fitWidth="455.0" layoutX="14.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <image>
                 <Image url="@../Icons/Goblin.png" />
             </image>
