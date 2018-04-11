@@ -10,6 +10,7 @@ import com.malmoset.campaigndata.CreatureSize.CreatureSizes;
 import com.malmoset.campaigndata.GenericValueString;
 import com.malmoset.campaigndata.Monster;
 import com.malmoset.campaigndata.StatWithModifier;
+import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.controls.BaseForm;
 import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.IntegerStringConverter;
@@ -20,6 +21,7 @@ import com.malmoset.controls.StatDice;
 import com.malmoset.controls.TableViewCellFactories;
 import com.malmoset.controls.TextEditCell;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -378,8 +380,8 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         ActionsList.setEditable(!readonly);
         ReactionsList.setEditable(!readonly);
         LegActionsList.setEditable(!readonly);
-//        SaveButton.setDisable(readonly);
-//        SaveButton.setText(readonly ? "Read Only" : "Save");
+        SaveButton.setDisable(readonly);
+        SaveButton.setText(readonly ? "Read Only" : "Save");
 
     }
 
@@ -401,9 +403,9 @@ public class MonsterViewerController extends BaseForm implements Initializable {
 
     @FXML
     private void SaveButtonClick(ActionEvent event) {
-//        ArrayList<Monster> newmonsters = new ArrayList<>();
-//        newmonsters.add(monster);
-//        MainApp.getAppData().getMon_db().ImportMonsters(saveList, newmonsters);
+        ArrayList<Monster> newmonsters = new ArrayList<>();
+        newmonsters.add(monster);
+        MainApp.getAppData().getMon_db().ImportMonsters(saveList, newmonsters);
     }
 
 }

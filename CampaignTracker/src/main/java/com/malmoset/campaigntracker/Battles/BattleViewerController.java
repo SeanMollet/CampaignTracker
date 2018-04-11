@@ -14,8 +14,8 @@ import com.malmoset.campaigntracker.Loot.LootDispenserController;
 import com.malmoset.campaigntracker.MainApp;
 import com.malmoset.campaigntracker.Monsters.MonsterViewerController;
 import com.malmoset.controls.ActionButtonTableCell;
-import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.BaseForm;
+import com.malmoset.controls.ContextMenus;
 import com.malmoset.controls.IntegerStringConverter;
 import com.malmoset.controls.SpinnerUtils;
 import com.malmoset.controls.Styles;
@@ -24,7 +24,6 @@ import com.malmoset.controls.TextEditCell;
 import java.net.URL;
 import java.util.Comparator;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.ListChangeListener;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
@@ -131,7 +130,7 @@ public class BattleViewerController extends BaseForm implements Initializable {
         col6.setCellValueFactory(cellData -> cellData.getValue().appearanceProperty());
         col7.setCellValueFactory(cellData -> cellData.getValue().savingRollProperty().asObject());
         col8.setCellValueFactory(cellData -> cellData.getValue().currentHPProperty().asObject());
-        col9.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getHP().getHpValue()).asObject());
+        col9.setCellValueFactory(cellData -> cellData.getValue().getHP().hpValueProperty().asObject());
         col10.setCellValueFactory(cellData -> cellData.getValue().hPtoChangeProperty().asObject());
         col14.setCellValueFactory(cellData -> cellData.getValue().getAC().acValueProperty().asObject());
 

@@ -88,6 +88,15 @@ public class BattleMonster extends Monster {
         this.hiddenProperty().addListener((obv, oldval, newval) -> {
             MainApp.getAppData().getDb().monsterRevealsProperty().set(MainApp.getAppData().getDb().monsterRevealsProperty().get() + 1);
         });
+        this.getHP().hpValueProperty().addListener((obv, oldval, newval) -> {
+            setAppearance("");
+        });
+        this.currentHP.addListener((obv, oldval, newval) -> {
+            setAppearance("");
+        });
+        this.persuaded.addListener((obv, oldval, newval) -> {
+            setAppearance("");
+        });
     }
     private ObjectProperty<Date> spawned;
     private IntegerProperty index;
@@ -139,7 +148,6 @@ public class BattleMonster extends Monster {
     public void setCurrentHP(int value) {
         currentHP.set(value);
         currentHPSet = true;
-        setAppearance("");
     }
 
     @JsonProperty("Spawned")
@@ -178,7 +186,6 @@ public class BattleMonster extends Monster {
 
     public final void setPersuaded(boolean value) {
         persuaded.set(value);
-        setAppearance("");
     }
 
     public BooleanProperty persuadedProperty() {
