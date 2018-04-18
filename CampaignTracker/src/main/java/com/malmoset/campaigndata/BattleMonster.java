@@ -250,10 +250,10 @@ public class BattleMonster extends Monster {
         //Handle PC view of name and type
         if (this.unknownProperty().get()) {
             this.pcName.set("Unknown");
-            this.pcType.set(this.getSize().getValue() + " " + this.getType());
+            this.pcType.set(this.getPCDisplayType());
         } else {
             this.pcName.set(this.getName());
-            this.pcType.set(this.getDisplayType());
+            this.pcType.set(this.getPCDisplayType());
         }
     }
 

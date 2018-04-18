@@ -244,6 +244,34 @@ public class BattleViewerController extends BaseForm implements Initializable {
         XPTable.setItems(sortedData);
     }
 
+    @FXML
+    private void HideAllClick(ActionEvent event) {
+        for (BattleMonster monster : battle.getMonsters()) {
+            monster.setHidden(true);
+        }
+    }
+
+    @FXML
+    private void ShowAllClick(ActionEvent event) {
+        for (BattleMonster monster : battle.getMonsters()) {
+            monster.setHidden(false);
+        }
+    }
+
+    @FXML
+    private void UnknownAllClick(ActionEvent event) {
+        for (BattleMonster monster : battle.getMonsters()) {
+            monster.setUnknown(true);
+        }
+    }
+
+    @FXML
+    private void KnowAllClick(ActionEvent event) {
+        for (BattleMonster monster : battle.getMonsters()) {
+            monster.setUnknown(false);
+        }
+    }
+
     public enum EventType {
         Damage,
         Healing,

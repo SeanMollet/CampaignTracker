@@ -14,8 +14,7 @@
         <URL value="@/styles/Styles.css" />
     </stylesheets>
     <children>
-        <Label layoutX="14.0" layoutY="14.0" text="Monsters" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0" />
-        <Label fx:id="StartedLabel" layoutX="75.0" layoutY="10.0" text="Started" AnchorPane.leftAnchor="70.0" AnchorPane.topAnchor="10.0" />
+        <Label fx:id="StartedLabel" layoutX="75.0" layoutY="10.0" text="Started" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="10.0" />
         <Button layoutX="748.0" layoutY="14.0" mnemonicParsing="false" onAction="#LootClick" text="Loot" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
         <Button layoutX="667.0" layoutY="5.0" mnemonicParsing="false" onAction="#SavesClick" text="Roll Saves" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="5.0" />
         <ChoiceBox fx:id="SaveType" layoutX="516.0" layoutY="5.0" prefHeight="27.0" prefWidth="82.0" AnchorPane.rightAnchor="133.0" AnchorPane.topAnchor="5.0" />
@@ -35,5 +34,9 @@
         </SplitPane>
         <Label layoutX="615.0" layoutY="10.0" text="HP" AnchorPane.rightAnchor="295.0" />
         <Spinner fx:id="HPBox" layoutX="644.0" layoutY="5.0" prefHeight="27.0" prefWidth="67.0" AnchorPane.rightAnchor="217.0" />
+        <Button layoutX="6.0" layoutY="1.0" mnemonicParsing="false" onAction="#HideAllClick" prefWidth="60.0" style="-fx-font-size: 8;" text="Hide All" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="1.0" />
+        <Button layoutX="6.0" layoutY="17.0" mnemonicParsing="false" onAction="#ShowAllClick" prefWidth="60.0" style="-fx-font-size: 8;" text="Show All" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="17.0" />
+        <Button layoutX="69.0" layoutY="1.0" mnemonicParsing="false" onAction="#UnknownAllClick" prefWidth="60.0" style="-fx-font-size: 8;" text="Unknown All" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="1.0" />
+        <Button layoutX="69.0" layoutY="17.0" mnemonicParsing="false" onAction="#KnowAllClick" prefWidth="60.0" style="-fx-font-size: 8;" text="Know All" AnchorPane.leftAnchor="69.0" AnchorPane.topAnchor="17.0" />
     </children>
 </AnchorPane>

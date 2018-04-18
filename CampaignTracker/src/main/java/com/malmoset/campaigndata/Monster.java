@@ -451,6 +451,11 @@ public class Monster {
         return this.size.getValue() + " " + this.type.get() + " " + this.alignment.get();
     }
 
+    @JsonIgnore
+    public String getPCDisplayType() {
+        return this.size.getValue() + " " + this.type.get();
+    }
+
     public Monster clone() {
         ObjectMapper mapper = new ObjectMapper();
         //mapper.configure(SerializationFeature.FAIL_ON_SELF_REFERENCES, false);
