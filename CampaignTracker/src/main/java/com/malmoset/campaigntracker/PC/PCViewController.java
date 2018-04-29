@@ -13,6 +13,7 @@ import com.malmoset.dice.Dice;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -78,7 +79,9 @@ public class PCViewController extends BaseForm implements Initializable {
     private void BindSortedList() {
         AppData data = MainApp.getAppData();
         ObservableList<Player> players = data.getDb().getPlayers();
-        sortedData = new SortedList(players);
+        FilteredList<Player> filtered = new FilteredList<>(players, p -> !p.isHidden());
+
+        sortedData = new SortedList(filtered);
         PlayerTable.setItems(sortedData);
         sortedData.comparatorProperty().setValue(Player.CompareInitiative());
     }

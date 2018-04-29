@@ -30,7 +30,7 @@ public class Player {
     public Player(@JsonProperty("Name") String name, @JsonProperty("Race") String race, @JsonProperty("Class") String character_class,
             @JsonProperty("Initiative") Integer initiative, @JsonProperty("AC") Integer aC, @JsonProperty("CurrentHP") Integer currentHP,
             @JsonProperty("MaxHP") Integer maxHP, @JsonProperty("Roll") Integer roll, @JsonProperty("Adv") Dice.RollTypes adv,
-            @JsonProperty("Dead") Boolean dead, @JsonProperty("Stable") Boolean stable) {
+            @JsonProperty("Dead") Boolean dead, @JsonProperty("Stable") Boolean stable, @JsonProperty("Hidden") Boolean hidden) {
         this();
         this.name.set(name);
         this.race.set(race);
@@ -43,6 +43,9 @@ public class Player {
         this.adv.set(adv);
         this.dead.set(dead);
         this.stable.set(stable);
+        if (hidden != null) {
+            this.hidden.set(hidden);
+        }
         setAppearance("");
         BindProperties();
     }
@@ -60,6 +63,7 @@ public class Player {
         this.dead = new SimpleBooleanProperty(false);
         this.stable = new SimpleBooleanProperty(false);
         this.hpToChange = new SimpleIntegerProperty(0);
+        this.hidden = new SimpleBooleanProperty(false);
         setAppearance("");
         BindProperties();
     }
@@ -77,6 +81,10 @@ public class Player {
         this.stable.addListener((e) -> {
             setAppearance("");
         });
+        this.hidden.addListener((e) -> {
+            setAppearance("");
+        });
+
     }
 
     private StringProperty name;
@@ -90,6 +98,7 @@ public class Player {
     private ObjectProperty<Dice.RollTypes> adv;
     private BooleanProperty dead;
     private BooleanProperty stable;
+    private BooleanProperty hidden;
     @JsonIgnore
     private StringProperty appearance;
     @JsonIgnore
@@ -297,6 +306,18 @@ public class Player {
 
     public IntegerProperty hpToChangeProperty() {
         return hpToChange;
+    }
+
+    public Boolean isHidden() {
+        return hidden.get();
+    }
+
+    public void setHidden(Boolean hidden) {
+        this.hidden.set(hidden);
+    }
+
+    public BooleanProperty HiddenProperty() {
+        return this.hidden;
     }
 
     public static Comparator<Player> CompareInitiative() {

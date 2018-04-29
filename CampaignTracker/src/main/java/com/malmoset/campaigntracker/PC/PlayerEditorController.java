@@ -84,6 +84,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
             }
         };
         //Create the columns
+        TableColumn<Player, Boolean> col16 = new TableColumn<>("Hide");
         TableColumn<Player, String> col1 = new TableColumn<>("Name");
         TableColumn<Player, String> col2 = new TableColumn<>("Race");
         TableColumn<Player, String> col3 = new TableColumn<>("Class");
@@ -98,6 +99,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
         TableColumn<Player, String> col12 = new TableColumn<>("Appearance");
         TableColumn<Player, Integer> col13 = new TableColumn<>("HP");
 
+        col16.setCellValueFactory(cellData -> cellData.getValue().HiddenProperty());
         col1.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         col2.setCellValueFactory(cellData -> cellData.getValue().raceProperty());
         col3.setCellValueFactory(cellData -> cellData.getValue().character_classProperty());
@@ -128,6 +130,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
 
         col10.setCellFactory(tc -> new CheckBoxTableCell<>());
         col11.setCellFactory(tc -> new CheckBoxTableCell<>());
+        col16.setCellFactory(tc -> new CheckBoxTableCell<>());
 
         TableColumn<Player, Button> col14 = new TableColumn<>("HP");
         col14.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
@@ -161,7 +164,7 @@ public class PlayerEditorController extends BaseForm implements Initializable {
             return player;
         }));
 
-        PlayerTable.getColumns().addAll(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13, col14, col15);
+        PlayerTable.getColumns().addAll(col16, col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13, col14, col15);
 
         PlayerTable.setContextMenu(ContextMenus.AddDelContextMenu(
                 (ActionEvent event) -> {
