@@ -97,6 +97,16 @@ public class BattleViewerController extends BaseForm implements Initializable {
             }
         });
 
+        //Clear all the monsters HPChange if this value has changed
+        HPBox.valueProperty().addListener((s, ov, nv) -> {
+            if (ov != nv) {
+
+                for (BattleMonster monster : battle.getMonsters()) {
+                    monster.setHPtoChange(0);
+                }
+            }
+        });
+
         battle.monstersProperty().addListener(new ListChangeListener<BattleMonster>() {
             @Override
             public void onChanged(
