@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import javafx.util.converter.DefaultStringConverter;
@@ -30,14 +31,21 @@ import javafx.util.converter.DefaultStringConverter;
 //Thanks!
 public class TextEditCell<S, T> extends TableCell<S, T> {
 
+    private boolean isMultiline = false;
+    private Text text;
+
     public static <S, T> Callback<TableColumn<S, T>, TableCell<S, T>> editCellFactory() {
         return editCellFactory(new DefaultStringConverter());
     }
 
     public static <S, T> Callback<TableColumn<S, T>, TableCell<S, T>> editCellFactory(StringConverter converter) {
+        return editCellFactory(converter, false);
+    }
+
+    public static <S, T> Callback<TableColumn<S, T>, TableCell<S, T>> editCellFactory(StringConverter converter, boolean multiline) {
         return new Callback<TableColumn<S, T>, TableCell<S, T>>() {
             public TableCell call(TableColumn p) {
-                return new TextEditCell(converter);
+                return new TextEditCell(converter, multiline);
             }
         };
     }
@@ -46,6 +54,11 @@ public class TextEditCell<S, T> extends TableCell<S, T> {
     private StringConverter converter;
 
     public TextEditCell(StringConverter converter) {
+        this(converter, false);
+    }
+
+    public TextEditCell(StringConverter converter, boolean multiline) {
+        this.isMultiline = multiline;
         this.converter = converter;
     }
 
@@ -88,8 +101,16 @@ public class TextEditCell<S, T> extends TableCell<S, T> {
                 setText(null);
                 setGraphic(textField);
             } else {
-                setText(getString());
-                setGraphic(null);
+                if (isMultiline) {
+                    if (!isEmpty() && item != null) {
+                        text = new Text(item.toString());
+                        text.wrappingWidthProperty().bind(this.widthProperty().subtract(5));
+                        setGraphic(text);
+                    }
+                } else {
+                    setText(getString());
+                    setGraphic(null);
+                }
             }
         }
     }

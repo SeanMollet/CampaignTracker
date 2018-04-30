@@ -28,6 +28,7 @@ import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.css.StyleConverter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,6 +38,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.util.StringConverter;
+import javafx.util.converter.DefaultStringConverter;
 import javafx.util.converter.NumberStringConverter;
 
 /**
@@ -208,9 +211,9 @@ public class MonsterViewerController extends BaseForm implements Initializable {
         attackCol.setCellValueFactory(cellData -> cellData.getValue().attackProperty());
         contentCol.setCellValueFactory(cellData -> cellData.getValue().contentProperty());
 
-        nameCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
-        attackCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
-        contentCol.setCellFactory(TableViewCellFactories.multiLineCellFactory());
+        nameCol.setCellFactory(TextEditCell.editCellFactory(new DefaultStringConverter(), true));
+        attackCol.setCellFactory(TextEditCell.editCellFactory(new DefaultStringConverter(), true));
+        contentCol.setCellFactory(TextEditCell.editCellFactory(new DefaultStringConverter(), true));
 
         table.getColumns().addAll(nameCol, attackCol, contentCol);
 
