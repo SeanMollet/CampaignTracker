@@ -6,6 +6,7 @@
 package com.malmoset.campaigntracker.Session;
 
 import com.malmoset.campaigndata.Battle;
+import com.malmoset.campaigndata.Loot.LootItem;
 import com.malmoset.campaigndata.Player;
 import com.malmoset.campaigndata.XPEvent;
 import com.malmoset.campaigntracker.MainApp;
@@ -113,6 +114,12 @@ public class CampaignStatsController extends BaseForm implements Initializable {
 
         for (Map.Entry<String, Long> kill : monsterKills.entrySet()) {
             AppendText("Earned XP for " + numberFormat.format(kill.getValue()) + " " + kill.getKey(), Color.CORNFLOWERBLUE, true);
+        }
+
+        List<LootItem> lootitems = MainApp.getAppData().getDb().getLoot();
+        for (LootItem loot : lootitems)
+        {
+            AppendText("Collected " + loot.getCount() + " " + loot.getItem(), Color.GOLD, true);
         }
 //        List<BattleMonster> kills = new ArrayList<>();
 //        for (Battle battle : battles) {
