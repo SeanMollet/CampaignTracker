@@ -25,11 +25,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableCell;
@@ -54,6 +56,8 @@ public class PlayerEditorController extends BaseForm implements Initializable {
     @FXML
     private Spinner<Integer> DmgSpinner;
     private SortedList<Player> sortedData;
+    @FXML
+    private CheckBox ShowHiddenCheck;
 
     /**
      * Initializes the controller class.
@@ -195,7 +199,12 @@ public class PlayerEditorController extends BaseForm implements Initializable {
     private void BindSortedList() {
         AppData data = MainApp.getAppData();
         ObservableList<Player> players = data.getDb().getPlayers();
-        sortedData = new SortedList(players);
+        FilteredList<Player> filtered = new FilteredList<Player>(players);
+        if (!ShowHiddenCheck.selectedProperty().get()) {
+            filtered = new FilteredList<>(players, p -> !p.isHidden());
+        }
+
+        sortedData = new SortedList(filtered);
         PlayerTable.setItems(sortedData);
     }
 
@@ -242,6 +251,11 @@ public class PlayerEditorController extends BaseForm implements Initializable {
     @FXML
     private void AddClick(ActionEvent event) {
         MainApp.getAppData().getDb().getPlayers().add(new Player());
+    }
+
+    @FXML
+    private void ShowHiddenChange(ActionEvent event) {
+        BindSortedList();
     }
 
 }
