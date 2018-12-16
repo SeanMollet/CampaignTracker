@@ -36,29 +36,29 @@ import javafx.collections.ObservableList;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LootTables {
 
-    private ListProperty<IndividualTableMaster> individual;
-    private ListProperty<HoardTableMaster> hoard;
-    private ListProperty<Gemstone> gemstones;
-    private ListProperty<Artobject> artobjects;
-    private ListProperty<Magicitem> magicitems;
+    private final ListProperty<IndividualTableMaster> individual;
+    private final ListProperty<HoardTableMaster> hoard;
+    private final ListProperty<Gemstone> gemstones;
+    private final ListProperty<Artobject> artobjects;
+    private final ListProperty<Magicitem> magicitems;
 
     public LootTables(@JsonProperty("individual") List<IndividualTableMaster> individual, @JsonProperty("hoard") List<HoardTableMaster> hoard,
             @JsonProperty("gemstones") List<Gemstone> gemstones, @JsonProperty("artobjects") List<Artobject> artobjects,
             @JsonProperty("magicitems") List<Magicitem> magicitems) {
-        this.individual = new SimpleListProperty(FXCollections.observableList(individual));
-        this.hoard = new SimpleListProperty(FXCollections.observableList(hoard));
-        this.gemstones = new SimpleListProperty(FXCollections.observableList(gemstones));
-        this.artobjects = new SimpleListProperty(FXCollections.observableList(artobjects));
-        this.magicitems = new SimpleListProperty(FXCollections.observableList(magicitems));
+        this.individual = new SimpleListProperty<>(FXCollections.observableList(individual));
+        this.hoard = new SimpleListProperty<>(FXCollections.observableList(hoard));
+        this.gemstones = new SimpleListProperty<>(FXCollections.observableList(gemstones));
+        this.artobjects = new SimpleListProperty<>(FXCollections.observableList(artobjects));
+        this.magicitems = new SimpleListProperty<>(FXCollections.observableList(magicitems));
 
     }
 
     public LootTables() {
-        this.individual = new SimpleListProperty(FXCollections.observableList(new ArrayList<IndividualTableMaster>()));
-        this.hoard = new SimpleListProperty(FXCollections.observableList(new ArrayList<HoardTableMaster>()));
-        this.gemstones = new SimpleListProperty(FXCollections.observableList(new ArrayList<Gemstone>()));
-        this.artobjects = new SimpleListProperty(FXCollections.observableList(new ArrayList<Artobject>()));
-        this.magicitems = new SimpleListProperty(FXCollections.observableList(new ArrayList<Magicitem>()));
+        this.individual = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<>()));
+        this.hoard = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<>()));
+        this.gemstones = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<>()));
+        this.artobjects = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<>()));
+        this.magicitems = new SimpleListProperty<>(FXCollections.observableList(new ArrayList<>()));
     }
 
     public static LootTables loadLoot() {
